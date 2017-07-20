@@ -3,9 +3,9 @@ node_js:
 - 4.3.0
 deploy:
   provider: npm
-  email: ianhoegen@gmail.com
+  email: info@unfoldingword.org
   api_key:
-    secure: vq7QNADGKZ23f1LU2dGmLXMXKdex3Qeqlpq4SFsQEU3KkZpdkWqdMXf/aA2ziEV5st9Kw8T2xLVkRGZWtka0d+Mi/xefR8NP6K0zzCaaHm/o5IcbUA0R1u7B985bnS3ImPfrMss1lhdOQgmOviETBlW7OrOxOasa82B2kjVULvSfV4kaLmhLfvP/D6eA3ftSl+L6hitwXFRAkuYaxM0xyHsM7zT/+n7gDRTPv4YSbHEw9guIrOtJB4lOUMmdumvSz6B75qRcQkCTKmHOcYmMIRH+zYYsaXBOqVeUY60JFjNEZmH7iT/ppn9qA01wxxpFgdZ2/e56aTRdHl8ZvZD5xq2VHSjeN48lhKe4vHJh2dtyq17nm4G/umPTEFiBj/vIRoOLU43ftniLmtovSNy4l+TlzJCNAybFY3bEoBqeJZ25IhT6FLGASyGdmkHrXknvLWwdJCDutJSdeStCGpyDprSvd5jILTMFSMb6qMKn2DjKqCKjrUIuf+JJvX/xSmh3wSXESLpI5MnQD7QeAB9tkG9hmkI27X9gpiCbMM9bgORiM3Ev+cjP48NHiixc5udahpmj6+mLN5eULlK6Pejv17LfVIy3hye02v8jht8jM6TlBhuw9k5VDcAYusPZMtXNJcnuCq3BfWHtvfDXug3PGp3KMWmJ+Ikp6nLFERFp+V8=
+    secure: replaceme
   on:
     tags: true
-    repo: ihoegen/usfm-parser
+    repo: translationCoreApps/usfm-json

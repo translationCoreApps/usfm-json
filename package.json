@@ -1,6 +1,6 @@
 {
-  "name": "usfm-parser",
-  "version": "0.1.6",
+  "name": "usfm-json",
+  "version": "0.1.0",
   "description": "A small library that provides functions to convert usfm to JSON and vice-versa",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ihoegen/usfm-parser.git"
+    "url": "git+https://github.com/translationCoreApps/usfm-json.git"
   },
   "keywords": [
     "USFM",
@@ -18,12 +18,12 @@
     "JSON",
     "Bible"
   ],
-  "author": "Ian Arlo Hoegen <ianhoegen@gmail.com> (https://github.com/ihoegen)",
+  "author": "@unfoldingword",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ihoegen/usfm-parser/issues"
+    "url": "https://github.com/translationCoreApps/usfm-json/issues"
   },
-  "homepage": "https://github.com/ihoegen/usfm-parser#readme",
+  "homepage": "https://github.com/translationCoreApps/usfm-json#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.3.1",

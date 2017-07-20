@@ -1,10 +1,10 @@
 /** ***********************************************************************
- * @author Ian Hoegen
+ * @author unfoldingword
  * @description Takes in scripture json and outputs it as a USFM string.
  * @param {Object} json - Scripture in JSON
  * @return {String} - Scripture in USFM
-*************************************************************************/
-exports.jsonToUSFM = function (json) {
+*/
+exports.jsonToUSFM = function(json) {
   var final = [];
   if (json.book) {
     final.push('\\h ' + json.book);
@@ -13,7 +13,7 @@ exports.jsonToUSFM = function (json) {
     final.push('\\id ' + json.id);
   }
   for (var chapter in json) {
-    let chapterNumber = parseInt(chapter)
+    let chapterNumber = parseInt(chapter);
     if (!chapterNumber || chapterNumber < 1) continue;
     var currentChapter = json[chapterNumber];
     final.push('\\c ' + chapterNumber);

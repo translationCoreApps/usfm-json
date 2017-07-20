@@ -8,4 +8,4 @@ deploy:
     secure: replaceme
   on:
     tags: true
-    repo: translationCoreApps/usfm-json
+    repo: translationCoreApps/usfm-js

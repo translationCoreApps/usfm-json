@@ -1,16 +1,16 @@
-[![Build Status](https://api.travis-ci.org/translationCoreApps/usfm-json.svg?branch=master)](https://travis-ci.org/translationCoreApps/usfm-json) 
-[![npm](https://img.shields.io/npm/dt/usfm-json.svg)](https://www.npmjs.com/package/usfm-json)
-[![npm](https://img.shields.io/npm/v/usfm-json.svg)](https://www.npmjs.com/package/usfm-json)
+[![Build Status](https://api.travis-ci.org/translationCoreApps/usfm-js.svg?branch=master)](https://travis-ci.org/translationCoreApps/usfm-js) 
+[![npm](https://img.shields.io/npm/dt/usfm-js.svg)](https://www.npmjs.com/package/usfm-js)
+[![npm](https://img.shields.io/npm/v/usfm-js.svg)](https://www.npmjs.com/package/usfm-js)
 
-# usfm-json
+# usfm-js
 This library takes in USFM text, and outputs it into a JSON format.
 It also takes JSON formatted scripture and outputs it into USFM.
 ## Setup
-`npm install usfm-json`
+`npm install usfm-js`
 
 ## Usage
 ```js
-var usfm = require('usfm-json');
+var usfm = require('usfm-js');
 //Convert from USFM to JSON
 var toJSON = usfm.toJSON(/**USFM Text**/);
 //JSON to USFM

@@ -1,6 +1,6 @@
 {
-  "name": "usfm-json",
-  "version": "1.0.2",
+  "name": "usfm-js",
+  "version": "0.1.0",
   "description": "A small library that provides functions to convert usfm to JSON and vice-versa",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/translationCoreApps/usfm-json.git"
+    "url": "git+https://github.com/translationCoreApps/usfm-js.git"
   },
   "keywords": [
     "USFM",
@@ -21,9 +21,9 @@
   "author": "@unfoldingword",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/translationCoreApps/usfm-json/issues"
+    "url": "https://github.com/translationCoreApps/usfm-js/issues"
   },
-  "homepage": "https://github.com/translationCoreApps/usfm-json#readme",
+  "homepage": "https://github.com/translationCoreApps/usfm-js#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.3.1",

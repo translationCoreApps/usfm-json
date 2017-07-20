@@ -13,9 +13,26 @@ It also takes JSON formatted scripture and outputs it into USFM.
 var usfm = require('usfm-js');
 //Convert from USFM to JSON
 var toJSON = usfm.toJSON(/**USFM Text**/);
+
 //JSON to USFM
 var toUSFM = usfm.toUSFM(toJSON);
 ```
 
-## USFM DOCUMENTATION
-http://ubsicap.github.io/usfm/
+## DOCUMENTATION
+ - Expected format for usfm is standard \h \id \c \p \v
+   - More here: http://ubsicap.github.io/usfm/
+ - Expected format for JSON is the same as when exported from USFM
+   - ```js
+      {
+        1:{
+            1: "This is the first verse",
+            2: "This is the second verse",
+            ...
+          },
+         2:{
+            1: "This is the first verse of the second chapter",
+            2: "This is the second verse of the second chapter",
+            ...
+           }
+      }
+      ```

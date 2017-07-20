@@ -1,6 +1,6 @@
 {
   "name": "usfm-js",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "A small library that provides functions to convert usfm to JSON and vice-versa",
   "main": "index.js",
   "scripts": {
@@ -29,5 +29,8 @@
     "eslint": "^3.3.1",
     "eslint-config-google": "^0.6.0",
     "mocha": "^3.1.2"
+  },
+  "engines": {
+    "node": ">=4.2.4"
   }
 }

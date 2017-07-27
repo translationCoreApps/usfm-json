@@ -4,13 +4,13 @@
  * @param {Object} json - Scripture in JSON
  * @return {String} - Scripture in USFM
 */
-exports.jsonToUSFM = function(json) {
+exports.jsonToUSFM = function (json) {
   var final = [];
-  if (json.book) {
-    final.push('\\h ' + json.book);
-  }
   if (json.id) {
     final.push('\\id ' + json.id);
+  }
+  if (json.book) {
+    final.push('\\h ' + json.book);
   }
   for (var chapter in json) {
     let chapterNumber = parseInt(chapter);

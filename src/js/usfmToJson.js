@@ -25,7 +25,8 @@ exports.usfmToJSON = function(usfmInput) {
     usfmJSON[chapterNumber] = {};
     for (verse in usfmVerses) {
       let verseText = usfmVerses[verse].replace(/^\s*\d+\s+/, "");
-      usfmJSON[chapterNumber][verse] = cleanUpVerseText(verseText);
+      let verseNumber = parseInt(verse) + 1;
+      usfmJSON[chapterNumber][verseNumber] = cleanUpVerseText(verseText);
     }
   }
   var getHeaders = require('./getHeaders');

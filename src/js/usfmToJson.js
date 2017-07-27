@@ -10,7 +10,7 @@ exports.usfmToJSON = function(usfmInput) {
   const chapNumReg = new RegExp("^\\s*(\\d+)\\s+");
   const verseNumReg = new RegExp("^\\s*(\\d+)\\s+");
   let usfmJSON = {};
-  usfmJSON.book = /\h (.*)/g.exec(usfm)[1].trim();
+  usfmJSON.book = /\\id (\w+)/g.exec(usfm)[1].trim().toLowerCase();
   let chapters = usfm.split("\\c ");
   chapters.shift();
   for (let chapter in chapters) {

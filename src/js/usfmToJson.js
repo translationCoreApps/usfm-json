@@ -40,7 +40,7 @@ exports.usfmToJSON = function (usfmInput) {
     let usfmVerses = usfm.split("\\v ");
       usfmVerses.shift();
       for (verse in usfmVerses) {
-        let verseMatch = (/(\d)\s(.*)/gm).exec(usfmVerses[verse]) || [""];
+        let verseMatch = (/(\d+)\s(.*)/gm).exec(usfmVerses[verse]) || [""];
         let verseNumber = verseMatch[1];
         let verseText = verseMatch[2]
         usfmJSON[verseNumber] = cleanUpVerseText(verseText);

@@ -17,18 +17,16 @@ exports.usfmToJSON = function (usfmInput) {
   if (chapters.length > 1) {
     chapters.shift();
     for (let chapter in chapters) {
-      try {
-        chapNum = chapNumReg.exec(chapters[chapter])[1];
-      } catch (e) {
-        chapNum = parseInt(chapter);
-      }
+      let chapterMatch = (/(\d+)/gm).exec(chapters[chapter]) || [""];
+      let chapterNumber = chapterMatch[0];
+
       let usfmVerses = chapters[chapter].split("\\v ");
       usfmVerses.shift();
-      let chapterNumber = parseInt(chapter) + 1;
       usfmJSON[chapterNumber] = {};
       for (verse in usfmVerses) {
-        let verseText = usfmVerses[verse].replace(/^\s*\d+\s+/, "");
-        let verseNumber = parseInt(verse) + 1;
+        let verseMatch = (/(\d+)\s(.*)/gm).exec(usfmVerses[verse]) || [""];
+        let verseNumber = verseMatch[1];
+        let verseText = verseMatch[2]
         usfmJSON[chapterNumber][verseNumber] = cleanUpVerseText(verseText);
       }
     }

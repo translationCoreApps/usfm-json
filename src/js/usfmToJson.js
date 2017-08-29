@@ -19,6 +19,7 @@ exports.usfmToJSON = function (usfmInput) {
     for (let chapter in chapters) {
       let chapterMatch = (/(\d+)/gm).exec(chapters[chapter]) || [""];
       let chapterNumber = chapterMatch[0];
+      if (usfmJSON[chapterNumber]) break;
 
       let usfmVerses = chapters[chapter].split("\\v ");
       usfmVerses.shift();
@@ -27,6 +28,7 @@ exports.usfmToJSON = function (usfmInput) {
         let verseMatch = (/(\d+)\s(.*)/gm).exec(usfmVerses[verse]) || [""];
         let verseNumber = verseMatch[1];
         let verseText = verseMatch[2]
+        if (usfmJSON[chapterNumber][verseNumber]) break;
         usfmJSON[chapterNumber][verseNumber] = cleanUpVerseText(verseText);
       }
     }

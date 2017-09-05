@@ -40,6 +40,8 @@ exports.jsonToUSFM = function (json) {
 function nestedLevel(obj) {
   var nestedLevel = 0; 
   for (var element in obj) {
+    let elementNumber = parseInt(element);
+    if (!elementNumber || elementNumber < 1) continue;
     nestedLevel = 1;
     if (typeof (obj[element]) === 'object')
       nestedLevel = 2;

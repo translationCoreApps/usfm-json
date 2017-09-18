@@ -30,7 +30,6 @@ describe('usfmToJson', function() {
 describe('jsonToUsfm', function() {
   it('should take in a JSON object, and convert it to a string', function() {
     let backToString = jsonToUsfm(converted);
-console.log(backToString)
     assert.isString(backToString);
     assert.isTrue(backToString.length > 1700);
   });

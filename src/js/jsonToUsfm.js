@@ -4,47 +4,27 @@
  * @param {Object} json - Scripture in JSON
  * @return {String} - Scripture in USFM
 */
-exports.jsonToUSFM = function (json) {
+exports.jsonToUSFM = function(json) {
   var final = [];
-  if (json.id) {
-    final.push('\\id ' + json.id);
+  if (json.headers) {
+    const keys = Object.keys(json.headers);
+    keys.forEach(function(key) {
+      const value = json.headers[key];
+      final.push('\\' + key + ' ' + value);
+    });
   }
-  if (json.book) {
-    final.push('\\h ' + json.book);
-  }
-  if (nestedLevel(json) == 2) {
-    for (var chapter in json) {
-      let chapterNumber = parseInt(chapter);
-      if (!chapterNumber || chapterNumber < 1) continue;
-      var currentChapter = json[chapterNumber];
+  if (json.chapters) {
+    const chapterNumbers = Object.keys(json.chapters);
+    chapterNumbers.forEach(function(chapterNumber) {
       final.push('\\c ' + chapterNumber);
       final.push('\\p');
-      for (var verse in currentChapter) {
-        let verseNumber = parseInt(verse);
-        if (!verseNumber || verseNumber < 1) continue;
-        var currentVerse = currentChapter[verseNumber];
-        final.push('\\v ' + verseNumber + ' ' + currentVerse);
-      }
-    }
-  } else if (nestedLevel(json) == 1) {
-    for (var verse in json) {
-      let verseNumber = parseInt(verse);
-      if (!verseNumber || verseNumber < 1) continue;
-      var currentVerse = json[verseNumber];
-      final.push('\\v ' + verseNumber + ' ' + currentVerse);
-    }
+      const chapter = json.chapters[chapterNumber];
+      const verseNumbers = Object.keys(chapter);
+      verseNumbers.forEach(function(verseNumber) {
+        const verseText = chapter[verseNumber];
+        final.push('\\v ' + verseNumber + ' ' + verseText);
+      });
+    });
   }
   return final.join('\n');
 };
-
-function nestedLevel(obj) {
-  var nestedLevel = 0; 
-  for (var element in obj) {
-    let elementNumber = parseInt(element);
-    if (!elementNumber || elementNumber < 1) continue;
-    nestedLevel = 1;
-    if (typeof (obj[element]) === 'object')
-      nestedLevel = 2;
-  }
-  return nestedLevel;
-}

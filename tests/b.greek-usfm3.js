@@ -9,23 +9,25 @@ const fs = require('fs');
 const usfmPath = './tests/static/tit.usfm';
 
 describe('Greek USFM 3 - usfmToJson', function() {
-  it('should return expected json data from usfm 3 string', function(done) {
+  it('should return expected json data from usfm 3 string', function() {
     const usfm = fs.readFileSync(usfmPath, 'UTF-8').toString();
     const converted = usfmToJson(usfm);
     assert.isObject(converted);
     assert.isObject(converted.headers);
     assert.equal(converted.headers.h, 'Titus');
     assert.isObject(converted.chapters);
-    assert.isObject(converted.chapters[1]);
-    assert.isArray(converted.chapters[1][1]);
-    assert.isObject(converted.chapters[1][1][0]);
+    const chapter1 = converted.chapters[1];
+    assert.isObject(chapter1);
+    const verse1 = chapter1[1];
+    assert.isArray(verse1);
+    const word1 = verse1[0];
+    assert.isObject(word1);
     const word = {
       word: 'Παῦλος',
       lemma: 'Παῦλος',
       strongs: 'G39720',
       morph: 'Gr,N,,,,,NMS,'
     };
-    expect(converted.chapters[1][1][0]).to.deep.equal(word);
-    done();
+    expect(word1).to.deep.equal(word);
   });
 });

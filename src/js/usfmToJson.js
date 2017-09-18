@@ -100,7 +100,13 @@ exports.parseUSFM = function(usfm) {
         break;
       default:
         if (currentChapter === 0) { // if we haven't seen chapter yet, its a header
-          headers[marker.type] = markerObject.content;
+          let value;
+          if (marker.number) { // if there is a number, prepend it to content
+            value = marker.number + ' ' + markerObject.content;
+          } else {
+            value = markerObject.content;
+          }
+          headers[marker.type] = value;
         }
     }
   });

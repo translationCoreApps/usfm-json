@@ -84,9 +84,11 @@ exports.parseLine = function(line) {
       array.push(object);
     });
   } else { // doesn't have a marker but may have content
+    // this is considered an orphaned line
+    const orphan = line.trim();
     const object = {
       open: undefined, type: undefined, number: undefined, close: undefined,
-      content: line
+      content: orphan
     };
     array.push(object);
   }
@@ -103,7 +105,7 @@ exports.parseUSFM = function(usfm, params = {}) {
   let usfmJSON = {};
   let markers = [];
   lines.forEach(function(line) {
-    const parsedLine = exports.parseLine(line);
+    const parsedLine = exports.parseLine(line.trim());
     markers = markers.concat(parsedLine);
   });
   let currentChapter = 0;

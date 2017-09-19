@@ -21,8 +21,26 @@ exports.jsonToUSFM = function(json) {
       const chapter = json.chapters[chapterNumber];
       const verseNumbers = Object.keys(chapter);
       verseNumbers.forEach(function(verseNumber) {
-        const verseText = chapter[verseNumber];
-        final.push('\\v ' + verseNumber + ' ' + verseText);
+        const verseArray = chapter[verseNumber];
+        if (typeof verseArray[0] === 'string') {
+          const verseText = verseArray.join(' ');
+          final.push('\\v ' + verseNumber + ' ' + verseText);
+        } else if (verseArray[0].word) {
+          final.push('\\v ' + verseNumber);
+          verseArray.forEach(function(wordObject) {
+            const keys = Object.keys(wordObject);
+            let attributes = [];
+            const word = wordObject.word;
+            keys.forEach(function(key) {
+              if (key !== 'word') {
+                let prefix = (key === 'lemma' || key === 'strongs') ? '' : 'x-';
+                let attribute = prefix + key + '="' + wordObject[key] + '"';
+                attributes.push(attribute);
+              }
+            });
+            final.push('\\w ' + word + '|' + attributes.join(' ') + '\\w*');
+          });
+        }
       });
     });
   }

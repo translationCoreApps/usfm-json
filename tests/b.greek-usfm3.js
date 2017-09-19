@@ -8,10 +8,11 @@ const fs = require('fs');
 
 const usfmPath = './tests/static/tit.usfm';
 
+let converted;
 describe('Greek USFM 3 - usfmToJson', function() {
   it('should return expected json data from usfm 3 string', function() {
     const usfm = fs.readFileSync(usfmPath, 'UTF-8').toString();
-    const converted = usfmToJson(usfm);
+    converted = usfmToJson(usfm);
     assert.isObject(converted);
     assert.isObject(converted.headers);
     assert.equal(converted.headers.h, 'Titus');
@@ -29,5 +30,14 @@ describe('Greek USFM 3 - usfmToJson', function() {
       morph: 'Gr,N,,,,,NMS,'
     };
     expect(word1).to.deep.equal(word);
+  });
+});
+
+describe('Greek USFM 3 - jsonToUsfm', function() {
+  it('should take in a JSON object, and convert it to a string', function() {
+    let backToString = jsonToUsfm(converted);
+    assert.isString(backToString);
+    assert.isTrue(backToString.length >= 44800);
+    assert.isTrue(backToString.length <= 45000);
   });
 });

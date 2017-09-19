@@ -10,15 +10,15 @@ exports.getMatches = function(string, regex, index) {
   var matches = [];
   var match;
   if (string.match(regex)) {
-    while (match = regex.exec(string)) {
+    while ((match = regex.exec(string))) {
       matches.push(match);
     }
   }
   return matches;
-}
+};
 
 exports.parseMarkerOpen = function(markerOpen) {
-  let object = {}
+  let object = {};
   if (markerOpen) {
     const regex = /(\w+)\s*(\d*)/g;
     const matches = exports.getMatches(markerOpen, regex);
@@ -84,14 +84,12 @@ exports.parseUSFM = function(usfm) {
     const parsedLine = exports.parseLine(line);
     markerObjects = markerObjects.concat(parsedLine);
   });
-  let currentMarker = {};
   let currentChapter = 0;
   let currentVerse = 0;
   let chapters = {};
   let headers = {};
   markerObjects.forEach(function(markerObject) {
     let marker = exports.parseMarkerOpen(markerObject.open);
-    if (marker.type) currentMarker = marker;
     switch (marker.type) {
       case 'c': { // chapter
         currentChapter = marker.number;

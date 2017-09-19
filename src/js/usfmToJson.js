@@ -61,13 +61,18 @@ exports.parseWord = function(wordContent) {
 exports.parseLine = function(line) {
   let array = []; // = [ { marker: undefined, text: undefined } ]
   if (line.trim() === '') return array;
-  const regex = /\\(\w+\s*\d*)\s*([^\\]+)?(\\\w\*)?/g;
+  const regex = /([^\\]+)?\\(\w+\s*\d*)\s*([^\\]+)?(\\\w\*)?/g;
   const matches = exports.getMatches(line, regex);
   if (regex.exec(line)) { // normal formatting with marker followed by content
     matches.forEach(function(match) {
-      const open = match[1] ? match[1].trim() : undefined;
-      const content = match[2] ? match[2].trim() : undefined;
-      const close = match[3] ? match[3].trim() : undefined;
+      const orphan = match[1] ? match[1].trim() : undefined;
+      if (orphan) {
+        const object = {content: orphan};
+        array.push(object);
+      }
+      const open = match[2] ? match[2].trim() : undefined;
+      const content = match[3] ? match[3].trim() : undefined;
+      const close = match[4] ? match[4].trim() : undefined;
       let marker = exports.parseMarkerOpen(open);
       const object = {
         open: open,

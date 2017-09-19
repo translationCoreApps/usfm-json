@@ -4,15 +4,13 @@
 
 \c 1
 
-\v 1
-\w Παῦλος|lemma="Παῦλος" strongs="G39720" x-morph="Gr,N,,,,,NMS,"\w*
+\v 1 \w Παῦλος|lemma="Παῦλος" strongs="G39720" x-morph="Gr,N,,,,,NMS,"\w*
 \w δοῦλος|lemma="δοῦλος" strongs="G14010" x-morph="Gr,N,,,,,NMS,"\w*
 \w θεοῦ|lemma="θεός" strongs="G23160" x-morph="Gr,N,,,,,GMS,"\w*
 \w ἀπόστολος|lemma="ἀπόστολος" strongs="G06520" x-morph="Gr,N,,,,,NMS,"\w*
 \w δὲ|lemma="δέ" strongs="G11610" x-morph="Gr,CC,,,,,,,,"\w*
 \w Ἰησοῦ|lemma="Ἰησοῦς" strongs="G24240" x-morph="Gr,N,,,,,GMS,"\w*
-\w Χριστοῦ|lemma="Χριστός" strongs="G55470" x-morph="Gr,N,,,,,GMS,"\w*
-\w κατὰ|lemma="κατά" strongs="G25960" x-morph="Gr,P,,,,,A,,,"\w*
+\w Χριστοῦ|lemma="Χριστός" strongs="G55470" x-morph="Gr,N,,,,,GMS,"\w* \w κατὰ|lemma="κατά" strongs="G25960" x-morph="Gr,P,,,,,A,,,"\w*
 \w πίστιν|lemma="πίστις" strongs="G41020" x-morph="Gr,N,,,,,AFS,"\w*
 \w ἐκλεκτῶν|lemma="ἐκλεκτός" strongs="G15880" x-morph="Gr,NS,,,,GMP,"\w*
 \w θεοῦ|lemma="θεός" strongs="G23160" x-morph="Gr,N,,,,,GMS,"\w*
@@ -25,9 +23,7 @@
 
 \v 2
 \w ἐπ’|lemma="ἐπί" strongs="G19090" x-morph="Gr,P,,,,,D,,,"\w*
-\w ἐλπίδι|lemma="ἐλπίς" strongs="G16800" x-morph="Gr,N,,,,,DFS,"\w*
-\w ζωῆς|lemma="ζωή" strongs="G22220" x-morph="Gr,N,,,,,GFS,"\w*
-\w αἰωνίου|lemma="αἰώνιος" strongs="G01660" x-morph="Gr,AA,,,,GFS,"\w*
+\w ἐλπίδι|lemma="ἐλπίς" strongs="G16800" x-morph="Gr,N,,,,,DFS,"\w* \w ζωῆς|lemma="ζωή" strongs="G22220" x-morph="Gr,N,,,,,GFS,"\w* \w αἰωνίου|lemma="αἰώνιος" strongs="G01660" x-morph="Gr,AA,,,,GFS,"\w*
 \w ἣν|lemma="ὅς" strongs="G37390" x-morph="Gr,RR,,,,AFS,"\w*
 \w ἐπηγγείλατο|lemma="ἐπαγγέλλω" strongs="G18610" x-morph="Gr,VTIAM3,,S,"\w*
 \w ὁ|lemma="ὁ" strongs="G35880" x-morph="Gr,EA,,,,NMS,"\w*

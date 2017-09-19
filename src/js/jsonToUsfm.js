@@ -29,7 +29,7 @@ exports.generateVerseLines = function(verseNumber, verseArray) {
   if (typeof verseArray[0] === 'string') {
     const verseText = verseArray.join(' ');
     lines.push('\\v ' + verseNumber + ' ' + verseText);
-  } else if (verseArray[0].word) {
+  } else if (verseArray[0] && verseArray[0].word) {
     lines.push('\\v ' + verseNumber);
     verseArray.forEach(function(wordObject) {
       let wordLine = exports.generateWordLine(wordObject);

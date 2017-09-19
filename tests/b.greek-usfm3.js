@@ -7,7 +7,6 @@ const expect = require('chai').expect;
 const fs = require('fs');
 
 const usfmPath = './tests/static/tit.usfm';
-
 let converted;
 describe('Greek USFM 3 - usfmToJson', function() {
   it('should return expected json data from usfm 3 string', function() {

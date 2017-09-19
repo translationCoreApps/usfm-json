@@ -6,10 +6,10 @@ const assert = require('chai').assert;
 const expect = require('chai').expect;
 const fs = require('fs');
 
+const usfmPath = './tests/static/3john.usfm';
 let converted;
 describe('usfmToJson', function() {
   it('should return expected json data from usfm string', function() {
-    const usfmPath = './tests/static/3john.usfm';
     const usfm = fs.readFileSync(usfmPath, 'UTF-8').toString();
     converted = usfmToJson(usfm);
     assert.isObject(converted);

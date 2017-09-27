@@ -9,6 +9,7 @@ describe('removeMarker', function () {
     expect(randomMarkerString).to.include('\\q');
     let randomMarkerJSON = JSON.parse(randomMarkerString);
     var resultString = '';
+    //Creating string of entire object for easier testing 
     for (var verse in randomMarkerJSON) {
       let regString = randomMarkerJSON[verse];
       //Removing all markers
@@ -27,9 +28,10 @@ describe('removeMarker', function () {
     expect(randomMarkerString).to.include('\\q');
     let randomMarkerJSON = JSON.parse(randomMarkerString);
     var resultString = '';
+    //Creating string of entire object for easier testing 
     for (var verse in randomMarkerJSON) {
       let regString = randomMarkerJSON[verse];
-      //Removing all markers
+      //Only removing f markers
       let fixedString = removeMarker(regString, 'f');
       resultString += fixedString + '\n';
     }
@@ -45,9 +47,10 @@ describe('removeMarker', function () {
     expect(randomMarkerString).to.include('\\q');
     let randomMarkerJSON = JSON.parse(randomMarkerString);
     var resultString = '';
+    //Creating string of entire object for easier testing 
     for (var verse in randomMarkerJSON) {
       let regString = randomMarkerJSON[verse];
-      //Removing all markers
+      //Only removing q markers
       let fixedString = removeMarker(regString, 'q');
       resultString += fixedString + '\n';
     }

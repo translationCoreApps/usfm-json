@@ -18,7 +18,7 @@ describe('removeMarker', function () {
     expect(resultString).to.not.include('\\f');
     expect(resultString).to.not.include('\\q');
     expect(resultString).to.not.include('\\');
-    expect(resultString).to.include('I pray that the eyes  of your heart may be enlightened');
+    expect(resultString).to.include('I pray that the eyes of your heart may be enlightened');
     done()
   });
   it('should remove f tags from a string', function (done) {
@@ -36,7 +36,7 @@ describe('removeMarker', function () {
     expect(resultString).to.not.include('\\f');
     expect(resultString).to.include('\\q');
     expect(resultString).to.include('\\');
-    expect(resultString).to.include('I pray that the eyes  of your heart may be enlightened');
+    expect(resultString).to.include('I pray that the eyes \\q of your heart may be enlightened');
     done()
   });
   it('should remove q tags from a string', function (done) {
@@ -54,7 +54,7 @@ describe('removeMarker', function () {
     expect(resultString).to.include('\\f');
     expect(resultString).to.not.include('\\q');
     expect(resultString).to.include('\\');
-    expect(resultString).to.include('I pray that the eyes \\f of your heart may be enlightened,');
+    expect(resultString).to.include('I pray that the eyes of your heart may be enlightened,');
     done()
   });
 });

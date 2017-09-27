@@ -6,7 +6,7 @@
  */
 module.exports.removeMarker = function (string = '', type) {
   var typeRegex = type ? '\\' + type : '\\';
-  var regString = '\\' + typeRegex + '\\w*' + '\\**|(\\s\\+(?=(\\s)))';
-  var regex = new RegExp(regString, 'g')
+  var regString = '\\' + typeRegex + '\\w*' + '\\**\\s*|(\\+\\s)';
+  var regex = new RegExp(regString, 'g');
   return string.replace(regex, '');
 }

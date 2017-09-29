@@ -148,11 +148,13 @@ exports.parseUSFM = function (usfm, params = {}) {
       }
       case 'w': { // word
         const wordObject = exports.parseWord(marker.content);
+        if (!chapters[currentChapter][currentVerse]) chapters[currentChapter][currentVerse] = []
         chapters[currentChapter][currentVerse].push(wordObject);
         break;
       }
       case undefined: { // likely orphaned text for the preceding verse marker
         if (currentChapter > 0 && currentVerse > 0 && marker.content) {
+          if (!chapters[currentChapter][currentVerse]) chapters[currentChapter][currentVerse] = []
           chapters[currentChapter][currentVerse].push(marker.content);
         }
         break;

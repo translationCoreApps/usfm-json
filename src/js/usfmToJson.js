@@ -61,10 +61,10 @@ exports.parseWord = function (wordContent) {
 exports.parseLine = function (line) {
   let array = []; // = [ { marker: undefined, text: undefined } ]
   if (/\\id\s/.test(line)) {
-  let idMatch = line.match(/\\id.*/) || [""]
+    let idMatch = line.match(/\\id\s(.*)/) || [""]
     return [{
       type: 'id',
-      content: idMatch[0],
+      content: idMatch[1],
     }];
   }
   if (line.trim() === '') return array;
@@ -123,17 +123,25 @@ exports.parseUSFM = function (usfm, params = {}) {
     currentChapter = params.chapter;
     chapters[currentChapter] = {};
   }
+  let onSameChapter = false;
   markers.forEach(function (marker) {
     switch (marker.type) {
       case 'c': { // chapter
         currentChapter = marker.number;
         chapters[currentChapter] = {};
+        //resetting on same chapter flag
+        onSameChapter = false;
         break;
       }
       case 'v': { // verse
         currentVerse = marker.number;
-        chapters[currentChapter][currentVerse] = [];
-        if (marker.content) {
+        if (chapters[currentChapter] && marker.content && !onSameChapter) {
+          //if the current chapter exists, not on same chapter, and there is content to store
+          if (chapters[currentChapter][currentVerse]) {
+            onSameChapter = true;
+            break;
+          }
+          chapters[currentChapter][currentVerse] = [];
           chapters[currentChapter][currentVerse].push(marker.content);
         }
         break;
@@ -150,7 +158,7 @@ exports.parseUSFM = function (usfm, params = {}) {
         break;
       }
       default: {
-        if (currentChapter === 0) { // if we haven't seen chapter yet, its a header
+        if (currentChapter === 0 && !currentVerse) { // if we haven't seen chapter yet, its a header
           let value;
           if (marker.number) { // if there is a number, prepend it to content
             value = marker.number + ' ' + marker.content;

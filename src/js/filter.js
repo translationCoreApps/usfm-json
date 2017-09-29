@@ -4,9 +4,9 @@
  * @param {string} type - The type of marker to remove i.e. f | h
  * Note: if no type is given all markers are removed
  */
-module.exports.removeMarker = function (string = '', type) {
+module.exports.removeMarker = function(string = '', type) {
   var typeRegex = type ? '\\' + type : '\\';
-  var regString = '\\' + typeRegex + '\\w*' + '\\**\\s*|(\\+\\s)';
+  var regString = '\\' + typeRegex + '\\w*\\**\\s*|(\\+\\s)';
   var regex = new RegExp(regString, 'g');
   return string.replace(regex, '');
-}
+};

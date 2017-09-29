@@ -4,7 +4,7 @@
  * @param {RegExp} regex - the RegExp to find matches with, must use global flag /.../g
  * @return {Array} - array of results
 */
-exports.getMatches = function(string, regex) {
+exports.getMatches = function (string, regex) {
   let matches = [];
   let match;
   if (string.match(regex)) { // check so you don't get caught in a loop
@@ -19,7 +19,7 @@ exports.getMatches = function(string, regex) {
  * @param {String} markerOpen - the string that contains the marker '\v 1', '\p', ...
  * @return {Object} - the object of type and number if it exists
 */
-exports.parseMarkerOpen = function(markerOpen) {
+exports.parseMarkerOpen = function (markerOpen) {
   let object = {};
   if (markerOpen) {
     const regex = /(\w+)\s*(\d*)/g;
@@ -36,7 +36,7 @@ exports.parseMarkerOpen = function(markerOpen) {
  * @param {String} wordContent - the string to find the data/attributes
  * @return {Object} - json object of the word attributes
 */
-exports.parseWord = function(wordContent) {
+exports.parseWord = function (wordContent) {
   let object = {};
   const wordParts = wordContent.split('|');
   const word = wordParts[0];
@@ -46,7 +46,7 @@ exports.parseWord = function(wordContent) {
   };
   const regex = /[x-]*([\w-]+)=['"](.*?)['"]/g;
   const matches = exports.getMatches(attributeContent, regex);
-  matches.forEach(function(match) {
+  matches.forEach(function (match) {
     const key = match[1];
     const value = match[2];
     object[key] = value;
@@ -58,16 +58,23 @@ exports.parseWord = function(wordContent) {
  * @param {String} line - the string to find the markers and content
  * @return {Array} - array of objects that describe open/close and content
 */
-exports.parseLine = function(line) {
+exports.parseLine = function (line) {
   let array = []; // = [ { marker: undefined, text: undefined } ]
+  if (/\\id\s/.test(line)) {
+  let idMatch = line.match(/\\id.*/) || [""]
+    return [{
+      type: 'id',
+      content: idMatch[0],
+    }];
+  }
   if (line.trim() === '') return array;
   const regex = /([^\\]+)?\\(\w+\s*\d*)\s*([^\\]+)?(\\\w\*)?/g;
   const matches = exports.getMatches(line, regex);
   if (regex.exec(line)) { // normal formatting with marker followed by content
-    matches.forEach(function(match) {
+    matches.forEach(function (match) {
       const orphan = match[1] ? match[1].trim() : undefined;
       if (orphan) {
-        const object = {content: orphan};
+        const object = { content: orphan };
         array.push(object);
       }
       const open = match[2] ? match[2].trim() : undefined;
@@ -100,11 +107,11 @@ exports.parseLine = function(line) {
  * @param {Object} params - extra params to use for chunk parsing
  * @return {Object} - json object that holds the parsed usfm data, headers and chapters
 */
-exports.parseUSFM = function(usfm, params = {}) {
+exports.parseUSFM = function (usfm, params = {}) {
   const lines = usfm.match(/.*/g); // get all the lines
   let usfmJSON = {};
   let markers = [];
-  lines.forEach(function(line) {
+  lines.forEach(function (line) {
     const parsedLine = exports.parseLine(line.trim());
     markers = markers.concat(parsedLine);
   });
@@ -116,7 +123,7 @@ exports.parseUSFM = function(usfm, params = {}) {
     currentChapter = params.chapter;
     chapters[currentChapter] = {};
   }
-  markers.forEach(function(marker) {
+  markers.forEach(function (marker) {
     switch (marker.type) {
       case 'c': { // chapter
         currentChapter = marker.number;
@@ -165,6 +172,6 @@ exports.parseUSFM = function(usfm, params = {}) {
  * @param {Object} params - extra params to use for chunk parsing
  * @return {Object} - An object that contains the scripture.
  */
-exports.usfmToJSON = function(usfm, params = {}) {
+exports.usfmToJSON = function (usfm, params = {}) {
   return exports.parseUSFM(usfm, params);
 };

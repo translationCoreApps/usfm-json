@@ -5,27 +5,17 @@ const expect = require('chai').expect;
 const fs = require('fs');
 const usfmToJson = require('../src/js/usfmToJson.js').usfmToJSON;
 const jsonToUsfm = require('../src/js/jsonToUsfm.js').jsonToUSFM;
-//valid
-const tc_commas = './tests/static/valid/tc_commas.usfm';
-const tc_spaces = './tests/static/valid/tc_spaces.usfm';
-const autographaExport = './tests/static/valid/autographa.usfm';
-const translationStudioExport = './tests/static/valid/id_tit_text_reg.usfm';
-const justBookId = './tests/static/valid/php_usfm.usfm';
-//missing
-const missingIdTag = './tests/static/missing/php_usfm_NId.usfm';
+
 const missingVerseMarkers = './tests/static/missing/many_missing_verses.usfm';
 const missingChapterMarkers = './tests/static/missing/many_missing_chapters.usfm';
 const missingAChapter = './tests/static/missing/php_usfm_NoC2.usfm';
-//invalid
-const badIdTag = './tests/static/invalid/php_usfm_badId.txt';
-//out of sequence
 const outOfSequenceVerseMarkers = './tests/static/out_of_sequence/verse_markers.usfm';
 const outOfSequenceChapterMarkers = './tests/static/out_of_sequence/chapter_markers.usfm';
 
 const usfmPath = './tests/static/3john.usfm';
 let converted;
-describe('usfmToJson', function () {
-  it('should return expected json data from usfm string', function () {
+describe('usfmToJson', function() {
+  it('should return expected json data from usfm string', function() {
     const usfm = fs.readFileSync(usfmPath, 'UTF-8').toString();
     converted = usfmToJson(usfm);
     assert.isObject(converted);
@@ -144,8 +134,8 @@ describe('usfmToJson', function () {
   });
 });
 
-describe('jsonToUsfm', function () {
-  it('should take in a JSON object, and convert it to a string', function () {
+describe('jsonToUsfm', function() {
+  it('should take in a JSON object, and convert it to a string', function() {
     let backToString = jsonToUsfm(converted);
     assert.isString(backToString);
     assert.isTrue(backToString.length >= 1700);

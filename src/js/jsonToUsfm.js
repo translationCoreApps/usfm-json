@@ -74,7 +74,9 @@ exports.jsonToUSFM = function(json) {
     const chapterNumbers = Object.keys(json.chapters);
     chapterNumbers.forEach(function(chapterNumber) {
       const chapterObject = json.chapters[chapterNumber];
-      const chapterLines = exports.generateChapterLines(chapterNumber, chapterObject);
+      const chapterLines = exports.generateChapterLines(
+        chapterNumber, chapterObject
+      );
       lines = lines.concat(chapterLines);
     });
   }

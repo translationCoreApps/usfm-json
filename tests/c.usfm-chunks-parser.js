@@ -7,7 +7,7 @@ const expect = require('chai').expect;
 const fs = require('fs');
 
 const usfmPath = './tests/static/chunk.txt';
-let converted;
+var converted;
 describe('Chunks - usfmToJson', function() {
   it('should return expected json data from usfm string', function() {
     const usfm = fs.readFileSync(usfmPath, 'UTF-8').toString();

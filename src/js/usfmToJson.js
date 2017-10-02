@@ -60,15 +60,8 @@ exports.parseWord = function(wordContent) {
 */
 exports.parseLine = function(line) {
   let array = []; // = [ { marker: undefined, text: undefined } ]
-  if (/\\id\s/.test(line)) {
-    let idMatch = line.match(/\\id\s(.*)/) || [""];
-    return [{
-      type: 'id',
-      content: idMatch[1]
-    }];
-  }
   if (line.trim() === '') return array;
-  const regex = /([^\\]+)?\\(\w+\s*\d*)\s*([^\\]+)?(\\\w\*)?/g;
+  const regex = /([^\\]+)?\\(\w+\s*\d*)(?!\w)\s*([^\\]+)?(\\\w\*)?/g;
   const matches = exports.getMatches(line, regex);
   if (regex.exec(line)) { // normal formatting with marker followed by content
     matches.forEach(function(match) {
@@ -129,7 +122,7 @@ exports.parseUSFM = function(usfm, params = {}) {
       case 'c': { // chapter
         currentChapter = marker.number;
         chapters[currentChapter] = {};
-        // resetting on same chapter flag
+        // resetting 'on same chapter' flag
         onSameChapter = false;
         break;
       }
@@ -138,6 +131,7 @@ exports.parseUSFM = function(usfm, params = {}) {
         if (chapters[currentChapter] && marker.content && !onSameChapter) {
           // if the current chapter exists, not on same chapter, and there is content to store
           if (chapters[currentChapter][currentVerse]) {
+            // If the verse already exists, then we are flagging as 'on the same chapter'
             onSameChapter = true;
             break;
           }

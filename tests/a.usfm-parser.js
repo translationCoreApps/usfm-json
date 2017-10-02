@@ -13,7 +13,7 @@ const outOfSequenceVerseMarkers = './tests/static/out_of_sequence/verse_markers.
 const outOfSequenceChapterMarkers = './tests/static/out_of_sequence/chapter_markers.usfm';
 
 const usfmPath = './tests/static/3john.usfm';
-let converted;
+var converted;
 describe('usfmToJson', function() {
   it('should return expected json data from usfm string', function() {
     const usfm = fs.readFileSync(usfmPath, 'UTF-8').toString();

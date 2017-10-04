@@ -11,17 +11,16 @@ var converted;
 describe('Chunks - usfmToJson', function() {
   it('should return expected json data from usfm string', function() {
     const usfm = fs.readFileSync(usfmPath, 'UTF-8').toString();
-    converted = usfmToJson(usfm, {chapter: 1});
+    converted = usfmToJson(usfm, {chunk: true});
     assert.isObject(converted);
-    assert.isObject(converted.headers);
-    assert.isObject(converted.chapters);
-    const chapter1 = converted.chapters[1];
-    assert.isObject(chapter1);
-    const verse13 = chapter1[13];
+    assert.isObject(converted.verses);
+    const verses = converted.verses;
+    assert.isObject(verses);
+    const verse13 = verses[13];
     assert.isArray(verse13);
-    const verse14 = chapter1[14];
+    const verse14 = verses[14];
     assert.isArray(verse14);
-    const verse15 = chapter1[15];
+    const verse15 = verses[15];
     assert.isArray(verse15);
     const text = verse13[0];
     assert.isString(text);
@@ -34,7 +33,7 @@ describe('Chunks - jsonToUsfm', function() {
   it('should take in a JSON object, and convert it to a string', function() {
     let backToString = jsonToUsfm(converted);
     assert.isString(backToString);
-    assert.isTrue(backToString.length >= 250);
-    assert.isTrue(backToString.length <= 255);
+    expect(backToString).to.include('\\v 14 But I expect to see you soon, and we will speak face to face');
+    expect(backToString).to.include('\\v 15 May peace be with you. The friends greet you. Greet the friends by name.');
   });
 });

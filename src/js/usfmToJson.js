@@ -111,11 +111,8 @@ exports.parseUSFM = function(usfm, params = {}) {
   let currentChapter = 0;
   let currentVerse = 0;
   let chapters = {};
+  let verses = {};
   let headers = {};
-  if (params.chapter) {
-    currentChapter = params.chapter;
-    chapters[currentChapter] = {};
-  }
   let onSameChapter = false;
   markers.forEach(function(marker) {
     switch (marker.type) {
@@ -128,6 +125,15 @@ exports.parseUSFM = function(usfm, params = {}) {
       }
       case 'v': { // verse
         currentVerse = marker.number;
+        if (params.chunk === true && marker.content && !onSameChapter) {
+          if (verses[currentVerse]) {
+            onSameChapter = true;
+            break;
+          } else {
+            verses[currentVerse] = [];
+            verses[currentVerse].push(marker.content);
+          }
+        }
         if (chapters[currentChapter] && marker.content && !onSameChapter) {
           // if the current chapter exists, not on same chapter, and there is content to store
           if (chapters[currentChapter][currentVerse]) {
@@ -153,6 +159,11 @@ exports.parseUSFM = function(usfm, params = {}) {
             chapters[currentChapter][currentVerse] = [];
           chapters[currentChapter][currentVerse].push(marker.content);
         }
+        if (params.chunk && currentVerse > 0 && marker.content) {
+          if (!verses[currentVerse])
+            verses[currentVerse] = [];
+          verses[currentVerse].push(marker.content);
+        }
         break;
       }
       default: {
@@ -170,6 +181,7 @@ exports.parseUSFM = function(usfm, params = {}) {
   });
   usfmJSON.headers = headers;
   usfmJSON.chapters = chapters;
+  if (Object.keys(verses).length > 0) usfmJSON.verses = verses;
   return usfmJSON;
 };
 /**

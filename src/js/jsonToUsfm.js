@@ -80,5 +80,15 @@ exports.jsonToUSFM = function(json) {
       lines = lines.concat(chapterLines);
     });
   }
+  if (json.verses) {
+    const verseNumbers = Object.keys(json.verses);
+    verseNumbers.forEach(function(verseNumber) {
+      const verseObject = json.verses[verseNumber];
+      const verseLines = exports.generateVerseLines(
+        verseNumber, verseObject
+      );
+      lines = lines.concat(verseLines);
+    });
+  }
   return lines.join('\n');
 };

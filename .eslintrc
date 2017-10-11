@@ -1,0 +1,27 @@
+{
+  "extends": ["eslint:recommended", "google"],
+  "plugins": [
+  ],
+  "settings": {
+  },
+  "rules": {
+    "no-useless-escape": "warn",
+    "no-constant-condition": "warn",
+    "no-unused-vars": "warn",
+    "semi": ["error", "always", {"omitLastInOneLineBlock": true}],
+    "no-console": "off",
+    "max-len": ["error", { "ignoreStrings": true, "ignoreComments":true }],
+    "no-unused-expressions": "off"
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "modules": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  }
+}

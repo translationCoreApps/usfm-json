@@ -1,3 +1,5 @@
+/* eslint-env jest */
+
 const usfmToJson = require('../src/js/usfmToJson.js').usfmToJSON;
 const jsonToUsfm = require('../src/js/jsonToUsfm.js').jsonToUSFM;
 const describe = require('mocha').describe;

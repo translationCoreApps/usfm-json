@@ -1,13 +1,11 @@
-/* eslint-env jest */
+import {readJSON, readUSFM} from './util';
+import {jsonToUSFM} from '../src/js/jsonToUsfm';
 
-const jsonToUsfm = require('../src/js/jsonToUsfm.js').jsonToUSFM;
-
-// TODO: place json to usfm test in here
-let converted;
-describe('jsonToUsfm', function() {
-    it('should take in a JSON object, and convert it to a string', () => {
-        let backToString = jsonToUsfm(converted);
-        assert.isString(backToString);
-        assert.isTrue(backToString.length >= 1700);
-    });
+it('converts json to usfm', () => {
+  const input = readJSON('valid.json');
+  const expected = readUSFM('valid.usfm');
+  expect(input).toBeTruthy();
+  expect(expected).toBeTruthy();
+  const output = jsonToUSFM(input);
+  expect(output).toEqual(expected);
 });

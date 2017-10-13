@@ -1,6 +1,10 @@
 {
-  "extends": ["eslint:recommended", "google"],
+  "extends": [
+    "eslint:recommended",
+    "google"
+  ],
   "plugins": [
+    "jest"
   ],
   "settings": {
   },
@@ -8,9 +12,21 @@
     "no-useless-escape": "warn",
     "no-constant-condition": "warn",
     "no-unused-vars": "warn",
-    "semi": ["error", "always", {"omitLastInOneLineBlock": true}],
+    "semi": [
+      "error",
+      "always",
+      {
+        "omitLastInOneLineBlock": true
+      }
+    ],
     "no-console": "off",
-    "max-len": ["error", { "ignoreStrings": true, "ignoreComments":true }],
+    "max-len": [
+      "error",
+      {
+        "ignoreStrings": true,
+        "ignoreComments": true
+      }
+    ],
     "no-unused-expressions": "off"
   },
   "parser": "babel-eslint",
@@ -22,6 +38,7 @@
   "env": {
     "browser": true,
     "node": true,
-    "es6": true
+    "es6": true,
+    "jest/globals": true
   }
 }

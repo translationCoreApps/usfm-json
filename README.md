@@ -1,6 +1,7 @@
 [![Build Status](https://api.travis-ci.org/translationCoreApps/usfm-js.svg?branch=master)](https://travis-ci.org/translationCoreApps/usfm-js) 
 [![npm](https://img.shields.io/npm/dt/usfm-js.svg)](https://www.npmjs.com/package/usfm-js)
 [![npm](https://img.shields.io/npm/v/usfm-js.svg)](https://www.npmjs.com/package/usfm-js)
+[![codecov](https://codecov.io/gh/translationCoreApps/usfm-js/branch/master/graph/badge.svg)](https://codecov.io/gh/translationCoreApps/usfm-js)
 
 # usfm-js
 This library takes in USFM text, and outputs it into a JSON format.

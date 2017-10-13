@@ -5,8 +5,8 @@
  * Note: if no type is given all markers are removed
  */
 module.exports.removeMarker = function(string = '', type) {
-  var typeRegex = type ? '\\' + type : '\\';
-  var regString = '\\' + typeRegex + '\\w*\\**\\s*|(\\+\\s)';
-  var regex = new RegExp(regString, 'g');
+  const typeRegex = type ? '\\' + type : '\\';
+  const regString = '\\' + typeRegex + '\\w*\\**\\s*\\+?\\s*';
+  const regex = new RegExp(regString, 'g');
   return string.replace(regex, '');
 };

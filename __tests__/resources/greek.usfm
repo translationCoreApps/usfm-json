@@ -1,0 +1,17 @@
+\id TIT Titus
+\ide UTF-8
+\h Titus
+\c 1
+\p
+\v 1
+\w Παῦλος|lemma="Παῦλος" strongs="G39720" x-morph="Gr,N,,,,,NMS,"\w*
+\w δοῦλος|lemma="δοῦλος" strongs="G14010" x-morph="Gr,N,,,,,NMS,"\w*
+\w Χριστοῦ|lemma="Χριστός" strongs="G55470" x-morph="Gr,N,,,,,GMS,"\w*
+\w κατὰ|lemma="κατά" strongs="G25960" x-morph="Gr,P,,,,,A,,,"\w*
+\c 2
+\p
+\v 1
+\w Σὺ|lemma="σύ" strongs="G47710" x-morph="Gr,RP,,,2N,S,"\w*
+\w δὲ|lemma="δέ" strongs="G11610" x-morph="Gr,CC,,,,,,,,"\w*
+\w λάλει|lemma="λαλέω" strongs="G29800" x-morph="Gr,VTMPA2,,S,"\w*
+\w ἃ|lemma="ὅς" strongs="G37390" x-morph="Gr,RR,,,,ANP,"\w*

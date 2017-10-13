@@ -1,3 +1,4 @@
+
 import fs from 'fs';
 import path from 'path';
 
@@ -17,3 +18,6 @@ export const readUSFM = filePath => {
  * @return {object} json object
  */
 export const readJSON = filePath => JSON.parse(readUSFM(filePath));
+
+// TRICKY: ignore as test suite
+it('provides test utilities');

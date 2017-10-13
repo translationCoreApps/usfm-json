@@ -1,0 +1,65 @@
+{
+  "headers": {
+    "id": "TIT Titus",
+    "ide": "UTF-8",
+    "h": "Titus"
+  },
+  "chapters": {
+    "1": {
+      "1": [
+        {
+          "word": "Παῦλος",
+          "lemma": "Παῦλος",
+          "strongs": "G39720",
+          "morph": "Gr,N,,,,,NMS,"
+        },
+        {
+          "word": "δοῦλος",
+          "lemma": "δοῦλος",
+          "strongs": "G14010",
+          "morph": "Gr,N,,,,,NMS,"
+        },
+        {
+          "word": "Χριστοῦ",
+          "lemma": "Χριστός",
+          "strongs": "G55470",
+          "morph": "Gr,N,,,,,GMS,"
+        },
+        {
+          "word": "κατὰ",
+          "lemma": "κατά",
+          "strongs": "G25960",
+          "morph": "Gr,P,,,,,A,,,"
+        }
+      ]
+    },
+    "2": {
+      "1": [
+        {
+          "word": "Σὺ",
+          "lemma": "σύ",
+          "strongs": "G47710",
+          "morph": "Gr,RP,,,2N,S,"
+        },
+        {
+          "word": "δὲ",
+          "lemma": "δέ",
+          "strongs": "G11610",
+          "morph": "Gr,CC,,,,,,,,"
+        },
+        {
+          "word": "λάλει",
+          "lemma": "λαλέω",
+          "strongs": "G29800",
+          "morph": "Gr,VTMPA2,,S,"
+        },
+        {
+          "word": "ἃ",
+          "lemma": "ὅς",
+          "strongs": "G37390",
+          "morph": "Gr,RR,,,,ANP,"
+        }
+      ]
+    }
+  }
+}

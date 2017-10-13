@@ -38,3 +38,7 @@ it('handles out of sequence chapter markers', () => {
 it('handles a chunk of usfm', () => {
   generateTest('chunk', {chunk: true});
 });
+
+it('handles greek characters in usfm', () => {
+  generateTest('greek', {chunk: true});
+});

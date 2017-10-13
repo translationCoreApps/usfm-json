@@ -1,4 +1,4 @@
-import {removeMarker} from '../index';
+import {removeMarker} from '../src/js/filter';
 
 const input = '...Christ \\q Jesus. \\f + \\ft Some early versions omit, \\fqa in Ephesus, \\fqa* but this expression is probably in Paul\'s original letter.\\f*';
 

@@ -2,8 +2,8 @@
  * @description Takes in word json and outputs it as a USFM line.
  * @param {Object} wordObject - word in JSON
  * @return {String} - word in USFM
-*/
-exports.generateWordLine = function(wordObject) {
+ */
+export const generateWordLine = wordObject => {
   let line;
   const keys = Object.keys(wordObject);
   let attributes = [];
@@ -18,13 +18,14 @@ exports.generateWordLine = function(wordObject) {
   line = '\\w ' + word + '|' + attributes.join(' ') + '\\w*';
   return line;
 };
+
 /**
  * @description Takes in verse json and outputs it as a USFM line array.
- * @param {Int} verseNumber - number to use for the verse
+ * @param {int} verseNumber - number to use for the verse
  * @param {Array} verseArray - verse in JSON
  * @return {Array} - verse in USFM lines/string
-*/
-exports.generateVerseLines = function(verseNumber, verseArray) {
+ */
+export const generateVerseLines = (verseNumber, verseArray) => {
   let lines = [];
   if (typeof verseArray[0] === 'string') {
     const verseText = verseArray.join(' ');
@@ -38,13 +39,14 @@ exports.generateVerseLines = function(verseNumber, verseArray) {
   }
   return lines;
 };
+
 /**
  * @description Takes in chapter json and outputs it as a USFM line array.
- * @param {Int} chapterNumber - number to use for the chapter
+ * @param {int} chapterNumber - number to use for the chapter
  * @param {Object} chapterObject - chapter in JSON
  * @return {Array} - chapter in USFM lines/string
-*/
-exports.generateChapterLines = function(chapterNumber, chapterObject) {
+ */
+export const generateChapterLines = (chapterNumber, chapterObject) => {
   let lines = [];
   lines.push('\\c ' + chapterNumber);
   lines.push('\\p');
@@ -56,13 +58,14 @@ exports.generateChapterLines = function(chapterNumber, chapterObject) {
   });
   return lines;
 };
+
 /**
  * @description Takes in scripture json and outputs it as a USFM string.
  * @param {Object} json - Scripture in JSON
  * @return {String} - Scripture in USFM
-*/
-exports.jsonToUSFM = function(json) {
-  var lines = [];
+ */
+export const jsonToUSFM = json => {
+  let lines = [];
   if (json.headers) {
     const keys = Object.keys(json.headers);
     keys.forEach(function(key) {
@@ -75,7 +78,7 @@ exports.jsonToUSFM = function(json) {
     chapterNumbers.forEach(function(chapterNumber) {
       const chapterObject = json.chapters[chapterNumber];
       const chapterLines = exports.generateChapterLines(
-        chapterNumber, chapterObject
+          chapterNumber, chapterObject,
       );
       lines = lines.concat(chapterLines);
     });
@@ -85,7 +88,7 @@ exports.jsonToUSFM = function(json) {
     verseNumbers.forEach(function(verseNumber) {
       const verseObject = json.verses[verseNumber];
       const verseLines = exports.generateVerseLines(
-        verseNumber, verseObject
+          verseNumber, verseObject,
       );
       lines = lines.concat(verseLines);
     });

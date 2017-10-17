@@ -1,0 +1,21 @@
+{
+  "headers": {
+    "id": "php",
+    "ide": "UTF-8",
+    "h": "Philippians",
+    "toc1": "The Epistle of Paul the Apostle to the Philippians",
+    "toc2": "Philippians",
+    "toc3": "Php",
+    "mt": "The Epistle of Paul the Apostle to the Philippians"
+  },
+  "chapters": {
+    "3": {
+      "1": [
+        "Finally, my brothers, rejoice in the Lord.  For me to write these same things to you is not a problem, and they will keep you safe."
+      ],
+      "2": [
+        "Watch out for the dogs. Watch out for the evil workers. Watch out for the mutilators."
+      ]
+    }
+  }
+}

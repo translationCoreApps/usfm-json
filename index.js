@@ -1,8 +1,7 @@
-var usfmToJson = require('./src/js/usfmToJson.js').usfmToJSON;
-var jsonToUsfm = require('./src/js/jsonToUsfm.js').jsonToUSFM;
-var filter = require('./src/js/filter');
+import {usfmToJSON} from './src/js/usfmToJson';
+import {jsonToUSFM} from './src/js/jsonToUsfm';
+import {removeMarker} from './src/js/filter';
 
-exports.toJSON = usfmToJson;
-exports.toUSFM = jsonToUsfm;
-exports.removeMarker = filter.removeMarker;
-
+exports.toJSON = usfmToJSON;
+exports.toUSFM = jsonToUSFM;
+exports.removeMarker = removeMarker;

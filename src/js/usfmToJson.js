@@ -128,6 +128,7 @@ export const usfmToJSON = (usfm, params = {}) => {
         break;
       }
       case 'v': { // verse
+        marker.content = marker.content || "";
         currentVerse = marker.number;
         if (params.chunk === true && marker.content && !onSameChapter) {
           if (verses[currentVerse]) {

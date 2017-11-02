@@ -1,6 +1,6 @@
-import {usfmToJSON} from './src/js/usfmToJson';
-import {jsonToUSFM} from './src/js/jsonToUsfm';
-import {removeMarker} from './src/js/filter';
+const {usfmToJSON} = require('./src/js/usfmToJson');
+const {jsonToUSFM} = require('./src/js/jsonToUsfm');
+const {removeMarker} = require('./src/js/filter');
 
 exports.toJSON = usfmToJSON;
 exports.toUSFM = jsonToUSFM;

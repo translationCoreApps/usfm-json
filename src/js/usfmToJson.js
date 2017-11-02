@@ -71,7 +71,7 @@ exports.parseLine = function(line) {
         array.push(object);
       }
       const open = match[2] ? match[2].trim() : undefined;
-      const content = match[3] ? match[3].trim() : "";
+      const content = match[3] ? match[3].trim() : undefined;
       const close = match[4] ? match[4].trim() : undefined;
       let marker = exports.parseMarkerOpen(open);
       const object = {
@@ -124,6 +124,7 @@ exports.parseUSFM = function(usfm, params = {}) {
         break;
       }
       case 'v': { // verse
+        marker.content = marker.content || "";
         currentVerse = marker.number;
         if (params.chunk === true && marker.content && !onSameChapter) {
           if (verses[currentVerse]) {

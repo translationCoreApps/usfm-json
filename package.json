@@ -1,11 +1,13 @@
 {
   "name": "usfm-js",
-  "version": "1.0.0-beta.9",
+  "version": "1.0.0-beta.10",
   "description": "A small library that provides functions to convert usfm to JSON and vice-versa",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "eslint ./src ./index.js && jest",
-    "fix": "eslint ./src ./index.js --fix"
+    "fix": "eslint ./src ./index.js --fix",
+    "compile": "rimraf lib/* && babel src -d lib",
+    "prepublishOnly": "npm run compile"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -32,6 +34,7 @@
   "homepage": "https://github.com/translationCoreApps/usfm-js#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
     "babel-jest": "^21.2.0",
     "babel-preset-env": "^1.6.0",
@@ -40,5 +43,9 @@
     "eslint-config-google": "^0.6.0",
     "eslint-plugin-jest": "^21.2.0",
     "jest": "^21.2.1"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.26.0",
+    "rimraf": "^2.6.2"
   }
 }

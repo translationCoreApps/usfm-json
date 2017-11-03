@@ -189,12 +189,3 @@ export const usfmToJSON = (usfm, params = {}) => {
   if (Object.keys(verses).length > 0) usfmJSON.verses = verses;
   return usfmJSON;
 };
-
-/**
- * Converts a usfm string to a json object
- * @deprecated use {@link #usfmToJSON()} instead.
- * @param {string} usfm - A string in the USFM format
- * @param {Object} params - extra params to use for chunk parsing
- * @type {Object}
- */
-export const parseUSFM = usfmToJSON;

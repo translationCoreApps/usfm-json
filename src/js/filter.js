@@ -6,7 +6,8 @@
  */
 export const removeMarker = (string = '', type) => {
   const typeRegex = type ? '\\' + type : '\\';
-  const regString = '\\' + typeRegex + '\\w*\\**\\s*\\+?\\s*';
-  const regex = new RegExp(regString, 'g');
+  var regStringPart = '\\' + typeRegex + '\\w*\\**\\s*\\+?\\s*';
+  var regStringEntire = regStringPart + '.*' + regStringPart;
+  var regex = new RegExp(regStringEntire, 'g');
   return string.replace(regex, '');
 };

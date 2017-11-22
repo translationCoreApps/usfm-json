@@ -12,7 +12,7 @@ export const removeMarker = (string = '', types) => {
     string = string.replace(regex, '');
   }
   if (!types || types.includes('q')) {
-    const regex = new RegExp('\\\\q ', 'g');
+    const regex = new RegExp('\\\\q', 'g');
     string = string.replace(regex, '');
   }
   return string;

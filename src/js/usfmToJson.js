@@ -86,6 +86,15 @@ export const parseLine = line => {
       };
       array.push(object);
     });
+    // check for leftover text at end of line
+    if(matches.length) {
+      const lastMatch = matches[matches.length - 1];
+      const endPos = lastMatch.index + lastMatch[0].length;
+      if(endPos < line.length) {
+        const object = {content: line.substr(endPos)};
+        array.push(object);
+      }
+    }
   } else { // doesn't have a marker but may have content
     // this is considered an orphaned line
     const orphan = line.trim();

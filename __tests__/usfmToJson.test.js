@@ -42,3 +42,11 @@ it('handles a chunk of usfm', () => {
 it('handles greek characters in usfm', () => {
   generateTest('greek', {chunk: true});
 });
+
+it('preserves punctuation in usfm', () => {
+  generateTest('tit_1_12');
+});
+
+it('preserves punctuation in usfm 2', () => {
+  generateTest('tit_1_12_new_line');
+});

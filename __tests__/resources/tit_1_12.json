@@ -1,0 +1,37 @@
+{
+  "headers": {
+    "id": "TIT Titus",
+    "ide": "UTF-8",
+    "h": "Titus",
+    "toc2": "Titus",
+    "toc3": "Tit",
+    "mt": "Titus"
+  },
+  "chapters": {
+    "1": {
+      "12": [
+        {
+          "word": "προφήτης",
+          "lemma": "προφήτης",
+          "strong": "G43960",
+          "morph": "Gr,N,,,,,NMS,"
+        },
+        ",",
+        "“",
+        {
+          "word": "Κρῆτες",
+          "lemma": "Κρής",
+          "strong": "G29120",
+          "morph": "Gr,N,,,,,NMP,"
+        },
+        {
+          "word": "ἀργαί",
+          "lemma": "ἀργός",
+          "strong": "G06920",
+          "morph": "Gr,AA,,,,NFP,"
+        },
+        ".”"
+      ]
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "headers": {
+    "id": "TIT Titus",
+    "ide": "UTF-8",
+    "h": "Titus",
+    "toc2": "Titus",
+    "toc3": "Tit",
+    "mt": "Titus"
+  },
+  "chapters": {
+    "1": {
+      "12": [
+        "...Christ",
+        {
+          "type": "q",
+          "content": ""
+        },
+        "Jesus.",
+        {
+          "type": "f",
+          "content": [
+            "+",
+            {
+              "type": "ft",
+              "content": "Some early versions omit,"
+            },
+            {
+              "type": "fqa",
+              "content": [
+                "in Ephesus,"
+              ]
+            },
+            "but this expression is probably in Paul's original letter."
+          ]
+        }
+      ]
+    }
+  }
+}

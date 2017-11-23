@@ -40,7 +40,7 @@ it('handles a chunk of usfm', () => {
 });
 
 it('handles greek characters in usfm', () => {
-  generateTest('greek', {chunk: true});
+  generateTest('greek');
 });
 
 it('preserves punctuation in usfm', () => {
@@ -49,4 +49,8 @@ it('preserves punctuation in usfm', () => {
 
 it('preserves punctuation in usfm 2', () => {
   generateTest('tit_1_12_new_line');
+});
+
+it('preserves footnotes in usfm 2', () => {
+  generateTest('tit_1_12_footnote');
 });

@@ -145,8 +145,12 @@ function unPopNestedMarker(saveTo, content, stack, chapters, type, currentChapte
   if(extra && extra[0] === " ") {
     extra = extra.substr(1);
   }
+  if(type[type.length-1] == "*") {
+    type = type.substr(0,type.length-1);
+  }
   for (let j = stack.length - 1; j >= 0; j--) {
-    if (type === stack[j].type) {
+    const stackTYpe = stack[j].type;
+    if (type === stackTYpe) {
       while (stack.length > j) { // rollback stack to this point
         stack.pop();
       }
@@ -156,6 +160,23 @@ function unPopNestedMarker(saveTo, content, stack, chapters, type, currentChapte
   }
   if (extra) {
     saveTo.push(extra)
+  }
+}
+
+/**
+ * @description - check if object has close, if so then process it
+ * @param saveTo
+ * @param content
+ * @param stack
+ * @param chapters
+ * @param usfmObject
+ * @param currentChapter
+ * @param currentVerse
+ */
+function processClose(saveTo, content, stack, chapters, usfmObject, currentChapter, currentVerse) {
+  const close = usfmObject["close"];
+  if(close && close.length && (close[0] === "\\")) {
+    unPopNestedMarker(saveTo, "", stack, chapters, close.substr(1), currentChapter, currentVerse);
   }
 }
 
@@ -230,6 +251,7 @@ function addToCurrentVerse(stack, chapters, currentChapter, currentVerse, usfmOb
       saveUsfmObject(saveTo, content, stack, type, output);
     }
   }
+  processClose(saveTo, content, stack, chapters, usfmObject, currentChapter, currentVerse);
 }
 
 /**

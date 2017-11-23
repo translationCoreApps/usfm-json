@@ -54,3 +54,11 @@ it('preserves punctuation in usfm 2', () => {
 it('preserves footnotes in usfm 2', () => {
   generateTest('tit_1_12_footnote');
 });
+
+it('process ISA footnote', () => {
+  generateTest('isa_footnote');
+});
+
+it('process PSA quotes', () => {
+  generateTest('psa_quotes');
+});

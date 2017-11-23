@@ -1,0 +1,57 @@
+{
+  "headers": {
+    "id": "ISA Unlocked Literal Bible",
+    "ide": "UTF-8",
+    "h": "Isaiah",
+    "toc1": "The Book of Isaiah",
+    "toc2": "Isaiah",
+    "toc3": "Isa",
+    "mt": "The Book of the Prophet Isaiah",
+    "s5": ""
+  },
+  "chapters": {
+    "5": {
+      "15": [
+        "Man is brought down, and the great man is humbled, and the eyes of the lofty are cast down.",
+        {
+          "type": "q1"
+        }
+      ],
+      "16": [
+        "Yahweh of hosts is exalted in his justice, and God the Holy One shows himself holy by his righteousness.",
+        {
+          "type": "q1"
+        }
+      ],
+      "17": [
+        "Then the sheep will feed as in their own pasture, and in the ruins, lambs will graze as foreigners.",
+        {
+          "type": "f",
+          "content": [
+            "+",
+            {
+              "type": "ft",
+              "content": "Some modern versions have"
+            },
+            {
+              "type": "fqa",
+              "content": [
+                "and in the ruins of the rich, lambs will graze",
+                {
+                  "type": "fqb",
+                  "content": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "p"
+        },
+        {
+          "type": "q1"
+        }
+      ]
+    }
+  }
+}

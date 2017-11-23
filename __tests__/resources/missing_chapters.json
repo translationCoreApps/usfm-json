@@ -14,8 +14,7 @@
       "1": [
         "Finally, my brothers, rejoice in the Lord.  For me to write these same things to you is not a problem, and they will keep you safe.",
         {
-          "type": "p",
-          "content": ""
+          "type": "p"
         }
       ],
       "2": [
@@ -24,8 +23,7 @@
           "type": "s5"
         },
         {
-          "type": "p",
-          "content": ""
+          "type": "p"
         }
       ]
     }

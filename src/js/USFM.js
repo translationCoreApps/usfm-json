@@ -1,7 +1,7 @@
 /**
  * USFM definitions
  */
-export const NO_CONTENT_MARKERS = ["p","q"];
+export const NO_CONTENT_MARKERS = ["p","s5"];
 
 export const NEED_TERMINATION_MARKERS = [
   "bd",

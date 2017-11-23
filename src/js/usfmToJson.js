@@ -205,10 +205,13 @@ function addToCurrentVerse(stack, chapters, currentChapter, currentVerse, usfmOb
   const markerHasNoContent = USFM.NO_CONTENT_MARKERS.indexOf(type) >= 0;
   if(markerHasNoContent) {
     // separate marker and text
-    saveTo.push({
+    const output = {
       type: type,
-      content: ""
-    });
+    };
+    if(content) {
+      output["content"] = content;
+    }
+    saveTo.push(output);
     if(content) {
       saveTo.push(content);
     }

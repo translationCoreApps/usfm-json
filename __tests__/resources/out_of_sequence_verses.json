@@ -6,12 +6,23 @@
     "toc1": "The Epistle of Paul the Apostle to the Philippians",
     "toc2": "Philippians",
     "toc3": "Php",
-    "mt": "The Epistle of Paul the Apostle to the Philippians"
+    "mt": "The Epistle of Paul the Apostle to the Philippians",
+    "s5": ""
   },
   "chapters": {
     "1": {
       "1": [
-        "Paul and Timothy, servants of Christ Jesus, to all the ones set apart in Christ Jesus who are at Philippi, with the overseers and deacons."
+        "Paul and Timothy, servants of Christ Jesus, to all the ones set apart in Christ Jesus who are at Philippi, with the overseers and deacons.",
+        {
+          "type": "b"
+        },
+        {
+          "type": "s5"
+        },
+        {
+          "type": "p",
+          "content": ""
+        }
       ],
       "2": [
         "Grace to you and peace from God our Father and the Lord Jesus Christ."
@@ -20,7 +31,10 @@
         "I thank my God with every thought of you,"
       ],
       "4": [
-        "Every time I pray for you, it is always a prayer of joy."
+        "Every time I pray for you, it is always a prayer of joy.",
+        {
+          "type": "s5"
+        }
       ],
       "5": [
         "I give thanks for your fellowship in the gospel from the first day until now."
@@ -28,7 +42,10 @@
     },
     "2": {
       "1": [
-        "If there is therefore any encouragement in Christ, if any comfort from his love, if any fellowship of the Spirit, if any tender mercies and compassions,"
+        "If there is therefore any encouragement in Christ, if any comfort from his love, if any fellowship of the Spirit, if any tender mercies and compassions,",
+        {
+          "type": "s5"
+        }
       ],
       "2": [
         "make my joy full so that you are of the same mind, have the same love, are united in spirit, and have the same purpose."

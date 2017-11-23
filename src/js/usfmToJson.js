@@ -46,7 +46,8 @@ export const parseWord = wordContent => {
   const word = wordParts[0];
   const attributeContent = wordParts[1];
   object = {
-    word: word
+    word: word,
+    type: 'w'
   };
   const regex = /[x-]*([\w-]+)=['"](.*?)['"]/g;
   const matches = exports.getMatches(attributeContent, regex);
@@ -159,17 +160,17 @@ function unPopNestedMarker(saveTo, content, stack, chapters, type, currentChapte
 }
 
 /**
- * @description - push the nested marker onto stack
+ * @description - save the usfm object to specified place and handle nested data
  * @param saveTo
  * @param content
  * @param stack
  * @param type
  * @param usfmObject
  */
-function pushNestedMarker(saveTo, content, stack, type, usfmObject) {
+function saveUsfmObject(saveTo, content, stack, type, usfmObject) {
   const markerRequiresTermination = USFM.NEED_TERMINATION_MARKERS.indexOf(type) >= 0;
   saveTo.push(usfmObject);
-  if (markerRequiresTermination) {
+  if (markerRequiresTermination) { // need to handle nested data
     stack.push(usfmObject);
     const new_content = [];
     usfmObject["content"] = new_content;
@@ -223,7 +224,7 @@ function addToCurrentVerse(stack, chapters, currentChapter, currentVerse, usfmOb
     if(isEndMarker) { // check for end marker
       unPopNestedMarker(saveTo, content, stack, chapters, type, currentChapter, currentVerse);
     } else {
-      pushNestedMarker(saveTo, content, stack, type, output);
+      saveUsfmObject(saveTo, content, stack, type, output);
     }
   }
 }
@@ -257,6 +258,7 @@ export const usfmToJSON = (usfm, params = {}) => {
         chapters[currentChapter] = {};
         // resetting 'on same chapter' flag
         onSameChapter = false;
+        currentVerse = 0;
         break;
       }
       case 'v': { // verse
@@ -286,7 +288,8 @@ export const usfmToJSON = (usfm, params = {}) => {
       }
       case 'w': { // word
         const wordObject = exports.parseWord(marker.content);
-        addToCurrentVerse(stack, chapters, currentChapter, currentVerse, wordObject, marker.type);
+        let saveTo = getSaveToLocation(stack, chapters, currentChapter, currentVerse);
+        saveTo.push(wordObject);
         break;
       }
       case undefined: { // likely orphaned text for the preceding verse marker
@@ -303,6 +306,7 @@ export const usfmToJSON = (usfm, params = {}) => {
       default: {
         if (currentChapter === 0 && !currentVerse) { // if we haven't seen chapter yet, its a header
           let value;
+          marker.content = marker.content || ""; // replace undefined
           if (marker.number) { // if there is a number, prepend it to content
             value = marker.number + ' ' + marker.content;
           } else {

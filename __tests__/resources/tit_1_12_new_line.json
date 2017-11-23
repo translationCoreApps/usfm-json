@@ -14,7 +14,8 @@
           "word": "προφήτης",
           "lemma": "προφήτης",
           "strong": "G43960",
-          "morph": "Gr,N,,,,,NMS,"
+          "morph": "Gr,N,,,,,NMS,",
+          "type": "w"
         },
         ",",
         "“",
@@ -22,13 +23,15 @@
           "word": "Κρῆτες",
           "lemma": "Κρής",
           "strong": "G29120",
-          "morph": "Gr,N,,,,,NMP,"
+          "morph": "Gr,N,,,,,NMP,",
+          "type": "w"
         },
         {
           "word": "ἀργαί",
           "lemma": "ἀργός",
           "strong": "G06920",
-          "morph": "Gr,AA,,,,NFP,"
+          "morph": "Gr,AA,,,,NFP,",
+          "type": "w"
         },
         ".",
         "”"

@@ -189,7 +189,7 @@ function processClose(saveTo, content, stack, chapters, usfmObject, currentChapt
  * @param usfmObject
  */
 function saveUsfmObject(saveTo, content, stack, type, usfmObject) {
-  const markerRequiresTermination = USFM.NEED_TERMINATION_MARKERS.indexOf(type) >= 0;
+  const markerRequiresTermination = USFM.bsearch(USFM.NEED_TERMINATION_MARKERS,type) >= 0;
   saveTo.push(usfmObject);
   if (markerRequiresTermination) { // need to handle nested data
     stack.push(usfmObject);
@@ -223,7 +223,7 @@ function addToCurrentVerse(stack, chapters, currentChapter, currentVerse, usfmOb
   }
 
   let content = usfmObject["content"];
-  const markerHasNoContent = USFM.NO_CONTENT_MARKERS.indexOf(type) >= 0;
+  const markerHasNoContent = USFM.bsearch(USFM.NO_CONTENT_MARKERS,type) >= 0;
   if(markerHasNoContent) {
     // separate marker and text
     const output = {

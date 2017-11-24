@@ -9,7 +9,7 @@ export const generateWordLine = wordObject => {
   let attributes = [];
   const word = wordObject.word;
   keys.forEach(function(key) {
-    if (key !== 'word') {
+    if((key !== 'word') && (key !== 'type')) {
       let prefix = (key === 'lemma' || key === 'strongs') ? '' : 'x-';
       let attribute = prefix + key + '="' + wordObject[key] + '"';
       attributes.push(attribute);

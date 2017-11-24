@@ -111,7 +111,7 @@ export const parseLine = line => {
       const lastMatch = matches[matches.length - 1];
       const endPos = lastMatch.index + lastMatch[0].length;
       if(endPos < line.length) {
-        const object = {content: line.substr(endPos)};
+        const object = {content: line.substr(endPos) + '\n'};
         array.push(object);
       }
     }

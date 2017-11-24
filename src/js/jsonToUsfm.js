@@ -19,6 +19,44 @@ export const generateWordLine = wordObject => {
   return line;
 };
 
+function objectToString(object) {
+  if(!object) {
+    return "";
+  }
+
+  if (typeof object === 'string') {
+    return object;
+  }
+
+  if (Array.isArray(object)) {
+    let output = "";
+    for(let item of object) {
+      let text = objectToString(item);
+      if(text){
+        if(output) {
+          output += ' ';
+        }
+        output += text;
+      }
+    }
+    return output;
+  }
+
+  if(object['word']) {
+    return exports.generateWordLine(object) + '\n';
+  }
+
+  if(object['type']) {
+    let output = '\\' + object['type'] + ' ';
+    if(object['number']) {
+      output += object['number'] + ' ';
+    }
+    output += objectToString(object['content']);
+    return output;
+  }
+  return "";
+}
+
 /**
  * @description Takes in verse json and outputs it as a USFM line array.
  * @param {int} verseNumber - number to use for the verse
@@ -27,16 +65,8 @@ export const generateWordLine = wordObject => {
  */
 export const generateVerseLines = (verseNumber, verseArray) => {
   let lines = [];
-  if (typeof verseArray[0] === 'string') {
-    const verseText = verseArray.join(' ');
-    lines.push('\\v ' + verseNumber + ' ' + verseText);
-  } else if (verseArray[0] && verseArray[0].word) {
-    lines.push('\\v ' + verseNumber);
-    verseArray.forEach(function(wordObject) {
-      let wordLine = exports.generateWordLine(wordObject);
-      lines.push(wordLine);
-    });
-  }
+  const verseText = objectToString(verseArray);
+  lines.push('\\v ' + verseNumber + ' ' + verseText);
   return lines;
 };
 

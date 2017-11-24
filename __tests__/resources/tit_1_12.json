@@ -24,7 +24,8 @@
           "lemma": "Κρής",
           "strong": "G29120",
           "morph": "Gr,N,,,,,NMP,",
-          "type": "w"
+          "type": "w",
+          "next_char": "\n"
         },
         {
           "word": "ἀργαί",

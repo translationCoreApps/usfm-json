@@ -11,6 +11,20 @@ export const getMatches = (string, regex) => {
   let match;
   if (string.match(regex)) { // check so you don't get caught in a loop
     while ((match = regex.exec(string))) {
+      // preserve white space
+      let next_char = null;
+      const endPos = match.index + match[0].length;
+      if(endPos >= string.length) {
+        next_char = "\n"; // save new line
+      } else {
+        let char = string[endPos];
+        if(char === ' ') {
+          next_char = char; // save space
+        }
+      }
+      if(next_char) {
+        match['next_char'] = next_char;
+      }
       matches.push(match);
     }
   }
@@ -87,6 +101,9 @@ export const parseLine = line => {
         content: content,
         close: close
       };
+      if(match.next_char) {
+        object['next_char'] = match.next_char;
+      }
       array.push(object);
     });
     // check for leftover text at end of line
@@ -313,6 +330,9 @@ export const usfmToJSON = (usfm, params = {}) => {
       }
       case 'w': { // word
         const wordObject = exports.parseWord(marker.content);
+        if(marker.next_char) {
+          wordObject['next_char'] = marker.next_char;
+        }
         let saveTo = getSaveToLocation(stack, chapters, currentChapter, currentVerse);
         saveTo.push(wordObject);
         break;

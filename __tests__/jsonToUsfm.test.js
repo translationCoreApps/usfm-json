@@ -21,3 +21,7 @@ it('converts json to usfm', () => {
 it('converts greek json to usfm', () => {
   generateTest('greek');
 });
+
+it('process PSA quotes', () => {
+  generateTest('psa_quotes');
+});

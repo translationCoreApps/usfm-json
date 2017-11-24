@@ -47,7 +47,7 @@ it('preserves punctuation in usfm', () => {
   generateTest('tit_1_12');
 });
 
-it('preserves punctuation in usfm 2', () => {
+it('preserves punctuation in usfm new_line', () => {
   generateTest('tit_1_12_new_line');
 });
 

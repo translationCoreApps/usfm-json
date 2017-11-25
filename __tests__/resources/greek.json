@@ -12,33 +12,33 @@
           "lemma": "Παῦλος",
           "strongs": "G39720",
           "morph": "Gr,N,,,,,NMS,",
-          "type": "w",
-          "next_char": "\n"
+          "type": "w"
         },
+        "\n",
         {
           "word": "δοῦλος",
           "lemma": "δοῦλος",
           "strongs": "G14010",
           "morph": "Gr,N,,,,,NMS,",
-          "type": "w",
-          "next_char": "\n"
+          "type": "w"
         },
+        "\n",
         {
           "word": "Χριστοῦ",
           "lemma": "Χριστός",
           "strongs": "G55470",
           "morph": "Gr,N,,,,,GMS,",
-          "type": "w",
-          "next_char": "\n"
+          "type": "w"
         },
+        "\n",
         {
           "word": "κατὰ",
           "lemma": "κατά",
           "strongs": "G25960",
           "morph": "Gr,P,,,,,A,,,",
-          "type": "w",
-          "next_char": "\n"
-        }
+          "type": "w"
+        },
+        "\n"
       ]
     },
     "2": {
@@ -48,33 +48,33 @@
           "lemma": "σύ",
           "strongs": "G47710",
           "morph": "Gr,RP,,,2N,S,",
-          "type": "w",
-          "next_char": "\n"
+          "type": "w"
         },
+        "\n",
         {
           "word": "δὲ",
           "lemma": "δέ",
           "strongs": "G11610",
           "morph": "Gr,CC,,,,,,,,",
-          "type": "w",
-          "next_char": "\n"
+          "type": "w"
         },
+        "\n",
         {
           "word": "λάλει",
           "lemma": "λαλέω",
           "strongs": "G29800",
           "morph": "Gr,VTMPA2,,S,",
-          "type": "w",
-          "next_char": "\n"
+          "type": "w"
         },
+        "\n",
         {
           "word": "ἃ",
           "lemma": "ὅς",
           "strongs": "G37390",
           "morph": "Gr,RR,,,,ANP,",
-          "type": "w",
-          "next_char": "\n"
-        }
+          "type": "w"
+        },
+        "\n"
       ]
     }
   }

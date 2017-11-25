@@ -1,10 +1,9 @@
 /**
- * @description Takes in word json and outputs it as a USFM line.
+ * @description Takes in word json and outputs it as USFM.
  * @param {Object} wordObject - word in JSON
  * @return {String} - word in USFM
  */
-export const generateWordLine = wordObject => {
-  let line;
+export const generateWord = wordObject => {
   const keys = Object.keys(wordObject);
   let attributes = [];
   const word = wordObject.word;
@@ -15,7 +14,7 @@ export const generateWordLine = wordObject => {
       attributes.push(attribute);
     }
   });
-  line = '\\w ' + word + '|' + attributes.join(' ') + '\\w*';
+  let line = '\\w ' + word + '|' + attributes.join(' ') + '\\w*';
   return line;
 };
 
@@ -33,9 +32,6 @@ function objectToString(object) {
     for(let item of object) {
       let text = objectToString(item);
       if(text){
-        if(output) {
-          output += ' ';
-        }
         output += text;
       }
     }
@@ -43,7 +39,7 @@ function objectToString(object) {
   }
 
   if(object['word']) {
-    return exports.generateWordLine(object) + '\n';
+    return exports.generateWord(object);
   }
 
   if(object['type']) {
@@ -63,11 +59,9 @@ function objectToString(object) {
  * @param {Array} verseArray - verse in JSON
  * @return {Array} - verse in USFM lines/string
  */
-export const generateVerseLines = (verseNumber, verseArray) => {
-  let lines = [];
+export const generateVerse = (verseNumber, verseArray) => {
   const verseText = objectToString(verseArray);
-  lines.push('\\v ' + verseNumber + ' ' + verseText);
-  return lines;
+  return '\\v ' + verseNumber + ' ' + verseText;
 };
 
 /**
@@ -83,8 +77,8 @@ export const generateChapterLines = (chapterNumber, chapterObject) => {
   const verseNumbers = Object.keys(chapterObject);
   verseNumbers.forEach(function(verseNumber) {
     const verseArray = chapterObject[verseNumber];
-    const verseLines = exports.generateVerseLines(verseNumber, verseArray);
-    lines = lines.concat(verseLines);
+    const verseLine = exports.generateVerse(verseNumber, verseArray);
+    lines = lines.concat(verseLine);
   });
   return lines;
 };
@@ -117,10 +111,10 @@ export const jsonToUSFM = json => {
     const verseNumbers = Object.keys(json.verses);
     verseNumbers.forEach(function(verseNumber) {
       const verseObject = json.verses[verseNumber];
-      const verseLines = exports.generateVerseLines(
+      const verse = exports.generateVerse(
           verseNumber, verseObject,
       );
-      lines = lines.concat(verseLines);
+      lines = lines.push(verse);
     });
   }
   return lines.join('\n');

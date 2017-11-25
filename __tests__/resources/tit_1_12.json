@@ -17,16 +17,15 @@
           "morph": "Gr,N,,,,,NMS,",
           "type": "w"
         },
-        ",\n",
-        "“",
+        ",\n“",
         {
           "word": "Κρῆτες",
           "lemma": "Κρής",
           "strong": "G29120",
           "morph": "Gr,N,,,,,NMP,",
-          "type": "w",
-          "next_char": "\n"
+          "type": "w"
         },
+        "\n",
         {
           "word": "ἀργαί",
           "lemma": "ἀργός",
@@ -34,7 +33,7 @@
           "morph": "Gr,AA,,,,NFP,",
           "type": "w"
         },
-        ".”\n"
+        ".”"
       ]
     }
   }

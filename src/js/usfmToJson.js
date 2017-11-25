@@ -111,7 +111,9 @@ export const parseLine = line => {
       const lastMatch = matches[matches.length - 1];
       const endPos = lastMatch.index + lastMatch[0].length;
       if(endPos < line.length) {
-        const object = {content: line.substr(endPos) + '\n'};
+        const object = {
+          content: line.substr(endPos)
+        };
         array.push(object);
       }
     }
@@ -119,7 +121,6 @@ export const parseLine = line => {
     // this is considered an orphaned line
     const orphan = line.trim();
     const object = {
-      open: undefined, type: undefined, number: undefined, close: undefined,
       content: orphan
     };
     array.push(object);
@@ -176,7 +177,7 @@ function unPopNestedMarker(saveTo, content, stack, chapters, type, currentChapte
     }
   }
   if (extra) {
-    saveTo.push(extra)
+    pushObject(saveTo, extra)
   }
 }
 
@@ -235,7 +236,7 @@ function addToCurrentVerse(stack, chapters, currentChapter, currentVerse, usfmOb
   let saveTo = getSaveToLocation(stack, chapters, currentChapter, currentVerse);
   type = type || usfmObject["type"];
   if(!type) {
-    saveTo.push(usfmObject);
+    pushObject(saveTo, usfmObject);
     return;
   }
 
@@ -251,7 +252,7 @@ function addToCurrentVerse(stack, chapters, currentChapter, currentVerse, usfmOb
     }
     saveTo.push(output);
     if(content) {
-      saveTo.push(content);
+      pushObject(saveTo, content);
     }
   } else {
     const output = {
@@ -269,6 +270,29 @@ function addToCurrentVerse(stack, chapters, currentChapter, currentVerse, usfmOb
     }
   }
   processClose(saveTo, content, stack, chapters, usfmObject, currentChapter, currentVerse);
+}
+
+/**
+ * @description push text string to array, and concat strings of last array item is also string
+ * @param saveTo
+ * @param wordObject
+ */
+function pushObject(saveTo, wordObject) {
+  if(saveTo.length && (typeof wordObject === "string")) {
+    // see if we can append to previous string
+    const lastPos = saveTo.length-1;
+    let lastObject = saveTo[lastPos];
+    if(typeof lastObject === "string") {
+      // see if we need to combine with new line
+      if(wordObject && wordObject[0] !== '\n') {
+        lastObject += '\n';
+      }
+      lastObject += wordObject;
+      saveTo[lastPos] = lastObject;
+      return;
+    }
+  }
+  saveTo.push(wordObject);
 }
 
 /**
@@ -330,11 +354,11 @@ export const usfmToJSON = (usfm, params = {}) => {
       }
       case 'w': { // word
         const wordObject = exports.parseWord(marker.content);
-        if(marker.next_char) {
-          wordObject['next_char'] = marker.next_char;
-        }
         let saveTo = getSaveToLocation(stack, chapters, currentChapter, currentVerse);
-        saveTo.push(wordObject);
+        pushObject(saveTo, wordObject);
+        if(marker.next_char) {
+          pushObject(saveTo, marker.next_char);
+        }
         break;
       }
       case undefined: { // likely orphaned text for the preceding verse marker
@@ -344,7 +368,7 @@ export const usfmToJSON = (usfm, params = {}) => {
         if (params.chunk && currentVerse > 0 && marker.content) {
           if (!verses[currentVerse])
             verses[currentVerse] = [];
-          verses[currentVerse].push(marker.content);
+          pushObject(verses[currentVerse],marker.content);
         }
         break;
       }

@@ -51,7 +51,7 @@ it('preserves punctuation in usfm new_line', () => {
   generateTest('tit_1_12_new_line');
 });
 
-it('preserves footnotes in usfm 2', () => {
+it('preserves footnotes in usfm', () => {
   generateTest('tit_1_12_footnote');
 });
 

@@ -12,45 +12,45 @@
   "chapters": {
     "1": {
       "1": [
-        "Paul and Timothy, servants of Christ Jesus, to all the ones set apart in Christ Jesus who are at Philippi, with the overseers and deacons.",
+        "Paul and Timothy, servants of Christ Jesus, to all the ones set apart in Christ Jesus who are at Philippi, with the overseers and deacons.\n",
         {
-          "type": "b"
+          "tag": "b"
         },
         {
-          "type": "s5"
+          "tag": "s5"
         },
         {
-          "type": "p"
+          "tag": "p"
         }
       ],
       "2": [
-        "Grace to you and peace from God our Father and the Lord Jesus Christ."
+        "Grace to you and peace from God our Father and the Lord Jesus Christ.\n"
       ],
       "3": [
-        "I thank my God with every thought of you,"
+        "I thank my God with every thought of you,\n"
       ],
       "4": [
-        "Every time I pray for you, it is always a prayer of joy.",
+        "Every time I pray for you, it is always a prayer of joy.\n",
         {
-          "type": "s5"
+          "tag": "s5"
         }
       ],
       "5": [
-        "I give thanks for your fellowship in the gospel from the first day until now."
+        "I give thanks for your fellowship in the gospel from the first day until now.\n"
       ]
     },
     "2": {
       "1": [
-        "If there is therefore any encouragement in Christ, if any comfort from his love, if any fellowship of the Spirit, if any tender mercies and compassions,",
+        "If there is therefore any encouragement in Christ, if any comfort from his love, if any fellowship of the Spirit, if any tender mercies and compassions,\n",
         {
-          "type": "s5"
+          "tag": "s5"
         }
       ],
       "2": [
-        "make my joy full so that you are of the same mind, have the same love, are united in spirit, and have the same purpose."
+        "make my joy full so that you are of the same mind, have the same love, are united in spirit, and have the same purpose.\n"
       ],
       "3": [
-        "Do nothing through selfishness or empty pride, but instead in lowliness of mind count others better than yourself."
+        "Do nothing through selfishness or empty pride, but instead in lowliness of mind count others better than yourself.\n"
       ]
     }
   }

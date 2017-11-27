@@ -7,12 +7,13 @@
   "chapters": {
     "1": {
       "1": [
+        "\n",
         {
           "word": "Παῦλος",
           "lemma": "Παῦλος",
           "strongs": "G39720",
           "morph": "Gr,N,,,,,NMS,",
-          "type": "w"
+          "tag": "w"
         },
         "\n",
         {
@@ -20,7 +21,7 @@
           "lemma": "δοῦλος",
           "strongs": "G14010",
           "morph": "Gr,N,,,,,NMS,",
-          "type": "w"
+          "tag": "w"
         },
         "\n",
         {
@@ -28,7 +29,7 @@
           "lemma": "Χριστός",
           "strongs": "G55470",
           "morph": "Gr,N,,,,,GMS,",
-          "type": "w"
+          "tag": "w"
         },
         "\n",
         {
@@ -36,19 +37,20 @@
           "lemma": "κατά",
           "strongs": "G25960",
           "morph": "Gr,P,,,,,A,,,",
-          "type": "w"
+          "tag": "w"
         },
         "\n"
       ]
     },
     "2": {
       "1": [
+        "\n",
         {
           "word": "Σὺ",
           "lemma": "σύ",
           "strongs": "G47710",
           "morph": "Gr,RP,,,2N,S,",
-          "type": "w"
+          "tag": "w"
         },
         "\n",
         {
@@ -56,7 +58,7 @@
           "lemma": "δέ",
           "strongs": "G11610",
           "morph": "Gr,CC,,,,,,,,",
-          "type": "w"
+          "tag": "w"
         },
         "\n",
         {
@@ -64,7 +66,7 @@
           "lemma": "λαλέω",
           "strongs": "G29800",
           "morph": "Gr,VTMPA2,,S,",
-          "type": "w"
+          "tag": "w"
         },
         "\n",
         {
@@ -72,7 +74,7 @@
           "lemma": "ὅς",
           "strongs": "G37390",
           "morph": "Gr,RR,,,,ANP,",
-          "type": "w"
+          "tag": "w"
         },
         "\n"
       ]

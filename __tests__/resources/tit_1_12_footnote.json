@@ -10,27 +10,14 @@
   "chapters": {
     "1": {
       "12": [
-        "...",
+        "\n...",
         {
-          "type": "q"
+          "tag": "q"
         },
         "Christ Jesus.",
         {
-          "type": "f",
-          "content": [
-            "+",
-            {
-              "type": "ft",
-              "content": "Some early versions omit,"
-            },
-            {
-              "type": "fqa",
-              "content": [
-                "in Ephesus,"
-              ]
-            },
-            "but this expression is probably in Paul's original letter."
-          ]
+          "tag": "f",
+          "content": "+ \\ft Some early versions omit, \\fqa in Ephesus, \\fqa* but this expression is probably in Paul's original letter."
         }
       ]
     }

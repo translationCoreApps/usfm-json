@@ -12,18 +12,18 @@
   "chapters": {
     "3": {
       "1": [
-        "Finally, my brothers, rejoice in the Lord.  For me to write these same things to you is not a problem, and they will keep you safe.",
+        "Finally, my brothers, rejoice in the Lord.  For me to write these same things to you is not a problem, and they will keep you safe.\n",
         {
-          "type": "p"
+          "tag": "p"
         }
       ],
       "2": [
-        "Watch out for the dogs. Watch out for the evil workers. Watch out for the mutilators.",
+        "Watch out for the dogs. Watch out for the evil workers. Watch out for the mutilators.\n",
         {
-          "type": "s5"
+          "tag": "s5"
         },
         {
-          "type": "p"
+          "tag": "p"
         }
       ]
     }

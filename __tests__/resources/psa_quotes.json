@@ -16,67 +16,67 @@
       "1": [
         "Blessed is the man who does not walk in the advice of the wicked,",
         {
-          "type": "q",
-          "content": "or stand in the pathway with sinners,"
+          "tag": "q"
         },
+        "or stand in the pathway with sinners,",
         {
-          "type": "q",
-          "content": "or sit in the assembly of mockers."
+          "tag": "q"
         },
+        "or sit in the assembly of mockers.",
         {
-          "type": "q"
+          "tag": "q"
         }
       ],
       "2": [
         "But his delight is in the law of Yahweh,",
         {
-          "type": "q",
-          "content": "and on his law he meditates day and night."
+          "tag": "q"
+        },
+        "and on his law he meditates day and night.",
+        {
+          "tag": "s5"
         },
         {
-          "type": "s5"
-        },
-        {
-          "type": "q"
+          "tag": "q"
         }
       ],
       "3": [
         "He will be like a tree planted by the streams of water",
         {
-          "type": "q",
-          "content": "that produces its fruit in its season,"
+          "tag": "q"
+        },
+        "that produces its fruit in its season,",
+        {
+          "tag": "q"
+        },
+        "whose leaves do not wither;",
+        {
+          "tag": "q"
+        },
+        "whatever he does will prosper.",
+        {
+          "tag": "s5"
         },
         {
-          "type": "q",
-          "content": "whose leaves do not wither;"
-        },
-        {
-          "type": "q",
-          "content": "whatever he does will prosper."
-        },
-        {
-          "type": "s5"
-        },
-        {
-          "type": "q"
+          "tag": "q"
         }
       ],
       "4": [
         "The wicked are not so,",
         {
-          "type": "q",
-          "content": "but are instead like the chaff that the wind drives away."
+          "tag": "q"
         },
+        "but are instead like the chaff that the wind drives away.",
         {
-          "type": "q"
+          "tag": "q"
         }
       ],
       "5": [
         "So the wicked will not stand in the judgment,",
         {
-          "type": "q",
-          "content": "nor sinners in the assembly of the righteous."
-        }
+          "tag": "q"
+        },
+        "nor sinners in the assembly of the righteous."
       ]
     }
   }

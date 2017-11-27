@@ -2,12 +2,11 @@
  * USFM definitions
  */
 
-// must be sorted
-export const NO_CONTENT_MARKERS = ["p","s5"];
-
-// must be sorted
-export const DISPLAYABLE_TEXT = [
+// for these tags we don't embed the following text in marker content
+// must be sorted so we can do fast binary search
+export const NO_CONTENT_MARKERS = [
   "add",
+  "b",
   "bd",
   "bdit",
   "bk",
@@ -19,6 +18,7 @@ export const DISPLAYABLE_TEXT = [
   "nd",
   "no",
   "ord",
+  "p",
   "pn",
   "q",
   "q1",
@@ -26,6 +26,7 @@ export const DISPLAYABLE_TEXT = [
   "q3",
   "qt",
   "qt",
+  "s5",
   "sc",
   "sig",
   "sls",
@@ -36,7 +37,8 @@ export const DISPLAYABLE_TEXT = [
   "wj"
 ];
 
-// must be sorted
+// for these tages we must embed following text in content until we find an end marker,
+// must be sorted so we can do fast binary search
 export const NEED_TERMINATION_MARKERS = [
   "bd",
   "bdit",

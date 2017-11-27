@@ -17,7 +17,7 @@
       "2": [
         "Grace to you and peace from God our Father and the Lord Jesus Christ.",
         {
-          "type": "s5"
+          "tag": "s5"
         }
       ]
     },
@@ -36,7 +36,7 @@
       "2": [
         "Watch out for the dogs. Watch out for the evil workers. Watch out for the mutilators.",
         {
-          "type": "s5"
+          "tag": "s5"
         }
       ]
     },
@@ -44,7 +44,7 @@
       "1": [
         "Therefore, my beloved brothers whom I long for, my joy and crown, in this way stand firm in the Lord, beloved friends.",
         {
-          "type": "s5"
+          "tag": "s5"
         }
       ]
     }

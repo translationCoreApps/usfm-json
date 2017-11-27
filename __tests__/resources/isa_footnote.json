@@ -12,19 +12,21 @@
   "chapters": {
     "5": {
       "15": [
-        "Man is brought down, and the great man is humbled, and the eyes of the lofty are cast down.",
+        "Man is brought down, and the great man is humbled, and the eyes of the lofty are cast down.\n",
         {
           "tag": "q1"
-        }
+        },
+        "\n"
       ],
       "16": [
-        "Yahweh of hosts is exalted in his justice, and God the Holy One shows himself holy by his righteousness.",
+        "Yahweh of hosts is exalted in his justice, and God the Holy One shows himself holy by his righteousness.\n",
         {
           "tag": "q1"
-        }
+        },
+        "\n"
       ],
       "17": [
-        "Then the sheep will feed as in their own pasture, and in the ruins, lambs will graze as foreigners.",
+        "Then the sheep will feed as in their own pasture, and in the ruins, lambs will graze as foreigners.\n",
         {
           "tag": "f",
           "content": "+ \\ft Some modern versions have \\fqa and in the ruins of the rich, lambs will graze \\fqb ."
@@ -32,9 +34,11 @@
         {
           "tag": "p"
         },
+        "\n",
         {
           "tag": "q1"
-        }
+        },
+        "\n"
       ]
     }
   }

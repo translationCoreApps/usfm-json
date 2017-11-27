@@ -241,6 +241,9 @@ export const  addToCurrentVerse = (nested, chapters, currentChapter, currentVers
       tag: tag,
     };
     saveTo.push(output);
+    if(usfmObject.next_char === '\n') {
+      content = (content || "") + usfmObject.next_char;
+    }
     if(content) {
       pushObject(nested, saveTo, content);
     }

@@ -15,16 +15,19 @@
         "Finally, my brothers, rejoice in the Lord.  For me to write these same things to you is not a problem, and they will keep you safe.\n",
         {
           "tag": "p"
-        }
+        },
+        "\n"
       ],
       "2": [
         "Watch out for the dogs. Watch out for the evil workers. Watch out for the mutilators.\n",
         {
           "tag": "s5"
         },
+        "\n",
         {
           "tag": "p"
-        }
+        },
+        "\n"
       ]
     }
   }

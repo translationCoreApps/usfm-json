@@ -16,12 +16,15 @@
         {
           "tag": "b"
         },
+        "\n",
         {
           "tag": "s5"
         },
+        "\n",
         {
           "tag": "p"
-        }
+        },
+        "\n"
       ],
       "2": [
         "Grace to you and peace from God our Father and the Lord Jesus Christ.\n"
@@ -33,7 +36,8 @@
         "Every time I pray for you, it is always a prayer of joy.\n",
         {
           "tag": "s5"
-        }
+        },
+        "\n"
       ],
       "5": [
         "I give thanks for your fellowship in the gospel from the first day until now.\n"
@@ -44,7 +48,8 @@
         "If there is therefore any encouragement in Christ, if any comfort from his love, if any fellowship of the Spirit, if any tender mercies and compassions,\n",
         {
           "tag": "s5"
-        }
+        },
+        "\n"
       ],
       "2": [
         "make my joy full so that you are of the same mind, have the same love, are united in spirit, and have the same purpose.\n"

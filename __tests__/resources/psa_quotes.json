@@ -14,69 +14,76 @@
   "chapters": {
     "1": {
       "1": [
-        "Blessed is the man who does not walk in the advice of the wicked,",
+        "Blessed is the man who does not walk in the advice of the wicked,\n",
         {
           "tag": "q"
         },
-        "or stand in the pathway with sinners,",
+        "or stand in the pathway with sinners,\n",
         {
           "tag": "q"
         },
-        "or sit in the assembly of mockers.",
+        "or sit in the assembly of mockers.\n",
         {
           "tag": "q"
-        }
+        },
+        "\n"
       ],
       "2": [
-        "But his delight is in the law of Yahweh,",
+        "But his delight is in the law of Yahweh,\n",
         {
           "tag": "q"
         },
-        "and on his law he meditates day and night.",
+        "and on his law he meditates day and night.\n",
         {
           "tag": "s5"
         },
+        "\n",
         {
           "tag": "q"
-        }
+        },
+        "\n"
       ],
       "3": [
-        "He will be like a tree planted by the streams of water",
+        "He will be like a tree planted by the streams of water\n",
         {
           "tag": "q"
         },
-        "that produces its fruit in its season,",
+        "that produces its fruit in its season,\n",
         {
           "tag": "q"
         },
-        "whose leaves do not wither;",
+        "whose leaves do not wither;\n",
         {
           "tag": "q"
         },
-        "whatever he does will prosper.",
+        "whatever he does will prosper.\n",
         {
           "tag": "s5"
         },
+        "\n",
         {
           "tag": "q"
-        }
+        },
+        "\n"
       ],
       "4": [
-        "The wicked are not so,",
+        "The wicked are not so,\n",
         {
           "tag": "q"
         },
-        "but are instead like the chaff that the wind drives away.",
+        "but are instead like the chaff that the wind drives away.\n",
         {
           "tag": "q"
-        }
+        },
+        "\n"
       ],
+
       "5": [
-        "So the wicked will not stand in the judgment,",
+        "So the wicked will not stand in the judgment,\n",
         {
           "tag": "q"
         },
-        "nor sinners in the assembly of the righteous."
+        "nor sinners in the assembly of the righteous.\n"
       ]
     }
   }

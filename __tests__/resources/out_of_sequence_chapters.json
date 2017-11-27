@@ -12,40 +12,43 @@
   "chapters": {
     "1": {
       "1": [
-        "Paul and Timothy, servants of Christ Jesus, to all the ones set apart in Christ Jesus who are at Philippi, with the overseers and deacons."
+        "Paul and Timothy, servants of Christ Jesus, to all the ones set apart in Christ Jesus who are at Philippi, with the overseers and deacons.\n"
       ],
       "2": [
-        "Grace to you and peace from God our Father and the Lord Jesus Christ.",
+        "Grace to you and peace from God our Father and the Lord Jesus Christ.\n",
         {
           "tag": "s5"
-        }
+        },
+        "\n"
       ]
     },
     "2": {
       "1": [
-        "If there is therefore any encouragement in Christ, if any comfort from his love, if any fellowship of the Spirit, if any tender mercies and compassions,"
+        "If there is therefore any encouragement in Christ, if any comfort from his love, if any fellowship of the Spirit, if any tender mercies and compassions,\n"
       ],
       "2": [
-        "make my joy full so that you are of the same mind, have the same love, are united in spirit, and have the same purpose."
+        "make my joy full so that you are of the same mind, have the same love, are united in spirit, and have the same purpose.\n"
       ]
     },
     "3": {
       "1": [
-        "Finally, my brothers, rejoice in the Lord.  For me to write these same things to you is not a problem, and they will keep you safe."
+        "Finally, my brothers, rejoice in the Lord.  For me to write these same things to you is not a problem, and they will keep you safe.\n"
       ],
       "2": [
-        "Watch out for the dogs. Watch out for the evil workers. Watch out for the mutilators.",
+        "Watch out for the dogs. Watch out for the evil workers. Watch out for the mutilators.\n",
         {
           "tag": "s5"
-        }
+        },
+        "\n"
       ]
     },
     "4": {
       "1": [
-        "Therefore, my beloved brothers whom I long for, my joy and crown, in this way stand firm in the Lord, beloved friends.",
+        "Therefore, my beloved brothers whom I long for, my joy and crown, in this way stand firm in the Lord, beloved friends.\n",
         {
           "tag": "s5"
-        }
+        },
+        "\n"
       ]
     }
   }

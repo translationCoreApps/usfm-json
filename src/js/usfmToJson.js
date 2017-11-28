@@ -392,7 +392,8 @@ export const usfmToJSON = (usfm, params = {}) => {
       }
       case undefined: { // likely orphaned text for the preceding verse marker
         if (currentChapter > 0 && currentVerse > 0 && marker.content) {
-          addToCurrentVerse(nested, chapters, currentChapter, currentVerse, marker.content);
+          addToCurrentVerse(nested, chapters, currentChapter, currentVerse,
+            marker.content);
         }
         if (params.chunk && currentVerse > 0 && marker.content) {
           if (!verses[currentVerse])

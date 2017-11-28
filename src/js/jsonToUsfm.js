@@ -1,4 +1,4 @@
-import * as USFM from './USFM'
+import * as USFM from './USFM';
 
 /**
  * @description Takes in word json and outputs it as USFM.
@@ -10,7 +10,7 @@ export const generateWord = wordObject => {
   let attributes = [];
   const word = wordObject.word;
   keys.forEach(function(key) {
-    if((key !== 'word') && (key !== 'tag')) {
+    if ((key !== 'word') && (key !== 'tag')) {
       let prefix = (key === 'lemma' || key === 'strongs') ? '' : 'x-';
       let attribute = prefix + key + '="' + wordObject[key] + '"';
       attributes.push(attribute);
@@ -21,64 +21,68 @@ export const generateWord = wordObject => {
 };
 
 /**
- * convert usfm tag to string
- * @param tag
- * @param number
- * @param text
- * @return {string}
+ * @description convert usfm marker to string
+ * @param {String} tag - tag for usfm marker
+ * @param {String} number - optional number (as a string) for tag
+ * @param {String} context - optional content text for marker
+ * @param {String} nextText - optional text that is next entry.  Used to determine if we need to add a space between
+ *                              tag and text
+ * @return {String} Text equivalent of marker.
  */
-export const usfmMarkerToString = (tag, number, text, nextText) => {
+export const usfmMarkerToString = (tag, number, context, nextText) => {
   let output = '\\' + tag;
-  if(number) {
+  if (number) {
     output += ' ' + number;
   }
 
-  if(nextText && (nextText[0] !== '\n') && USFM.markerHasNoContent(tag)) {
+  if (nextText && (nextText[0] !== '\n') && USFM.markerHasNoContent(tag)) {
     output += ' ';
   }
-  else if(text && (text[0] !== '\n')) {
+  else if (context && (context[0] !== '\n')) {
     output += ' ';
   }
 
-  if(text) {
-    output += text;
+  if (context) {
+    output += context;
   }
   return output;
 };
 
 /**
- *
- * @param item
- * @return {*}
+ * @description Identifies type of
+ * @param {string|array|object} object - marker to print
+ * @param {String} nextObject - optional object that is next entry.  Used to determine if we need to add a space
+ *                              between current marker and following text
+ * @return {String} Text equivalent of marker.
  */
-export const objectToString = (item, nextItem) => {
-  if(!item) {
+export const objectToString = (object, nextObject) => {
+  if (!object) {
     return "";
   }
 
-  if (typeof item === 'string') {
-    return item;
+  if (typeof object === 'string') {
+    return object;
   }
 
-  if (Array.isArray(item)) {
+  if (Array.isArray(object)) {
     let output = "";
-    for(let i=0; i<item.length; i++) {
-      const itemN = item[i];
-      const nextItem = (i+1<item.length) ? item[i+1] : null;
-      let text = objectToString(itemN, nextItem);
-      if(text){
+    for (let i = 0; i < object.length; i++) {
+      const objectN = object[i];
+      const nextObject = (i + 1 < object.length) ? object[i+1] : null;
+      let text = objectToString(objectN, nextObject);
+      if (text) {
         output += text;
       }
     }
     return output;
   }
 
-  if(item['word']) {
-    return exports.generateWord(item);
+  if( object['word']) { // usfm word marker
+    return exports.generateWord(object);
   }
 
-  if(item['tag']) {
-    let output = usfmMarkerToString(item.tag, item.number, item.content, nextItem);
+  if (object['tag']) { // any other USFM marker tag
+    const output = usfmMarkerToString(object.tag, object.number, object.content, nextObject);
     return output;
   }
   return "";

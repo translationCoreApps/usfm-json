@@ -190,7 +190,7 @@ export const unPopNestedMarker = (saveTo, content, nested, chapters, tag, curren
  * @param currentVerse
  */
 export const processClose = (saveTo, content, nested, chapters, usfmObject, currentChapter, currentVerse) => {
-  const close = usfmObject["close"];
+  const close = usfmObject.close;
   if(close && close.length && (close[0] === "\\")) {
     unPopNestedMarker(saveTo, "", nested, chapters, close.substr(1), currentChapter, currentVerse);
   }
@@ -226,13 +226,13 @@ export const saveUsfmObject = (saveTo, nested, tag, usfmObject) => {
  */
 export const  addToCurrentVerse = (nested, chapters, currentChapter, currentVerse, usfmObject, tag=null) => {
   let saveTo = getSaveToLocation(chapters, currentChapter, currentVerse);
-  tag = tag || usfmObject["tag"];
+  tag = tag || usfmObject.tag;
   if(!tag) {
     pushObject(nested, saveTo, usfmObject);
     return;
   }
 
-  let content = usfmObject["content"];
+  let content = usfmObject.content;
   if(USFM.markerHasNoContent(tag)) {
     // separate marker and text
     const output = {
@@ -250,7 +250,7 @@ export const  addToCurrentVerse = (nested, chapters, currentChapter, currentVers
       tag: tag
     };
     if (usfmObject["number"]) {
-      output["number"] = usfmObject["number"];
+      output.number = usfmObject.number;
     }
 
     const isEndMarker = (content && (content[0]==="*"));
@@ -258,7 +258,7 @@ export const  addToCurrentVerse = (nested, chapters, currentChapter, currentVers
       unPopNestedMarker(saveTo, content, nested, chapters, tag, currentChapter, currentVerse);
     } else {
       if (content) {
-        output["content"] = content;
+        output.content = content;
       }
       saveUsfmObject(saveTo, nested, tag, output);
     }

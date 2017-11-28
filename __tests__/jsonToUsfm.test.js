@@ -22,6 +22,7 @@ it('converts greek json to usfm', () => {
   generateTest('greek');
 });
 
-it('process PSA quotes', () => {
+// TODO brucem: enable this once front matter support is added.
+it.skip('process PSA quotes', () => {
   generateTest('psa_quotes');
 });

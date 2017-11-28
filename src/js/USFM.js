@@ -3,7 +3,6 @@
  */
 
 // for these tags we don't embed the following text in marker content
-// must be sorted so we can do fast binary search
 export const NO_CONTENT_MARKERS = [
   "add",
   "b",
@@ -31,6 +30,7 @@ export const NO_CONTENT_MARKERS = [
   "sig",
   "sls",
   "tl",
+  "v",
   "w",
   "wg",
   "wh",
@@ -38,7 +38,6 @@ export const NO_CONTENT_MARKERS = [
 ];
 
 // for these tages we must embed following text in content until we find an end marker,
-// must be sorted so we can do fast binary search
 export const NEED_TERMINATION_MARKERS = [
   "bd",
   "bdit",
@@ -104,22 +103,29 @@ export const NEED_TERMINATION_MARKERS = [
   "xta"
 ];
 
-export function bsearch(Arr,value) {
-  let low  = 0;
-  let high = Arr.length-1;
-  let mid;
-  while (low <= high) {
-    mid = Math.floor((low+high)/2);
-    if(Arr[mid]===value) {
-      return mid;
-    }
-    else if (Arr[mid]<value)
-    {
-      low = mid+1;
-    }
-    else {
-      high = mid-1;
-    }
+export const initLookup = (lookup,keys) => {
+  for(let item of keys) {
+    lookup[item] = true;
   }
-  return -1 ;
-}
+};
+
+export const NO_CONTENT_MARKERS_LOOKUP = {};
+export const NEED_TERMINATION_MARKERS_LOOKUP = {};
+
+/**
+ * put tags in object for fast lookup
+ * @param lookup
+ * @param keys
+ */
+export const init = (lookup,keys) => {
+  initLookup(NO_CONTENT_MARKERS_LOOKUP, NO_CONTENT_MARKERS);
+  initLookup(NEED_TERMINATION_MARKERS_LOOKUP, NEED_TERMINATION_MARKERS);
+};
+
+export const markerHasNoContent = (tag) => {
+  return NO_CONTENT_MARKERS_LOOKUP[tag] === true;
+};
+
+export const markerRequiresTermination = (tag) => {
+  return NEED_TERMINATION_MARKERS_LOOKUP[tag] === true;
+};

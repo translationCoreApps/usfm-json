@@ -1,3 +1,5 @@
+import * as USFM from './USFM'
+
 /**
  * @description Takes in word json and outputs it as USFM.
  * @param {Object} wordObject - word in JSON
@@ -8,7 +10,7 @@ export const generateWord = wordObject => {
   let attributes = [];
   const word = wordObject.word;
   keys.forEach(function(key) {
-    if((key !== 'word') && (key !== 'type')) {
+    if((key !== 'word') && (key !== 'tag')) {
       let prefix = (key === 'lemma' || key === 'strongs') ? '' : 'x-';
       let attribute = prefix + key + '="' + wordObject[key] + '"';
       attributes.push(attribute);
@@ -18,19 +20,52 @@ export const generateWord = wordObject => {
   return line;
 };
 
-function objectToString(object) {
-  if(!object) {
+/**
+ * convert usfm tag to string
+ * @param tag
+ * @param number
+ * @param text
+ * @return {string}
+ */
+export const usfmMarkerToString = (tag, number, text, nextText) => {
+  let output = '\\' + tag;
+  if(number) {
+    output += ' ' + number;
+  }
+
+  if(nextText && (nextText[0] !== '\n') && USFM.markerHasNoContent(tag)) {
+    output += ' ';
+  }
+  else if(text && (text[0] !== '\n')) {
+    output += ' ';
+  }
+
+  if(text) {
+    output += text;
+  }
+  return output;
+};
+
+/**
+ *
+ * @param item
+ * @return {*}
+ */
+export const objectToString = (item, nextItem) => {
+  if(!item) {
     return "";
   }
 
-  if (typeof object === 'string') {
-    return object;
+  if (typeof item === 'string') {
+    return item;
   }
 
-  if (Array.isArray(object)) {
+  if (Array.isArray(item)) {
     let output = "";
-    for(let item of object) {
-      let text = objectToString(item);
+    for(let i=0; i<item.length; i++) {
+      const itemN = item[i];
+      const nextItem = (i+1<item.length) ? item[i+1] : null;
+      let text = objectToString(itemN, nextItem);
       if(text){
         output += text;
       }
@@ -38,20 +73,16 @@ function objectToString(object) {
     return output;
   }
 
-  if(object['word']) {
-    return exports.generateWord(object);
+  if(item['word']) {
+    return exports.generateWord(item);
   }
 
-  if(object['type']) {
-    let output = '\\' + object['type'] + ' ';
-    if(object['number']) {
-      output += object['number'] + ' ';
-    }
-    output += objectToString(object['content']);
+  if(item['tag']) {
+    let output = usfmMarkerToString(item.tag, item.number, item.content, nextItem);
     return output;
   }
   return "";
-}
+};
 
 /**
  * @description Takes in verse json and outputs it as a USFM line array.
@@ -61,7 +92,7 @@ function objectToString(object) {
  */
 export const generateVerse = (verseNumber, verseArray) => {
   const verseText = objectToString(verseArray);
-  return '\\v ' + verseNumber + ' ' + verseText;
+  return usfmMarkerToString('v', verseNumber, verseText);
 };
 
 /**
@@ -72,8 +103,8 @@ export const generateVerse = (verseNumber, verseArray) => {
  */
 export const generateChapterLines = (chapterNumber, chapterObject) => {
   let lines = [];
-  lines.push('\\c ' + chapterNumber);
-  lines.push('\\p');
+  lines.push('\\c ' + chapterNumber + '\n');
+  lines.push('\\p\n');
   const verseNumbers = Object.keys(chapterObject);
   verseNumbers.forEach(function(verseNumber) {
     const verseArray = chapterObject[verseNumber];
@@ -89,12 +120,13 @@ export const generateChapterLines = (chapterNumber, chapterObject) => {
  * @return {String} - Scripture in USFM
  */
 export const jsonToUSFM = json => {
-  let lines = [];
+  USFM.init();
+  let output = [];
   if (json.headers) {
     const keys = Object.keys(json.headers);
     keys.forEach(function(key) {
       const value = json.headers[key];
-      lines.push('\\' + key + ' ' + value);
+      output.push(usfmMarkerToString(key, '', value + '\n'));
     });
   }
   if (json.chapters) {
@@ -104,7 +136,7 @@ export const jsonToUSFM = json => {
       const chapterLines = exports.generateChapterLines(
           chapterNumber, chapterObject,
       );
-      lines = lines.concat(chapterLines);
+      output = output.concat(chapterLines);
     });
   }
   if (json.verses) {
@@ -114,8 +146,8 @@ export const jsonToUSFM = json => {
       const verse = exports.generateVerse(
           verseNumber, verseObject,
       );
-      lines = lines.push(verse);
+      output = output.push(verse);
     });
   }
-  return lines.join('\n');
+  return output.join('');
 };

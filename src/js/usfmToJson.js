@@ -206,9 +206,8 @@ export const processClose = (saveTo, content, nested, chapters, usfmObject, curr
 export const saveUsfmObject = (saveTo, nested, tag, usfmObject) => {
   const isNestedMarker = nested.length > 0;
   if(!isNestedMarker) {
-    const markerRequiresTermination = USFM.bsearch(USFM.NEED_TERMINATION_MARKERS, tag) >= 0;
     saveTo.push(usfmObject);
-    if (markerRequiresTermination) { // need to handle nested data
+    if (USFM.markerRequiresTermination(tag)) { // need to handle nested data
       nested.push(usfmObject);
     }
   } else { // is nested
@@ -234,8 +233,7 @@ export const  addToCurrentVerse = (nested, chapters, currentChapter, currentVers
   }
 
   let content = usfmObject["content"];
-  const markerHasNoContent = USFM.bsearch(USFM.NO_CONTENT_MARKERS,tag) >= 0;
-  if(markerHasNoContent) {
+  if(USFM.markerHasNoContent(tag)) {
     // separate marker and text
     const output = {
       tag: tag,
@@ -314,6 +312,7 @@ export const pushObject = (nested, saveTo, wordObject) => {
  * @return {Object} - json object that holds the parsed usfm data, headers and chapters
 */
 export const usfmToJSON = (usfm, params = {}) => {
+  USFM.init();
   const lines = usfm.match(/.*/g); // get all the lines
   let usfmJSON = {};
   let markers = [];

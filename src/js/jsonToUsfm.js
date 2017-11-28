@@ -76,11 +76,11 @@ export const objectToString = (object, nextObject) => {
     return output;
   }
 
-  if (object['word']) { // usfm word marker
+  if (object.word) { // usfm word marker
     return exports.generateWord(object);
   }
 
-  if (object['tag']) { // any other USFM marker tag
+  if (object.tag) { // any other USFM marker tag
     const output = usfmMarkerToString(object.tag, object.number, object.content,
       nextObject);
     return output;

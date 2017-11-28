@@ -103,8 +103,13 @@ export const NEED_TERMINATION_MARKERS = [
   "xta"
 ];
 
-export const initLookup = (lookup,keys) => {
-  for(let item of keys) {
+/**
+ * @description - initialize by putting tags in object for fast lookup
+ * @param {object} lookup - target lookup dictionary
+ * @param {array} keys - list of tags for lookup
+ */
+export const initLookup = (lookup, keys) => {
+  for (let item of keys) {
     lookup[item] = true;
   }
 };
@@ -113,19 +118,17 @@ export const NO_CONTENT_MARKERS_LOOKUP = {};
 export const NEED_TERMINATION_MARKERS_LOOKUP = {};
 
 /**
- * put tags in object for fast lookup
- * @param lookup
- * @param keys
+ * description - initialize by putting tags in object for fast lookup
  */
-export const init = (lookup,keys) => {
+export const init = () => {
   initLookup(NO_CONTENT_MARKERS_LOOKUP, NO_CONTENT_MARKERS);
   initLookup(NEED_TERMINATION_MARKERS_LOOKUP, NEED_TERMINATION_MARKERS);
 };
 
-export const markerHasNoContent = (tag) => {
+export const markerHasNoContent = tag => {
   return NO_CONTENT_MARKERS_LOOKUP[tag] === true;
 };
 
-export const markerRequiresTermination = (tag) => {
+export const markerRequiresTermination = tag => {
   return NEED_TERMINATION_MARKERS_LOOKUP[tag] === true;
 };

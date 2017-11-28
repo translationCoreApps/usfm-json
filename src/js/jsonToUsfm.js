@@ -37,8 +37,7 @@ export const usfmMarkerToString = (tag, number, context, nextText) => {
 
   if (nextText && (nextText[0] !== '\n') && USFM.markerHasNoContent(tag)) {
     output += ' ';
-  }
-  else if (context && (context[0] !== '\n')) {
+  } else if (context && (context[0] !== '\n')) {
     output += ' ';
   }
 
@@ -68,7 +67,7 @@ export const objectToString = (object, nextObject) => {
     let output = "";
     for (let i = 0; i < object.length; i++) {
       const objectN = object[i];
-      const nextObject = (i + 1 < object.length) ? object[i+1] : null;
+      const nextObject = (i + 1 < object.length) ? object[i + 1] : null;
       let text = objectToString(objectN, nextObject);
       if (text) {
         output += text;
@@ -77,12 +76,13 @@ export const objectToString = (object, nextObject) => {
     return output;
   }
 
-  if( object['word']) { // usfm word marker
+  if (object['word']) { // usfm word marker
     return exports.generateWord(object);
   }
 
   if (object['tag']) { // any other USFM marker tag
-    const output = usfmMarkerToString(object.tag, object.number, object.content, nextObject);
+    const output = usfmMarkerToString(object.tag, object.number, object.content,
+      nextObject);
     return output;
   }
   return "";

@@ -112,7 +112,11 @@ export const generateVerse = (verseNumber, verseArray) => {
 export const generateChapterLines = (chapterNumber, chapterObject) => {
   let lines = [];
   lines.push('\\c ' + chapterNumber + '\n');
-  lines.push('\\p\n');
+  if (chapterObject.front) {
+    const verseText = objectToString(chapterObject.front) + '\n';
+    lines = lines.concat(verseText);
+    delete chapterObject.front;
+  }
   const verseNumbers = Object.keys(chapterObject);
   verseNumbers.forEach(function(verseNumber) {
     const verseArray = chapterObject[verseNumber];

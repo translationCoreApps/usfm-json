@@ -78,7 +78,7 @@ export const parseWord = wordContent => {
 
 /**
  * @description - make a marker object that contains the text
- * @param text
+ * @param {string} text - text to embed in object
  * @return {{content: *}} new text marker
  */
 function makeTextObject(text) {
@@ -149,7 +149,7 @@ export const parseLine = line => {
  * @return {array} location to place verse content
  */
 export const getSaveToLocation = (chapters, currentChapter, currentVerse) => {
-  if(!currentVerse) {
+  if (!currentVerse) {
     currentVerse = 'front';
   }
   if (!chapters[currentChapter][currentVerse])
@@ -348,8 +348,8 @@ export const usfmToJSON = (usfm, params = {}) => {
   USFM.init();
   const verseSpanRegex = /(-\d+\s)/g;
   let lines = usfm.split(/\r?\n/); // get all the lines
-  if(lines.length && (lines[lines.length - 1] === "")) {
-    lines = lines.slice(0,lines.length - 1)
+  if (lines.length && (lines[lines.length - 1] === "")) {
+    lines = lines.slice(0, lines.length - 1);
   }
   let usfmJSON = {};
   let markers = [];
@@ -385,7 +385,7 @@ export const usfmToJSON = (usfm, params = {}) => {
 
         // check for verse span
         const spanMatch = verseSpanRegex.exec(marker.content);
-        if(spanMatch) {
+        if (spanMatch) {
           currentVerse += spanMatch[0].trim();
           marker.content = marker.content.substr(spanMatch[0].length);
         }

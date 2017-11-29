@@ -45,7 +45,7 @@ export const usfmMarkerToString = (tag, number, context, nextText) => {
     output += context;
   }
 
-  if(USFM.markerRequiresTermination(tag)) {
+  if (USFM.markerRequiresTermination(tag)) {
     output += ' \\' + tag + '*';
   }
   return output;

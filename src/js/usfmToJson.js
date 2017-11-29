@@ -61,7 +61,7 @@ export const parseWord = wordContent => {
   const attributeContent = wordParts[1];
   object = {
     word: word,
-    tag:  'w',
+    tag: 'w',
     type: 'word'
   };
   const regex = /[x-]*([\w-]+)=['"](.*?)['"]/g;
@@ -382,7 +382,8 @@ export const usfmToJSON = (usfm, params = {}) => {
             onSameChapter = true;
             break;
           }
-          let saveTo = getSaveToLocation(chapters, currentChapter, currentVerse);
+          let saveTo = getSaveToLocation(chapters, currentChapter,
+            currentVerse);
           pushObject(nested, saveTo, marker.content);
         }
         break;

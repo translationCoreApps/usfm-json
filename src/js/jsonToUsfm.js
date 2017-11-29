@@ -47,9 +47,9 @@ export const usfmMarkerToString = (tag, number, content, nextText) => {
   }
 
   if (USFM.markerRequiresTermination(tag)) {
-    if(output) {
+    if (output) {
       const lastChar = output[output.length - 1];
-      if ((lastChar !== ' ') && (lastChar != '\n')) {
+      if ((lastChar !== ' ') && (lastChar !== '\n')) {
         output += ' ';
       }
     }

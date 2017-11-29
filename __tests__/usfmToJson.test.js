@@ -47,7 +47,7 @@ it('preserves punctuation in usfm', () => {
   generateTest('tit_1_12');
 });
 
-it('preserves punctuation in usfm new_line', () => {
+it('preserves white space in usfm new_line', () => {
   generateTest('tit_1_12_new_line');
 });
 
@@ -62,3 +62,8 @@ it('process ISA footnote', () => {
 it('process PSA quotes', () => {
   generateTest('psa_quotes');
 });
+
+it('process ISA verse span', () => {
+  generateTest('isa_verse_span');
+});
+

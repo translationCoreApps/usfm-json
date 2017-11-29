@@ -77,6 +77,17 @@ export const parseWord = wordContent => {
 };
 
 /**
+ * @description - make a marker object that contains the text
+ * @param text
+ * @return {{content: *}} new text marker
+ */
+function makeTextObject(text) {
+  return {
+    content: text
+  };
+}
+
+/**
  * @description - Parses the line and determines what content is in it
  * @param {String} line - the string to find the markers and content
  * @return {Array} - array of objects that describe open/close and content
@@ -84,10 +95,12 @@ export const parseWord = wordContent => {
 export const parseLine = line => {
   let array = [];
   if (line.trim() === '') {
+    const object = makeTextObject(line + '\n');
+    array.push(object);
     return array;
   }
   const regex = /([^\\]+)?\\(\w+\s*\d*)(?!\w)\s*([^\\]+)?(\\\w\*)?/g;
-  const matches = exports.getMatches(line, regex);
+  const matches = getMatches(line, regex);
   if (regex.exec(line)) { // normal formatting with marker followed by content
     matches.forEach(function(match) {
       const orphan = match[1] ? match[1].trim() : undefined;
@@ -98,7 +111,7 @@ export const parseLine = line => {
       const open = match[2] ? match[2].trim() : undefined;
       const content = match[3] ? match[3].trim() : undefined;
       const close = match[4] ? match[4].trim() : undefined;
-      let marker = exports.parseMarkerOpen(open);
+      let marker = parseMarkerOpen(open);
       const object = {
         open: open,
         tag: marker.tag,
@@ -116,17 +129,13 @@ export const parseLine = line => {
       const lastMatch = matches[matches.length - 1];
       const endPos = lastMatch.index + lastMatch[0].length;
       if (endPos < line.length) {
-        const object = {
-          content: line.substr(endPos) + '\n'
-        };
+        const object = makeTextObject(line.substr(endPos) + '\n');
         array.push(object);
       }
     }
   } else { // doesn't have a marker but may have content
     // this is considered an orphaned line
-    const object = {
-      content: line + '\n'
-    };
+    const object = makeTextObject(line + '\n');
     array.push(object);
   }
   return array;
@@ -135,11 +144,14 @@ export const parseLine = line => {
 /**
  * @description - get location for chapter/verse, if location doesn't exist, create it.
  * @param {array} chapters - holds all chpater content
- * @param {int} currentChapter - current chapter
- * @param {int} currentVerse - current verse
+ * @param {string} currentChapter - current chapter
+ * @param {string} currentVerse - current verse
  * @return {array} location to place verse content
  */
 export const getSaveToLocation = (chapters, currentChapter, currentVerse) => {
+  if(!currentVerse) {
+    currentVerse = 'front';
+  }
   if (!chapters[currentChapter][currentVerse])
     chapters[currentChapter][currentVerse] = [];
 
@@ -150,7 +162,7 @@ export const getSaveToLocation = (chapters, currentChapter, currentVerse) => {
  * @description push usfm object to array, and concat strings of last array item is also string
  * @param {array} nested - points to object that contains nested content such as for '\f'
  * @param {array} saveTo - location to place verse content
- * @param {object|string} usfmObject - object that contains usfm marker, or could be raw text
+ * @param {string} usfmObject - object that contains usfm marker, or could be raw text
  */
 export const pushObject = (nested, saveTo, usfmObject) => {
   const isNestedMarker = nested.length > 0;
@@ -203,8 +215,8 @@ export const pushObject = (nested, saveTo, usfmObject) => {
  * @param {array} nested - points to object that contains nested content such as for '\f'
  * @param {array} chapters - holds all chapter content
  * @param {String} tag - usfm marker tag
- * @param {int} currentChapter - current chapter
- * @param {int} currentVerse - current verse
+ * @param {string} currentChapter - current chapter
+ * @param {string} currentVerse - current verse
  */
 export const unPopNestedMarker = (saveTo, content, nested, chapters, tag,
                                   currentChapter, currentVerse) => {
@@ -242,8 +254,8 @@ export const unPopNestedMarker = (saveTo, content, nested, chapters, tag,
  * @param {array} nested - points to object that contains nested content such as for '\f'
  * @param {array} chapters - holds all chapter content
  * @param {object} usfmObject - object that contains usfm marker
- * @param {int} currentChapter - current chapter
- * @param {int} currentVerse - current verse
+ * @param {string} currentChapter - current chapter
+ * @param {string} currentVerse - current verse
  */
 export const processClose = (saveTo, content, nested, chapters, usfmObject,
                              currentChapter, currentVerse) => {
@@ -276,8 +288,8 @@ export const saveUsfmObject = (saveTo, nested, tag, usfmObject) => {
  * @description - adds usfm object to current verse and handles nested USFM objects
  * @param {array} nested - points to object that contains nested content such as for '\f'
  * @param {array} chapters - holds all chapter content
- * @param {int} currentChapter - current chapter
- * @param {int} currentVerse - current verse
+ * @param {string} currentChapter - current chapter
+ * @param {string} currentVerse - current verse
  * @param {object} usfmObject - object that contains usfm marker
  * @param {String} tag - usfm marker tag
  */
@@ -334,11 +346,15 @@ export const addToCurrentVerse = (nested, chapters, currentChapter,
 */
 export const usfmToJSON = (usfm, params = {}) => {
   USFM.init();
-  const lines = usfm.match(/.*/g); // get all the lines
+  const verseSpanRegex = /(-\d+\s)/g;
+  let lines = usfm.split(/\r?\n/); // get all the lines
+  if(lines.length && (lines[lines.length - 1] === "")) {
+    lines = lines.slice(0,lines.length - 1)
+  }
   let usfmJSON = {};
   let markers = [];
   lines.forEach(function(line) {
-    const parsedLine = exports.parseLine(line.trim());
+    const parsedLine = parseLine(line.trim());
     markers = markers.concat(parsedLine);
   });
   let currentChapter = 0;
@@ -366,6 +382,14 @@ export const usfmToJSON = (usfm, params = {}) => {
           marker.content += marker.nextChar;
         }
         currentVerse = marker.number;
+
+        // check for verse span
+        const spanMatch = verseSpanRegex.exec(marker.content);
+        if(spanMatch) {
+          currentVerse += spanMatch[0].trim();
+          marker.content = marker.content.substr(spanMatch[0].length);
+        }
+
         if (params.chunk === true && !onSameChapter) {
           if (verses[currentVerse]) {
             onSameChapter = true;
@@ -407,7 +431,7 @@ export const usfmToJSON = (usfm, params = {}) => {
         break;
       }
       case undefined: { // likely orphaned text for the preceding verse marker
-        if (currentChapter > 0 && currentVerse > 0 && marker.content) {
+        if (currentChapter > 0 && marker.content) {
           addToCurrentVerse(nested, chapters, currentChapter, currentVerse,
             marker.content);
         }
@@ -428,7 +452,7 @@ export const usfmToJSON = (usfm, params = {}) => {
             value = marker.content;
           }
           headers[marker.tag] = value;
-        } else if (currentChapter && currentVerse) {
+        } else if (currentChapter) {
           addToCurrentVerse(nested, chapters, currentChapter, currentVerse,
             marker);
         }

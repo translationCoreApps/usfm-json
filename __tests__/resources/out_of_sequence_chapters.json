@@ -11,6 +11,11 @@
   },
   "chapters": {
     "1": {
+      "front": [
+        {
+          "tag": "p"
+        }
+      ],
       "1": [
         {
           "type": "text",
@@ -20,7 +25,7 @@
       "2": [
         {
           "type": "text",
-          "text": "Grace to you and peace from God our Father and the Lord Jesus Christ.\n"
+          "text": "Grace to you and peace from God our Father and the Lord Jesus Christ.\n\n\n\n"
         },
         {
           "tag": "s5"
@@ -28,6 +33,11 @@
       ]
     },
     "2": {
+      "front": [
+        {
+          "tag": "p"
+        }
+      ],
       "1": [
         {
           "type": "text",
@@ -42,6 +52,11 @@
       ]
     },
     "3": {
+      "front": [
+        {
+          "tag": "p"
+        }
+      ],
       "1": [
         {
           "type": "text",
@@ -51,7 +66,7 @@
       "2": [
         {
           "type": "text",
-          "text": "Watch out for the dogs. Watch out for the evil workers. Watch out for the mutilators.\n"
+          "text": "Watch out for the dogs. Watch out for the evil workers. Watch out for the mutilators.\n\n\n\n"
         },
         {
           "tag": "s5"
@@ -59,10 +74,15 @@
       ]
     },
     "4": {
+      "front": [
+        {
+          "tag": "p"
+        }
+      ],
       "1": [
         {
           "type": "text",
-          "text": "Therefore, my beloved brothers whom I long for, my joy and crown, in this way stand firm in the Lord, beloved friends.\n"
+          "text": "Therefore, my beloved brothers whom I long for, my joy and crown, in this way stand firm in the Lord, beloved friends.\n\n\n"
         },
         {
           "tag": "s5"

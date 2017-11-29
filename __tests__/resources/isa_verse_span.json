@@ -19,30 +19,17 @@
           "tag": "q1"
         },
         {
-          "text": "\n\n",
-          "type": "text"
+          "type": "text",
+          "text": "\n\n"
         },
         {
           "tag": "s5"
         }
       ],
-      "15": [
+      "15-16": [
         {
           "type": "text",
-          "text": "Man is brought down, and the great man is humbled, and the eyes of the lofty are cast down.\n"
-        },
-        {
-          "tag": "q1"
-        },
-        {
-          "type": "text",
-          "text": "\n"
-        }
-      ],
-      "16": [
-        {
-          "type": "text",
-          "text": "Yahweh of hosts is exalted in his justice, and God the Holy One shows himself holy by his righteousness.\n"
+          "text": "Man is brought down, and the great man is humbled, and the eyes of the lofty are cast down.\nYahweh of hosts is exalted in his justice, and God the Holy One shows himself holy by his righteousness.\n"
         },
         {
           "tag": "q1"

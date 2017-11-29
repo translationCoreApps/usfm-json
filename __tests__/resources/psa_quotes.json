@@ -13,6 +13,18 @@
   },
   "chapters": {
     "1": {
+      "front": [
+        {
+          "tag": "p"
+        },
+        {
+          "tag": "q"
+        },
+        {
+          "text": "\n",
+          "type": "text"
+        }
+      ],
       "1": [
         {
           "type": "text",
@@ -50,7 +62,7 @@
         },
         {
           "type": "text",
-          "text": "and on his law he meditates day and night.\n"
+          "text": "and on his law he meditates day and night.\n\n"
         },
         {
           "tag": "s5"
@@ -87,7 +99,7 @@
         },
         {
           "type": "text",
-          "text": "whatever he does will prosper.\n"
+          "text": "whatever he does will prosper.\n\n"
         },
         {
           "tag": "s5"

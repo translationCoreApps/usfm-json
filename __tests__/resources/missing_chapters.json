@@ -11,6 +11,11 @@
   },
   "chapters": {
     "3": {
+      "front": [
+        {
+          "tag": "p"
+        }
+      ],
       "1": [
         {
           "type": "text",
@@ -23,7 +28,7 @@
       "2": [
         {
           "type": "text",
-          "text": "Watch out for the dogs. Watch out for the evil workers. Watch out for the mutilators.\n"
+          "text": "Watch out for the dogs. Watch out for the evil workers. Watch out for the mutilators.\n\n\n\n\n"
         },
         {
           "tag": "s5"

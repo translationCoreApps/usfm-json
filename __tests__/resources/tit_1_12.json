@@ -9,6 +9,12 @@
   },
   "chapters": {
     "1": {
+      "front": [
+        {
+          "type": "text",
+          "text": "\n"
+        }
+      ],
       "12": [
         {
           "type": "text",

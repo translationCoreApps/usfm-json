@@ -4,6 +4,11 @@
   },
   "chapters": {
     "1": {
+      "front": [
+        {
+          "tag": "p"
+        }
+      ],
       "1": [
         {
           "type": "text",

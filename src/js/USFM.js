@@ -5,7 +5,6 @@
 // for these tags we don't embed the following text in marker content
 export const NO_CONTENT_MARKERS = [
   "add",
-  "b",
   "bd",
   "bdit",
   "bk",
@@ -17,7 +16,6 @@ export const NO_CONTENT_MARKERS = [
   "nd",
   "no",
   "ord",
-  "p",
   "pn",
   "q",
   "q1",
@@ -25,7 +23,6 @@ export const NO_CONTENT_MARKERS = [
   "q3",
   "qt",
   "qt",
-  "s5",
   "sc",
   "sig",
   "sls",

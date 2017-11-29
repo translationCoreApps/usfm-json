@@ -5,10 +5,16 @@
   "chapters": {
     "1": {
       "1": [
-        "The elder to beloved Gaius, whom I love in truth.\n"
+        {
+          "type": "text",
+          "text": "The elder to beloved Gaius, whom I love in truth.\n"
+        }
       ],
       "2": [
-        "Beloved, I pray that you may prosper in all things and be in health, just as your soul prospers.\n"
+        {
+          "type": "text",
+          "text": "Beloved, I pray that you may prosper in all things and be in health, just as your soul prospers.\n"
+        }
       ]
     }
   }

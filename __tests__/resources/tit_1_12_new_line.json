@@ -10,31 +10,46 @@
   "chapters": {
     "1": {
       "12": [
-        "\n",
+        {
+          "type": "text",
+          "text": "\n"
+        },
         {
           "word": "προφήτης",
           "lemma": "προφήτης",
           "strong": "G43960",
           "morph": "Gr,N,,,,,NMS,",
-          "tag": "w"
+          "tag": "w",
+          "type": "word"
         },
-        ",\n“\n",
+        {
+          "type": "text",
+          "text": ",\n“\n"
+        },
         {
           "word": "Κρῆτες",
           "lemma": "Κρής",
           "strong": "G29120",
           "morph": "Gr,N,,,,,NMP,",
-          "tag": "w"
+          "tag": "w",
+          "type": "word"
         },
-        "\n",
+        {
+          "type": "text",
+          "text": "\n"
+        },
         {
           "word": "ἀργαί",
           "lemma": "ἀργός",
           "strong": "G06920",
           "morph": "Gr,AA,,,,NFP,",
-          "tag": "w"
+          "tag": "w",
+          "type": "word"
         },
-        ".\n”\n"
+        {
+          "type": "text",
+          "text": ".\n”\n"
+        }
       ]
     }
   }

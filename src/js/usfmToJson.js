@@ -61,12 +61,17 @@ export const parseWord = wordContent => {
   const attributeContent = wordParts[1];
   object = {
     word: word,
-    tag: 'w'
+    tag:  'w',
+    type: 'word'
   };
   const regex = /[x-]*([\w-]+)=['"](.*?)['"]/g;
   const matches = exports.getMatches(attributeContent, regex);
   matches.forEach(function(match) {
-    object[match[1]] = match[2];
+    let key = match[1];
+    if (key === "strongs") { // fix invalid 'strongs' key
+      key = "strong";
+    }
+    object[key] = match[2];
   });
   return object;
 };
@@ -142,10 +147,10 @@ export const getSaveToLocation = (chapters, currentChapter, currentVerse) => {
 };
 
 /**
- * @description push text string to array, and concat strings of last array item is also string
+ * @description push usfm object to array, and concat strings of last array item is also string
  * @param {array} nested - points to object that contains nested content such as for '\f'
  * @param {array} saveTo - location to place verse content
- * @param {object} usfmObject - object that contains usfm marker
+ * @param {object|string} usfmObject - object that contains usfm marker, or could be raw text
  */
 export const pushObject = (nested, saveTo, usfmObject) => {
   const isNestedMarker = nested.length > 0;
@@ -163,18 +168,28 @@ export const pushObject = (nested, saveTo, usfmObject) => {
     nested[last].content = text;
     return;
   }
-  if (saveTo.length && (typeof usfmObject === "string")) {
+
+  if (typeof usfmObject === "string") { // if raw text, convert to object
+    const object = {
+      type: "text",
+      text: usfmObject
+    };
+    usfmObject = object;
+  }
+
+  if (saveTo.length && (usfmObject.type === "text")) {
     // see if we can append to previous string
     const lastPos = saveTo.length - 1;
     let lastObject = saveTo[lastPos];
-    if (typeof lastObject === "string") {
+    if (lastObject.type === "text") {
       // see if we need to separate with space
-      const lastChar = lastObject.length ? lastObject.substr(lastObject.length - 1) : "";
+      let lastText = lastObject.text;
+      const lastChar = lastText.length ? lastText.substr(lastText.length - 1) : "";
       if (usfmObject && (usfmObject[0] !== '\n') && (lastChar !== '\n')) {
-        lastObject += ' ';
+        lastText += ' ';
       }
-      lastObject += usfmObject;
-      saveTo[lastPos] = lastObject;
+      lastText += usfmObject.text;
+      lastObject.text = lastText;
       return;
     }
   }
@@ -357,7 +372,7 @@ export const usfmToJSON = (usfm, params = {}) => {
             break;
           } else {
             verses[currentVerse] = [];
-            verses[currentVerse].push(marker.content);
+            pushObject(nested, verses[currentVerse], marker.content);
           }
         }
         if (chapters[currentChapter] && !onSameChapter) {
@@ -367,8 +382,8 @@ export const usfmToJSON = (usfm, params = {}) => {
             onSameChapter = true;
             break;
           }
-          chapters[currentChapter][currentVerse] = [];
-          chapters[currentChapter][currentVerse].push(marker.content);
+          let saveTo = getSaveToLocation(chapters, currentChapter, currentVerse);
+          pushObject(nested, saveTo, marker.content);
         }
         break;
       }
@@ -382,7 +397,7 @@ export const usfmToJSON = (usfm, params = {}) => {
           };
           pushObject(nested, saveTo, wordObject);
         } else { // not nested
-          const wordObject = exports.parseWord(marker.content);
+          const wordObject = parseWord(marker.content);
           pushObject(nested, saveTo, wordObject);
         }
         if (marker.nextChar) {

@@ -7,76 +7,114 @@
   "chapters": {
     "1": {
       "1": [
-        "\n",
+        {
+          "type": "text",
+          "text": "\n"
+        },
         {
           "word": "Παῦλος",
           "lemma": "Παῦλος",
-          "strongs": "G39720",
+          "strong": "G39720",
           "morph": "Gr,N,,,,,NMS,",
-          "tag": "w"
+          "tag": "w",
+          "type": "word"
         },
-        "\n",
+        {
+          "type": "text",
+          "text": "\n"
+        },
         {
           "word": "δοῦλος",
           "lemma": "δοῦλος",
-          "strongs": "G14010",
+          "strong": "G14010",
           "morph": "Gr,N,,,,,NMS,",
-          "tag": "w"
+          "tag": "w",
+          "type": "word"
         },
-        "\n",
+        {
+          "type": "text",
+          "text": "\n"
+        },
         {
           "word": "Χριστοῦ",
           "lemma": "Χριστός",
-          "strongs": "G55470",
+          "strong": "G55470",
           "morph": "Gr,N,,,,,GMS,",
-          "tag": "w"
+          "tag": "w",
+          "type": "word"
         },
-        "\n",
+        {
+          "type": "text",
+          "text": "\n"
+        },
         {
           "word": "κατὰ",
           "lemma": "κατά",
-          "strongs": "G25960",
+          "strong": "G25960",
           "morph": "Gr,P,,,,,A,,,",
-          "tag": "w"
+          "tag": "w",
+          "type": "word"
         },
-        "\n"
+        {
+          "type": "text",
+          "text": "\n"
+        }
       ]
     },
     "2": {
       "1": [
-        "\n",
+        {
+          "type": "text",
+          "text": "\n"
+        },
         {
           "word": "Σὺ",
           "lemma": "σύ",
-          "strongs": "G47710",
+          "strong": "G47710",
           "morph": "Gr,RP,,,2N,S,",
-          "tag": "w"
+          "tag": "w",
+          "type": "word"
         },
-        "\n",
+        {
+          "type": "text",
+          "text": "\n"
+        },
         {
           "word": "δὲ",
           "lemma": "δέ",
-          "strongs": "G11610",
+          "strong": "G11610",
           "morph": "Gr,CC,,,,,,,,",
-          "tag": "w"
+          "tag": "w",
+          "type": "word"
         },
-        "\n",
+        {
+          "type": "text",
+          "text": "\n"
+        },
         {
           "word": "λάλει",
           "lemma": "λαλέω",
-          "strongs": "G29800",
+          "strong": "G29800",
           "morph": "Gr,VTMPA2,,S,",
-          "tag": "w"
+          "tag": "w",
+          "type": "word"
         },
-        "\n",
+        {
+          "type": "text",
+          "text": "\n"
+        },
         {
           "word": "ἃ",
           "lemma": "ὅς",
-          "strongs": "G37390",
+          "strong": "G37390",
           "morph": "Gr,RR,,,,ANP,",
-          "tag": "w"
+          "tag": "w",
+          "type": "word"
         },
-        "\n"
+        {
+          "type": "text",
+          "text": "\n"
+        }
       ]
     }
   }

@@ -10,8 +10,8 @@ export const generateWord = wordObject => {
   let attributes = [];
   const word = wordObject.word;
   keys.forEach(function(key) {
-    if ((key !== 'word') && (key !== 'tag')) {
-      let prefix = (key === 'lemma' || key === 'strongs') ? '' : 'x-';
+    if ((key !== 'word') && (key !== 'tag') && (key !== 'type')) {
+      let prefix = (key === 'lemma' || key === 'strong') ? '' : 'x-';
       let attribute = prefix + key + '="' + wordObject[key] + '"';
       attributes.push(attribute);
     }
@@ -44,6 +44,10 @@ export const usfmMarkerToString = (tag, number, context, nextText) => {
   if (context) {
     output += context;
   }
+
+  if(USFM.markerRequiresTermination(tag)) {
+    output += ' \\' + tag + '*';
+  }
   return output;
 };
 
@@ -59,8 +63,8 @@ export const objectToString = (object, nextObject) => {
     return "";
   }
 
-  if (typeof object === 'string') {
-    return object;
+  if (object.type === 'text') {
+    return object.text;
   }
 
   if (Array.isArray(object)) {
@@ -77,7 +81,7 @@ export const objectToString = (object, nextObject) => {
   }
 
   if (object.word) { // usfm word marker
-    return exports.generateWord(object);
+    return generateWord(object);
   }
 
   if (object.tag) { // any other USFM marker tag
@@ -112,7 +116,7 @@ export const generateChapterLines = (chapterNumber, chapterObject) => {
   const verseNumbers = Object.keys(chapterObject);
   verseNumbers.forEach(function(verseNumber) {
     const verseArray = chapterObject[verseNumber];
-    const verseLine = exports.generateVerse(verseNumber, verseArray);
+    const verseLine = generateVerse(verseNumber, verseArray);
     lines = lines.concat(verseLine);
   });
   return lines;
@@ -137,7 +141,7 @@ export const jsonToUSFM = json => {
     const chapterNumbers = Object.keys(json.chapters);
     chapterNumbers.forEach(function(chapterNumber) {
       const chapterObject = json.chapters[chapterNumber];
-      const chapterLines = exports.generateChapterLines(
+      const chapterLines = generateChapterLines(
           chapterNumber, chapterObject,
       );
       output = output.concat(chapterLines);
@@ -147,7 +151,7 @@ export const jsonToUSFM = json => {
     const verseNumbers = Object.keys(json.verses);
     verseNumbers.forEach(function(verseNumber) {
       const verseObject = json.verses[verseNumber];
-      const verse = exports.generateVerse(
+      const verse = generateVerse(
           verseNumber, verseObject,
       );
       output = output.push(verse);

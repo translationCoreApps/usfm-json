@@ -58,4 +58,8 @@ it('process PRO footnote', () => {
   generateTest('pro_footnote');
 });
 
+it('process PRO quotes', () => {
+  generateTest('pro_quotes');
+});
+
 

@@ -23,7 +23,7 @@ export const readJSON = filePath => JSON.parse(readUSFM(filePath));
 // TRICKY: ignore as test suite
 it('provides test utilities');
 
-const generateTest = (name) => {
+const generateRoundTripTest = (name) => {
   const expected = readUSFM(`${name}.usfm`);
   expect(expected).toBeTruthy();
   const json = usfmToJSON(expected);
@@ -33,3 +33,11 @@ const generateTest = (name) => {
   expect(usfm).toEqual(expected);
 };
 
+// it('util - handles missing verse markers', () => {
+//   generateRoundTripTest('en_ulb/20-PRO');
+// });
+
+// it('util - handles missing verse markers 2', () => {
+//   generateRoundTripTest('hi_ulb/57-TIT');
+// });
+//

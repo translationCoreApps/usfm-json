@@ -1,0 +1,61 @@
+{
+  "chapters": {
+    "21": {
+      "9": [
+        {
+          "text": "It is better to live on a corner of the roof\n",
+          "type": "text"
+        },
+        {
+          "tag": "q"
+        },
+        {
+          "text": "than in a house shared with a quarrelsome wife.\n",
+          "type": "text"
+        },
+        {
+          "tag": "q"
+        },
+        {
+          "text": "\n",
+          "type": "text"
+        }
+      ],
+      "10": [
+        {
+          "text": "The appetite of the wicked craves evil;\n",
+          "type": "text"
+        },
+        {
+          "tag": "q"
+        },
+        {
+          "text": "his neighbor finds no favor in his eyes. \n\n",
+          "type": "text"
+        }
+      ],
+      "front": [
+        {
+          "tag": "s5"
+        },
+        {
+          "tag": "q"
+        },
+        {
+          "text": "\n",
+          "type": "text"
+        }
+      ]
+    }
+  },
+  "headers": {
+    "id": "PRO Unlocked Literal Bible",
+    "ide": "UTF-8",
+    "h": "Proverbs",
+    "toc1": "The Book of Proverbs",
+    "toc2": "Proverbs",
+    "toc3": "Pro",
+    "mt": "Proverbs",
+    "s5": ""
+ }
+}

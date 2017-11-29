@@ -360,7 +360,7 @@ export const usfmToJSON = (usfm, params = {}) => {
   let usfmJSON = {};
   let markers = [];
   lines.forEach(function(line) {
-    const parsedLine = parseLine(line.trim());
+    const parsedLine = parseLine(line);
     markers = markers.concat(parsedLine);
   });
   let currentChapter = 0;

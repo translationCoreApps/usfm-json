@@ -33,11 +33,3 @@ const generateTest = (name) => {
   expect(usfm).toEqual(expected);
 };
 
-// it('util - handles missing verse markers', () => {
-//   generateTest('en_ulb/23-ISA');
-// });
-//
-// it('util - handles missing verse markers 2', () => {
-//   generateTest('hi_ulb/57-TIT');
-// });
-//

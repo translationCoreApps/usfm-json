@@ -172,7 +172,7 @@ export const pushObject = (nested, saveTo, usfmObject) => {
     if (typeof usfmObject === "string") {
       if (text) { // check if we need to add whitespace before tag
         const lastChar = text[text.length - 1];
-        if ((lastChar !== ' ')  && (lastChar !== '\n')) {
+        if ((lastChar !== ' ') && (lastChar !== '\n')) {
           text += ' ';
         }
       }

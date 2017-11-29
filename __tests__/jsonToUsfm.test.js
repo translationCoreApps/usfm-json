@@ -18,11 +18,35 @@ it('converts json to usfm', () => {
   generateTest('valid');
 });
 
-it('converts greek json to usfm', () => {
+it('handles missing verse markers', () => {
+  generateTest('missing_verses');
+});
+
+it('handles greek characters in usfm', () => {
   generateTest('greek');
 });
 
-// TODO brucem: enable this once front matter support is added.
-it.skip('process PSA quotes', () => {
+it('preserves punctuation in usfm', () => {
+  generateTest('tit_1_12');
+});
+
+it('preserves white space in usfm new_line', () => {
+  generateTest('tit_1_12_new_line');
+});
+
+it('preserves footnotes in usfm', () => {
+  generateTest('tit_1_12_footnote');
+});
+
+it('process ISA footnote', () => {
+  generateTest('isa_footnote');
+});
+
+it('process PSA quotes', () => {
   generateTest('psa_quotes');
 });
+
+it('process ISA verse span', () => {
+  generateTest('isa_verse_span');
+});
+

@@ -24,29 +24,32 @@ export const generateWord = wordObject => {
  * @description convert usfm marker to string
  * @param {String} tag - tag for usfm marker
  * @param {String} number - optional number (as a string) for tag
- * @param {String} context - optional content text for marker
- * @param {String} nextText - optional text that is next entry.  Used to determine if we need to add a space between
+ * @param {String} content - optional content text for marker
+ * @param {object} nextText - optional object that is next entry.  Used to determine if we need to add a space between
  *                              tag and text
  * @return {String} Text equivalent of marker.
  */
-export const usfmMarkerToString = (tag, number, context, nextText) => {
+export const usfmMarkerToString = (tag, number, content, nextText) => {
   let output = '\\' + tag;
   if (number) {
     output += ' ' + number;
   }
 
-  if (nextText && (nextText[0] !== '\n') && USFM.markerHasNoContent(tag)) {
+  const hasNoContent = USFM.markerHasNoContent(tag);
+  if (nextText && nextText.text && (nextText.text[0] !== '\n') && hasNoContent) {
     output += ' ';
-  } else if (context && (context[0] !== '\n')) {
+  } else if (content && (content[0] !== '\n')) {
     output += ' ';
   }
 
-  if (context) {
-    output += context;
+  if (content) {
+    output += content;
   }
 
   if (USFM.markerRequiresTermination(tag)) {
-    output += ' \\' + tag + '*';
+    output += ' \\' + tag + '*\n';
+  } else if (!hasNoContent) {
+    output += '\n';
   }
   return output;
 };
@@ -112,12 +115,12 @@ export const generateVerse = (verseNumber, verseArray) => {
 export const generateChapterLines = (chapterNumber, chapterObject) => {
   let lines = [];
   lines.push('\\c ' + chapterNumber + '\n');
-  if (chapterObject.front) {
-    const verseText = objectToString(chapterObject.front) + '\n';
+  if (chapterObject.front) { // handle front matter first
+    const verseText = objectToString(chapterObject.front);
     lines = lines.concat(verseText);
     delete chapterObject.front;
   }
-  const verseNumbers = Object.keys(chapterObject);
+  const verseNumbers = Object.keys(chapterObject).sort();
   verseNumbers.forEach(function(verseNumber) {
     const verseArray = chapterObject[verseNumber];
     const verseLine = generateVerse(verseNumber, verseArray);
@@ -138,7 +141,7 @@ export const jsonToUSFM = json => {
     const keys = Object.keys(json.headers);
     keys.forEach(function(key) {
       const value = json.headers[key];
-      output.push(usfmMarkerToString(key, '', value + '\n'));
+      output.push(usfmMarkerToString(key, '', value));
     });
   }
   if (json.chapters) {

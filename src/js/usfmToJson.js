@@ -109,7 +109,7 @@ export const parseLine = line => {
         array.push(object);
       }
       const open = match[2] ? match[2].trim() : undefined;
-      const content = match[3] ? match[3].trim() : undefined;
+      const content = match[3] || undefined;
       const close = match[4] ? match[4].trim() : undefined;
       let marker = parseMarkerOpen(open);
       const object = {
@@ -170,9 +170,15 @@ export const pushObject = (nested, saveTo, usfmObject) => {
     const last = nested.length - 1;
     let text = nested[last].content;
     if (typeof usfmObject === "string") {
-      text += ' ' + usfmObject;
+      if (text) { // check if we need to add whitespace before tag
+        const lastChar = text[text.length - 1];
+        if ((lastChar !== ' ')  && (lastChar !== '\n')) {
+          text += ' ';
+        }
+      }
+      text += usfmObject;
     } else {
-      text += ' \\' + usfmObject.tag;
+      text += '\\' + usfmObject.tag;
       if (usfmObject.content) {
         text += ' ' + usfmObject.content;
       }

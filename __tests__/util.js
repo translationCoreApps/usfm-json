@@ -1,6 +1,7 @@
-
 import fs from 'fs';
 import path from 'path';
+import {usfmToJSON} from '../src/js/usfmToJson';
+import {jsonToUSFM} from '../src/js/jsonToUsfm';
 
 /**
  * Reads a usfm file from the resources dir
@@ -21,3 +22,22 @@ export const readJSON = filePath => JSON.parse(readUSFM(filePath));
 
 // TRICKY: ignore as test suite
 it('provides test utilities');
+
+const generateTest = (name) => {
+  const expected = readUSFM(`${name}.usfm`);
+  expect(expected).toBeTruthy();
+  const json = usfmToJSON(expected);
+  expect(json).toBeTruthy();
+  const usfm = jsonToUSFM(json);
+  fs.writeFileSync(path.join('__tests__/resources', `${name}.converted.usfm`), usfm);
+  expect(usfm).toEqual(expected);
+};
+
+// it('util - handles missing verse markers', () => {
+//   generateTest('en_ulb/23-ISA');
+// });
+//
+// it('util - handles missing verse markers 2', () => {
+//   generateTest('hi_ulb/57-TIT');
+// });
+//

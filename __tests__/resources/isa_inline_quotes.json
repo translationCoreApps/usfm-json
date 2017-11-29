@@ -1,0 +1,68 @@
+{
+  "chapters": {
+    "60": {
+      "6": [
+        {
+          "text": "Camel caravans will cover you, the dromedaries of Midian and Ephah;\n",
+          "type": "text"
+        },
+        {
+          "tag": "q1"
+        },
+        {
+          "text": "all of them will come from Sheba;\n",
+          "type": "text"
+        },
+        {
+          "tag": "q1"
+        },
+        {
+          "text": "they will bring gold and frankincense, and will sing the praises of Yahweh.\n",
+          "type": "text"
+        },
+        {
+          "tag": "q1"
+        },
+        {
+          "text": "\n",
+          "type": "text"
+        }
+      ],
+      "7": [
+        {
+          "text": "All the flocks of Kedar will be gathered together to you, the rams of Nebaioth will serve your needs; ",
+          "type": "text"
+        },
+        {
+          "tag": "q1"
+        },
+        {
+          "text": "they will be acceptable offerings on my altar; and I will glorify my glorious house.\n\n",
+          "type": "text"
+        }
+      ],
+      "front": [
+        {
+          "tag": "s5"
+        },
+        {
+          "tag": "q1"
+        },
+        {
+          "text": "\n",
+          "type": "text"
+        }
+      ]
+    }
+  },
+  "headers": {
+    "id": "ISA Unlocked Literal Bible",
+    "ide": "UTF-8",
+    "h": "Isaiah",
+    "toc1": "The Book of Isaiah",
+    "toc2": "Isaiah",
+    "toc3": "Isa",
+    "mt": "Isaiah",
+    "s5": ""
+  }
+}

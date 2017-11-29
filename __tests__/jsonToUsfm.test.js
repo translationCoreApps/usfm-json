@@ -54,3 +54,8 @@ it('process ISA inline quotes', () => {
   generateTest('isa_inline_quotes');
 });
 
+it('process PRO footnote', () => {
+  generateTest('pro_footnote');
+});
+
+

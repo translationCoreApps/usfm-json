@@ -8,9 +8,9 @@ import * as USFM from './USFM';
 export const generateWord = wordObject => {
   const keys = Object.keys(wordObject);
   let attributes = [];
-  const word = wordObject.word;
+  const word = wordObject.text;
   keys.forEach(function(key) {
-    if ((key !== 'word') && (key !== 'tag') && (key !== 'type')) {
+    if ((key !== 'text') && (key !== 'tag') && (key !== 'type')) {
       let prefix = (key === 'lemma' || key === 'strong') ? '' : 'x-';
       let attribute = prefix + key + '="' + wordObject[key] + '"';
       attributes.push(attribute);
@@ -95,7 +95,7 @@ export const objectToString = (object, nextObject) => {
     return output;
   }
 
-  if (object.word) { // usfm word marker
+  if (object.type === 'word') { // usfm word marker
     return generateWord(object);
   }
 

@@ -60,7 +60,7 @@ export const parseWord = wordContent => {
   const word = wordParts[0];
   const attributeContent = wordParts[1];
   object = {
-    word: word,
+    text: word,
     tag: 'w',
     type: 'word'
   };

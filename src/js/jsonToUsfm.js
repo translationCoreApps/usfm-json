@@ -69,12 +69,6 @@ export const objectToString = (object, nextObject) => {
       const nextObject = (i + 1 < object.length) ? object[i + 1] : null;
       let text = objectToString(objectN, nextObject);
       if (text) {
-        if (output && (text[0] === '\\') && (text.substr(0, 2) !== '\\w')) { // if adding function tag to text
-          const lastChar = output[output.length - 1];
-          if ((lastChar !== ' ') && (lastChar !== '\n')) { // if no whitespace before tag, then add it
-            output += ' ';
-          }
-        }
         output += text;
       }
     }

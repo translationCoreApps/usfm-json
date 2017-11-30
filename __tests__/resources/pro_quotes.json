@@ -25,6 +25,48 @@
           "text": "his neighbor finds no favor in his eyes. \n"
         },
         {
+          "tag": "s5",
+          "text": "\n"
+        },
+        {
+          "tag": "q",
+          "text": "\n"
+        }
+      ],
+      "19": [
+        {
+          "text": "Long ago you spoke in a vision to your faithful ones ",
+          "type": "text"
+        },
+        {
+          "content": "+ \\ft Many mss have the singular \\fqa faithful one\\fqa* instead of \\fqa faithful ones.",
+          "tag": "f"
+        },
+        {
+          "text": ";\n",
+          "type": "text"
+        },
+        {
+          "tag": "q",
+          "text": "you said, \"I have set a crown on a mighty one"
+        },
+        {
+          "content": "+ \\ft The MT has \\fqa I will place help upon a warrior \\fqa*. Some translate the word for \\fqa help \\fqa* as \\fqa crown, which is followed by the ULB here.",
+          "tag": "f"
+        },
+        {
+          "text": "\"\n",
+          "type": "text"
+        },
+        {
+          "tag": "q",
+          "text": "I have raised up one chosen from among the people.\n"
+        },
+        {
+          "tag": "q",
+          "text": "\n"
+        },
+        {
           "type": "text",
           "text": "\n"
         }

@@ -1,0 +1,50 @@
+{
+  "chapters": {
+    "23": {
+      "1": [
+        {
+          "text": "Then Job answered and said,\n",
+          "type": "text"
+        },
+        {
+          "tag": "q",
+          "text": "\n"
+        }
+      ],
+      "2": [
+        {
+          "text": "\"Even today my complaint is bitter;\n",
+          "type": "text"
+        },
+        {
+          "tag": "q",
+          "text": "my hand "
+        },
+        {
+          "content": "+ \\ft Some copies have: \\fqa ... his hand ... \\fqa* ",
+          "tag": "f"
+        },
+        {
+          "text": " is heavy because of my groaning.\n\n",
+          "type": "text"
+        }
+      ],
+      "front": [
+        {
+          "tag": "p",
+          "text": "\n"
+        }
+      ]
+    }
+  },
+  "headers": {
+    "id": "JOB Unlocked Literal Bible",
+    "ide": "UTF-8",
+    "h": "Job",
+    "toc1": "The Book of Job",
+    "toc2": "Job",
+    "toc3": "Job",
+    "mt": "Job",
+    "s5": ""
+  }
+}

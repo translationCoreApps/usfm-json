@@ -102,6 +102,7 @@ export const parseLine = line => {
   }
   const regex = /([^\\]+)?\\(\w+\s*\d*)(?!\w)\s*([^\\]+)?(\\\w\*)?/g;
   const matches = getMatches(line, regex);
+  let lastObject = null;
   if (regex.exec(line)) { // normal formatting with marker followed by content
     matches.forEach(function(match) {
       const orphan = match[1];
@@ -124,13 +125,19 @@ export const parseLine = line => {
         object.nextChar = match.nextChar;
       }
       array.push(object);
+      lastObject = object;
     });
     // check for leftover text at end of line
     if (matches.length) {
       const lastMatch = matches[matches.length - 1];
       const endPos = lastMatch.index + lastMatch[0].length;
       if (endPos < line.length) {
-        const object = makeTextObject(line.substr(endPos) + '\n');
+        let orphanText = line.substr(endPos) + '\n';
+        if (lastObject && lastObject.nextChar
+          && (lastObject.nextChar === ' ')) {
+          orphanText = orphanText.substr(1); // remove first space since already handled
+        }
+        const object = makeTextObject(orphanText);
         array.push(object);
       }
     }
@@ -199,13 +206,7 @@ export const pushObject = (nested, saveTo, usfmObject) => {
     let lastObject = saveTo[lastPos];
     if (lastObject.type === "text") {
       // see if we need to separate with space
-      let lastText = lastObject.text;
-      const lastChar = lastText.length ? lastText.substr(lastText.length - 1) : "";
-      if (usfmObject && (usfmObject[0] !== '\n') && (lastChar !== '\n')) {
-        lastText += ' ';
-      }
-      lastText += usfmObject.text;
-      lastObject.text = lastText;
+      lastObject.text += usfmObject.text;
       return;
     }
   }

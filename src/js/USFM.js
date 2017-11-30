@@ -2,8 +2,8 @@
  * USFM definitions
  */
 
-// for these tags we don't embed the following text in marker content
-export const NO_CONTENT_MARKERS = [
+// for these tags we embed the text as text attribute instead of content
+export const MARK_CONTENT_AS_TEXT = [
   "add",
   "bd",
   "bdit",
@@ -16,25 +16,39 @@ export const NO_CONTENT_MARKERS = [
   "nd",
   "no",
   "ord",
+  "p",
   "pn",
   "q",
   "q1",
   "q2",
   "q3",
+  "q4",
+  "qa",
+  "qac",
+  "qc",
+  "qm",
+  "qr",
+  "qs",
   "qt",
-  "qt",
+  "s",
+  "s1",
+  "s2",
+  "s3",
+  "s4",
+  "s5",
   "sc",
   "sig",
   "sls",
   "tl",
   "v",
   "w",
+  "wa",
   "wg",
   "wh",
   "wj"
 ];
 
-// for these tages we must embed following text in content until we find an end marker,
+// for these tags we must embed following text in content until we find an end marker,
 export const NEED_TERMINATION_MARKERS = [
   "bd",
   "bdit",
@@ -111,21 +125,21 @@ export const initLookup = (lookup, keys) => {
   }
 };
 
-export const NO_CONTENT_MARKERS_LOOKUP = {};
 export const NEED_TERMINATION_MARKERS_LOOKUP = {};
+export const MARK_CONTENT_AS_TEXT_LOOKUP = {};
 
 /**
  * description - initialize by putting tags in object for fast lookup
  */
 export const init = () => {
-  initLookup(NO_CONTENT_MARKERS_LOOKUP, NO_CONTENT_MARKERS);
   initLookup(NEED_TERMINATION_MARKERS_LOOKUP, NEED_TERMINATION_MARKERS);
-};
-
-export const markerHasNoContent = tag => {
-  return NO_CONTENT_MARKERS_LOOKUP[tag] === true;
+  initLookup(MARK_CONTENT_AS_TEXT_LOOKUP, MARK_CONTENT_AS_TEXT);
 };
 
 export const markerRequiresTermination = tag => {
   return NEED_TERMINATION_MARKERS_LOOKUP[tag] === true;
+};
+
+export const markContentAsText = tag => {
+  return MARK_CONTENT_AS_TEXT_LOOKUP[tag] === true;
 };

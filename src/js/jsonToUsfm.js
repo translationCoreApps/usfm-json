@@ -22,23 +22,17 @@ export const generateWord = wordObject => {
 
 /**
  * @description convert usfm marker to string
- * @param {String} tag - tag for usfm marker
- * @param {String} number - optional number (as a string) for tag
- * @param {String} content - optional content text for marker
- * @param {object} nextText - optional object that is next entry.  Used to determine if we need to add a space between
- *                              tag and text
+ * @param {object} usfmObject - usfm object to output
  * @return {String} Text equivalent of marker.
  */
-export const usfmMarkerToString = (tag, number, content, nextText) => {
-  let output = '\\' + tag;
-  if (number) {
-    output += ' ' + number;
+export const usfmMarkerToString = (usfmObject) => {
+  let output = '\\' + usfmObject.tag;
+  if (usfmObject.number) {
+    output += ' ' + usfmObject.number;
   }
 
-  const hasNoContent = USFM.markerHasNoContent(tag);
-  if (nextText && nextText.text && (nextText.text[0] !== '\n') && hasNoContent) {
-    output += ' ';
-  } else if (content && (content[0] !== '\n')) {
+  const content = usfmObject.text || usfmObject.content;
+  if (content && (content[0] !== '\n')) {
     output += ' ';
   }
 
@@ -46,16 +40,8 @@ export const usfmMarkerToString = (tag, number, content, nextText) => {
     output += content;
   }
 
-  if (USFM.markerRequiresTermination(tag)) {
-    if (output) {
-      const lastChar = output[output.length - 1];
-      if ((lastChar !== ' ') && (lastChar !== '\n')) {
-        output += ' ';
-      }
-    }
-    output += '\\' + tag + '*\n';
-  } else if (!hasNoContent) {
-    output += '\n';
+  if (USFM.markerRequiresTermination(usfmObject.tag)) {
+    output += '\\' + usfmObject.tag + '*';
   }
   return output;
 };
@@ -100,9 +86,7 @@ export const objectToString = (object, nextObject) => {
   }
 
   if (object.tag) { // any other USFM marker tag
-    const output = usfmMarkerToString(object.tag, object.number, object.content,
-      nextObject);
-    return output;
+    return usfmMarkerToString(object);
   }
   return "";
 };
@@ -115,7 +99,12 @@ export const objectToString = (object, nextObject) => {
  */
 export const generateVerse = (verseNumber, verseArray) => {
   const verseText = objectToString(verseArray);
-  return usfmMarkerToString('v', verseNumber, verseText);
+  const object = {
+    tag: 'v',
+    number: verseNumber,
+    text: verseText
+  };
+  return usfmMarkerToString(object);
 };
 
 /**
@@ -155,7 +144,11 @@ export const jsonToUSFM = json => {
     const keys = Object.keys(json.headers);
     keys.forEach(function(key) {
       const value = json.headers[key];
-      output.push(usfmMarkerToString(key, '', value));
+      const object = {
+        tag: key,
+        content: value + '\n'
+      };
+      output.push(usfmMarkerToString(object));
     });
   }
   if (json.chapters) {

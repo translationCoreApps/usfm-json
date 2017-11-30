@@ -1,4 +1,5 @@
 import * as USFM from './USFM';
+import * as VERSION from './version';
 
 /**
  * @description - Finds all of the regex matches in a string
@@ -103,7 +104,7 @@ export const parseLine = line => {
   const matches = getMatches(line, regex);
   if (regex.exec(line)) { // normal formatting with marker followed by content
     matches.forEach(function(match) {
-      const orphan = match[1] ? match[1].trim() : undefined;
+      const orphan = match[1];
       if (orphan) {
         const object = {content: orphan};
         array.push(object);
@@ -170,20 +171,17 @@ export const pushObject = (nested, saveTo, usfmObject) => {
     const last = nested.length - 1;
     let text = nested[last].content;
     if (typeof usfmObject === "string") {
-      if (text) { // check if we need to add whitespace before tag
-        const lastChar = text[text.length - 1];
-        if ((lastChar !== ' ') && (lastChar !== '\n')) {
-          text += ' ';
-        }
-      }
       text += usfmObject;
     } else {
       text += '\\' + usfmObject.tag;
-      if (usfmObject.content) {
+      if (usfmObject.text) {
+        text += ' ' + usfmObject.text;
+      } else if (usfmObject.content) {
         text += ' ' + usfmObject.content;
       }
     }
-    nested[last].content = text;
+    const contentAttr = USFM.markContentAsText(usfmObject.tag) ? 'text' : 'content';
+    nested[last][contentAttr] = text;
     return;
   }
 
@@ -221,15 +219,13 @@ export const pushObject = (nested, saveTo, usfmObject) => {
  * @param {array} nested - points to object that contains nested content such as for '\f'
  * @param {array} chapters - holds all chapter content
  * @param {String} tag - usfm marker tag
+ * @param {string} nextChar - next character after marker
  * @param {string} currentChapter - current chapter
  * @param {string} currentVerse - current verse
  */
-export const unPopNestedMarker = (saveTo, content, nested, chapters, tag,
+export const unPopNestedMarker = (saveTo, content, nested, chapters, tag, nextChar,
                                   currentChapter, currentVerse) => {
   let extra = content.substr(1); // pull out data after end marker
-  if (extra && extra[0] === " ") {
-    extra = extra.substr(1);
-  }
   if (tag[tag.length - 1] === "*") {
     tag = tag.substr(0, tag.length - 1);
   }
@@ -247,6 +243,8 @@ export const unPopNestedMarker = (saveTo, content, nested, chapters, tag,
   }
   if (!found) { // since nested and not in stack, add end marker to text content
     pushObject(nested, saveTo, '\\' + tag + '*');
+  } else if(nextChar) {
+    pushObject(nested, saveTo, nextChar);
   }
   if (extra) {
     pushObject(nested, saveTo, extra);
@@ -267,7 +265,7 @@ export const processClose = (saveTo, content, nested, chapters, usfmObject,
                              currentChapter, currentVerse) => {
   const close = usfmObject.close;
   if (close && close.length && (close[0] === "\\")) {
-    unPopNestedMarker(saveTo, "", nested, chapters, close.substr(1), currentChapter, currentVerse);
+    unPopNestedMarker(saveTo, "", nested, chapters, close.substr(1), usfmObject.nextChar, currentChapter, currentVerse);
   }
 };
 
@@ -308,38 +306,29 @@ export const addToCurrentVerse = (nested, chapters, currentChapter,
     return;
   }
 
-  let content = usfmObject.content;
-  if (USFM.markerHasNoContent(tag)) {
-    // separate marker and text
-    const output = {
-      tag: tag
-    };
-    saveTo.push(output);
-    if (usfmObject.nextChar === '\n') {
-      content = (content || "") + usfmObject.nextChar;
+  const output = {
+    tag: tag
+  };
+  if (usfmObject.number) {
+    output.number = usfmObject.number;
+  }
+
+  let content = usfmObject.content || "";
+  const isEndMarker = (content && (content[0] === "*"));
+  if (isEndMarker) { // check for end marker
+    unPopNestedMarker(saveTo, content, nested, chapters, tag,
+      usfmObject.nextChar, currentChapter, currentVerse);
+  } else {
+    if(usfmObject.nextChar && !usfmObject.close) {
+      content += usfmObject.nextChar;
     }
     if (content) {
-      pushObject(nested, saveTo, content);
+      const contentAttr = USFM.markContentAsText(tag) ? 'text' : 'content';
+      output[contentAttr] = content;
     }
-  } else {
-    const output = {
-      tag: tag
-    };
-    if (usfmObject.number) {
-      output.number = usfmObject.number;
-    }
-
-    const isEndMarker = (content && (content[0] === "*"));
-    if (isEndMarker) { // check for end marker
-      unPopNestedMarker(saveTo, content, nested, chapters, tag,
-        currentChapter, currentVerse);
-    } else {
-      if (content) {
-        output.content = content;
-      }
-      saveUsfmObject(saveTo, nested, tag, output);
-    }
+    saveUsfmObject(saveTo, nested, tag, output);
   }
+
   processClose(saveTo, content, nested, chapters, usfmObject, currentChapter,
     currentVerse);
 };
@@ -467,6 +456,7 @@ export const usfmToJSON = (usfm, params = {}) => {
   });
   usfmJSON.headers = headers;
   usfmJSON.chapters = chapters;
+  usfmJSON.version = VERSION.VERSION;
   if (Object.keys(verses).length > 0) usfmJSON.verses = verses;
   return usfmJSON;
 };

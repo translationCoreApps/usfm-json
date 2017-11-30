@@ -17,22 +17,20 @@
           "type": "text"
         },
         {
-          "tag": "q"
+          "tag": "q",
+          "text": "This man declared to Ithiel, to Ithiel and Ucal:\n"
         },
         {
-          "text": "This man declared to Ithiel, to Ithiel and Ucal:\n",
-          "type": "text"
-        },
-        {
-          "content": "+ \\ft Some versions have \\fqa This man declared, \"I am weary, O God, I am weary. I am unable to do anything.\" \\fqa*",
+          "content": "+ \\ft Some versions have \\fqa This man declared, \"I am weary, O God, I am weary. I am unable to do anything.\" \\fqa* ",
           "tag": "f"
-        },
-        {
-          "tag": "q"
         },
         {
           "text": "\n",
           "type": "text"
+        },
+        {
+          "tag": "q",
+          "text": "\n"
         }
       ],
       "2": [
@@ -41,18 +39,12 @@
           "type": "text"
         },
         {
-          "tag": "q"
+          "tag": "q",
+          "text": "and I do not have the understanding of a human being.\n"
         },
         {
-          "text": "and I do not have the understanding of a human being.\n",
-          "type": "text"
-        },
-        {
-          "tag": "q"
-        },
-        {
-          "text": "\n",
-          "type": "text"
+          "tag": "q",
+          "text": "\n"
         }
       ],
       "3": [
@@ -61,16 +53,14 @@
           "type": "text"
         },
         {
-          "tag": "q"
-        },
-        {
-          "text": "nor do I have knowledge of the Holy One.\n",
-          "type": "text"
+          "tag": "q",
+          "text": "nor do I have knowledge of the Holy One.\n"
         }
       ],
       "front": [
         {
-          "tag": "p"
+          "tag": "p",
+          "text": "\n"
         }
       ]
     }

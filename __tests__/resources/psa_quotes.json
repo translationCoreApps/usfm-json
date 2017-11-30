@@ -15,14 +15,12 @@
     "1": {
       "front": [
         {
-          "tag": "p"
+          "tag": "p",
+          "text": "\n"
         },
         {
-          "tag": "q"
-        },
-        {
-          "text": "\n",
-          "type": "text"
+          "tag": "q",
+          "text": "\n"
         }
       ],
       "1": [
@@ -31,24 +29,15 @@
           "text": "Blessed is the man who does not walk in the advice of the wicked,\n"
         },
         {
-          "tag": "q"
-        },
-        {
-          "type": "text",
+          "tag": "q",
           "text": "or stand in the pathway with sinners,\n"
         },
         {
-          "tag": "q"
-        },
-        {
-          "type": "text",
+          "tag": "q",
           "text": "or sit in the assembly of mockers.\n"
         },
         {
-          "tag": "q"
-        },
-        {
-          "type": "text",
+          "tag": "q",
           "text": "\n"
         }
       ],
@@ -58,20 +47,23 @@
           "text": "But his delight is in the law of Yahweh,\n"
         },
         {
-          "tag": "q"
+          "tag": "q",
+          "text": "and on his law he meditates day and night.\n"
         },
         {
-          "type": "text",
-          "text": "and on his law he meditates day and night.\n\n"
+          "text": "Selah",
+          "tag": "qs"
         },
         {
-          "tag": "s5"
+          "text": "\n\n ",
+          "type": "text"
         },
         {
-          "tag": "q"
+          "tag": "s5",
+          "text": "\n"
         },
         {
-          "type": "text",
+          "tag": "q",
           "text": "\n"
         }
       ],
@@ -81,34 +73,27 @@
           "text": "He will be like a tree planted by the streams of water\n"
         },
         {
-          "tag": "q"
-        },
-        {
-          "type": "text",
+          "tag": "q",
           "text": "that produces its fruit in its season,\n"
         },
         {
-          "tag": "q"
-        },
-        {
-          "type": "text",
+          "tag": "q",
           "text": "whose leaves do not wither;\n"
         },
         {
-          "tag": "q"
+          "tag": "q",
+          "text": "whatever he does will prosper.\n"
         },
         {
-          "type": "text",
-          "text": "whatever he does will prosper.\n\n"
+          "text": "\n",
+          "type": "text"
         },
         {
-          "tag": "s5"
+          "tag": "s5",
+          "text": "\n"
         },
         {
-          "tag": "q"
-        },
-        {
-          "type": "text",
+          "tag": "q",
           "text": "\n"
         }
       ],
@@ -118,17 +103,11 @@
           "text": "The wicked are not so,\n"
         },
         {
-          "tag": "q"
-        },
-        {
-          "type": "text",
+          "tag": "q",
           "text": "but are instead like the chaff that the wind drives away.\n"
         },
         {
-          "tag": "q"
-        },
-        {
-          "type": "text",
+          "tag": "q",
           "text": "\n"
         }
       ],
@@ -139,10 +118,7 @@
           "text": "So the wicked will not stand in the judgment,\n"
         },
         {
-          "tag": "q"
-        },
-        {
-          "type": "text",
+          "tag": "q",
           "text": "nor sinners in the assembly of the righteous.\n"
         }
       ]

@@ -7,18 +7,12 @@
           "type": "text"
         },
         {
-          "tag": "q"
+          "tag": "q",
+          "text": "than in a house shared with a quarrelsome wife.\n"
         },
         {
-          "text": "than in a house shared with a quarrelsome wife.\n",
-          "type": "text"
-        },
-        {
-          "tag": "q"
-        },
-        {
-          "text": "\n",
-          "type": "text"
+          "tag": "q",
+          "text": "\n"
         }
       ],
       "10": [
@@ -27,23 +21,22 @@
           "type": "text"
         },
         {
-          "tag": "q"
+          "tag": "q",
+          "text": "his neighbor finds no favor in his eyes. \n"
         },
         {
-          "text": "his neighbor finds no favor in his eyes. \n\n",
-          "type": "text"
+          "type": "text",
+          "text": "\n"
         }
       ],
       "front": [
         {
-          "tag": "s5"
+          "tag": "s5",
+          "text": "\n"
         },
         {
-          "tag": "q"
-        },
-        {
-          "text": "\n",
-          "type": "text"
+          "tag": "q",
+          "text": "\n"
         }
       ]
     }

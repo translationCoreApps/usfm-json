@@ -13,7 +13,8 @@
     "1": {
       "front": [
         {
-          "tag": "p"
+          "tag": "p",
+          "text": "\n"
         }
       ],
       "1": [
@@ -28,14 +29,16 @@
           "text": "Grace to you and peace from God our Father and the Lord Jesus Christ.\n\n\n\n"
         },
         {
-          "tag": "s5"
+          "tag": "s5",
+          "text": "\n"
         }
       ]
     },
     "2": {
       "front": [
         {
-          "tag": "p"
+          "tag": "p",
+          "text": "\n"
         }
       ],
       "1": [
@@ -54,7 +57,8 @@
     "3": {
       "front": [
         {
-          "tag": "p"
+          "tag": "p",
+          "text": "\n"
         }
       ],
       "1": [
@@ -69,14 +73,16 @@
           "text": "Watch out for the dogs. Watch out for the evil workers. Watch out for the mutilators.\n\n\n\n"
         },
         {
-          "tag": "s5"
+          "tag": "s5",
+          "text": "\n"
         }
       ]
     },
     "4": {
       "front": [
         {
-          "tag": "p"
+          "tag": "p",
+          "text": "\n"
         }
       ],
       "1": [
@@ -85,7 +91,8 @@
           "text": "Therefore, my beloved brothers whom I long for, my joy and crown, in this way stand firm in the Lord, beloved friends.\n\n\n"
         },
         {
-          "tag": "s5"
+          "tag": "s5",
+          "text": "\n"
         }
       ]
     }

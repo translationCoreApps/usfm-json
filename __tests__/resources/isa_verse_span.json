@@ -13,17 +13,20 @@
     "5": {
       "front": [
         {
-          "tag": "p"
+          "tag": "p",
+          "text": "\n"
         },
         {
-          "tag": "q1"
+          "tag": "q1",
+          "text": "\n"
         },
         {
           "type": "text",
-          "text": "\n\n"
+          "text": "\n"
         },
         {
-          "tag": "s5"
+          "tag": "s5",
+          "text": "\n"
         }
       ],
       "15-16": [
@@ -32,10 +35,7 @@
           "text": "Man is brought down, and the great man is humbled, and the eyes of the lofty are cast down.\nYahweh of hosts is exalted in his justice, and God the Holy One shows himself holy by his righteousness.\n"
         },
         {
-          "tag": "q1"
-        },
-        {
-          "type": "text",
+          "tag": "q1",
           "text": "\n"
         }
       ],
@@ -49,13 +49,15 @@
           "content": "+ \\ft Some modern versions have \\fqa and in the ruins of the rich, lambs will graze \\fqb . "
         },
         {
-          "tag": "p"
+          "text": "\n",
+          "type": "text"
         },
         {
-          "tag": "q1"
+          "tag": "p",
+          "text": "\n"
         },
         {
-          "type": "text",
+          "tag": "q1",
           "text": "\n"
         }
       ]

@@ -7,25 +7,16 @@
           "type": "text"
         },
         {
-          "tag": "q1"
+          "tag": "q1",
+          "text": "all of them will come from Sheba;\n"
         },
         {
-          "text": "all of them will come from Sheba;\n",
-          "type": "text"
+          "tag": "q1",
+          "text": "they will bring gold and frankincense, and will sing the praises of Yahweh.\n"
         },
         {
-          "tag": "q1"
-        },
-        {
-          "text": "they will bring gold and frankincense, and will sing the praises of Yahweh.\n",
-          "type": "text"
-        },
-        {
-          "tag": "q1"
-        },
-        {
-          "text": "\n",
-          "type": "text"
+          "tag": "q1",
+          "text": "\n"
         }
       ],
       "7": [
@@ -34,23 +25,18 @@
           "type": "text"
         },
         {
-          "tag": "q1"
-        },
-        {
-          "text": "they will be acceptable offerings on my altar; and I will glorify my glorious house.\n\n",
-          "type": "text"
+          "tag": "q1",
+          "text": "they will be acceptable offerings on my altar; and I will glorify my glorious house.\n"
         }
       ],
       "front": [
         {
-          "tag": "s5"
+          "tag": "s5",
+          "text": "\n"
         },
         {
-          "tag": "q1"
-        },
-        {
-          "text": "\n",
-          "type": "text"
+          "tag": "q1",
+          "text": "\n"
         }
       ]
     }

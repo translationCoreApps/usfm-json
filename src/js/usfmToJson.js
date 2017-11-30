@@ -223,8 +223,8 @@ export const pushObject = (nested, saveTo, usfmObject) => {
  * @param {string} currentChapter - current chapter
  * @param {string} currentVerse - current verse
  */
-export const unPopNestedMarker = (saveTo, content, nested, chapters, tag, nextChar,
-                                  currentChapter, currentVerse) => {
+export const unPopNestedMarker = (saveTo, content, nested, chapters, tag,
+                                  nextChar, currentChapter, currentVerse) => {
   let extra = content.substr(1); // pull out data after end marker
   if (tag[tag.length - 1] === "*") {
     tag = tag.substr(0, tag.length - 1);
@@ -243,7 +243,7 @@ export const unPopNestedMarker = (saveTo, content, nested, chapters, tag, nextCh
   }
   if (!found) { // since nested and not in stack, add end marker to text content
     pushObject(nested, saveTo, '\\' + tag + '*');
-  } else if(nextChar) {
+  } else if (nextChar) {
     pushObject(nested, saveTo, nextChar);
   }
   if (extra) {
@@ -319,7 +319,7 @@ export const addToCurrentVerse = (nested, chapters, currentChapter,
     unPopNestedMarker(saveTo, content, nested, chapters, tag,
       usfmObject.nextChar, currentChapter, currentVerse);
   } else {
-    if(usfmObject.nextChar && !usfmObject.close) {
+    if (usfmObject.nextChar && !usfmObject.close) {
       content += usfmObject.nextChar;
     }
     if (content) {

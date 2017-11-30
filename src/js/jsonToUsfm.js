@@ -25,7 +25,7 @@ export const generateWord = wordObject => {
  * @param {object} usfmObject - usfm object to output
  * @return {String} Text equivalent of marker.
  */
-export const usfmMarkerToString = (usfmObject) => {
+export const usfmMarkerToString = usfmObject => {
   let output = '\\' + usfmObject.tag;
   if (usfmObject.number) {
     output += ' ' + usfmObject.number;

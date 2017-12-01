@@ -30,7 +30,7 @@
         {
           "tag": "s5",
           "type": "section",
-          "text": "\n"
+          "text": " \n"
         },
         {
           "tag": "q",
@@ -90,7 +90,7 @@
         {
           "tag": "q",
           "type": "quote",
-          "text": "\n"
+          "text": " \n"
         }
       ]
     }

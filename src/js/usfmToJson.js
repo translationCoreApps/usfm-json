@@ -119,6 +119,11 @@ export const parseLine = line => {
         number: marker.number,
         content: content
       };
+
+      if(!content && !marker.number && (open !== match[2])) { // look for dropped white space
+        object.content = match[2].substr(open.length);
+      }
+
       if (marker.number && !USFM.markerSupportsNumbers(marker.tag)) { // this tag doesn't have number, move to content
         delete object.number;
         let newContent;

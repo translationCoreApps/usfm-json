@@ -371,10 +371,10 @@ export const usfmToJSON = (usfm, params = {}) => {
   }
   let usfmJSON = {};
   let markers = [];
-  lines.forEach(function(line) {
+  for (let line of lines) {
     const parsedLine = parseLine(line);
     markers = markers.concat(parsedLine);
-  });
+  }
   let currentChapter = 0;
   let currentVerse = 0;
   let chapters = {};
@@ -465,7 +465,8 @@ export const usfmToJSON = (usfm, params = {}) => {
       }
       default: {
         if (currentChapter === 0 && !currentVerse) { // if we haven't seen chapter yet, its a header
-          pushObject(nested, headers, createUsfmObject(marker.tag, marker.number, marker.content));
+          pushObject(nested, headers, createUsfmObject(marker.tag,
+            marker.number, marker.content));
         } else if (currentChapter) {
           addToCurrentVerse(nested, chapters, currentChapter, currentVerse,
             marker);

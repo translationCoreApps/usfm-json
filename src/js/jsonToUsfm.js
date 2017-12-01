@@ -33,7 +33,7 @@ export const usfmMarkerToString = usfmObject => {
     if (usfmObject.number) {
       output += ' ' + usfmObject.number;
     }
-    if (content && (content[0] !== '\n')) {
+    if (content && (content[0] !== '\n') && (content.trim().length > 0)) {
       output += ' ';
     }
   }

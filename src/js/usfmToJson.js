@@ -420,7 +420,8 @@ export const usfmToJSON = (usfm, params = {}) => {
         // check for verse span
         const spanMatch = verseSpanRegex.exec(marker.content);
         if (spanMatch) {
-          currentVerse += spanMatch[0][0] + stripLeadingZeros(spanMatch[0].substr(1).trim());
+          currentVerse += spanMatch[0][0] +
+            stripLeadingZeros(spanMatch[0].substr(1).trim());
           marker.content = marker.content.substr(spanMatch[0].length);
         }
 

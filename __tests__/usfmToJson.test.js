@@ -1,6 +1,5 @@
 import {readJSON, readUSFM} from './util';
 import {usfmToJSON} from '../src/js/usfmToJson';
-import * as VERSION from '../src/js/version';
 
 /**
  * Generator for testing usfm to json migration
@@ -12,7 +11,6 @@ const generateTest = (name, args = {}) => {
   const expected = readJSON(`${name}.json`);
   expect(input).toBeTruthy();
   expect(expected).toBeTruthy();
-  expected.version = VERSION.VERSION;
   const output = usfmToJSON(input, args);
   expect(output).toEqual(expected);
 };

@@ -120,7 +120,7 @@ export const parseLine = line => {
         content: content
       };
 
-      if(!content && !marker.number && (open !== match[2])) { // look for dropped white space
+      if (!content && !marker.number && (open !== match[2])) { // look for dropped white space
         object.content = match[2].substr(open.length);
       }
 

@@ -1,24 +1,50 @@
 {
-  "headers": {
-    "id": "ISA Unlocked Literal Bible",
-    "ide": "UTF-8",
-    "h": "Isaiah",
-    "toc1": "The Book of Isaiah",
-    "toc2": "Isaiah",
-    "toc3": "Isa",
-    "mt": "The Book of the Prophet Isaiah",
-    "s5": ""
-  },
+  "headers": [
+    {
+      "content": "ISA Unlocked Literal Bible",
+      "tag": "id"
+    },
+    {
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Isaiah",
+      "tag": "h"
+    },
+    {
+      "content": "The Book of Isaiah",
+      "tag": "toc1"
+    },
+    {
+      "content": "Isaiah",
+      "tag": "toc2"
+    },
+    {
+      "content": "Isa",
+      "tag": "toc3"
+    },
+    {
+      "content": "The Book of the Prophet Isaiah",
+      "tag": "mt"
+    },
+    {
+      "tag": "s5",
+      "type": "section"
+    }
+  ],
   "chapters": {
     "5": {
       "front": [
         {
           "tag": "p",
-          "text": "\n"
+          "text": "\n",
+          "type": "paragraph"
         },
         {
           "tag": "q1",
-          "text": "\n"
+          "text": "\n",
+          "type": "quote"
         },
         {
           "text": "\n",
@@ -26,7 +52,8 @@
         },
         {
           "tag": "s5",
-          "text": "\n"
+          "text": "\n",
+          "type": "section"
         }
       ],
       "15": [
@@ -36,7 +63,8 @@
         },
         {
           "tag": "q1",
-          "text": "\n"
+          "text": "\n",
+          "type": "quote"
         }
       ],
       "16": [
@@ -46,7 +74,8 @@
         },
         {
           "tag": "q1",
-          "text": "\n"
+          "text": "\n",
+          "type": "quote"
         }
       ],
       "17": [
@@ -56,6 +85,7 @@
         },
         {
           "tag": "f",
+          "type": "footnote",
           "content": "+ \\ft Some modern versions have \\fqa and in the ruins of the rich, lambs will graze \\fqb . "
         },
         {
@@ -64,11 +94,13 @@
         },
         {
           "tag": "p",
-          "text": "\n"
+          "text": "\n",
+          "type": "paragraph"
         },
         {
           "tag": "q1",
-          "text": "\n"
+          "text": "\n",
+          "type": "quote"
         }
       ]
     }

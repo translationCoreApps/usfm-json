@@ -8,14 +8,17 @@
         },
         {
           "tag": "q1",
+          "type": "quote",
           "text": "all of them will come from Sheba;\n"
         },
         {
           "tag": "q1",
+          "type": "quote",
           "text": "they will bring gold and frankincense, and will sing the praises of Yahweh.\n"
         },
         {
           "tag": "q1",
+          "type": "quote",
           "text": "\n"
         }
       ],
@@ -26,29 +29,56 @@
         },
         {
           "tag": "q1",
+          "type": "quote",
           "text": "they will be acceptable offerings on my altar; and I will glorify my glorious house.\n"
         }
       ],
       "front": [
         {
           "tag": "s5",
+          "type": "section",
           "text": "\n"
         },
         {
           "tag": "q1",
+          "type": "quote",
           "text": "\n"
         }
       ]
     }
   },
-  "headers": {
-    "id": "ISA Unlocked Literal Bible",
-    "ide": "UTF-8",
-    "h": "Isaiah",
-    "toc1": "The Book of Isaiah",
-    "toc2": "Isaiah",
-    "toc3": "Isa",
-    "mt": "Isaiah",
-    "s5": ""
-  }
+  "headers": [
+    {
+      "content": "ISA Unlocked Literal Bible",
+      "tag": "id"
+    },
+    {
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Isaiah",
+      "tag": "h"
+    },
+    {
+      "content": "The Book of Isaiah",
+      "tag": "toc1"
+    },
+    {
+      "content": "Isaiah",
+      "tag": "toc2"
+    },
+    {
+      "content": "Isa",
+      "tag": "toc3"
+    },
+    {
+      "content": "Isaiah",
+      "tag": "mt"
+    },
+    {
+      "tag": "s5",
+      "type": "section"
+    }
+  ]
 }

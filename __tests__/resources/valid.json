@@ -1,13 +1,17 @@
 {
-  "headers": {
-    "h": "3 John"
-  },
+  "headers": [
+    {
+      "content": "3 John",
+      "tag": "h"
+    }
+  ],
   "chapters": {
     "1": {
       "front": [
         {
           "tag": "p",
-          "text": "\n"
+          "text": "\n",
+          "type": "paragraph"
         }
       ],
       "1": [

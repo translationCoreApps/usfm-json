@@ -1,26 +1,58 @@
 {
-  "headers": {
-    "id": "PSA Unlocked Literal Bible",
-    "ide": "UTF-8",
-    "h": "Psalms",
-    "toc1": "The Book of Psalms",
-    "toc2": "Psalms",
-    "toc3": "Psa",
-    "mt": "The Book of Psalms",
-    "ms": "Book One",
-    "s5": "",
-    "cl": "Psalm"
-  },
+  "headers": [
+    {
+      "content": "PSA Unlocked Literal Bible",
+      "tag": "id"
+    },
+    {
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Psalms",
+      "tag": "h"
+    },
+    {
+      "content": "The Book of Psalms",
+      "tag": "toc1"
+    },
+    {
+      "content": "Psalms",
+      "tag": "toc2"
+    },
+    {
+      "content": "Psa",
+      "tag": "toc3"
+    },
+    {
+      "content": "The Book of Psalms",
+      "tag": "mt"
+    },
+    {
+      "content": "Book One",
+      "tag": "ms"
+    },
+    {
+      "tag": "s5",
+      "type": "section"
+    },
+    {
+      "content": "Psalm",
+      "tag": "cl"
+    }
+  ],
   "chapters": {
     "1": {
       "front": [
         {
           "tag": "p",
+          "type": "paragraph",
           "text": "\n"
         },
         {
           "tag": "q",
-          "text": "\n"
+          "text": "\n",
+          "type": "quote"
         }
       ],
       "1": [
@@ -30,14 +62,17 @@
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "or stand in the pathway with sinners,\n"
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "or sit in the assembly of mockers.\n"
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "\n"
         }
       ],
@@ -48,11 +83,13 @@
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "and on his law he meditates day and night.\n"
         },
         {
           "text": "Selah",
-          "tag": "qs"
+          "tag": "qs",
+          "type": "quote"
         },
         {
           "text": "\n\n ",
@@ -60,10 +97,12 @@
         },
         {
           "tag": "s5",
+          "type": "section",
           "text": "\n"
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "\n"
         }
       ],
@@ -74,14 +113,17 @@
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "that produces its fruit in its season,\n"
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "whose leaves do not wither;\n"
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "whatever he does will prosper.\n"
         },
         {
@@ -90,10 +132,12 @@
         },
         {
           "tag": "s5",
+          "type": "section",
           "text": "\n"
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "\n"
         }
       ],
@@ -104,10 +148,12 @@
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "but are instead like the chaff that the wind drives away.\n"
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "\n"
         }
       ],
@@ -119,6 +165,7 @@
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "nor sinners in the assembly of the righteous.\n"
         }
       ]

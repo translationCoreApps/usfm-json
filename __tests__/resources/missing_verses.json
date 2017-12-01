@@ -1,20 +1,49 @@
 {
-  "headers": {
-    "id": "php",
-    "ide": "UTF-8",
-    "h": "Philippians",
-    "toc1": "The Epistle of Paul the Apostle to the Philippians",
-    "toc2": "Philippians",
-    "toc3": "Php",
-    "mt": "The Epistle of Paul the Apostle to the Philippians",
-    "s5": ""
-  },
+  "headers": [
+    {
+      "content": "php",
+      "tag": "id"
+    },
+    {
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Philippians",
+      "tag": "h"
+    },
+    {
+      "content": "The Epistle of Paul the Apostle to the Philippians",
+      "tag": "toc1"
+    },
+    {
+      "content": "Philippians",
+      "tag": "toc2"
+    },
+    {
+      "content": "Php",
+      "tag": "toc3"
+    },
+    {
+      "content": "The Epistle of Paul the Apostle to the Philippians",
+      "tag": "mt"
+    },
+    {
+      "text": "\n",
+      "type": "text"
+    },
+    {
+      "tag": "s5",
+      "type": "section"
+    }
+  ],
   "chapters": {
     "1": {
       "front": [
         {
           "tag": "p",
-          "text": "\n"
+          "text": "\n",
+          "type": "paragraph"
         }
       ],
       "1": [
@@ -38,11 +67,13 @@
         },
         {
           "tag": "s5",
-          "text": "\n"
+          "text": "\n",
+          "type": "section"
         },
         {
           "tag": "p",
-          "text": "\n"
+          "text": "\n",
+          "type": "paragraph"
         }
       ],
       "5": [
@@ -58,7 +89,8 @@
         },
         {
           "tag": "s5",
-          "text": "\n"
+          "text": "\n",
+          "type": "section"
         }
       ]
     },
@@ -66,7 +98,8 @@
       "front": [
         {
           "tag": "p",
-          "text": "\n"
+          "text": "\n",
+          "type": "paragraph"
         }
       ],
       "1": [
@@ -76,7 +109,8 @@
         },
         {
           "tag": "s5",
-          "text": "\n"
+          "text": "\n",
+          "type": "section"
         }
       ],
       "3": [

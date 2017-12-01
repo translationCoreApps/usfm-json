@@ -1,14 +1,38 @@
 {
-  "headers": {
-    "id": "PRO Unlocked Literal Bible",
-    "ide": "UTF-8",
-    "h": "Proverbs",
-    "toc1": "The Book of Proverbs",
-    "toc2": "Proverbs",
-    "toc3": "Pro",
-    "mt": "Proverbs",
-    "s5": ""
-  },
+  "headers": [
+    {
+      "content": "PRO Unlocked Literal Bible",
+      "tag": "id"
+    },
+    {
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Proverbs",
+      "tag": "h"
+    },
+    {
+      "content": "The Book of Proverbs",
+      "tag": "toc1"
+    },
+    {
+      "content": "Proverbs",
+      "tag": "toc2"
+    },
+    {
+      "content": "Pro",
+      "tag": "toc3"
+    },
+    {
+      "content": "Proverbs",
+      "tag": "mt"
+    },
+    {
+      "tag": "s5",
+      "type": "section"
+    }
+  ],
   "chapters": {
     "30": {
       "1": [
@@ -18,11 +42,13 @@
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "This man declared to Ithiel, to Ithiel and Ucal:\n"
         },
         {
           "content": "+ \\ft Some versions have \\fqa This man declared, \"I am weary, O God, I am weary. I am unable to do anything.\" \\fqa* ",
-          "tag": "f"
+          "tag": "f",
+          "type": "footnote"
         },
         {
           "text": "\n",
@@ -30,6 +56,7 @@
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "\n"
         }
       ],
@@ -40,10 +67,12 @@
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "and I do not have the understanding of a human being.\n"
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "\n"
         }
       ],
@@ -54,12 +83,14 @@
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "nor do I have knowledge of the Holy One.\n"
         }
       ],
       "front": [
         {
           "tag": "p",
+          "type": "paragraph",
           "text": "\n"
         }
       ]

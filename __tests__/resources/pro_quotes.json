@@ -8,10 +8,12 @@
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "than in a house shared with a quarrelsome wife.\n"
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "\n"
         }
       ],
@@ -22,14 +24,17 @@
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "his neighbor finds no favor in his eyes. \n"
         },
         {
           "tag": "s5",
+          "type": "section",
           "text": "\n"
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "\n"
         }
       ],
@@ -40,7 +45,8 @@
         },
         {
           "content": "+ \\ft Many mss have the singular \\fqa faithful one\\fqa* instead of \\fqa faithful ones.",
-          "tag": "f"
+          "tag": "f",
+          "type": "footnote"
         },
         {
           "text": ";\n",
@@ -48,11 +54,13 @@
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "you said, \"I have set a crown on a mighty one"
         },
         {
           "content": "+ \\ft The MT has \\fqa I will place help upon a warrior \\fqa*. Some translate the word for \\fqa help \\fqa* as \\fqa crown, which is followed by the ULB here.",
-          "tag": "f"
+          "tag": "f",
+          "type": "footnote"
         },
         {
           "text": "\"\n",
@@ -60,10 +68,12 @@
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "I have raised up one chosen from among the people.\n"
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "\n"
         },
         {
@@ -74,23 +84,49 @@
       "front": [
         {
           "tag": "s5",
+          "type": "section",
           "text": "\n"
         },
         {
           "tag": "q",
+          "type": "quote",
           "text": "\n"
         }
       ]
     }
   },
-  "headers": {
-    "id": "PRO Unlocked Literal Bible",
-    "ide": "UTF-8",
-    "h": "Proverbs",
-    "toc1": "The Book of Proverbs",
-    "toc2": "Proverbs",
-    "toc3": "Pro",
-    "mt": "Proverbs",
-    "s5": ""
- }
+  "headers": [
+    {
+      "content": "PRO Unlocked Literal Bible",
+      "tag": "id"
+    },
+    {
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Proverbs",
+      "tag": "h"
+    },
+    {
+      "content": "The Book of Proverbs",
+      "tag": "toc1"
+    },
+    {
+      "content": "Proverbs",
+      "tag": "toc2"
+    },
+    {
+      "content": "Pro",
+      "tag": "toc3"
+    },
+    {
+      "content": "Proverbs",
+      "tag": "mt"
+    },
+    {
+      "tag": "s5",
+      "type": "section"
+    }
+  ]
 }

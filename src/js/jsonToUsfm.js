@@ -26,14 +26,16 @@ export const generateWord = wordObject => {
  * @return {String} Text equivalent of marker.
  */
 export const usfmMarkerToString = usfmObject => {
-  let output = '\\' + usfmObject.tag;
-  if (usfmObject.number) {
-    output += ' ' + usfmObject.number;
-  }
-
+  let output = "";
   const content = usfmObject.text || usfmObject.content;
-  if (content && (content[0] !== '\n')) {
-    output += ' ';
+  if(usfmObject.tag) {
+    output = '\\' + usfmObject.tag;
+    if (usfmObject.number) {
+      output += ' ' + usfmObject.number;
+    }
+    if (content && (content[0] !== '\n')) {
+      output += ' ';
+    }
   }
 
   if (content) {
@@ -127,6 +129,19 @@ export const generateChapterLines = (chapterNumber, chapterObject) => {
 };
 
 /**
+ * @description convert object to text and add to array.  Objects are terminated with newline
+ * @param {array} output - array where text is appended
+ * @param {Object} usfmObject - USFM object to convert to string
+ */
+export const outputHeaderObject = (output, usfmObject) => {
+  let text = usfmMarkerToString(usfmObject);
+  if(usfmObject.tag) {
+    text += '\n'
+  }
+  output.push(text);
+};
+
+/**
  * @description Takes in scripture json and outputs it as a USFM string.
  * @param {Object} json - Scripture in JSON
  * @return {String} - Scripture in USFM
@@ -135,15 +150,9 @@ export const jsonToUSFM = json => {
   USFM.init();
   let output = [];
   if (json.headers) {
-    const keys = Object.keys(json.headers);
-    keys.forEach(function(key) {
-      const value = json.headers[key];
-      const object = {
-        tag: key,
-        content: value + '\n'
-      };
-      output.push(usfmMarkerToString(object));
-    });
+    for(let header of json.headers) {
+      outputHeaderObject(output, header);
+    }
   }
   if (json.chapters) {
     const chapterNumbers = Object.keys(json.chapters);

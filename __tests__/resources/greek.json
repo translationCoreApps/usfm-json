@@ -1,15 +1,25 @@
 {
-  "headers": {
-    "id": "TIT Titus",
-    "ide": "UTF-8",
-    "h": "Titus"
-  },
+  "headers": [
+    {
+      "content": "TIT Titus",
+      "tag": "id"
+    },
+    {
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Titus",
+      "tag": "h"
+    }
+  ],
   "chapters": {
     "1": {
       "front": [
         {
           "tag": "p",
-          "text": "\n"
+          "text": "\n",
+          "type": "paragraph"
         }
       ],
       "1": [
@@ -71,7 +81,8 @@
       "front": [
         {
           "tag": "p",
-          "text": "\n"
+          "text": "\n",
+          "type": "paragraph"
         }
       ],
       "1": [

@@ -82,11 +82,11 @@ export const parseWord = wordContent => {
  * @param {string} text - text to embed in object
  * @return {{content: *}} new text marker
  */
-function makeTextObject(text) {
+export const makeTextMarker = text => {
   return {
     content: text
   };
-}
+};
 
 /**
  * @description - Parses the line and determines what content is in it
@@ -96,7 +96,7 @@ function makeTextObject(text) {
 export const parseLine = line => {
   let array = [];
   if (line.trim() === '') {
-    const object = makeTextObject(line + '\n');
+    const object = makeTextMarker(line + '\n');
     array.push(object);
     return array;
   }
@@ -137,13 +137,13 @@ export const parseLine = line => {
           (lastObject.nextChar === ' ')) {
           orphanText = orphanText.substr(1); // remove first space since already handled
         }
-        const object = makeTextObject(orphanText);
+        const object = makeTextMarker(orphanText);
         array.push(object);
       }
     }
   } else { // doesn't have a marker but may have content
     // this is considered an orphaned line
-    const object = makeTextObject(line + '\n');
+    const object = makeTextMarker(line + '\n');
     array.push(object);
   }
   return array;
@@ -176,7 +176,8 @@ export const pushObject = (nested, saveTo, usfmObject) => {
   const isNestedMarker = nested.length > 0;
   if (isNestedMarker) { // if this marker is nested in another marker, then we need to add to content as string
     const last = nested.length - 1;
-    let text = nested[last].content;
+    const contentAttr = USFM.markContentAsText(usfmObject.tag) ? 'text' : 'content';
+    let text = nested[last][contentAttr];
     if (typeof usfmObject === "string") {
       text += usfmObject;
     } else {
@@ -187,17 +188,12 @@ export const pushObject = (nested, saveTo, usfmObject) => {
         text += ' ' + usfmObject.content;
       }
     }
-    const contentAttr = USFM.markContentAsText(usfmObject.tag) ? 'text' : 'content';
     nested[last][contentAttr] = text;
     return;
   }
 
   if (typeof usfmObject === "string") { // if raw text, convert to object
-    const object = {
-      type: "text",
-      text: usfmObject
-    };
-    usfmObject = object;
+    usfmObject = createUsfmObject(null,null,usfmObject);
   }
 
   if (saveTo.length && (usfmObject.type === "text")) {
@@ -290,6 +286,42 @@ export const saveUsfmObject = (saveTo, nested, tag, usfmObject) => {
 };
 
 /**
+ * @description - create a USFM object with fields passed
+ * @param {string} tag - string to use for tag
+ * @param {string} number - optional number attribute
+ * @param {string} content - optional content (may be saved as content or text depending on tag)
+ * @return {{tag: *}} USFM object
+ */
+export const createUsfmObject = (tag, number, content) => {
+  const output = { };
+  let contentAttr;
+  if (tag) {
+    output.tag = tag;
+    if (USFM.MARKER_TYPE[tag]) {
+      output.type = USFM.MARKER_TYPE[tag];
+    }
+    contentAttr = USFM.markContentAsText(tag) ? 'text' : 'content';
+  } else { // default to text type
+    contentAttr = output.type = "text";
+  }
+  if (number) {
+    if (USFM.markerSupportsNumbers(tag)) {
+      output.number = number;
+    } else { // handle rare case that parser places part of content as number
+      let newContent = number;
+      if (content) {
+        newContent += ' ' + content;
+      }
+      content = newContent;
+    }
+  }
+  if (content) {
+    output[contentAttr] = content;
+  }
+  return output;
+};
+
+/**
  * @description - adds usfm object to current verse and handles nested USFM objects
  * @param {array} nested - points to object that contains nested content such as for '\f'
  * @param {array} chapters - holds all chapter content
@@ -307,13 +339,6 @@ export const addToCurrentVerse = (nested, chapters, currentChapter,
     return;
   }
 
-  const output = {
-    tag: tag
-  };
-  if (usfmObject.number) {
-    output.number = usfmObject.number;
-  }
-
   let content = usfmObject.content || "";
   const isEndMarker = (content && (content[0] === "*"));
   if (isEndMarker) { // check for end marker
@@ -323,10 +348,7 @@ export const addToCurrentVerse = (nested, chapters, currentChapter,
     if (usfmObject.nextChar && !usfmObject.close) {
       content += usfmObject.nextChar;
     }
-    if (content) {
-      const contentAttr = USFM.markContentAsText(tag) ? 'text' : 'content';
-      output[contentAttr] = content;
-    }
+    const output = createUsfmObject(tag, null, content);
     saveUsfmObject(saveTo, nested, tag, output);
   }
 
@@ -357,7 +379,7 @@ export const usfmToJSON = (usfm, params = {}) => {
   let currentVerse = 0;
   let chapters = {};
   let verses = {};
-  let headers = {};
+  let headers = [];
   let nested = [];
   let onSameChapter = false;
   markers.forEach(function(marker) {
@@ -430,6 +452,8 @@ export const usfmToJSON = (usfm, params = {}) => {
         if (currentChapter > 0 && marker.content) {
           addToCurrentVerse(nested, chapters, currentChapter, currentVerse,
             marker.content);
+        } else if (currentChapter === 0 && !currentVerse) { // if we haven't seen chapter yet, its a header
+          pushObject(nested, headers, createUsfmObject(marker.tag, marker.number, marker.content));
         }
         if (params.chunk && currentVerse > 0 && marker.content) {
           if (!verses[currentVerse])
@@ -440,14 +464,7 @@ export const usfmToJSON = (usfm, params = {}) => {
       }
       default: {
         if (currentChapter === 0 && !currentVerse) { // if we haven't seen chapter yet, its a header
-          let value;
-          marker.content = marker.content || ""; // replace undefined
-          if (marker.number) { // if there is a number, prepend it to content
-            value = marker.number + ' ' + marker.content;
-          } else {
-            value = marker.content;
-          }
-          headers[marker.tag] = value;
+          pushObject(nested, headers, createUsfmObject(marker.tag, marker.number, marker.content));
         } else if (currentChapter) {
           addToCurrentVerse(nested, chapters, currentChapter, currentVerse,
             marker);

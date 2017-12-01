@@ -28,7 +28,7 @@ export const generateWord = wordObject => {
 export const usfmMarkerToString = usfmObject => {
   let output = "";
   const content = usfmObject.text || usfmObject.content;
-  if(usfmObject.tag) {
+  if (usfmObject.tag) {
     output = '\\' + usfmObject.tag;
     if (usfmObject.number) {
       output += ' ' + usfmObject.number;
@@ -135,8 +135,8 @@ export const generateChapterLines = (chapterNumber, chapterObject) => {
  */
 export const outputHeaderObject = (output, usfmObject) => {
   let text = usfmMarkerToString(usfmObject);
-  if(usfmObject.tag) {
-    text += '\n'
+  if (usfmObject.tag) {
+    text += '\n';
   }
   output.push(text);
 };
@@ -150,7 +150,7 @@ export const jsonToUSFM = json => {
   USFM.init();
   let output = [];
   if (json.headers) {
-    for(let header of json.headers) {
+    for (let header of json.headers) {
       outputHeaderObject(output, header);
     }
   }

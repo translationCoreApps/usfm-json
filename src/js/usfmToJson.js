@@ -167,6 +167,42 @@ export const getSaveToLocation = (chapters, currentChapter, currentVerse) => {
 };
 
 /**
+ * @description - create a USFM object with fields passed
+ * @param {string} tag - string to use for tag
+ * @param {string} number - optional number attribute
+ * @param {string} content - optional content (may be saved as content or text depending on tag)
+ * @return {{tag: *}} USFM object
+ */
+export const createUsfmObject = (tag, number, content) => {
+  const output = { };
+  let contentAttr;
+  if (tag) {
+    output.tag = tag;
+    if (USFM.MARKER_TYPE[tag]) {
+      output.type = USFM.MARKER_TYPE[tag];
+    }
+    contentAttr = USFM.markContentAsText(tag) ? 'text' : 'content';
+  } else { // default to text type
+    contentAttr = output.type = "text";
+  }
+  if (number) {
+    if (USFM.markerSupportsNumbers(tag)) {
+      output.number = number;
+    } else { // handle rare case that parser places part of content as number
+      let newContent = number;
+      if (content) {
+        newContent += ' ' + content;
+      }
+      content = newContent;
+    }
+  }
+  if (content) {
+    output[contentAttr] = content;
+  }
+  return output;
+};
+
+/**
  * @description push usfm object to array, and concat strings of last array item is also string
  * @param {array} nested - points to object that contains nested content such as for '\f'
  * @param {array} saveTo - location to place verse content
@@ -193,7 +229,7 @@ export const pushObject = (nested, saveTo, usfmObject) => {
   }
 
   if (typeof usfmObject === "string") { // if raw text, convert to object
-    usfmObject = createUsfmObject(null,null,usfmObject);
+    usfmObject = createUsfmObject(null, null, usfmObject);
   }
 
   if (saveTo.length && (usfmObject.type === "text")) {
@@ -283,42 +319,6 @@ export const saveUsfmObject = (saveTo, nested, tag, usfmObject) => {
       nested.push(usfmObject);
     }
   }
-};
-
-/**
- * @description - create a USFM object with fields passed
- * @param {string} tag - string to use for tag
- * @param {string} number - optional number attribute
- * @param {string} content - optional content (may be saved as content or text depending on tag)
- * @return {{tag: *}} USFM object
- */
-export const createUsfmObject = (tag, number, content) => {
-  const output = { };
-  let contentAttr;
-  if (tag) {
-    output.tag = tag;
-    if (USFM.MARKER_TYPE[tag]) {
-      output.type = USFM.MARKER_TYPE[tag];
-    }
-    contentAttr = USFM.markContentAsText(tag) ? 'text' : 'content';
-  } else { // default to text type
-    contentAttr = output.type = "text";
-  }
-  if (number) {
-    if (USFM.markerSupportsNumbers(tag)) {
-      output.number = number;
-    } else { // handle rare case that parser places part of content as number
-      let newContent = number;
-      if (content) {
-        newContent += ' ' + content;
-      }
-      content = newContent;
-    }
-  }
-  if (content) {
-    output[contentAttr] = content;
-  }
-  return output;
 };
 
 /**
@@ -453,7 +453,8 @@ export const usfmToJSON = (usfm, params = {}) => {
           addToCurrentVerse(nested, chapters, currentChapter, currentVerse,
             marker.content);
         } else if (currentChapter === 0 && !currentVerse) { // if we haven't seen chapter yet, its a header
-          pushObject(nested, headers, createUsfmObject(marker.tag, marker.number, marker.content));
+          pushObject(nested, headers, createUsfmObject(marker.tag,
+            marker.number, marker.content));
         }
         if (params.chunk && currentVerse > 0 && marker.content) {
           if (!verses[currentVerse])

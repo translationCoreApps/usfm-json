@@ -328,6 +328,18 @@ export const saveUsfmObject = (saveTo, nested, tag, usfmObject) => {
 };
 
 /**
+ * @description normalize the numbers in string by removing leading '0'
+ * @param {string} text - number string to normalize
+ * @return {string} normalized number string
+ */
+export const stripLeadingZeros = text => {
+  while ((text.length > 1) && (text[0] === '0')) {
+    text = text.substr(1);
+  }
+  return text;
+};
+
+/**
  * @description - adds usfm object to current verse and handles nested USFM objects
  * @param {array} nested - points to object that contains nested content such as for '\f'
  * @param {array} chapters - holds all chapter content
@@ -390,7 +402,7 @@ export const usfmToJSON = (usfm, params = {}) => {
     switch (marker.tag) {
       case 'c': { // chapter
         nested = [];
-        currentChapter = marker.number;
+        currentChapter = stripLeadingZeros(marker.number);
         chapters[currentChapter] = {};
         // resetting 'on same chapter' flag
         onSameChapter = false;
@@ -403,12 +415,12 @@ export const usfmToJSON = (usfm, params = {}) => {
         if (marker.nextChar === "\n") {
           marker.content += marker.nextChar;
         }
-        currentVerse = marker.number;
+        currentVerse = stripLeadingZeros(marker.number);
 
         // check for verse span
         const spanMatch = verseSpanRegex.exec(marker.content);
         if (spanMatch) {
-          currentVerse += spanMatch[0].trim();
+          currentVerse += spanMatch[0][0] + stripLeadingZeros(spanMatch[0].substr(1).trim());
           marker.content = marker.content.substr(spanMatch[0].length);
         }
 

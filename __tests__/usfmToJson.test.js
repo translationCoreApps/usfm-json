@@ -86,3 +86,8 @@ it('process PRO quotes', () => {
 it('process JOB footnote', () => {
   generateTest('job_footnote');
 });
+
+it('process PSA with leading zeros', () => {
+  generateTest('psa_zeros');
+});
+

@@ -130,7 +130,7 @@ export const parseLine = line => {
         }
         object.content = newContent;
       }
-      if(close) {
+      if (close) {
         array.push(object);
         const closeTag = close.substr(1);
         const closeObject = {
@@ -449,7 +449,8 @@ export const usfmToJSON = (usfm, params = {}) => {
       }
       case 'w*': {
         if (marker.nextChar) {
-          let saveTo = getSaveToLocation(chapters, currentChapter, currentVerse);
+          let saveTo = getSaveToLocation(chapters, currentChapter,
+            currentVerse);
           pushObject(nested, saveTo, marker.nextChar);
         }
         break;

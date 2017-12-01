@@ -363,7 +363,7 @@ export const addToCurrentVerse = (nested, chapters, currentChapter,
 */
 export const usfmToJSON = (usfm, params = {}) => {
   USFM.init();
-  const verseSpanRegex = /(-\d+\s)/g;
+  const verseSpanRegex = /(-\d+\s)/;
   let lines = usfm.split(/\r?\n/); // get all the lines
   if (lines.length && (lines[lines.length - 1] === "")) {
     lines = lines.slice(0, lines.length - 1);

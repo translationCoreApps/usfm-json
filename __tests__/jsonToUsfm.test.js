@@ -50,6 +50,10 @@ it('process ISA verse span', () => {
   generateTest('isa_verse_span');
 });
 
+it('process 1CH verse span', () => {
+  generateTest('1ch_verse_span');
+});
+
 it('process ISA inline quotes', () => {
   generateTest('isa_inline_quotes');
 });

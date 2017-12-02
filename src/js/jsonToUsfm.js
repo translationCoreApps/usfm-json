@@ -27,13 +27,17 @@ export const generateWord = wordObject => {
  */
 export const usfmMarkerToString = usfmObject => {
   let output = "";
-  const content = usfmObject.text || usfmObject.content;
+  const content = usfmObject.text || usfmObject.content || "";
+  const markerRequiresTermination = USFM.markerRequiresTermination(usfmObject.tag);
   if (usfmObject.tag) {
     output = '\\' + usfmObject.tag;
     if (usfmObject.number) {
       output += ' ' + usfmObject.number;
     }
-    if (content && (content[0] !== '\n') && (content.trim().length > 0)) {
+    const firstChar = content.substr(0, 1);
+    if (!markerRequiresTermination && (firstChar !== '') && (firstChar !== '\n') && (content !== ' \n')) {
+      output += ' ';
+    } else if (markerRequiresTermination && (firstChar !== ' ')) {
       output += ' ';
     }
   }
@@ -42,7 +46,7 @@ export const usfmMarkerToString = usfmObject => {
     output += content;
   }
 
-  if (USFM.markerRequiresTermination(usfmObject.tag)) {
+  if (markerRequiresTermination) {
     output += '\\' + usfmObject.tag + '*';
   }
   return output;
@@ -121,6 +125,12 @@ export const generateChapterLines = (chapterNumber, chapterObject) => {
     return parseInt(a, 10) - parseInt(b, 10);
   });
   verseNumbers.forEach(function(verseNumber) {
+    // check if verse is inside previous line (such as \q)
+    const lastLine = lines.length ? lines[lines.length - 1] : "";
+    const lastChar = lastLine ? lastLine.substr(lastLine.length - 1) : "";
+    if (lastChar && (lastChar !== '\n') && (lastChar !== '')) { // do we need white space
+      lines[lines.length - 1] = lastLine + ' ';
+    }
     const verseArray = chapterObject[verseNumber];
     const verseLine = generateVerse(verseNumber, verseArray);
     lines = lines.concat(verseLine);

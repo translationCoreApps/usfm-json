@@ -9,7 +9,7 @@
         {
           "tag": "q",
           "type": "quote",
-          "text": "than in a house shared with a quarrelsome wife.\n"
+          "text": " than in a house shared with a quarrelsome wife.\n"
         },
         {
           "tag": "q",
@@ -25,12 +25,12 @@
         {
           "tag": "q",
           "type": "quote",
-          "text": "his neighbor finds no favor in his eyes. \n"
+          "text": " his neighbor finds no favor in his eyes. \n"
         },
         {
           "tag": "s5",
           "type": "section",
-          "text": " \n"
+          "text": "\n"
         },
         {
           "tag": "q",
@@ -55,7 +55,12 @@
         {
           "tag": "q",
           "type": "quote",
-          "text": "you said, \"I have set a crown on a mighty one"
+          "text": "you said, \n"
+        },
+        {
+          "tag": "q",
+          "type": "quote",
+          "text": "\"I have set a crown on a mighty one"
         },
         {
           "content": "+ \\ft The MT has \\fqa I will place help upon a warrior \\fqa*. Some translate the word for \\fqa help \\fqa* as \\fqa crown, which is followed by the ULB here.",
@@ -85,7 +90,7 @@
         {
           "tag": "s5",
           "type": "section",
-          "text": "\n"
+          "text": " \n"
         },
         {
           "tag": "q",

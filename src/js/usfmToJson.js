@@ -50,6 +50,18 @@ export const parseMarkerOpen = markerOpen => {
 };
 
 /**
+ * @description - trim a leading space
+ * @param text
+ * @return {*}
+ */
+export const removeLeadingSpace = text => {
+  if (text && (text.length > 1) &&(text[0] === " ")) {
+    text = text.substr(1);
+  }
+  return text;
+};
+
+/**
  * @description - Parses the word marker into JSON
  * @param {String} wordContent - the string to find the data/attributes
  * @return {Object} - json object of the word attributes
@@ -57,7 +69,7 @@ export const parseMarkerOpen = markerOpen => {
 export const parseWord = wordContent => {
   let object = {};
   const wordParts = wordContent.split('|');
-  const word = wordParts[0];
+  const word = removeLeadingSpace(wordParts[0]);
   const attributeContent = wordParts[1];
   object = {
     text: word,
@@ -84,6 +96,18 @@ export const parseWord = wordContent => {
 export const makeTextMarker = text => {
   return {
     content: text
+  };
+};
+
+/**
+ * @description create marker object from text
+ * @param {String} text - text to put in marker
+ * @return {object} new marker
+ */
+export const createMarkerFromText = text => {
+  return {
+    open: text,
+    tag: text
   };
 };
 
@@ -120,8 +144,17 @@ export const parseLine = line => {
         content: content
       };
 
-      if (!content && !marker.number && (open !== match[2])) { // look for dropped white space
-        object.content = match[2].substr(open.length);
+      const whiteSpaceInOpen = (open !== match[2]);
+      if (whiteSpaceInOpen && !marker.number) {
+        const shouldMatch = '\\' + open + (content ? ' ' + content : "");
+        if ((removeLeadingSpace(match[0]) !== shouldMatch)) { // look for dropped inside white space
+          const endPos = match.index + match[0].length;
+          const lineLength = line.length;
+          const runToEnd = endPos >= lineLength;
+          if(runToEnd) {
+            object.content = match[2].substr(open.length) + (content || "");
+          }
+        }
       }
 
       if (marker.number && !USFM.markerSupportsNumbers(marker.tag)) { // this tag doesn't have number, move to content
@@ -138,11 +171,7 @@ export const parseLine = line => {
       if (close) {
         array.push(object);
         const closeTag = close.substr(1);
-        const closeObject = {
-          open: closeTag,
-          tag: closeTag
-        };
-        object = closeObject;
+        object = createMarkerFromText(closeTag);
       }
       if (match.nextChar) {
         object.nextChar = match.nextChar;
@@ -236,18 +265,20 @@ export const pushObject = (nested, saveTo, usfmObject) => {
   if (isNestedMarker) { // if this marker is nested in another marker, then we need to add to content as string
     const last = nested.length - 1;
     const contentAttr = USFM.markContentAsText(usfmObject.tag) ? 'text' : 'content';
-    let text = nested[last][contentAttr];
+    let output = nested[last][contentAttr];
     if (typeof usfmObject === "string") {
-      text += usfmObject;
+      output += usfmObject;
     } else {
-      text += '\\' + usfmObject.tag;
-      if (usfmObject.text) {
-        text += ' ' + usfmObject.text;
-      } else if (usfmObject.content) {
-        text += ' ' + usfmObject.content;
+      output += '\\' + usfmObject.tag;
+      const content = usfmObject.text || usfmObject.content;
+      if (content) {
+        if (content[0] !== ' ') {
+          output += ' ';
+        }
+        output += content;
       }
     }
-    nested[last][contentAttr] = text;
+    nested[last][contentAttr] = output;
     return;
   }
 
@@ -260,7 +291,6 @@ export const pushObject = (nested, saveTo, usfmObject) => {
     const lastPos = saveTo.length - 1;
     let lastObject = saveTo[lastPos];
     if (lastObject.type === "text") {
-      // see if we need to separate with space
       lastObject.text += usfmObject.text;
       return;
     }

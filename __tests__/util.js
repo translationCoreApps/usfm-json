@@ -48,7 +48,7 @@ const getFilesOfType = (folder, type) => {
   }
   return results;
 };
-
+//
 // describe('USFM -> JSON -> USFM en_ulb', () => {
 //   const subFolder = 'en_ulb';
 //   const files = getFilesOfType(path.join(RESOURCES, subFolder),'usfm');
@@ -61,8 +61,13 @@ const getFilesOfType = (folder, type) => {
 //   }
 // });
 //
+// // current failures due to source errors:
+// //    en_ulb/23-ISA.usfm
+// //    en_ulb/06-JOS.usfm
+//
+//
 // it('util - handles missing verse markers 2', () => {
-//   generateRoundTripTest('en_ulb/06-JOS.usfm');
+//   generateRoundTripTest('en_ulb/38-ZEC.usfm');
 // });
 
 // it('util - handles missing verse markers 2', () => {

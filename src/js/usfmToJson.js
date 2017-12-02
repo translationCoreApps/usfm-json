@@ -51,11 +51,11 @@ export const parseMarkerOpen = markerOpen => {
 
 /**
  * @description - trim a leading space
- * @param text
- * @return {*}
+ * @param {String} text - text to trim
+ * @return {String} trimmed string
  */
 export const removeLeadingSpace = text => {
-  if (text && (text.length > 1) &&(text[0] === " ")) {
+  if (text && (text.length > 1) && (text[0] === " ")) {
     text = text.substr(1);
   }
   return text;
@@ -151,7 +151,7 @@ export const parseLine = line => {
           const endPos = match.index + match[0].length;
           const lineLength = line.length;
           const runToEnd = endPos >= lineLength;
-          if(runToEnd) {
+          if (runToEnd) {
             object.content = match[2].substr(open.length) + (content || "");
           }
         }

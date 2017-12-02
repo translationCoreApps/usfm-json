@@ -28,7 +28,8 @@ export const generateWord = wordObject => {
 export const usfmMarkerToString = usfmObject => {
   let output = "";
   const content = usfmObject.text || usfmObject.content || "";
-  const markerRequiresTermination = USFM.markerRequiresTermination(usfmObject.tag);
+  const markerRequiresTermination =
+    USFM.markerRequiresTermination(usfmObject.tag);
   if (usfmObject.tag) {
     output = '\\' + usfmObject.tag;
     if (usfmObject.number) {

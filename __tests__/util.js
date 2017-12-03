@@ -32,8 +32,16 @@ const generateRoundTripTest = (name) => {
   const json = usfmToJSON(expected);
   expect(json).toBeTruthy();
   console.log("Converting '" + name + "' back to USFM");
-  const usfm = jsonToUSFM(json);
+  let usfm = jsonToUSFM(json);
   fs.writeFileSync(path.join(RESOURCES, `${name}.converted`), usfm);
+  if (usfm !== expected) {
+    // see if extra LF at end
+    const usfmTrim = usfm.substr(0, usfm.length - 1);
+    const lastChar = usfm.substr(usfm.length - 1);
+    if ((lastChar === '\n') && (usfmTrim === expected)) {
+      usfm = usfmTrim;
+    }
+  }
   expect(usfm).toEqual(expected);
 };
 
@@ -42,13 +50,32 @@ const getFilesOfType = (folder, type) => {
   const files = fs.readdirSync(folder);
   for (let file of files) {
     const parts = file.split('.');
-    if ((parts.length == 2) && (parts[1].toLowerCase() === type)) {
+    if ((parts.length === 2) && (parts[1].toLowerCase() === type)) {
       results.push(file);
     }
   }
   return results;
 };
-//
+
+/**
+ * @description - downloads usfm file
+ * @param {string} url url to download
+ * @param {function} callback - executed after load finishes
+ */
+function getText(url, callback) {
+  let request = require('request');
+  request.get({
+    url: url,
+    json: false
+  }, (err, res, data) => {
+    if (err) {
+      callback(null);
+    } else {
+      callback(data);
+    }
+  });
+}
+
 // describe('USFM -> JSON -> USFM en_ulb', () => {
 //   const subFolder = 'en_ulb';
 //   const files = getFilesOfType(path.join(RESOURCES, subFolder),'usfm');
@@ -62,15 +89,34 @@ const getFilesOfType = (folder, type) => {
 // });
 //
 // // current failures due to source errors:
-// //    en_ulb/23-ISA.usfm
 // //    en_ulb/06-JOS.usfm
 //
 //
-// it('util - handles missing verse markers 2', () => {
-//   generateRoundTripTest('en_ulb/38-ZEC.usfm');
-// });
-
-// it('util - handles missing verse markers 2', () => {
-//   generateRoundTripTest('hi_ulb/57-TIT');
+// it('get bibles list', () => {
+//   getText('https://api.door43.org/v3/catalog.json', (data) => {
+//     const bibles = {};
+//     const catalog = JSON.parse(data);
+//     const languages = catalog.languages;
+//     for (let language of languages) {
+//       for (let resource of language.resources) {
+//         if (resource.subject === "Bible") {
+//           for (let format of resource.formats) {
+//             if (format.format.indexOf("application/zip") >= 0) {
+//               bibles[language.identifier] = {
+//                 format: format.format,
+//                 url: format.url
+//               };
+//             }
+//           }
+//         }
+//       }
+//     }
+//     const biblesJson = JSON.stringify(bibles, null, 2);
+//     fs.writeFileSync(path.join(RESOURCES, 'bibles.json'), biblesJson);
+//   });
 // });
 //
+// it('util - handles missing verse markers 2', () => {
+//   generateRoundTripTest('hi_ulb/05-DEU.usfm');
+// });
+

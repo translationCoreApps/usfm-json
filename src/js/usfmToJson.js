@@ -1,6 +1,6 @@
 import * as USFM from './USFM';
 
-const VERSE_SPAN_REGEX = /(-\d+\s)/;
+const VERSE_SPAN_REGEX = /(^-\d+\s)/;
 const NUMBER = /(\d+)/;
 
 /**

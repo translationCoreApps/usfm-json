@@ -97,5 +97,8 @@ describe("USFM to JSON", () => {
     generateTest('tstudio');
   });
 
+  it('converts invalid usfm to json', () => {
+    generateTest('invalid');
+  });
 });
 

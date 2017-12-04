@@ -1,0 +1,80 @@
+{
+  "headers": [
+    {
+      "content": "TIT Titus",
+      "tag": "id"
+    },
+    {
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Titus",
+      "tag": "h"
+    },
+    {
+      "content": "Titus",
+      "tag": "toc2"
+    },
+    {
+      "content": "Tit",
+      "tag": "toc3"
+    },
+    {
+      "content": "Titus",
+      "tag": "mt"
+    }
+  ],
+  "chapters": {
+    "1": {
+      "front": [
+        {
+          "type": "text",
+          "text": "\n"
+        }
+      ],
+      "12": [
+        {
+          "type": "text",
+          "text": "\n"
+        },
+        {
+          "text": "προφήτης",
+          "lemma": "προφήτης",
+          "strong": "G43960",
+          "morph": "Gr,N,,,,,NMS,",
+          "tag": "w",
+          "type": "word"
+        },
+        {
+          "type": "text",
+          "text": ",\n“"
+        },
+        {
+          "text": "Κρῆτες",
+          "lemma": "Κρής",
+          "strong": "G29120",
+          "morph": "Gr,N,,,,,NMP,",
+          "tag": "w",
+          "type": "word"
+        },
+        {
+          "type": "text",
+          "text": "\n"
+        },
+        {
+          "text": "ἀργαί",
+          "lemma": "ἀργός",
+          "strong": "G06920",
+          "morph": "Gr,AA,,,,NFP,",
+          "tag": "w",
+          "type": "word"
+        },
+        {
+          "type": "text",
+          "text": ".”\n"
+        }
+      ]
+    }
+  }
+}

@@ -1,63 +1,142 @@
 {
-  "headers": {
-    "id": "TIT Titus",
-    "ide": "UTF-8",
-    "h": "Titus"
-  },
+  "headers": [
+    {
+      "content": "TIT Titus",
+      "tag": "id"
+    },
+    {
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Titus",
+      "tag": "h"
+    }
+  ],
   "chapters": {
     "1": {
+      "front": [
+        {
+          "tag": "p",
+          "text": "\n",
+          "type": "paragraph"
+        }
+      ],
       "1": [
         {
-          "word": "Παῦλος",
+          "type": "text",
+          "text": "\n"
+        },
+        {
+          "text": "Παῦλος",
           "lemma": "Παῦλος",
-          "strongs": "G39720",
-          "morph": "Gr,N,,,,,NMS,"
+          "strong": "G39720",
+          "morph": "Gr,N,,,,,NMS,",
+          "tag": "w",
+          "type": "word"
         },
         {
-          "word": "δοῦλος",
+          "type": "text",
+          "text": "\n"
+        },
+        {
+          "text": "δοῦλος",
           "lemma": "δοῦλος",
-          "strongs": "G14010",
-          "morph": "Gr,N,,,,,NMS,"
+          "strong": "G14010",
+          "morph": "Gr,N,,,,,NMS,",
+          "tag": "w",
+          "type": "word"
         },
         {
-          "word": "Χριστοῦ",
+          "type": "text",
+          "text": "\n"
+        },
+        {
+          "text": "Χριστοῦ",
           "lemma": "Χριστός",
-          "strongs": "G55470",
-          "morph": "Gr,N,,,,,GMS,"
+          "strong": "G55470",
+          "morph": "Gr,N,,,,,GMS,",
+          "tag": "w",
+          "type": "word"
         },
         {
-          "word": "κατὰ",
+          "type": "text",
+          "text": "\n"
+        },
+        {
+          "text": "κατὰ",
           "lemma": "κατά",
-          "strongs": "G25960",
-          "morph": "Gr,P,,,,,A,,,"
+          "strong": "G25960",
+          "morph": "Gr,P,,,,,A,,,",
+          "tag": "w",
+          "type": "word"
+        },
+        {
+          "type": "text",
+          "text": "\n"
         }
       ]
     },
     "2": {
+      "front": [
+        {
+          "tag": "p",
+          "text": "\n",
+          "type": "paragraph"
+        }
+      ],
       "1": [
         {
-          "word": "Σὺ",
+          "type": "text",
+          "text": "\n"
+        },
+        {
+          "text": "Σὺ",
           "lemma": "σύ",
-          "strongs": "G47710",
-          "morph": "Gr,RP,,,2N,S,"
+          "strong": "G47710",
+          "morph": "Gr,RP,,,2N,S,",
+          "tag": "w",
+          "type": "word"
         },
         {
-          "word": "δὲ",
+          "type": "text",
+          "text": "\n"
+        },
+        {
+          "text": "δὲ",
           "lemma": "δέ",
-          "strongs": "G11610",
-          "morph": "Gr,CC,,,,,,,,"
+          "strong": "G11610",
+          "morph": "Gr,CC,,,,,,,,",
+          "tag": "w",
+          "type": "word"
         },
         {
-          "word": "λάλει",
+          "type": "text",
+          "text": "\n"
+        },
+        {
+          "text": "λάλει",
           "lemma": "λαλέω",
-          "strongs": "G29800",
-          "morph": "Gr,VTMPA2,,S,"
+          "strong": "G29800",
+          "morph": "Gr,VTMPA2,,S,",
+          "tag": "w",
+          "type": "word"
         },
         {
-          "word": "ἃ",
+          "type": "text",
+          "text": "\n"
+        },
+        {
+          "text": "ἃ",
           "lemma": "ὅς",
-          "strongs": "G37390",
-          "morph": "Gr,RR,,,,ANP,"
+          "strong": "G37390",
+          "morph": "Gr,RR,,,,ANP,",
+          "tag": "w",
+          "type": "word"
+        },
+        {
+          "type": "text",
+          "text": "\n"
         }
       ]
     }

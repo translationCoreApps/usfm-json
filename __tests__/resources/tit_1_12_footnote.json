@@ -1,0 +1,62 @@
+{
+  "headers": [
+    {
+      "content": "TIT Titus",
+      "tag": "id"
+    },
+    {
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Titus",
+      "tag": "h"
+    },
+    {
+      "content": "Titus",
+      "tag": "toc2"
+    },
+    {
+      "content": "Tit",
+      "tag": "toc3"
+    },
+    {
+      "content": "Titus",
+      "tag": "mt"
+    }
+  ],
+  "chapters": {
+    "1": {
+      "front": [
+        {
+          "text": "\n",
+          "type": "text"
+        }
+      ],
+      "12": [
+        {
+          "type": "text",
+          "text": "\n...\n"
+        },
+        {
+          "tag": "q",
+          "text": "\n",
+          "type": "quote"
+        },
+        {
+          "type": "text",
+          "text": "Christ Jesus.\n"
+        },
+        {
+          "tag": "f",
+          "type": "footnote",
+          "content": "+ \\ft Some early versions omit, \\fqa in Ephesus, \\fqa* but this expression is probably in Paul's original letter. "
+        },
+        {
+          "text": "\n",
+          "type": "text"
+        }
+      ]
+    }
+  }
+}

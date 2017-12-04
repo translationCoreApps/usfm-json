@@ -1,0 +1,108 @@
+{
+  "headers": [
+    {
+      "content": "ISA Unlocked Literal Bible",
+      "tag": "id"
+    },
+    {
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Isaiah",
+      "tag": "h"
+    },
+    {
+      "content": "The Book of Isaiah",
+      "tag": "toc1"
+    },
+    {
+      "content": "Isaiah",
+      "tag": "toc2"
+    },
+    {
+      "content": "Isa",
+      "tag": "toc3"
+    },
+    {
+      "content": "The Book of the Prophet Isaiah",
+      "tag": "mt"
+    },
+    {
+      "tag": "s5",
+      "type": "section"
+    }
+  ],
+  "chapters": {
+    "5": {
+      "front": [
+        {
+          "tag": "p",
+          "text": "\n",
+          "type": "paragraph"
+        },
+        {
+          "tag": "q1",
+          "text": "\n",
+          "type": "quote"
+        },
+        {
+          "text": "\n",
+          "type": "text"
+        },
+        {
+          "tag": "s5",
+          "text": "\n",
+          "type": "section"
+        }
+      ],
+      "15": [
+        {
+          "type": "text",
+          "text": "Man is brought down, and the great man is humbled, and the eyes of the lofty are cast down.\n"
+        },
+        {
+          "tag": "q1",
+          "text": "\n",
+          "type": "quote"
+        }
+      ],
+      "16": [
+        {
+          "type": "text",
+          "text": "Yahweh of hosts is exalted in his justice, and God the Holy One shows himself holy by his righteousness.\n"
+        },
+        {
+          "tag": "q1",
+          "text": "\n",
+          "type": "quote"
+        }
+      ],
+      "17": [
+        {
+          "type": "text",
+          "text": "Then the sheep will feed as in their own pasture, and in the ruins, lambs will graze as foreigners.\n"
+        },
+        {
+          "tag": "f",
+          "type": "footnote",
+          "content": "+ \\ft Some modern versions have \\fqa and in the ruins of the rich, lambs will graze \\fqb . "
+        },
+        {
+          "text": "\n",
+          "type": "text"
+        },
+        {
+          "tag": "p",
+          "text": "\n",
+          "type": "paragraph"
+        },
+        {
+          "tag": "q1",
+          "text": "\n",
+          "type": "quote"
+        }
+      ]
+    }
+  }
+}

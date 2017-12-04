@@ -1,0 +1,91 @@
+{
+  "chapters": {
+    "8": {
+      "14": [
+        {
+          "text": "Beriah had these sons: Ahio, Shashak, Jeremoth,\n",
+          "type": "text"
+        }
+      ],
+      "15": [
+        {
+          "text": "Zebadiah, Arad, Eder,\n",
+          "type": "text"
+        }
+      ],
+      "16": [
+        {
+          "text": "Michael, Ishpah, and Joha were the sons of Beriah.\n",
+          "type": "text"
+        }
+      ],
+      "17-18": [
+        {
+          "text": "Elpaal had these sons: Zebadiah, Meshullam, Hizki, Heber, Ishmerai, Izliah, and Jobab.\n\n",
+          "type": "text"
+        },
+        {
+          "tag": "s5",
+          "text": "\n",
+          "type": "section"
+        }
+      ],
+      "19-21": [
+        {
+          "text": "Shimei had these sons: Jakim, Zikri, Zabdi, Elienai, Zillethai, Eliel, Adaiah, Beraiah, and Shimrath.\n\n",
+          "type": "text"
+        }
+      ],
+      "front": [
+        {
+          "tag": "p",
+          "text": "\n",
+          "type": "paragraph"
+        },
+        {
+          "tag": "s5",
+          "text": "\n",
+          "type": "section"
+        }
+      ]
+    }
+  },
+  "headers": [
+    {
+      "content": "ISA Unlocked Literal Bible",
+      "tag": "id"
+    },
+    {
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Isaiah",
+      "tag": "h"
+    },
+    {
+      "content": "The Book of Isaiah",
+      "tag": "toc1"
+    },
+    {
+      "content": "Isaiah",
+      "tag": "toc2"
+    },
+    {
+      "content": "Isa",
+      "tag": "toc3"
+    },
+    {
+      "content": "The Book of the Prophet Isaiah",
+      "tag": "mt"
+    },
+    {
+      "text": "\n\n",
+      "type": "text"
+    },
+    {
+      "tag": "s5",
+      "type": "section"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "headers": [
+    {
+      "tag": "h",
+      "content": "3 John"
+    }
+  ],
+  "chapters": {
+    "1": {
+      "front": [
+        {
+          "tag": "p",
+          "type": "paragraph",
+          "text": "\n"
+        }
+      ],
+      "1": [
+        {
+          "type": "text",
+          "text": "The elder to beloved Gaius, whom I love in truth.\n"
+        }
+      ],
+      "2": [
+        {
+          "type": "text",
+          "text": "- Beloved, I pray that you may prosper in all things and be in health, just as your soul prospers.\n"
+        }
+      ],
+      "3": [
+        {
+          "type": "text",
+          "text": "- Stuff\n"
+        }
+      ],
+      "4-5": [
+        {
+          "type": "text",
+          "text": "More Stuff\n"
+        }
+      ],
+      "6": [
+        {
+          "type": "text",
+          "text": "- 7 \"\n"
+        }
+      ],
+      "8": [
+        {
+          "type": "text",
+          "text": "-9Mashed\n"
+        }
+      ],
+      "10": [
+        {
+          "type": "text",
+          "text": "Mashed\"\n\n"
+        }
+      ]
+    },
+    "22": {
+      "11": [
+        {
+          "type": "text",
+          "text": "More\n\\v No number\"\n\\v\n"
+        }
+      ],
+      "14": [
+        {
+          "type": "text",
+          "text": "\nv 15\n"
+        }
+      ],
+      "16": [
+        {
+          "type": "text",
+          "text": "stuff\n\n"
+        }
+      ]
+    }
+  }
+}

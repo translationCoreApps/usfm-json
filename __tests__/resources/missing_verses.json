@@ -1,37 +1,129 @@
 {
-  "headers": {
-    "id": "php",
-    "ide": "UTF-8",
-    "h": "Philippians",
-    "toc1": "The Epistle of Paul the Apostle to the Philippians",
-    "toc2": "Philippians",
-    "toc3": "Php",
-    "mt": "The Epistle of Paul the Apostle to the Philippians"
-  },
+  "headers": [
+    {
+      "content": "php",
+      "tag": "id"
+    },
+    {
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Philippians",
+      "tag": "h"
+    },
+    {
+      "content": "The Epistle of Paul the Apostle to the Philippians",
+      "tag": "toc1"
+    },
+    {
+      "content": "Philippians",
+      "tag": "toc2"
+    },
+    {
+      "content": "Php",
+      "tag": "toc3"
+    },
+    {
+      "content": "The Epistle of Paul the Apostle to the Philippians",
+      "tag": "mt"
+    },
+    {
+      "text": "\n",
+      "type": "text"
+    },
+    {
+      "tag": "s5",
+      "type": "section"
+    }
+  ],
   "chapters": {
     "1": {
+      "front": [
+        {
+          "tag": "p",
+          "text": "\n",
+          "type": "paragraph"
+        }
+      ],
       "1": [
-        "Paul and Timothy, servants of Christ Jesus, to all the ones set apart in Christ Jesus who are at Philippi, with the overseers and deacons."
+        {
+          "type": "text",
+          "text": "Paul and Timothy, servants of Christ Jesus, to all the ones set apart in Christ Jesus who are at Philippi, with the overseers and deacons.\n"
+        }
       ],
       "2": [
-        "Grace to you and peace from God our Father and the Lord Jesus Christ."
+        {
+          "type": "text",
+          "text": "Grace to you and peace from God our Father and the Lord Jesus Christ.\n"
+        },
+        {
+          "tag": "b",
+          "content": "\n"
+        },
+        {
+          "text": "\n",
+          "type": "text"
+        },
+        {
+          "tag": "s5",
+          "text": "\n",
+          "type": "section"
+        },
+        {
+          "tag": "p",
+          "text": "\n",
+          "type": "paragraph"
+        }
       ],
       "5": [
-        "I give thanks for your fellowship in the gospel from the first day until now."
+        {
+          "type": "text",
+          "text": "I give thanks for your fellowship in the gospel from the first day until now.\n"
+        }
       ],
       "6": [
-        "I am confident of this very thing, that he who began a good work in you will complete it until the day of Jesus Christ."
+        {
+          "type": "text",
+          "text": "I am confident of this very thing, that he who began a good work in you will complete it until the day of Jesus Christ.\n\n"
+        },
+        {
+          "tag": "s5",
+          "text": "\n",
+          "type": "section"
+        }
       ]
     },
     "2": {
+      "front": [
+        {
+          "tag": "p",
+          "text": "\n",
+          "type": "paragraph"
+        }
+      ],
       "1": [
-        "If there is therefore any encouragement in Christ, if any comfort from his love, if any fellowship of the Spirit, if any tender mercies and compassions,"
+        {
+          "type": "text",
+          "text": "If there is therefore any encouragement in Christ, if any comfort from his love, if any fellowship of the Spirit, if any tender mercies and compassions,\n\n"
+        },
+        {
+          "tag": "s5",
+          "text": "\n",
+          "type": "section"
+        }
       ],
       "3": [
-        "Do nothing through selfishness or empty pride, but instead in lowliness of mind count others better than yourself."
+        {
+          "type": "text",
+          "text": "Do nothing through selfishness or empty pride, but instead in lowliness of mind count others better than yourself.\n"
+        }
       ],
       "4": [
-        "Do not look out for each of your own needs, but also look out for the needs of others."
+        {
+          "type": "text",
+          "text": "Do not look out for each of your own needs, but also look out for the needs of others.\n"
+        }
       ]
     }
   }

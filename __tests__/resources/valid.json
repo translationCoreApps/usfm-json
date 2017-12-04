@@ -1,14 +1,30 @@
 {
-  "headers": {
-    "h": "3 John"
-  },
+  "headers": [
+    {
+      "content": "3 John",
+      "tag": "h"
+    }
+  ],
   "chapters": {
     "1": {
+      "front": [
+        {
+          "tag": "p",
+          "text": "\n",
+          "type": "paragraph"
+        }
+      ],
       "1": [
-        "The elder to beloved Gaius, whom I love in truth."
+        {
+          "type": "text",
+          "text": "The elder to beloved Gaius, whom I love in truth.\n"
+        }
       ],
       "2": [
-        "Beloved, I pray that you may prosper in all things and be in health, just as your soul prospers."
+        {
+          "type": "text",
+          "text": "Beloved, I pray that you may prosper in all things and be in health, just as your soul prospers.\n"
+        }
       ]
     }
   }

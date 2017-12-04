@@ -1,22 +1,95 @@
+import * as USFM from './USFM';
+
 /**
- * @description Takes in word json and outputs it as a USFM line.
+ * @description Takes in word json and outputs it as USFM.
  * @param {Object} wordObject - word in JSON
  * @return {String} - word in USFM
  */
-export const generateWordLine = wordObject => {
-  let line;
+export const generateWord = wordObject => {
   const keys = Object.keys(wordObject);
   let attributes = [];
-  const word = wordObject.word;
+  const word = wordObject.text;
   keys.forEach(function(key) {
-    if (key !== 'word') {
-      let prefix = (key === 'lemma' || key === 'strongs') ? '' : 'x-';
+    if ((key !== 'text') && (key !== 'tag') && (key !== 'type')) {
+      let prefix = (key === 'lemma' || key === 'strong') ? '' : 'x-';
       let attribute = prefix + key + '="' + wordObject[key] + '"';
       attributes.push(attribute);
     }
   });
-  line = '\\w ' + word + '|' + attributes.join(' ') + '\\w*';
+  let line = '\\w ' + word + '|' + attributes.join(' ') + '\\w*';
   return line;
+};
+
+/**
+ * @description convert usfm marker to string
+ * @param {object} usfmObject - usfm object to output
+ * @return {String} Text equivalent of marker.
+ */
+export const usfmMarkerToString = usfmObject => {
+  let output = "";
+  const content = usfmObject.text || usfmObject.content || "";
+  const markerRequiresTermination =
+    USFM.markerRequiresTermination(usfmObject.tag);
+  if (usfmObject.tag) {
+    output = '\\' + usfmObject.tag;
+    if (usfmObject.number) {
+      output += ' ' + usfmObject.number;
+    }
+    const firstChar = content.substr(0, 1);
+    if (!markerRequiresTermination && (firstChar !== '') && (firstChar !== '\n') && (content !== ' \n')) {
+      output += ' ';
+    } else if (markerRequiresTermination && (firstChar !== ' ')) {
+      output += ' ';
+    }
+  }
+
+  if (content) {
+    output += content;
+  }
+
+  if (markerRequiresTermination) {
+    output += '\\' + usfmObject.tag + '*';
+  }
+  return output;
+};
+
+/**
+ * @description Identifies type of
+ * @param {string|array|object} object - marker to print
+ * @param {String} nextObject - optional object that is next entry.  Used to determine if we need to add a space
+ *                              between current marker and following text
+ * @return {String} Text equivalent of marker.
+ */
+export const objectToString = (object, nextObject) => {
+  if (!object) {
+    return "";
+  }
+
+  if (object.type === 'text') {
+    return object.text;
+  }
+
+  if (Array.isArray(object)) {
+    let output = "";
+    for (let i = 0; i < object.length; i++) {
+      const objectN = object[i];
+      const nextObject = (i + 1 < object.length) ? object[i + 1] : null;
+      let text = objectToString(objectN, nextObject);
+      if (text) {
+        output += text;
+      }
+    }
+    return output;
+  }
+
+  if (object.type === 'word') { // usfm word marker
+    return generateWord(object);
+  }
+
+  if (object.tag) { // any other USFM marker tag
+    return usfmMarkerToString(object);
+  }
+  return "";
 };
 
 /**
@@ -25,19 +98,14 @@ export const generateWordLine = wordObject => {
  * @param {Array} verseArray - verse in JSON
  * @return {Array} - verse in USFM lines/string
  */
-export const generateVerseLines = (verseNumber, verseArray) => {
-  let lines = [];
-  if (typeof verseArray[0] === 'string') {
-    const verseText = verseArray.join(' ');
-    lines.push('\\v ' + verseNumber + ' ' + verseText);
-  } else if (verseArray[0] && verseArray[0].word) {
-    lines.push('\\v ' + verseNumber);
-    verseArray.forEach(function(wordObject) {
-      let wordLine = exports.generateWordLine(wordObject);
-      lines.push(wordLine);
-    });
-  }
-  return lines;
+export const generateVerse = (verseNumber, verseArray) => {
+  const verseText = objectToString(verseArray);
+  const object = {
+    tag: 'v',
+    number: verseNumber,
+    text: verseText
+  };
+  return usfmMarkerToString(object);
 };
 
 /**
@@ -48,15 +116,40 @@ export const generateVerseLines = (verseNumber, verseArray) => {
  */
 export const generateChapterLines = (chapterNumber, chapterObject) => {
   let lines = [];
-  lines.push('\\c ' + chapterNumber);
-  lines.push('\\p');
-  const verseNumbers = Object.keys(chapterObject);
+  lines.push('\\c ' + chapterNumber + '\n');
+  if (chapterObject.front) { // handle front matter first
+    const verseText = objectToString(chapterObject.front);
+    lines = lines.concat(verseText);
+    delete chapterObject.front;
+  }
+  const verseNumbers = Object.keys(chapterObject).sort((a, b) => {
+    return parseInt(a, 10) - parseInt(b, 10);
+  });
   verseNumbers.forEach(function(verseNumber) {
+    // check if verse is inside previous line (such as \q)
+    const lastLine = lines.length ? lines[lines.length - 1] : "";
+    const lastChar = lastLine ? lastLine.substr(lastLine.length - 1) : "";
+    if (lastChar && (lastChar !== '\n') && (lastChar !== '')) { // do we need white space
+      lines[lines.length - 1] = lastLine + ' ';
+    }
     const verseArray = chapterObject[verseNumber];
-    const verseLines = exports.generateVerseLines(verseNumber, verseArray);
-    lines = lines.concat(verseLines);
+    const verseLine = generateVerse(verseNumber, verseArray);
+    lines = lines.concat(verseLine);
   });
   return lines;
+};
+
+/**
+ * @description convert object to text and add to array.  Objects are terminated with newline
+ * @param {array} output - array where text is appended
+ * @param {Object} usfmObject - USFM object to convert to string
+ */
+export const outputHeaderObject = (output, usfmObject) => {
+  let text = usfmMarkerToString(usfmObject);
+  if (usfmObject.tag) {
+    text += '\n';
+  }
+  output.push(text);
 };
 
 /**
@@ -65,33 +158,32 @@ export const generateChapterLines = (chapterNumber, chapterObject) => {
  * @return {String} - Scripture in USFM
  */
 export const jsonToUSFM = json => {
-  let lines = [];
+  USFM.init();
+  let output = [];
   if (json.headers) {
-    const keys = Object.keys(json.headers);
-    keys.forEach(function(key) {
-      const value = json.headers[key];
-      lines.push('\\' + key + ' ' + value);
-    });
+    for (let header of json.headers) {
+      outputHeaderObject(output, header);
+    }
   }
   if (json.chapters) {
     const chapterNumbers = Object.keys(json.chapters);
     chapterNumbers.forEach(function(chapterNumber) {
       const chapterObject = json.chapters[chapterNumber];
-      const chapterLines = exports.generateChapterLines(
+      const chapterLines = generateChapterLines(
           chapterNumber, chapterObject,
       );
-      lines = lines.concat(chapterLines);
+      output = output.concat(chapterLines);
     });
   }
   if (json.verses) {
     const verseNumbers = Object.keys(json.verses);
     verseNumbers.forEach(function(verseNumber) {
       const verseObject = json.verses[verseNumber];
-      const verseLines = exports.generateVerseLines(
+      const verse = generateVerse(
           verseNumber, verseObject,
       );
-      lines = lines.concat(verseLines);
+      output = output.push(verse);
     });
   }
-  return lines.join('\n');
+  return output.join('');
 };

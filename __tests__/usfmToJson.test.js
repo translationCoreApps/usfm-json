@@ -40,5 +40,5 @@ it('handles a chunk of usfm', () => {
 });
 
 it('handles greek characters in usfm', () => {
-  generateTest('greek', {chunk: true});
+  generateTest('greek');
 });

@@ -182,13 +182,11 @@ export const usfmToJSON = (usfm, params = {}) => {
           headers[marker.type] = value;
         } else if (currentChapter && currentVerse) {
           const markerType0 = marker.type.substr(0, 1);
-          if (markerType0 === 'q') {
-            let markerContent = '\\' + marker.type;
-            markerContent += marker.content ? ' ' + marker.content : '';
+          if (marker.content && (markerType0 === 'q')) {
             if (params.chunk) {
-              verses[currentVerse].push(markerContent);
+              verses[currentVerse].push(marker.content);
             } else {
-              chapters[currentChapter][currentVerse].push(markerContent);
+              chapters[currentChapter][currentVerse].push(marker.content);
             }
           }
         }

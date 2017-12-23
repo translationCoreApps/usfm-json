@@ -42,3 +42,11 @@ it('handles a chunk of usfm', () => {
 it('handles greek characters in usfm', () => {
   generateTest('greek');
 });
+
+it('handles quotes in chunk', () => {
+  generateTest('quotes_chunk', {chunk: true});
+});
+
+it('handles quotes', () => {
+  generateTest('quotes');
+});

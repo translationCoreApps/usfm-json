@@ -180,7 +180,7 @@ export const usfmToJSON = (usfm, params = {}) => {
             value = marker.content;
           }
           headers[marker.type] = value;
-        } else if (currentChapter && currentVerse) {
+        } else if ((currentChapter || params.chunk) && currentVerse) {
           const markerType0 = marker.type.substr(0, 1);
           if (marker.content && (markerType0 === 'q')) {
             if (params.chunk) {

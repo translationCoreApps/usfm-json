@@ -180,9 +180,10 @@ export const usfmToJSON = (usfm, params = {}) => {
             value = marker.content;
           }
           headers[marker.type] = value;
-        } else if ((currentChapter || params.chunk) && currentVerse) {
-          const markerType0 = marker.type.substr(0, 1);
-          if (marker.content && (markerType0 === 'q')) {
+        } else if ((currentChapter || params.chunk) && currentVerse &&
+                      marker.type) { // if we already have started chapter:verse or a verse chunk,
+                                      // then add USFM contect we care about
+          if (marker.content && (marker.type[0] === 'q')) { // add quote content (\q, \q1, ...)
             if (params.chunk) {
               verses[currentVerse].push(marker.content);
             } else {

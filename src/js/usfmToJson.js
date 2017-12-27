@@ -99,6 +99,18 @@ export const parseLine = line => {
 };
 
 /**
+ * @description - removes leading 0's from number string
+ * @param {string} markerNumber - number string to trim leading zeros from
+ * @return {string} number string without leading 0
+ */
+export const trimLeadingSpaces = markerNumber => {
+  while (markerNumber && markerNumber[0] === '0') {
+    markerNumber = markerNumber.substr(1);
+  }
+  return markerNumber;
+};
+
+/**
  * @description - Parses the usfm string and returns an object
  * @param {String} usfm - the raw usfm string
  * @param {Object} params - extra params to use for chunk parsing
@@ -121,7 +133,7 @@ export const usfmToJSON = (usfm, params = {}) => {
   markers.forEach(function(marker) {
     switch (marker.type) {
       case 'c': { // chapter
-        currentChapter = marker.number;
+        currentChapter = trimLeadingSpaces(marker.number);
         chapters[currentChapter] = {};
         // resetting 'on same chapter' flag
         onSameChapter = false;
@@ -129,7 +141,7 @@ export const usfmToJSON = (usfm, params = {}) => {
       }
       case 'v': { // verse
         marker.content = marker.content || "";
-        currentVerse = marker.number;
+        currentVerse = trimLeadingSpaces(marker.number);
         if (params.chunk === true && (marker.content || marker.content === "") && !onSameChapter) {
           if (verses[currentVerse]) {
             onSameChapter = true;

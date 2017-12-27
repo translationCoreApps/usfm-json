@@ -50,3 +50,11 @@ it('handles quotes in chunk', () => {
 it('handles quotes', () => {
   generateTest('quotes');
 });
+
+it('handles inline verses in chunk', () => {
+  generateTest('inline_verses_chunk', {chunk: true});
+});
+
+it('handles inline verses with leading zeros', () => {
+  generateTest('inline_verses_leading_zeros');
+});

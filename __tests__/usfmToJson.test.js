@@ -50,3 +50,15 @@ it('handles quotes in chunk', () => {
 it('handles quotes', () => {
   generateTest('quotes');
 });
+
+it('handles quotes in chunk', () => {
+  generateTest('quotes_chunk', {chunk: true});
+});
+
+it('handles inline paragraphs', () => {
+  generateTest('inline_paragraphs');
+});
+
+it('handles inline paragraphs in chunk', () => {
+  generateTest('inline_paragraphs_chunk', {chunk: true});
+});

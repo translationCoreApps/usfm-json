@@ -100,5 +100,9 @@ describe("USFM to JSON", () => {
   it('converts invalid usfm to json', () => {
     generateTest('invalid');
   });
+
+  it('handles tw word attributes and spans', () => {
+    generateTest('tw_words', {chunk: true});
+  });
 });
 

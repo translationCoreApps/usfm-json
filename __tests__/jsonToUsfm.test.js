@@ -76,4 +76,11 @@ describe("JSON to USFM", () => {
     generateTest('luk_quotes');
   });
 
+  it('process tw word attributes and spans', () => {
+    generateTest('tw_words');
+  });
+
+  it('process tw word attributes and spans chunked', () => {
+    generateTest('tw_words_chunk', {chunk: true});
+  });
 });

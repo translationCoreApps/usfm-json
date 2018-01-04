@@ -102,7 +102,11 @@ describe("USFM to JSON", () => {
   });
 
   it('handles tw word attributes and spans', () => {
-    generateTest('tw_words', {chunk: true});
+    generateTest('tw_words');
+  });
+
+  it('handles tw word attributes and spans chunked', () => {
+    generateTest('tw_words_chunk', {chunk: true});
   });
 });
 

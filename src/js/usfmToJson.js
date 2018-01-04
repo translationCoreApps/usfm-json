@@ -581,7 +581,12 @@ export const usfmToJSON = (usfm, params = {}) => {
           state.phrase = null; // stop adding to phrase
           if ((i + 1 < markers.length) && markers[i + 1].content &&
             (markers[i + 1].content.substr(0, 2) === "\\*")) { // check if next marker is part of milestone end
-            i++; // skip following text
+            let nextContentTrimmed = markers[i + 1].content.substr(2); // remove phrase end marker
+            if (nextContentTrimmed) {
+              markers[i + 1].content = nextContentTrimmed;
+            } else { // no text after end marker
+              i++; // skip following text
+            }
           }
         }
         break;

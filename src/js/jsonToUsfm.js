@@ -21,6 +21,30 @@ export const generateWord = wordObject => {
 };
 
 /**
+ * @description Takes in word json and outputs it as USFM.
+ * @param {Object} phraseObject - word in JSON
+ * @return {String} - word in USFM
+ */
+export const generatePhrase = phraseObject => {
+  const keys = Object.keys(phraseObject);
+  let attributes = [];
+  keys.forEach(function(key) {
+    if ((key !== 'children') && (key !== 'tag') && (key !== 'type')) {
+      let prefix = 'x-';
+      let attribute = prefix + key + '="' + phraseObject[key] + '"';
+      attributes.push(attribute);
+    }
+  });
+  let line = '\\k-s | ' + attributes.join(' ') + '\n';
+
+// eslint-disable-next-line no-unused-vars
+  let text = objectToString(phraseObject.children);
+  line += text;
+  line += "\\k-e\\*";
+  return line;
+};
+
+/**
  * @description convert usfm marker to string
  * @param {object} usfmObject - usfm object to output
  * @return {String} Text equivalent of marker.
@@ -84,6 +108,10 @@ export const objectToString = (object, nextObject) => {
 
   if (object.type === 'word') { // usfm word marker
     return generateWord(object);
+  }
+
+  if (object.type === 'keyterm') { // usfm keyterm with milestone (phrase)
+    return generatePhrase(object);
   }
 
   if (object.tag) { // any other USFM marker tag

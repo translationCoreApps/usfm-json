@@ -1,9 +1,12 @@
 {
-  "headers": [
-  ],
+  "headers": [],
   "chapters": {},
   "verses": {
-    "0": [
+    "1": [
+      {
+        "type": "text",
+        "text": "\n"
+      },
       {
         "text": "ἀπόστολος",
         "tag": "w",
@@ -30,30 +33,36 @@
         "text": "\n"
       },
       {
-        "text": "Ἰησοῦ",
-        "tag": "w",
-        "type": "word",
-        "lemma": "Ἰησοῦς",
-        "strong": "G24240",
-        "morph": "Gr,N,,,,,GMS,",
-        "tw": "rc://*/tw/dict/bible/kt/jesus"
-      },
-      {
-        "type": "text",
-        "text": "\n"
-      },
-      {
-        "text": "Χριστοῦ",
-        "tag": "w",
-        "type": "word",
-        "lemma": "χριστός",
-        "strong": "G55470",
-        "morph": "Gr,N,,,,,GMS,",
-        "tw": ["rc://*/tw/dict/bible/kt/christ", "rc://*/tw/dict/bible/kt/jesus"]
-      },
-      {
-        "type": "text",
-        "text": "\n"
+        "tag": "k-s",
+        "type": "keyterm",
+        "tw": "rc://*/tw/dict/bible/kt/jesus",
+        "children": [
+          {
+            "text": "Ἰησοῦ",
+            "tag": "w",
+            "type": "word",
+            "lemma": "Ἰησοῦς",
+            "strong": "G24240",
+            "morph": "Gr,N,,,,,GMS,"
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "text": "Χριστοῦ",
+            "tag": "w",
+            "type": "word",
+            "lemma": "χριστός",
+            "strong": "G55470",
+            "morph": "Gr,N,,,,,GMS,",
+            "tw": "rc://*/tw/dict/bible/kt/christ"
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
       },
       {
         "text": "κατὰ",

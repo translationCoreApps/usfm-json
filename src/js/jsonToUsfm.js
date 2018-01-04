@@ -210,7 +210,7 @@ export const jsonToUSFM = json => {
       const verse = generateVerse(
           verseNumber, verseObject,
       );
-      output = output.push(verse);
+      output = output.concat(verse);
     });
   }
   return output.join('');

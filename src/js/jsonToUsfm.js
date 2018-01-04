@@ -37,8 +37,9 @@ export const generatePhrase = phraseObject => {
   });
   let line = '\\k-s | ' + attributes.join(' ') + '\n';
 
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-use-before-define */
   let text = objectToString(phraseObject.children);
+/* eslint-enable no-use-before-define */
   line += text;
   line += "\\k-e\\*";
   return line;

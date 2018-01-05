@@ -43,7 +43,7 @@ const parseMarkerOpen = markerOpen => {
   let object = {};
   if (markerOpen) {
     const regex = /(\w+)\s*(\d*)/g;
-    const matches = exports.getMatches(markerOpen, regex);
+    const matches = getMatches(markerOpen, regex);
     object = {
       tag: matches[0][1],
       number: matches[0][2]
@@ -81,7 +81,7 @@ const parseWord = wordContent => {
   };
   if (attributeContent) {
     const regex = /[x-]*([\w-]+)=['"](.*?)['"]/g;
-    const matches = exports.getMatches(attributeContent, regex);
+    const matches = getMatches(attributeContent, regex);
     matches.forEach(function(match) {
       let key = match[1];
       if (key === "strongs") { // fix invalid 'strongs' key

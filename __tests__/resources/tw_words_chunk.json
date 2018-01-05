@@ -17,20 +17,12 @@
         "tw": "rc://*/tw/dict/bible/kt/apostle"
       },
       {
-        "type": "text",
-        "text": "\n"
-      },
-      {
         "text": "δὲ",
         "tag": "w",
         "type": "word",
         "lemma": "δέ",
         "strong": "G11610",
         "morph": "Gr,CC,,,,,,,,"
-      },
-      {
-        "type": "text",
-        "text": "\n"
       },
       {
         "tag": "k-s",
@@ -46,10 +38,6 @@
             "morph": "Gr,N,,,,,GMS,"
           },
           {
-            "type": "text",
-            "text": "\n"
-          },
-          {
             "text": "Χριστοῦ",
             "tag": "w",
             "type": "word",
@@ -57,10 +45,6 @@
             "strong": "G55470",
             "morph": "Gr,N,,,,,GMS,",
             "tw": "rc://*/tw/dict/bible/kt/christ"
-          },
-          {
-            "type": "text",
-            "text": "\n"
           }
         ]
       },
@@ -78,7 +62,7 @@
       },
       {
         "type": "text",
-        "text": "\n\n"
+        "text": "\n"
       }
     ],
     "4": [
@@ -95,10 +79,6 @@
         "morph": "Gr,P,,,,,G,,,"
       },
       {
-        "type": "text",
-        "text": "\n"
-      },
-      {
         "tag": "k-s",
         "type": "keyterm",
         "tw": "rc://*/tw/dict/bible/kt/godthefather",
@@ -113,26 +93,14 @@
             "tw": "rc://*/tw/dict/bible/kt/god"
           },
           {
-            "type": "text",
-            "text": "\n"
-          },
-          {
             "text": "Πατρὸς",
             "tag": "w",
             "type": "word",
             "lemma": "πατήρ",
             "strong": "G39620",
             "morph": "Gr,N,,,,,GMS,"
-          },
-          {
-            "type": "text",
-            "text": "\n"
           }
         ]
-      },
-      {
-        "type": "text",
-        "text": "\n"
       },
       {
         "text": "καὶ",
@@ -141,10 +109,6 @@
         "lemma": "καί",
         "strong": "G25320",
         "morph": "Gr,CC,,,,,,,,"
-      },
-      {
-        "type": "text",
-        "text": "\n"
       }
     ]
   }

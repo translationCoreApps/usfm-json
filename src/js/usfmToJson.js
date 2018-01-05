@@ -9,7 +9,7 @@ const NUMBER = /(\d+)/;
  * @param {RegExp} regex - the RegExp to find matches with, must use global flag /.../g
  * @return {Array} - array of results
 */
-export const getMatches = (string, regex) => {
+const getMatches = (string, regex) => {
   let matches = [];
   let match;
   if (string.match(regex)) { // check so you don't get caught in a loop
@@ -39,7 +39,7 @@ export const getMatches = (string, regex) => {
  * @param {String} markerOpen - the string that contains the marker '\v 1', '\p', ...
  * @return {Object} - the object of tag and number if it exists
 */
-export const parseMarkerOpen = markerOpen => {
+const parseMarkerOpen = markerOpen => {
   let object = {};
   if (markerOpen) {
     const regex = /(\w+)\s*(\d*)/g;
@@ -57,7 +57,7 @@ export const parseMarkerOpen = markerOpen => {
  * @param {String} text - text to trim
  * @return {String} trimmed string
  */
-export const removeLeadingSpace = text => {
+const removeLeadingSpace = text => {
   if (text && (text.length > 1) && (text[0] === " ")) {
     text = text.substr(1);
   }
@@ -69,7 +69,7 @@ export const removeLeadingSpace = text => {
  * @param {String} wordContent - the string to find the data/attributes
  * @return {Object} - json object of the word attributes
 */
-export const parseWord = wordContent => {
+const parseWord = wordContent => {
   let object = {};
   const wordParts = wordContent.split('|');
   const word = removeLeadingSpace(wordParts[0]);
@@ -98,7 +98,7 @@ export const parseWord = wordContent => {
  * @param {string} text - text to embed in object
  * @return {{content: *}} new text marker
  */
-export const makeTextMarker = text => {
+const makeTextMarker = text => {
   return {
     content: text
   };
@@ -109,7 +109,7 @@ export const makeTextMarker = text => {
  * @param {String} text - text to put in marker
  * @return {object} new marker
  */
-export const createMarkerFromText = text => {
+const createMarkerFromText = text => {
   return {
     open: text,
     tag: text
@@ -121,7 +121,7 @@ export const createMarkerFromText = text => {
  * @param {String} line - the string to find the markers and content
  * @return {Array} - array of objects that describe open/close and content
 */
-export const parseLine = line => {
+const parseLine = line => {
   let array = [];
   if (line.trim() === '') {
     const object = makeTextMarker(line + '\n');
@@ -211,7 +211,7 @@ export const parseLine = line => {
  * @param {object} state - holds parsing state information
  * @return {array} location to place verse content
  */
-export const getSaveToLocation = state => {
+const getSaveToLocation = state => {
   if (state.chunk) {
     if (!state.verses[state.currentVerse]) {
       state.verses[state.currentVerse] = [];
@@ -235,7 +235,7 @@ export const getSaveToLocation = state => {
  * @param {string} content - optional content (may be saved as content or text depending on tag)
  * @return {{tag: *}} USFM object
  */
-export const createUsfmObject = (tag, number, content) => {
+const createUsfmObject = (tag, number, content) => {
   const output = { };
   let contentAttr;
   if (tag) {
@@ -270,7 +270,7 @@ export const createUsfmObject = (tag, number, content) => {
  * @param {array} saveTo - location to place verse content
  * @param {object|string} usfmObject - object that contains usfm marker, or could be raw text
  */
-export const pushObject = (state, saveTo, usfmObject) => {
+const pushObject = (state, saveTo, usfmObject) => {
   if (!Array.isArray(saveTo)) {
     const isPhrase = Array.isArray(state.phrase);
     if (isPhrase) {
@@ -324,7 +324,7 @@ export const pushObject = (state, saveTo, usfmObject) => {
  * @param {String} tag - usfm marker tag
  * @param {string} nextChar - next character after marker
  */
-export const unPopNestedMarker = (state, content, tag, nextChar) => {
+const unPopNestedMarker = (state, content, tag, nextChar) => {
   let extra = content.substr(1); // pull out data after end marker
   if (tag[tag.length - 1] === "*") {
     tag = tag.substr(0, tag.length - 1);
@@ -357,7 +357,7 @@ export const unPopNestedMarker = (state, content, tag, nextChar) => {
  * @param {String} tag - usfm marker tag
  * @param {object} usfmObject - object that contains usfm marker
  */
-export const saveUsfmObject = (state, tag, usfmObject) => {
+const saveUsfmObject = (state, tag, usfmObject) => {
   const isNestedMarker = state.nested.length > 0;
   if (isNestedMarker) {
     pushObject(state, null, usfmObject);
@@ -375,7 +375,7 @@ export const saveUsfmObject = (state, tag, usfmObject) => {
  * @param {string} text - number string to normalize
  * @return {string} normalized number string
  */
-export const stripLeadingZeros = text => {
+const stripLeadingZeros = text => {
   while ((text.length > 1) && (text[0] === '0')) {
     text = text.substr(1);
   }
@@ -388,7 +388,7 @@ export const stripLeadingZeros = text => {
  * @param {object} usfmObject - object that contains usfm marker
  * @param {String} tag - usfm marker tag
  */
-export const addToCurrentVerse = (state, usfmObject, tag = null) => {
+const addToCurrentVerse = (state, usfmObject, tag = null) => {
   tag = tag || usfmObject.tag;
   if (!tag) {
     pushObject(state, null, usfmObject);
@@ -414,7 +414,7 @@ export const addToCurrentVerse = (state, usfmObject, tag = null) => {
  * @param {object} state - holds parsing state information
  * @param {object} marker - marker object containing content
  */
-export const parseAsVerse = (state, marker) => {
+const parseAsVerse = (state, marker) => {
   state.nested = [];
   marker.content = marker.content || "";
   if (marker.nextChar === "\n") {
@@ -453,7 +453,7 @@ export const parseAsVerse = (state, marker) => {
  * @param {object} state - holds parsing state information
  * @param {object} marker - marker object containing content
  */
-export const processAsText = (state, marker) => {
+const processAsText = (state, marker) => {
   if (state.currentChapter > 0 && marker.content) {
     addToCurrentVerse(state, marker.content);
   } else if (state.currentChapter === 0 && !state.currentVerse) { // if we haven't seen chapter yet, its a header
@@ -472,7 +472,7 @@ export const processAsText = (state, marker) => {
  * @param {object} marker - object to convert to text
  * @return {string} text representation of marker
  */
-export const markerToText = marker => {
+const markerToText = marker => {
   let text = '\\' + marker.tag;
   if (marker.number) {
     text += " " + marker.number;
@@ -489,7 +489,7 @@ export const markerToText = marker => {
  * @param {object} state - holds parsing state information
  * @param {object} marker - marker object containing content
  */
-export const processAsChapter = (state, marker) => {
+const processAsChapter = (state, marker) => {
   state.nested = [];
   state.currentChapter = stripLeadingZeros(marker.number);
   state.chapters[state.currentChapter] = {};
@@ -502,7 +502,7 @@ export const processAsChapter = (state, marker) => {
  * @description - see if verse number in content
  * @param {object} marker - marker object containing content
  */
-export const extractNumberFromContent = marker => {
+const extractNumberFromContent = marker => {
   const numberMatch = NUMBER.exec(marker.content);
   if (numberMatch) {
     marker.number = numberMatch[0];
@@ -581,9 +581,14 @@ export const usfmToJSON = (usfm, params = {}) => {
           state.phrase = null; // stop adding to phrase
           if ((i + 1 < markers.length) && markers[i + 1].content &&
             (markers[i + 1].content.substr(0, 2) === "\\*")) { // check if next marker is part of milestone end
-            let nextContentTrimmed = markers[i + 1].content.substr(2); // remove phrase end marker
-            if (nextContentTrimmed) {
-              markers[i + 1].content = nextContentTrimmed;
+            let content = markers[i + 1].content;
+            let trimLength = 2;
+            if (content.substr(2, 1) === '\n') {
+              trimLength++;
+            }
+            content = content.substr(trimLength); // remove phrase end marker
+            if (content) {
+              markers[i + 1].content = content;
             } else { // no text after end marker
               i++; // skip following text
             }
@@ -600,7 +605,7 @@ export const usfmToJSON = (usfm, params = {}) => {
         break;
       }
       case 'w*': {
-        if (marker.nextChar) {
+        if (marker.nextChar && (marker.nextChar !== '\n') && (marker.nextChar !== ' ')) {
           pushObject(state, null, marker.nextChar);
         }
         break;

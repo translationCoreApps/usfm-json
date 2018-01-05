@@ -1,11 +1,25 @@
 import * as USFM from './USFM';
 
 /**
+ * @description checks if we need to add a newline if next object is not text or newline
+ * @param {Object} nextObject - next object to be output
+ * @return {string} either newline or empty string
+ */
+const needsNewLine = nextObject => {
+  let retVal = '\n';
+  if ((nextObject) && (nextObject.type === 'text') && (nextObject.text.substr(0, 1) !== '\n')) {
+    retVal = '';
+  }
+  return retVal;
+};
+
+/**
  * @description Takes in word json and outputs it as USFM.
  * @param {Object} wordObject - word in JSON
+ * @param {Object} nextObject - next object to be output
  * @return {String} - word in USFM
  */
-export const generateWord = wordObject => {
+const generateWord = (wordObject, nextObject) => {
   const keys = Object.keys(wordObject);
   let attributes = [];
   const word = wordObject.text;
@@ -16,16 +30,17 @@ export const generateWord = wordObject => {
       attributes.push(attribute);
     }
   });
-  let line = '\\w ' + word + '|' + attributes.join(' ') + '\\w*';
+  let line = '\\w ' + word + '|' + attributes.join(' ') + '\\w*' + needsNewLine(nextObject);
   return line;
 };
 
 /**
  * @description Takes in word json and outputs it as USFM.
  * @param {Object} phraseObject - word in JSON
+ * @param {Object} nextObject - next object to be output
  * @return {String} - word in USFM
  */
-export const generatePhrase = phraseObject => {
+const generatePhrase = (phraseObject, nextObject) => {
   const keys = Object.keys(phraseObject);
   let attributes = [];
   keys.forEach(function(key) {
@@ -38,10 +53,9 @@ export const generatePhrase = phraseObject => {
   let line = '\\k-s | ' + attributes.join(' ') + '\n';
 
 /* eslint-disable no-use-before-define */
-  let text = objectToString(phraseObject.children);
+  line += objectToString(phraseObject.children);
 /* eslint-enable no-use-before-define */
-  line += text;
-  line += "\\k-e\\*";
+  line += "\\k-e\\*" + needsNewLine(nextObject);
   return line;
 };
 
@@ -50,7 +64,7 @@ export const generatePhrase = phraseObject => {
  * @param {object} usfmObject - usfm object to output
  * @return {String} Text equivalent of marker.
  */
-export const usfmMarkerToString = usfmObject => {
+const usfmMarkerToString = usfmObject => {
   let output = "";
   const content = usfmObject.text || usfmObject.content || "";
   const markerRequiresTermination =
@@ -85,7 +99,7 @@ export const usfmMarkerToString = usfmObject => {
  *                              between current marker and following text
  * @return {String} Text equivalent of marker.
  */
-export const objectToString = (object, nextObject) => {
+const objectToString = (object, nextObject) => {
   if (!object) {
     return "";
   }
@@ -108,11 +122,11 @@ export const objectToString = (object, nextObject) => {
   }
 
   if (object.type === 'word') { // usfm word marker
-    return generateWord(object);
+    return generateWord(object, nextObject);
   }
 
   if (object.type === 'keyterm') { // usfm keyterm with milestone (phrase)
-    return generatePhrase(object);
+    return generatePhrase(object, nextObject);
   }
 
   if (object.tag) { // any other USFM marker tag
@@ -127,7 +141,7 @@ export const objectToString = (object, nextObject) => {
  * @param {Array} verseArray - verse in JSON
  * @return {Array} - verse in USFM lines/string
  */
-export const generateVerse = (verseNumber, verseArray) => {
+const generateVerse = (verseNumber, verseArray) => {
   const verseText = objectToString(verseArray);
   const object = {
     tag: 'v',
@@ -143,7 +157,7 @@ export const generateVerse = (verseNumber, verseArray) => {
  * @param {Object} chapterObject - chapter in JSON
  * @return {Array} - chapter in USFM lines/string
  */
-export const generateChapterLines = (chapterNumber, chapterObject) => {
+const generateChapterLines = (chapterNumber, chapterObject) => {
   let lines = [];
   lines.push('\\c ' + chapterNumber + '\n');
   if (chapterObject.front) { // handle front matter first
@@ -173,7 +187,7 @@ export const generateChapterLines = (chapterNumber, chapterObject) => {
  * @param {array} output - array where text is appended
  * @param {Object} usfmObject - USFM object to convert to string
  */
-export const outputHeaderObject = (output, usfmObject) => {
+const outputHeaderObject = (output, usfmObject) => {
   let text = usfmMarkerToString(usfmObject);
   if (usfmObject.tag) {
     text += '\n';

@@ -65,11 +65,12 @@ const removeLeadingSpace = text => {
 };
 
 /**
- * @description - Parses the word marker into JSON
+ * @description - Parses the word marker into word object
+ * @param {object} state - holds parsing state information
  * @param {String} wordContent - the string to find the data/attributes
- * @return {Object} - json object of the word attributes
+ * @return {Object} - object of the word attributes
 */
-const parseWord = wordContent => {
+const parseWord = (state, wordContent) => {
   let object = {};
   const wordParts = wordContent.split('|');
   const word = removeLeadingSpace(wordParts[0]);
@@ -79,6 +80,9 @@ const parseWord = wordContent => {
     tag: 'w',
     type: 'word'
   };
+  if (state.params["content-source"]) {
+    object["content-source"] = state.params["content-source"];
+  }
   if (attributeContent) {
     const regex = /[x-]*([\w-]+)=['"](.*?)['"]/g;
     const matches = getMatches(attributeContent, regex);
@@ -212,7 +216,7 @@ const parseLine = line => {
  * @return {array} location to place verse content
  */
 const getSaveToLocation = state => {
-  if (state.chunk) {
+  if (state.params.chunk) {
     if (!state.verses[state.currentVerse]) {
       state.verses[state.currentVerse] = [];
     }
@@ -430,7 +434,7 @@ const parseAsVerse = (state, marker) => {
     marker.content = marker.content.substr(spanMatch[0].length);
   }
 
-  if (state.chunk && !state.onSameChapter) {
+  if (state.params.chunk && !state.onSameChapter) {
     if (state.verses[state.currentVerse]) {
       state.onSameChapter = true;
     } else {
@@ -460,7 +464,7 @@ const processAsText = (state, marker) => {
     pushObject(state, state.headers, createUsfmObject(marker.tag,
           marker.number, marker.content));
   }
-  if (state.chunk && state.currentVerse > 0 && marker.content) {
+  if (state.params.chunk && state.currentVerse > 0 && marker.content) {
     if (!state.verses[state.currentVerse])
       state.verses[state.currentVerse] = [];
     pushObject(state, state.verses[state.currentVerse], marker.content);
@@ -510,6 +514,25 @@ const extractNumberFromContent = marker => {
   }
 };
 
+const getVerseObjectsForChapter = currentChapter => {
+  const outputChapter = {};
+  for (let verseNum of Object.keys(currentChapter)) {
+    const verseObjects = currentChapter[verseNum];
+    outputChapter[verseNum] = {
+      verseObjects: verseObjects
+    };
+  }
+  return outputChapter;
+};
+
+const getVerseObjectsForBook = (usfmJSON, state) => {
+  usfmJSON.chapters = {};
+  for (let chapterNum of Object.keys(state.chapters)) {
+    const currentChapter = state.chapters[chapterNum];
+    usfmJSON.chapters[chapterNum] = getVerseObjectsForChapter(currentChapter);
+  }
+};
+
 /**
  * @description - Parses the usfm string and returns an object
  * @param {String} usfm - the raw usfm string
@@ -537,7 +560,7 @@ export const usfmToJSON = (usfm, params = {}) => {
     nested: [],
     phrase: null,
     onSameChapter: false,
-    chunk: (params.chunk === true)
+    params: params
   };
   for (let i = 0; i < markers.length; i++) {
     let marker = markers[i];
@@ -567,12 +590,12 @@ export const usfmToJSON = (usfm, params = {}) => {
         break;
       }
       case 'k': { // keyphrase
-        const wordObject = parseWord(marker.content);
-        wordObject.type = "keyterm";
+        const wordObject = parseWord(state, marker.content);
+        wordObject.type = "milestone";
         const milestone = wordObject.text.trim();
         if (milestone === '-s') { // milestone start
           let saveTo = getSaveToLocation(state);
-          wordObject.tag = "k" + milestone;
+          wordObject.tag = "k";
           delete wordObject.text;
           state.phrase = [];
           wordObject.children = state.phrase;
@@ -597,7 +620,7 @@ export const usfmToJSON = (usfm, params = {}) => {
         break;
       }
       case 'w': { // word
-        const wordObject = parseWord(marker.content);
+        const wordObject = parseWord(state, marker.content);
         pushObject(state, null, wordObject);
         if (marker.nextChar) {
           pushObject(state, null, marker.nextChar);
@@ -652,7 +675,9 @@ export const usfmToJSON = (usfm, params = {}) => {
     }
   }
   usfmJSON.headers = state.headers;
-  usfmJSON.chapters = state.chapters;
-  if (Object.keys(state.verses).length > 0) usfmJSON.verses = state.verses;
+  getVerseObjectsForBook(usfmJSON, state);
+  if (Object.keys(state.verses).length > 0) {
+    usfmJSON.verses = getVerseObjectsForChapter(state.verses);
+  }
   return usfmJSON;
 };

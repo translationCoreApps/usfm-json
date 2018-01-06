@@ -102,11 +102,14 @@ describe("USFM to JSON", () => {
   });
 
   it('handles tw word attributes and spans', () => {
-    generateTest('tw_words');
+    generateTest('tw_words', {"content-source": "bhp"});
   });
 
   it('handles tw word attributes and spans chunked', () => {
     generateTest('tw_words_chunk', {chunk: true});
   });
-});
 
+  it('handles greek word attributes and spans', () => {
+    generateTest('greek_verse_objects', {"chunk": true, "content-source": "bhp"});
+  });
+});

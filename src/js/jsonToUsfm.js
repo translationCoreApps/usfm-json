@@ -153,7 +153,7 @@ const objectToString = (object, nextObject) => {
  * @description Takes in verse json and outputs it as a USFM line array.
  * @param {String} verseNumber - number to use for the verse
  * @param {Array|Object} verseObjects - verse in JSON
- * @return {Array} - verse in USFM lines/string
+ * @return {String} - verse in USFM
  */
 const generateVerse = (verseNumber, verseObjects) => {
   const verseText = objectToString(verseObjects);
@@ -212,6 +212,7 @@ const outputHeaderObject = (output, usfmObject) => {
 /**
  * @description Takes in scripture json and outputs it as a USFM string.
  * @param {Object} json - Scripture in JSON
+ * @param {Object} params - optional parameters like attributes to ignore
  * @return {String} - Scripture in USFM
  */
 export const jsonToUSFM = (json, params) => {

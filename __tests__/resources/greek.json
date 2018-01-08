@@ -15,98 +15,106 @@
   ],
   "chapters": {
     "1": {
-      "front": [
-        {
-          "tag": "p",
-          "text": "\n",
-          "type": "paragraph"
-        }
-      ],
-      "1": [
-        {
-          "type": "text",
-          "text": "\n"
-        },
-        {
-          "text": "Παῦλος",
-          "lemma": "Παῦλος",
-          "strong": "G39720",
-          "morph": "Gr,N,,,,,NMS,",
-          "tag": "w",
-          "type": "word"
-        },
-        {
-          "text": "δοῦλος",
-          "lemma": "δοῦλος",
-          "strong": "G14010",
-          "morph": "Gr,N,,,,,NMS,",
-          "tag": "w",
-          "type": "word"
-        },
-        {
-          "text": "Χριστοῦ",
-          "lemma": "Χριστός",
-          "strong": "G55470",
-          "morph": "Gr,N,,,,,GMS,",
-          "tag": "w",
-          "type": "word"
-        },
-        {
-          "text": "κατὰ",
-          "lemma": "κατά",
-          "strong": "G25960",
-          "morph": "Gr,P,,,,,A,,,",
-          "tag": "w",
-          "type": "word"
-        }
-      ]
+      "front": {
+        "verseObjects": [
+          {
+            "tag": "p",
+            "text": "\n",
+            "type": "paragraph"
+          }
+        ]
+      },
+      "1": {
+        "verseObjects": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "text": "Παῦλος",
+            "lemma": "Παῦλος",
+            "strong": "G39720",
+            "morph": "Gr,N,,,,,NMS,",
+            "tag": "w",
+            "type": "word"
+          },
+          {
+            "text": "δοῦλος",
+            "lemma": "δοῦλος",
+            "strong": "G14010",
+            "morph": "Gr,N,,,,,NMS,",
+            "tag": "w",
+            "type": "word"
+          },
+          {
+            "text": "Χριστοῦ",
+            "lemma": "Χριστός",
+            "strong": "G55470",
+            "morph": "Gr,N,,,,,GMS,",
+            "tag": "w",
+            "type": "word"
+          },
+          {
+            "text": "κατὰ",
+            "lemma": "κατά",
+            "strong": "G25960",
+            "morph": "Gr,P,,,,,A,,,",
+            "tag": "w",
+            "type": "word"
+          }
+        ]
+      }
     },
     "2": {
-      "front": [
-        {
-          "tag": "p",
-          "text": "\n",
-          "type": "paragraph"
-        }
-      ],
-      "1": [
-        {
-          "type": "text",
-          "text": "\n"
-        },
-        {
-          "text": "Σὺ",
-          "lemma": "σύ",
-          "strong": "G47710",
-          "morph": "Gr,RP,,,2N,S,",
-          "tag": "w",
-          "type": "word"
-        },
-        {
-          "text": "δὲ",
-          "lemma": "δέ",
-          "strong": "G11610",
-          "morph": "Gr,CC,,,,,,,,",
-          "tag": "w",
-          "type": "word"
-        },
-        {
-          "text": "λάλει",
-          "lemma": "λαλέω",
-          "strong": "G29800",
-          "morph": "Gr,VTMPA2,,S,",
-          "tag": "w",
-          "type": "word"
-        },
-        {
-          "text": "ἃ",
-          "lemma": "ὅς",
-          "strong": "G37390",
-          "morph": "Gr,RR,,,,ANP,",
-          "tag": "w",
-          "type": "word"
-        }
-      ]
+      "front": {
+        "verseObjects": [
+          {
+            "tag": "p",
+            "text": "\n",
+            "type": "paragraph"
+          }
+        ]
+      },
+      "1": {
+        "verseObjects": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "text": "Σὺ",
+            "lemma": "σύ",
+            "strong": "G47710",
+            "morph": "Gr,RP,,,2N,S,",
+            "tag": "w",
+            "type": "word"
+          },
+          {
+            "text": "δὲ",
+            "lemma": "δέ",
+            "strong": "G11610",
+            "morph": "Gr,CC,,,,,,,,",
+            "tag": "w",
+            "type": "word"
+          },
+          {
+            "text": "λάλει",
+            "lemma": "λαλέω",
+            "strong": "G29800",
+            "morph": "Gr,VTMPA2,,S,",
+            "tag": "w",
+            "type": "word"
+          },
+          {
+            "text": "ἃ",
+            "lemma": "ὅς",
+            "strong": "G37390",
+            "morph": "Gr,RR,,,,ANP,",
+            "tag": "w",
+            "type": "word"
+          }
+        ]
+      }
     }
   }
 }

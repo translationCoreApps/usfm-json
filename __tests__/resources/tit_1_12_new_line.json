@@ -27,50 +27,54 @@
   ],
   "chapters": {
     "1": {
-      "front": [
-        {
-          "text": "\n",
-          "type": "text"
-        }
-      ],
-      "12": [
-        {
-          "type": "text",
-          "text": "\n"
-        },
-        {
-          "text": "προφήτης",
-          "lemma": "προφήτης",
-          "strong": "G43960",
-          "morph": "Gr,N,,,,,NMS,",
-          "tag": "w",
-          "type": "word"
-        },
-        {
-          "type": "text",
-          "text": ",\n“\n"
-        },
-        {
-          "text": "Κρῆτες",
-          "lemma": "Κρής",
-          "strong": "G29120",
-          "morph": "Gr,N,,,,,NMP,",
-          "tag": "w",
-          "type": "word"
-        },
-        {
-          "text": "ἀργαί",
-          "lemma": "ἀργός",
-          "strong": "G06920",
-          "morph": "Gr,AA,,,,NFP,",
-          "tag": "w",
-          "type": "word"
-        },
-        {
-          "type": "text",
-          "text": ".\n”\n"
-        }
-      ]
+      "front": {
+        "verseObjects": [
+          {
+            "text": "\n",
+            "type": "text"
+          }
+        ]
+      },
+      "12": {
+        "verseObjects": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "text": "προφήτης",
+            "lemma": "προφήτης",
+            "strong": "G43960",
+            "morph": "Gr,N,,,,,NMS,",
+            "tag": "w",
+            "type": "word"
+          },
+          {
+            "type": "text",
+            "text": ",\n“\n"
+          },
+          {
+            "text": "Κρῆτες",
+            "lemma": "Κρής",
+            "strong": "G29120",
+            "morph": "Gr,N,,,,,NMP,",
+            "tag": "w",
+            "type": "word"
+          },
+          {
+            "text": "ἀργαί",
+            "lemma": "ἀργός",
+            "strong": "G06920",
+            "morph": "Gr,AA,,,,NFP,",
+            "tag": "w",
+            "type": "word"
+          },
+          {
+            "type": "text",
+            "text": ".\n”\n"
+          }
+        ]
+      }
     }
   }
 }

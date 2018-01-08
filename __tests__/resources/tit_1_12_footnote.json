@@ -27,36 +27,40 @@
   ],
   "chapters": {
     "1": {
-      "front": [
-        {
-          "text": "\n",
-          "type": "text"
-        }
-      ],
-      "12": [
-        {
-          "type": "text",
-          "text": "\n...\n"
-        },
-        {
-          "tag": "q",
-          "text": "\n",
-          "type": "quote"
-        },
-        {
-          "type": "text",
-          "text": "Christ Jesus.\n"
-        },
-        {
-          "tag": "f",
-          "type": "footnote",
-          "content": "+ \\ft Some early versions omit, \\fqa in Ephesus, \\fqa* but this expression is probably in Paul's original letter. "
-        },
-        {
-          "text": "\n",
-          "type": "text"
-        }
-      ]
+      "front": {
+        "verseObjects": [
+          {
+            "text": "\n",
+            "type": "text"
+          }
+        ]
+      },
+      "12": {
+        "verseObjects": [
+          {
+            "type": "text",
+            "text": "\n...\n"
+          },
+          {
+            "tag": "q",
+            "text": "\n",
+            "type": "quote"
+          },
+          {
+            "type": "text",
+            "text": "Christ Jesus.\n"
+          },
+          {
+            "tag": "f",
+            "type": "footnote",
+            "content": "+ \\ft Some early versions omit, \\fqa in Ephesus, \\fqa* but this expression is probably in Paul's original letter. "
+          },
+          {
+            "text": "\n",
+            "type": "text"
+          }
+        ]
+      }
     }
   }
 }

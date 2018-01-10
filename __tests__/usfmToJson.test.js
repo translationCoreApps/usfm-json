@@ -41,6 +41,10 @@ describe("USFM to JSON", () => {
     generateTest('chunk', {chunk: true});
   });
 
+  it('handles a chunk with footnote', () => {
+    generateTest('chunk_footnote', {chunk: true});
+  });
+
   it('handles greek characters in usfm', () => {
     generateTest('greek');
   });

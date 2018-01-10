@@ -7,9 +7,10 @@ const NUMBER = /(\d+)/;
  * @description - Finds all of the regex matches in a string
  * @param {String} string - the string to find matches in
  * @param {RegExp} regex - the RegExp to find matches with, must use global flag /.../g
+ * @param {boolean} lastLine - true if last line of file
  * @return {Array} - array of results
 */
-const getMatches = (string, regex) => {
+const getMatches = (string, regex, lastLine) => {
   let matches = [];
   let match;
   if (string.match(regex)) { // check so you don't get caught in a loop
@@ -17,7 +18,7 @@ const getMatches = (string, regex) => {
       // preserve white space
       let nextChar = null;
       const endPos = match.index + match[0].length;
-      if (endPos >= string.length) {
+      if (!lastLine && (endPos >= string.length)) {
         nextChar = "\n"; // save new line
       } else {
         let char = string[endPos];
@@ -43,7 +44,7 @@ const parseMarkerOpen = markerOpen => {
   let object = {};
   if (markerOpen) {
     const regex = /(\w+)\s*(\d*)/g;
-    const matches = getMatches(markerOpen, regex);
+    const matches = getMatches(markerOpen, regex, true);
     object = {
       tag: matches[0][1],
       number: matches[0][2]
@@ -85,7 +86,7 @@ const parseWord = (state, wordContent) => {
   }
   if (attributeContent) {
     const regex = /[x-]*([\w-]+)=['"](.*?)['"]/g;
-    const matches = getMatches(attributeContent, regex);
+    const matches = getMatches(attributeContent, regex, true);
     matches.forEach(function(match) {
       let key = match[1];
       if (key === "strongs") { // fix invalid 'strongs' key
@@ -123,17 +124,20 @@ const createMarkerFromText = text => {
 /**
  * @description - Parses the line and determines what content is in it
  * @param {String} line - the string to find the markers and content
+ * @param {boolean} lastLine - true if last line of file
  * @return {Array} - array of objects that describe open/close and content
 */
-const parseLine = line => {
+const parseLine = (line, lastLine) => {
   let array = [];
   if (line.trim() === '') {
-    const object = makeTextMarker(line + '\n');
-    array.push(object);
+    if (!lastLine) {
+      const object = makeTextMarker(line + '\n');
+      array.push(object);
+    }
     return array;
   }
   const regex = /([^\\]+)?\\(\w+\s*\d*)(?!\w)\s*([^\\]+)?(\\\w\*)?/g;
-  const matches = getMatches(line, regex);
+  const matches = getMatches(line, regex, lastLine);
   let lastObject = null;
   if (regex.exec(line)) { // normal formatting with marker followed by content
     for (let match of matches) {
@@ -542,13 +546,11 @@ const getVerseObjectsForBook = (usfmJSON, state) => {
 export const usfmToJSON = (usfm, params = {}) => {
   USFM.init();
   let lines = usfm.split(/\r?\n/); // get all the lines
-  if (lines.length && (lines[lines.length - 1] === "")) {
-    lines = lines.slice(0, lines.length - 1);
-  }
   let usfmJSON = {};
   let markers = [];
-  for (let line of lines) {
-    const parsedLine = parseLine(line);
+  let lastLine = lines.length - 1;
+  for (let i = 0; i < lines.length; i++) {
+    const parsedLine = parseLine(lines[i], i >= lastLine);
     markers = markers.concat(parsedLine);
   }
   const state = {
@@ -667,7 +669,8 @@ export const usfmToJSON = (usfm, params = {}) => {
           if (state.currentChapter === 0 && !state.currentVerse) { // if we haven't seen chapter yet, its a header
             pushObject(state, state.headers, createUsfmObject(marker.tag,
               marker.number, marker.content));
-          } else if (state.currentChapter) {
+          } else if (state.currentChapter ||
+            (state.params.chunk && state.currentVerse)) {
             addToCurrentVerse(state, marker);
           }
         }

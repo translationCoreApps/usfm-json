@@ -35,65 +35,73 @@
   ],
   "chapters": {
     "30": {
-      "1": [
-        {
-          "text": "The words of Agur son of Jakeh—the utterance:\n",
-          "type": "text"
-        },
-        {
-          "tag": "q",
-          "type": "quote",
-          "text": "This man declared to Ithiel, to Ithiel and Ucal:\n"
-        },
-        {
-          "content": "+ \\ft Some versions have \\fqa This man declared, \"I am weary, O God, I am weary. I am unable to do anything.\" \\fqa* ",
-          "tag": "f",
-          "type": "footnote"
-        },
-        {
-          "text": "\n",
-          "type": "text"
-        },
-        {
-          "tag": "q",
-          "type": "quote",
-          "text": "\n"
-        }
-      ],
-      "2": [
-        {
-          "text": "Surely I am more like an animal than any human\n",
-          "type": "text"
-        },
-        {
-          "tag": "q",
-          "type": "quote",
-          "text": "and I do not have the understanding of a human being.\n"
-        },
-        {
-          "tag": "q",
-          "type": "quote",
-          "text": "\n"
-        }
-      ],
-      "3": [
-        {
-          "text": "I have not learned wisdom,\n",
-          "type": "text"
-        },
-        {
-          "tag": "q",
-          "type": "quote",
-          "text": "nor do I have knowledge of the Holy One.\n"
-        }
-      ],
-      "front": [
-        {
-          "tag": "p",
-          "type": "paragraph",
-          "text": "\n"
-        }
-      ]
+      "1": {
+        "verseObjects": [
+          {
+            "text": "The words of Agur son of Jakeh—the utterance:\n",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "type": "quote",
+            "text": "This man declared to Ithiel, to Ithiel and Ucal:\n"
+          },
+          {
+            "content": "+ \\ft Some versions have \\fqa This man declared, \"I am weary, O God, I am weary. I am unable to do anything.\" \\fqa* ",
+            "tag": "f",
+            "type": "footnote"
+          },
+          {
+            "text": "\n",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "type": "quote",
+            "text": "\n"
+          }
+        ]
+      },
+      "2": {
+        "verseObjects": [
+          {
+            "text": "Surely I am more like an animal than any human\n",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "type": "quote",
+            "text": "and I do not have the understanding of a human being.\n"
+          },
+          {
+            "tag": "q",
+            "type": "quote",
+            "text": "\n"
+          }
+        ]
+      },
+      "3": {
+        "verseObjects": [
+          {
+            "text": "I have not learned wisdom,\n",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "type": "quote",
+            "text": "nor do I have knowledge of the Holy One.\n"
+          }
+        ]
+      },
+      "front": {
+        "verseObjects": [
+          {
+            "tag": "p",
+            "type": "paragraph",
+            "text": "\n"
+          }
+        ]
+      }
     }
   }
 }

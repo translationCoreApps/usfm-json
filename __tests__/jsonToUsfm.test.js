@@ -5,12 +5,12 @@ import {jsonToUSFM} from '../src/js/jsonToUsfm';
  * Generator for testing json to usfm migration
  * @param {string} name - the name of the test files to use. e.g. `valid` will test `valid.usfm` to `valid.json`
  */
-const generateTest = name => {
+const generateTest = (name, params) => {
   const input = readJSON(`${name}.json`);
   const expected = readUSFM(`${name}.usfm`);
   expect(input).toBeTruthy();
   expect(expected).toBeTruthy();
-  const output = jsonToUSFM(input);
+  const output = jsonToUSFM(input, params);
   expect(output).toEqual(expected);
 };
 
@@ -76,4 +76,11 @@ describe("JSON to USFM", () => {
     generateTest('luk_quotes');
   });
 
+  it('process tw word attributes and spans', () => {
+    generateTest('tw_words', {ignore: ["content-source"]});
+  });
+
+  it('process tw word attributes and spans chunked', () => {
+    generateTest('tw_words_chunk', {chunk: true, ignore: ["content-source"]});
+  });
 });

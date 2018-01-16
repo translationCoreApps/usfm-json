@@ -1,103 +1,111 @@
 {
   "chapters": {
     "21": {
-      "9": [
-        {
-          "text": "It is better to live on a corner of the roof\n",
-          "type": "text"
-        },
-        {
-          "tag": "q",
-          "type": "quote",
-          "text": " than in a house shared with a quarrelsome wife.\n"
-        },
-        {
-          "tag": "q",
-          "type": "quote",
-          "text": "\n"
-        }
-      ],
-      "10": [
-        {
-          "text": "The appetite of the wicked craves evil;\n",
-          "type": "text"
-        },
-        {
-          "tag": "q",
-          "type": "quote",
-          "text": " his neighbor finds no favor in his eyes. \n"
-        },
-        {
-          "tag": "s5",
-          "type": "section",
-          "text": "\n"
-        },
-        {
-          "tag": "q",
-          "type": "quote",
-          "text": "\n"
-        }
-      ],
-      "19": [
-        {
-          "text": "Long ago you spoke in a vision to your faithful ones ",
-          "type": "text"
-        },
-        {
-          "content": "+ \\ft Many mss have the singular \\fqa faithful one\\fqa* instead of \\fqa faithful ones.",
-          "tag": "f",
-          "type": "footnote"
-        },
-        {
-          "text": ";\n",
-          "type": "text"
-        },
-        {
-          "tag": "q",
-          "type": "quote",
-          "text": "you said, \n"
-        },
-        {
-          "tag": "q",
-          "type": "quote",
-          "text": "\"I have set a crown on a mighty one"
-        },
-        {
-          "content": "+ \\ft The MT has \\fqa I will place help upon a warrior \\fqa*. Some translate the word for \\fqa help \\fqa* as \\fqa crown, which is followed by the ULB here.",
-          "tag": "f",
-          "type": "footnote"
-        },
-        {
-          "text": "\"\n",
-          "type": "text"
-        },
-        {
-          "tag": "q",
-          "type": "quote",
-          "text": "I have raised up one chosen from among the people.\n"
-        },
-        {
-          "tag": "q",
-          "type": "quote",
-          "text": "\n"
-        },
-        {
-          "type": "text",
-          "text": "\n"
-        }
-      ],
-      "front": [
-        {
-          "tag": "s5",
-          "type": "section",
-          "text": " \n"
-        },
-        {
-          "tag": "q",
-          "type": "quote",
-          "text": " \n"
-        }
-      ]
+      "9": {
+        "verseObjects": [
+          {
+            "text": "It is better to live on a corner of the roof\n",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "type": "quote",
+            "text": " than in a house shared with a quarrelsome wife.\n"
+          },
+          {
+            "tag": "q",
+            "type": "quote",
+            "text": "\n"
+          }
+        ]
+      },
+      "10": {
+        "verseObjects": [
+          {
+            "text": "The appetite of the wicked craves evil;\n",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "type": "quote",
+            "text": " his neighbor finds no favor in his eyes. \n"
+          },
+          {
+            "tag": "s5",
+            "type": "section",
+            "text": "\n"
+          },
+          {
+            "tag": "q",
+            "type": "quote",
+            "text": "\n"
+          }
+        ]
+      },
+      "19": {
+        "verseObjects": [
+          {
+            "text": "Long ago you spoke in a vision to your faithful ones ",
+            "type": "text"
+          },
+          {
+            "content": "+ \\ft Many mss have the singular \\fqa faithful one\\fqa* instead of \\fqa faithful ones.",
+            "tag": "f",
+            "type": "footnote"
+          },
+          {
+            "text": ";\n",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "type": "quote",
+            "text": "you said, \n"
+          },
+          {
+            "tag": "q",
+            "type": "quote",
+            "text": "\"I have set a crown on a mighty one"
+          },
+          {
+            "content": "+ \\ft The MT has \\fqa I will place help upon a warrior \\fqa*. Some translate the word for \\fqa help \\fqa* as \\fqa crown, which is followed by the ULB here.",
+            "tag": "f",
+            "type": "footnote"
+          },
+          {
+            "text": "\"\n",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "type": "quote",
+            "text": "I have raised up one chosen from among the people.\n"
+          },
+          {
+            "tag": "q",
+            "type": "quote",
+            "text": "\n"
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      "front": {
+        "verseObjects": [
+          {
+            "tag": "s5",
+            "type": "section",
+            "text": " \n"
+          },
+          {
+            "tag": "q",
+            "type": "quote",
+            "text": " \n"
+          }
+        ]
+      }
     }
   },
   "headers": [

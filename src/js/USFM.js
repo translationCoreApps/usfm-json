@@ -32,7 +32,7 @@ export const MARKERS_WITH_NUMBERS = [
   "v"
 ];
 
-// for these tags we embed the text as text attribute instead of content
+// for these tags we embed the contained text as a displayable text attribute instead of content
 export const MARK_CONTENT_AS_TEXT = [
   "add",
   "bd",
@@ -69,6 +69,7 @@ export const MARK_CONTENT_AS_TEXT = [
   "sc",
   "sig",
   "sls",
+  "sp",
   "tl",
   "v",
   "w",

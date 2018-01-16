@@ -1,22 +1,71 @@
 import * as USFM from './USFM';
 
+let params_ = {};
+
+/**
+ * @description checks if we need to add a newline if next object is not text or newline
+ * @param {Object} nextObject - next object to be output
+ * @return {string} either newline or empty string
+ */
+const needsNewLine = nextObject => {
+  let retVal = '\n';
+  if ((nextObject) && (nextObject.type === 'text') && (nextObject.text.substr(0, 1) !== '\n')) {
+    retVal = '';
+  }
+  return retVal;
+};
+
 /**
  * @description Takes in word json and outputs it as USFM.
  * @param {Object} wordObject - word in JSON
+ * @param {Object} nextObject - next object to be output
  * @return {String} - word in USFM
  */
-export const generateWord = wordObject => {
+const generateWord = (wordObject, nextObject) => {
   const keys = Object.keys(wordObject);
   let attributes = [];
+  let ignore = ['text', 'tag', 'type'];
+  if (params_.ignore) {
+    ignore = ignore.concat(params_.ignore);
+  }
   const word = wordObject.text;
   keys.forEach(function(key) {
-    if ((key !== 'text') && (key !== 'tag') && (key !== 'type')) {
+    if (!(ignore.includes(key))) {
       let prefix = (key === 'lemma' || key === 'strong') ? '' : 'x-';
       let attribute = prefix + key + '="' + wordObject[key] + '"';
       attributes.push(attribute);
     }
   });
-  let line = '\\w ' + word + '|' + attributes.join(' ') + '\\w*';
+  let line = '\\w ' + word + '|' + attributes.join(' ') + '\\w*' + needsNewLine(nextObject);
+  return line;
+};
+
+/**
+ * @description Takes in word json and outputs it as USFM.
+ * @param {Object} phraseObject - word in JSON
+ * @param {Object} nextObject - next object to be output
+ * @return {String} - word in USFM
+ */
+const generatePhrase = (phraseObject, nextObject) => {
+  const keys = Object.keys(phraseObject);
+  let attributes = [];
+  let ignore = ['children', 'tag', 'type'];
+  if (params_.ignore) {
+    ignore = ignore.concat(params_.ignore);
+  }
+  keys.forEach(function(key) {
+    if (!(ignore.includes(key))) {
+      let prefix = 'x-';
+      let attribute = prefix + key + '="' + phraseObject[key] + '"';
+      attributes.push(attribute);
+    }
+  });
+  let line = '\\k-s | ' + attributes.join(' ') + '\n';
+
+/* eslint-disable no-use-before-define */
+  line += objectToString(phraseObject.children);
+/* eslint-enable no-use-before-define */
+  line += "\\k-e\\*" + needsNewLine(nextObject);
   return line;
 };
 
@@ -25,7 +74,7 @@ export const generateWord = wordObject => {
  * @param {object} usfmObject - usfm object to output
  * @return {String} Text equivalent of marker.
  */
-export const usfmMarkerToString = usfmObject => {
+const usfmMarkerToString = usfmObject => {
   let output = "";
   const content = usfmObject.text || usfmObject.content || "";
   const markerRequiresTermination =
@@ -56,17 +105,21 @@ export const usfmMarkerToString = usfmObject => {
 /**
  * @description Identifies type of
  * @param {string|array|object} object - marker to print
- * @param {String} nextObject - optional object that is next entry.  Used to determine if we need to add a space
- *                              between current marker and following text
+ * @param {String|array|object} nextObject - optional object that is next entry.  Used to determine if we need to
+ *                                add a space between current marker and following text
  * @return {String} Text equivalent of marker.
  */
-export const objectToString = (object, nextObject) => {
+const objectToString = (object, nextObject) => {
   if (!object) {
     return "";
   }
 
   if (object.type === 'text') {
     return object.text;
+  }
+
+  if (object.verseObjects) { // support new verse object format
+    object = object.verseObjects;
   }
 
   if (Array.isArray(object)) {
@@ -83,7 +136,11 @@ export const objectToString = (object, nextObject) => {
   }
 
   if (object.type === 'word') { // usfm word marker
-    return generateWord(object);
+    return generateWord(object, nextObject);
+  }
+
+  if (object.type === 'milestone') { // usfm keyterm with milestone (phrase)
+    return generatePhrase(object, nextObject);
   }
 
   if (object.tag) { // any other USFM marker tag
@@ -94,12 +151,12 @@ export const objectToString = (object, nextObject) => {
 
 /**
  * @description Takes in verse json and outputs it as a USFM line array.
- * @param {int} verseNumber - number to use for the verse
- * @param {Array} verseArray - verse in JSON
- * @return {Array} - verse in USFM lines/string
+ * @param {String} verseNumber - number to use for the verse
+ * @param {Array|Object} verseObjects - verse in JSON
+ * @return {String} - verse in USFM
  */
-export const generateVerse = (verseNumber, verseArray) => {
-  const verseText = objectToString(verseArray);
+const generateVerse = (verseNumber, verseObjects) => {
+  const verseText = objectToString(verseObjects);
   const object = {
     tag: 'v',
     number: verseNumber,
@@ -110,11 +167,11 @@ export const generateVerse = (verseNumber, verseArray) => {
 
 /**
  * @description Takes in chapter json and outputs it as a USFM line array.
- * @param {int} chapterNumber - number to use for the chapter
+ * @param {String} chapterNumber - number to use for the chapter
  * @param {Object} chapterObject - chapter in JSON
  * @return {Array} - chapter in USFM lines/string
  */
-export const generateChapterLines = (chapterNumber, chapterObject) => {
+const generateChapterLines = (chapterNumber, chapterObject) => {
   let lines = [];
   lines.push('\\c ' + chapterNumber + '\n');
   if (chapterObject.front) { // handle front matter first
@@ -132,8 +189,8 @@ export const generateChapterLines = (chapterNumber, chapterObject) => {
     if (lastChar && (lastChar !== '\n') && (lastChar !== '')) { // do we need white space
       lines[lines.length - 1] = lastLine + ' ';
     }
-    const verseArray = chapterObject[verseNumber];
-    const verseLine = generateVerse(verseNumber, verseArray);
+    const verseObjects = chapterObject[verseNumber];
+    const verseLine = generateVerse(verseNumber, verseObjects);
     lines = lines.concat(verseLine);
   });
   return lines;
@@ -144,7 +201,7 @@ export const generateChapterLines = (chapterNumber, chapterObject) => {
  * @param {array} output - array where text is appended
  * @param {Object} usfmObject - USFM object to convert to string
  */
-export const outputHeaderObject = (output, usfmObject) => {
+const outputHeaderObject = (output, usfmObject) => {
   let text = usfmMarkerToString(usfmObject);
   if (usfmObject.tag) {
     text += '\n';
@@ -155,9 +212,11 @@ export const outputHeaderObject = (output, usfmObject) => {
 /**
  * @description Takes in scripture json and outputs it as a USFM string.
  * @param {Object} json - Scripture in JSON
+ * @param {Object} params - optional parameters like attributes to ignore
  * @return {String} - Scripture in USFM
  */
-export const jsonToUSFM = json => {
+export const jsonToUSFM = (json, params) => {
+  params_ = params || {}; // save current parameters
   USFM.init();
   let output = [];
   if (json.headers) {
@@ -178,11 +237,11 @@ export const jsonToUSFM = json => {
   if (json.verses) {
     const verseNumbers = Object.keys(json.verses);
     verseNumbers.forEach(function(verseNumber) {
-      const verseObject = json.verses[verseNumber];
+      const verseObjects = json.verses[verseNumber];
       const verse = generateVerse(
-          verseNumber, verseObject,
+          verseNumber, verseObjects,
       );
-      output = output.push(verse);
+      output = output.concat(verse);
     });
   }
   return output.join('');

@@ -1,0 +1,19 @@
+{
+  "headers": [],
+  "chapters": {},
+  "verses": {
+    "1": {
+      "verseObjects": [
+        {
+          "type": "text",
+          "text": "son of David, son of Abraham. "
+        },
+        {
+          "tag": "f",
+          "type": "footnote",
+          "content": "This is a footnote about this verse, It shouldn't be rendered inline with the text."
+        }
+      ]
+    }
+  }
+}

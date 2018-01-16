@@ -2,23 +2,29 @@
   "headers": [],
   "chapters": {},
   "verses": {
-    "13": [
-      {
-        "type": "text",
-        "text": "I had many things to write to you, but I do not wish to write them to you with pen and ink.\n"
-      }
-    ],
-    "14": [
-      {
-        "type": "text",
-        "text": "\nBut I expect to see you soon, and we will speak face to face. "
-      }
-    ],
-    "15": [
-      {
-        "type": "text",
-        "text": "May peace be\nwith you.\n        The friends greet you.\nGreet the friends by name.\n"
-      }
-    ]
+    "13": {
+      "verseObjects": [
+        {
+          "type": "text",
+          "text": "I had many things to write to you, but I do not wish to write them to you with pen and ink.\n"
+        }
+      ]
+    },
+    "14": {
+      "verseObjects": [
+        {
+          "type": "text",
+          "text": "\nBut I expect to see you soon, and we will speak face to face. "
+        }
+      ]
+    },
+    "15": {
+      "verseObjects": [
+        {
+          "type": "text",
+          "text": "May peace be\nwith you.\n        The friends greet you.\nGreet the friends by name.\n"
+        }
+      ]
+    }
   }
 }

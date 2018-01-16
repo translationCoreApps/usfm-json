@@ -39,40 +39,46 @@
   ],
   "chapters": {
     "3": {
-      "front": [
-        {
-          "tag": "p",
-          "text": "\n",
-          "type": "paragraph"
-        }
-      ],
-      "1": [
-        {
-          "type": "text",
-          "text": "Finally, my brothers, rejoice in the Lord.  For me to write these same things to you is not a problem, and they will keep you safe.\n"
-        },
-        {
-          "tag": "p",
-          "text": "\n",
-          "type": "paragraph"
-        }
-      ],
-      "2": [
-        {
-          "type": "text",
-          "text": "Watch out for the dogs. Watch out for the evil workers. Watch out for the mutilators.\n\n\n\n\n"
-        },
-        {
-          "tag": "s5",
-          "text": "\n",
-          "type": "section"
-        },
-        {
-          "tag": "p",
-          "text": "\n",
-          "type": "paragraph"
-        }
-      ]
+      "front": {
+        "verseObjects": [
+          {
+            "tag": "p",
+            "text": "\n",
+            "type": "paragraph"
+          }
+        ]
+      },
+      "1": {
+        "verseObjects": [
+          {
+            "type": "text",
+            "text": "Finally, my brothers, rejoice in the Lord.  For me to write these same things to you is not a problem, and they will keep you safe.\n"
+          },
+          {
+            "tag": "p",
+            "text": "\n",
+            "type": "paragraph"
+          }
+        ]
+      },
+      "2": {
+        "verseObjects": [
+          {
+            "type": "text",
+            "text": "Watch out for the dogs. Watch out for the evil workers. Watch out for the mutilators.\n\n\n\n\n"
+          },
+          {
+            "tag": "s5",
+            "text": "\n",
+            "type": "section"
+          },
+          {
+            "tag": "p",
+            "text": "\n",
+            "type": "paragraph"
+          }
+        ]
+      }
     }
   }
 }

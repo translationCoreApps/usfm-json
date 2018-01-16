@@ -1,113 +1,129 @@
 {
   "chapters": {
     "6": {
-      "19": [
-        {
-          "text": "Yahweh attacked some of the men of Beth Shemesh because they had looked into the ark of Yahweh. He killed 50,070 men. The people mourned, because Yahweh had given the people a great blow.\n",
-          "type": "text"
-        },
-        {
-          "content": "+ \\ft Instead of \\fqa 50,070 men \\fqa* , some later copies and modern versions have, \\fqa seventy men. \\fqa* ",
-          "tag": "f",
-          "type": "footnote"
-        },
-        {
-          "text": "\n\n",
-          "type": "text"
-        }
-      ],
-      "front": [
-        {
-          "tag": "s5",
-          "text": "\n",
-          "type": "section"
-        },
-        {
-          "tag": "p",
-          "text": "\n",
-          "type": "paragraph"
-        }
-      ]
+      "19": {
+        "verseObjects": [
+          {
+            "text": "Yahweh attacked some of the men of Beth Shemesh because they had looked into the ark of Yahweh. He killed 50,070 men. The people mourned, because Yahweh had given the people a great blow.\n",
+            "type": "text"
+          },
+          {
+            "content": "+ \\ft Instead of \\fqa 50,070 men \\fqa* , some later copies and modern versions have, \\fqa seventy men. \\fqa* ",
+            "tag": "f",
+            "type": "footnote"
+          },
+          {
+            "text": "\n\n",
+            "type": "text"
+          }
+        ]
+      },
+      "front": {
+        "verseObjects": [
+          {
+            "tag": "s5",
+            "text": "\n",
+            "type": "section"
+          },
+          {
+            "tag": "p",
+            "text": "\n",
+            "type": "paragraph"
+          }
+        ]
+      }
     },
     "15": {
-      "front": [
-        {
-          "tag": "s5",
-          "text": "\n",
-          "type": "section"
-        }
-      ],
-      "16": [
-        {
-          "text": "Then Menahem attacked Tiphsah and all who were there, and the borders around Tirzah, because they did not open up the city to him. So he attacked it, and he ripped open all the pregnant women in that village.\n",
-          "type": "text"
-        },
-        {
-          "content": "+ \\ft Instead of \\fqa Tiphsah \\fqa* , one ancient version and some modern versions read,\n\\fqa Tappuah. ",
-          "tag": "f",
-          "type": "footnote"
-        },
-        {
-          "text": "\n\n",
-          "type": "text"
-        }
-      ],
-      "19-21": [
-        {
-          "text": "Shimei had these sons: Jakim, Zikri, Zabdi, Elienai, Zillethai, Eliel, Adaiah, Beraiah, and Shimrath.\n\n",
-          "type": "text"
-        }
-      ]
+      "front": {
+        "verseObjects": [
+          {
+            "tag": "s5",
+            "text": "\n",
+            "type": "section"
+          }
+        ]
+      },
+      "16": {
+        "verseObjects": [
+          {
+            "text": "Then Menahem attacked Tiphsah and all who were there, and the borders around Tirzah, because they did not open up the city to him. So he attacked it, and he ripped open all the pregnant women in that village.\n",
+            "type": "text"
+          },
+          {
+            "content": "+ \\ft Instead of \\fqa Tiphsah \\fqa* , one ancient version and some modern versions read,\n\\fqa Tappuah. ",
+            "tag": "f",
+            "type": "footnote"
+          },
+          {
+            "text": "\n\n",
+            "type": "text"
+          }
+        ]
+      },
+      "19-21": {
+        "verseObjects": [
+          {
+            "text": "Shimei had these sons: Jakim, Zikri, Zabdi, Elienai, Zillethai, Eliel, Adaiah, Beraiah, and Shimrath.\n\n",
+            "type": "text"
+          }
+        ]
+      }
     },
     "60": {
-      "6": [
-        {
-          "text": "Camel caravans will cover you, the dromedaries of Midian and Ephah;\n",
-          "type": "text"
-        },
-        {
-          "tag": "q1",
-          "type": "quote",
-          "text": "all of them will come from Sheba;\n"
-        },
-        {
-          "tag": "q1",
-          "type": "quote",
-          "text": "they will bring gold and frankincense, and will sing the praises of Yahweh.\n"
-        },
-        {
-          "tag": "q1",
-          "type": "quote",
-          "text": "\n"
-        }
-      ],
-      "7": [
-        {
-          "text": "All the flocks of Kedar will be gathered together to you, the rams of Nebaioth will serve your needs; ",
-          "type": "text"
-        },
-        {
-          "tag": "q1",
-          "type": "quote",
-          "text": "they will be acceptable offerings on my altar; and I will glorify my glorious house.\n"
-        },
-        {
-          "text": "\n\n",
-          "type": "text"
-        }
-      ],
-      "front": [
-        {
-          "tag": "s5",
-          "type": "section",
-          "text": "\n"
-        },
-        {
-          "tag": "q1",
-          "type": "quote",
-          "text": "\n"
-        }
-      ]
+      "6": {
+        "verseObjects": [
+          {
+            "text": "Camel caravans will cover you, the dromedaries of Midian and Ephah;\n",
+            "type": "text"
+          },
+          {
+            "tag": "q1",
+            "type": "quote",
+            "text": "all of them will come from Sheba;\n"
+          },
+          {
+            "tag": "q1",
+            "type": "quote",
+            "text": "they will bring gold and frankincense, and will sing the praises of Yahweh.\n"
+          },
+          {
+            "tag": "q1",
+            "type": "quote",
+            "text": "\n"
+          }
+        ]
+      },
+      "7": {
+        "verseObjects": [
+          {
+            "text": "All the flocks of Kedar will be gathered together to you, the rams of Nebaioth will serve your needs; ",
+            "type": "text"
+          },
+          {
+            "tag": "q1",
+            "type": "quote",
+            "text": "they will be acceptable offerings on my altar; and I will glorify my glorious house.\n"
+          },
+          {
+            "text": "\n\n",
+            "type": "text"
+          }
+        ]
+      },
+      "front": {
+        "verseObjects": [
+          {
+            "tag": "s5",
+            "type": "section",
+            "text": "\n"
+          },
+          {
+            "tag": "q1",
+            "type": "quote",
+            "text": "\n"
+          }
+        ]
+      }
     }
   },
   "headers": [

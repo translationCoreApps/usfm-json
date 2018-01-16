@@ -41,6 +41,10 @@ describe("USFM to JSON", () => {
     generateTest('chunk', {chunk: true});
   });
 
+  it('handles a chunk with footnote', () => {
+    generateTest('chunk_footnote', {chunk: true});
+  });
+
   it('handles greek characters in usfm', () => {
     generateTest('greek');
   });
@@ -100,5 +104,16 @@ describe("USFM to JSON", () => {
   it('converts invalid usfm to json', () => {
     generateTest('invalid');
   });
-});
 
+  it('handles tw word attributes and spans', () => {
+    generateTest('tw_words', {"content-source": "bhp"});
+  });
+
+  it('handles tw word attributes and spans chunked', () => {
+    generateTest('tw_words_chunk', {chunk: true});
+  });
+
+  it('handles greek word attributes and spans', () => {
+    generateTest('greek_verse_objects', {"chunk": true, "content-source": "bhp"});
+  });
+});

@@ -1,88 +1,100 @@
 {
   "chapters": {
     "4": {
-      "18": [
-        {
-          "text": "\"The Spirit of the Lord is upon me,\n",
-          "type": "text"
-        },
-        {
-          "tag": "q1",
-          "text": "because he anointed me to tell good news to the poor.\n",
-          "type": "quote"
-        },
-        {
-          "tag": "q1",
-          "text": "He has sent me to proclaim freedom to the captives,\n",
-          "type": "quote"
-        },
-        {
-          "tag": "q1",
-          "text": "and recovery of sight to the blind,\n",
-          "type": "quote"
-        },
-        {
-          "tag": "q1",
-          "text": "to set free those who are oppressed,\n",
-          "type": "quote"
-        },
-        {
-          "tag": "q1",
-          "type": "quote"
-        }
-      ],
-      "19": [
-        {
-          "text": "to proclaim the year of the Lord's favor.\"\n\n\n",
-          "type": "text"
-        },
-        {
-          "tag": "s5",
-          "text": "\n",
-          "type": "section"
-        }
-      ],
-      "front": [
-        {
-          "tag": "s5",
-          "text": "\n",
-          "type": "section"
-        },
-        {
-          "tag": "q1",
-          "type": "quote"
-        }
-      ]
+      "18": {
+        "verseObjects": [
+          {
+            "text": "\"The Spirit of the Lord is upon me,\n",
+            "type": "text"
+          },
+          {
+            "tag": "q1",
+            "text": "because he anointed me to tell good news to the poor.\n",
+            "type": "quote"
+          },
+          {
+            "tag": "q1",
+            "text": "He has sent me to proclaim freedom to the captives,\n",
+            "type": "quote"
+          },
+          {
+            "tag": "q1",
+            "text": "and recovery of sight to the blind,\n",
+            "type": "quote"
+          },
+          {
+            "tag": "q1",
+            "text": "to set free those who are oppressed,\n",
+            "type": "quote"
+          },
+          {
+            "tag": "q1",
+            "type": "quote"
+          }
+        ]
+      },
+      "19": {
+        "verseObjects": [
+          {
+            "text": "to proclaim the year of the Lord's favor.\"\n\n\n",
+            "type": "text"
+          },
+          {
+            "tag": "s5",
+            "text": "\n",
+            "type": "section"
+          }
+        ]
+      },
+      "front": {
+        "verseObjects": [
+          {
+            "tag": "s5",
+            "text": "\n",
+            "type": "section"
+          },
+          {
+            "tag": "q1",
+            "type": "quote"
+          }
+        ]
+      }
     },
     "20": {
-      "17": [
-        {
-          "text": "But Jesus looked at them, and said, \"What is the meaning of that which is written:\n ",
-          "type": "text"
-        },
-        {
-          "tag": "q",
-          "text": "'The stone that the builders rejected has become the cornerstone'?\n",
-          "type": "quote"
-        },
-        {
-          "content": "\n",
-          "tag": "m"
-        }
-      ],
-      "18": [
-        {
-          "text": "Every one who falls on that stone will be broken to pieces. But on whomever it falls, it will crush.\"\n",
-          "type": "text"
-        }
-      ],
-      "front": [
-        {
-          "tag": "s5",
-          "text": "\n",
-          "type": "section"
-        }
-      ]
+      "17": {
+        "verseObjects": [
+          {
+            "text": "But Jesus looked at them, and said, \"What is the meaning of that which is written:\n ",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "text": "'The stone that the builders rejected has become the cornerstone'?\n",
+            "type": "quote"
+          },
+          {
+            "content": "\n",
+            "tag": "m"
+          }
+        ]
+      },
+      "18": {
+        "verseObjects": [
+          {
+            "text": "Every one who falls on that stone will be broken to pieces. But on whomever it falls, it will crush.\"\n",
+            "type": "text"
+          }
+        ]
+      },
+      "front": {
+        "verseObjects": [
+          {
+            "tag": "s5",
+            "text": "\n",
+            "type": "section"
+          }
+        ]
+      }
     }
   },
   "headers": [

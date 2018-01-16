@@ -1,44 +1,50 @@
 {
   "chapters": {
     "23": {
-      "1": [
-        {
-          "text": "Then Job answered and said,\n",
-          "type": "text"
-        },
-        {
-          "tag": "q",
-          "type": "quote",
-          "text": "\n"
-        }
-      ],
-      "2": [
-        {
-          "text": "\"Even today my complaint is bitter;\n",
-          "type": "text"
-        },
-        {
-          "tag": "q",
-          "type": "quote",
-          "text": "my hand "
-        },
-        {
-          "content": "+ \\ft Some copies have: \\fqa ... his hand ... \\fqa* ",
-          "tag": "f",
-          "type": "footnote"
-        },
-        {
-          "text": " is heavy because of my groaning.\n\n",
-          "type": "text"
-        }
-      ],
-      "front": [
-        {
-          "tag": "p",
-          "type": "paragraph",
-          "text": "\n"
-        }
-      ]
+      "1": {
+        "verseObjects": [
+          {
+            "text": "Then Job answered and said,\n",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "type": "quote",
+            "text": "\n"
+          }
+        ]
+      },
+      "2": {
+        "verseObjects": [
+          {
+            "text": "\"Even today my complaint is bitter;\n",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "type": "quote",
+            "text": "my hand "
+          },
+          {
+            "content": "+ \\ft Some copies have: \\fqa ... his hand ... \\fqa* ",
+            "tag": "f",
+            "type": "footnote"
+          },
+          {
+            "text": " is heavy because of my groaning.\n\n",
+            "type": "text"
+          }
+        ]
+      },
+      "front": {
+        "verseObjects": [
+          {
+            "tag": "p",
+            "type": "paragraph",
+            "text": "\n"
+          }
+        ]
+      }
     }
   },
   "headers": [

@@ -83,4 +83,8 @@ describe("JSON to USFM", () => {
   it('process tw word attributes and spans chunked', () => {
     generateTest('tw_words_chunk', {chunk: true, ignore: ["content-source"]});
   });
+
+  it('handles Tit 1:1 alignment', () => {
+    generateTest('tit1:1_alignment', {chunk: true, mileStoneIgnore: ["lemma", "morph"], mileStoneMap: {content: "ugnt"}});
+  });
 });

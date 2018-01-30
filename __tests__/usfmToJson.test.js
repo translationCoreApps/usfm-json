@@ -116,4 +116,8 @@ describe("USFM to JSON", () => {
   it('handles greek word attributes and spans', () => {
     generateTest('greek_verse_objects', {"chunk": true, "content-source": "bhp"});
   });
+
+  it('handles Tit 1:1 alignment', () => {
+    generateTest('tit1:1_alignment', {chunk: true});
+  });
 });

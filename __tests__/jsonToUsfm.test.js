@@ -4,10 +4,13 @@ import {jsonToUSFM} from '../src/js/jsonToUsfm';
 /**
  * Generator for testing json to usfm migration
  * @param {string} name - the name of the test files to use. e.g. `valid` will test `valid.usfm` to `valid.json`
+ * @param {object} params - optional parameters to pass to converter
+ * @param {string} expectedName - optional different expected file
  */
-const generateTest = (name, params) => {
+const generateTest = (name, params, expectedName) => {
   const input = readJSON(`${name}.json`);
-  const expected = readUSFM(`${name}.usfm`);
+  const expectedBaseName = expectedName ? expectedName : name;
+  const expected = readUSFM(`${expectedBaseName}.usfm`);
   expect(input).toBeTruthy();
   expect(expected).toBeTruthy();
   const output = jsonToUSFM(input, params);
@@ -77,14 +80,20 @@ describe("JSON to USFM", () => {
   });
 
   it('process tw word attributes and spans', () => {
-    generateTest('tw_words', {ignore: ["content-source"]});
+    generateTest('tw_words', {ignore: ["content-source"], mileStoneIgnore: ["content-source"]});
   });
 
   it('process tw word attributes and spans chunked', () => {
-    generateTest('tw_words_chunk', {chunk: true, ignore: ["content-source"]});
+    generateTest('tw_words_chunk', {chunk: true, ignore: ["content-source"], mileStoneIgnore: ["content-source"]});
   });
 
   it('handles Tit 1:1 alignment', () => {
     generateTest('tit1:1_alignment', {chunk: true, mileStoneIgnore: ["lemma", "morph"], mileStoneMap: {content: "ugnt"}});
+  });
+
+  it('handles Tit 1:1 alignment converts strongs to strong', () => {
+    generateTest('tit1:1_alignment_strongs',
+      {chunk: true, mileStoneIgnore: ["lemma", "morph"], mileStoneMap: {content: "ugnt"}},
+      'tit1:1_alignment');
   });
 });

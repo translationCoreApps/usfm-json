@@ -1,3 +1,7 @@
+/**
+ * @description for converting from USFM to json format.  Main method is usfmToJSON()
+ */
+
 import * as USFM from './USFM';
 
 const VERSE_SPAN_REGEX = /(^-\d+\s)/;
@@ -92,7 +96,15 @@ const parseWord = (state, wordContent) => {
       if (key === "strongs") { // fix invalid 'strongs' key
         key = "strong";
       }
-      object[key] = match[2];
+      if (state.params.map && state.params.map[key]) { // see if we should convert this key
+        key = state.params.map[key];
+      }
+      let value = match[2];
+      if (state.params.convertToInt &&
+        (state.params.convertToInt.includes(key))) {
+        value = parseInt(value, 10);
+      }
+      object[key] = value;
     });
   }
   return object;
@@ -309,6 +321,9 @@ const pushObject = (state, saveTo, usfmObject) => {
   }
 
   if (typeof usfmObject === "string") { // if raw text, convert to object
+    if (usfmObject === '') { // skip empty strings
+      return;
+    }
     usfmObject = createUsfmObject(null, null, usfmObject);
   }
 
@@ -540,7 +555,10 @@ const getVerseObjectsForBook = (usfmJSON, state) => {
 /**
  * @description - Parses the usfm string and returns an object
  * @param {String} usfm - the raw usfm string
- * @param {Object} params - extra params to use for chunk parsing
+ * @param {Object} params - extra params to use for chunk parsing. Properties:
+ *                    chunk {boolean} - if true then output is just a small piece of book
+ *                    content-source {String} - content source attribute to add to word imports
+ *                    convertToInt {Array} - attributes to convert to integer
  * @return {Object} - json object that holds the parsed usfm data, headers and chapters
 */
 export const usfmToJSON = (usfm, params = {}) => {
@@ -604,18 +622,25 @@ export const usfmToJSON = (usfm, params = {}) => {
           pushObject(state, saveTo, wordObject);
         } else if (milestone === '-e') { // milestone end
           state.phrase = null; // stop adding to phrase
-          if ((i + 1 < markers.length) && markers[i + 1].content &&
-            (markers[i + 1].content.substr(0, 2) === "\\*")) { // check if next marker is part of milestone end
+          if ((i + 1 < markers.length) && markers[i + 1].content) {
             let content = markers[i + 1].content;
-            let trimLength = 2;
-            if (content.substr(2, 1) === '\n') {
-              trimLength++;
+            let trimLength = 0;
+            if ((content.substr(0, 2) === "\\*")) { // check if next marker is part of milestone end
+              trimLength = 2;
             }
-            content = content.substr(trimLength); // remove phrase end marker
-            if (content) {
-              markers[i + 1].content = content;
-            } else { // no text after end marker
-              i++; // skip following text
+            if ((content[0] === "*")) { // check if next marker is part of milestone end
+              trimLength = 1;
+            }
+            if (trimLength) {
+              if (content.substr(trimLength, 1) === '\n') {
+                trimLength++;
+              }
+              content = content.substr(trimLength); // remove phrase end marker
+              if (content) {
+                markers[i + 1].content = content;
+              } else { // no text after end marker
+                i++; // skip following text
+              }
             }
           }
         }

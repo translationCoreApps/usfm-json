@@ -5,7 +5,7 @@
     "1": {
       "verseObjects": [
         {
-          "strong": "G39720",
+          "strongs": "G39720",
           "lemma": "Παῦλος",
           "morph": "Gr,N,,,,,NMS,",
           "occurrence": 1,
@@ -28,7 +28,7 @@
           "text": ","
         },
         {
-          "strong": "G14010",
+          "strongs": "G14010",
           "lemma": "δοῦλος",
           "morph": "Gr,N,,,,,NMS,",
           "occurrence": 1,
@@ -54,7 +54,7 @@
           ]
         },
         {
-          "strong": "G23160",
+          "strongs": "G23160",
           "lemma": "θεός",
           "morph": "Gr,N,,,,,GMS,",
           "occurrence": 1,
@@ -80,7 +80,7 @@
           ]
         },
         {
-          "strong": "G06520",
+          "strongs": "G06520",
           "lemma": "ἀπόστολος",
           "morph": "Gr,N,,,,,NMS,",
           "occurrence": 1,
@@ -113,7 +113,7 @@
           ]
         },
         {
-          "strong": "G11610",
+          "strongs": "G11610",
           "lemma": "δέ",
           "morph": "Gr,CC,,,,,,,,",
           "occurrence": 1,
@@ -132,7 +132,7 @@
           ]
         },
         {
-          "strong": "G24240",
+          "strongs": "G24240",
           "lemma": "Ἰησοῦς",
           "morph": "Gr,N,,,,,GMS,",
           "occurrence": 1,
@@ -151,7 +151,7 @@
           ]
         },
         {
-          "strong": "G55470",
+          "strongs": "G55470",
           "lemma": "χριστός",
           "morph": "Gr,N,,,,,GMS,",
           "occurrence": 1,
@@ -174,7 +174,7 @@
           "text": ","
         },
         {
-          "strong": "G25960",
+          "strongs": "G25960",
           "lemma": "κατά",
           "morph": "Gr,P,,,,,A,,,",
           "occurrence": 1,
@@ -193,7 +193,7 @@
           ]
         },
         {
-          "strong": "G41020",
+          "strongs": "G41020",
           "lemma": "πίστις",
           "morph": "Gr,N,,,,,AFS,",
           "occurrence": 1,
@@ -219,7 +219,7 @@
           ]
         },
         {
-          "strong": "G23160",
+          "strongs": "G23160",
           "lemma": "θεός",
           "morph": "Gr,N,,,,,GMS,",
           "occurrence": 2,
@@ -256,7 +256,7 @@
           "occurrences": 1
         },
         {
-          "strong": "G15880",
+          "strongs": "G15880",
           "lemma": "ἐκλεκτός",
           "morph": "Gr,NS,,,,GMP,",
           "occurrence": 1,
@@ -282,7 +282,7 @@
           ]
         },
         {
-          "strong": "G25320",
+          "strongs": "G25320",
           "lemma": "καί",
           "morph": "Gr,CC,,,,,,,,",
           "occurrence": 1,
@@ -301,7 +301,7 @@
           ]
         },
         {
-          "strong": "G02250",
+          "strongs": "G02250",
           "lemma": "ἀλήθεια",
           "morph": "Gr,N,,,,,GFS,",
           "occurrence": 1,
@@ -320,7 +320,7 @@
           ]
         },
         {
-          "strong": "G19220",
+          "strongs": "G19220",
           "lemma": "ἐπίγνωσις",
           "morph": "Gr,N,,,,,AFS,",
           "occurrence": 1,
@@ -339,7 +339,7 @@
           ]
         },
         {
-          "strong": "G02250",
+          "strongs": "G02250",
           "lemma": "ἀλήθεια",
           "morph": "Gr,N,,,,,GFS,",
           "occurrence": 1,
@@ -372,7 +372,7 @@
           ]
         },
         {
-          "strong": "G35880",
+          "strongs": "G35880",
           "lemma": "ὁ",
           "morph": "Gr,RR,,,,GFS,",
           "occurrence": 1,
@@ -391,7 +391,7 @@
           ]
         },
         {
-          "strong": "G25960",
+          "strongs": "G25960",
           "lemma": "κατά",
           "morph": "Gr,P,,,,,A,,,",
           "occurrence": 1,
@@ -417,7 +417,7 @@
           ]
         },
         {
-          "strong": "G21500",
+          "strongs": "G21500",
           "lemma": "εὐσέβεια",
           "morph": "Gr,N,,,,,AFS,",
           "occurrence": 1,

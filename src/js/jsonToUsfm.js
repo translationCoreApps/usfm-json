@@ -1,3 +1,7 @@
+/**
+ * @description for converting from json format to USFM.  Main method is jsonToUSFM()
+ */
+
 import * as USFM from './USFM';
 
 let params_ = {};
@@ -235,7 +239,12 @@ const processParams = () => {
 /**
  * @description Takes in scripture json and outputs it as a USFM string.
  * @param {Object} json - Scripture in JSON
- * @param {Object} params - optional parameters like attributes to ignore
+ * @param {Object} params - optional parameters like attributes to ignore.  Properties:
+ *                    chunk {boolean} - if true then output is just a small piece of book
+ *                    ignore (Array} - list of attributes to ignore on word objects
+ *                    map {Object} - dictionary of attribute names to map to new name on word objects
+ *                    mileStoneIgnore (Array} - list of attributes to ignore on milestone objects
+ *                    mileStoneMap {Object} - dictionary of attribute names to map to new name on milestone objects
  * @return {String} - Scripture in USFM
  */
 export const jsonToUSFM = (json, params) => {

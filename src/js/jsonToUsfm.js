@@ -1,6 +1,14 @@
+/**
+ * @description for converting from json format to USFM.  Main method is jsonToUSFM()
+ */
+
 import * as USFM from './USFM';
 
 let params_ = {};
+let wordMap_ = {};
+let wordIgnore_ = [];
+let milestoneMap_ = {};
+let milestoneIgnore_ = [];
 
 /**
  * @description checks if we need to add a newline if next object is not text or newline
@@ -24,15 +32,15 @@ const needsNewLine = nextObject => {
 const generateWord = (wordObject, nextObject) => {
   const keys = Object.keys(wordObject);
   let attributes = [];
-  let ignore = ['text', 'tag', 'type'];
-  if (params_.ignore) {
-    ignore = ignore.concat(params_.ignore);
-  }
   const word = wordObject.text;
   keys.forEach(function(key) {
-    if (!(ignore.includes(key))) {
+    if (!(wordIgnore_.includes(key))) {
+      const value = wordObject[key];
+      if (wordMap_[key]) { // see if we should convert this key
+        key = wordMap_[key];
+      }
       let prefix = (key === 'lemma' || key === 'strong') ? '' : 'x-';
-      let attribute = prefix + key + '="' + wordObject[key] + '"';
+      let attribute = prefix + key + '="' + value + '"';
       attributes.push(attribute);
     }
   });
@@ -49,14 +57,14 @@ const generateWord = (wordObject, nextObject) => {
 const generatePhrase = (phraseObject, nextObject) => {
   const keys = Object.keys(phraseObject);
   let attributes = [];
-  let ignore = ['children', 'tag', 'type'];
-  if (params_.ignore) {
-    ignore = ignore.concat(params_.ignore);
-  }
   keys.forEach(function(key) {
-    if (!(ignore.includes(key))) {
-      let prefix = 'x-';
-      let attribute = prefix + key + '="' + phraseObject[key] + '"';
+    if (!(milestoneIgnore_.includes(key))) {
+      const value = phraseObject[key];
+      if (milestoneMap_[key]) { // see if we should convert this key
+        key = milestoneMap_[key];
+      }
+      let prefix = (key === 'strong') ? '' : 'x-';
+      let attribute = prefix + key + '="' + value + '"';
       attributes.push(attribute);
     }
   });
@@ -210,13 +218,38 @@ const outputHeaderObject = (output, usfmObject) => {
 };
 
 /**
+ * @description Goes through parameters and populates ignore lists and parameter maps
+ *                for words and milestones
+ */
+const processParams = () => {
+  wordMap_ = params_.map ? params_.map : {};
+  wordMap_.strongs = 'strong';
+  wordIgnore_ = ['text', 'tag', 'type'];
+  if (params_.ignore) {
+    wordIgnore_ = wordIgnore_.concat(params_.ignore);
+  }
+  milestoneMap_ = params_.mileStoneMap ? params_.mileStoneMap : {};
+  milestoneMap_.strongs = 'strong';
+  milestoneIgnore_ = ['children', 'tag', 'type'];
+  if (params_.mileStoneIgnore) {
+    milestoneIgnore_ = milestoneIgnore_.concat(params_.mileStoneIgnore);
+  }
+};
+
+/**
  * @description Takes in scripture json and outputs it as a USFM string.
  * @param {Object} json - Scripture in JSON
- * @param {Object} params - optional parameters like attributes to ignore
+ * @param {Object} params - optional parameters like attributes to ignore.  Properties:
+ *                    chunk {boolean} - if true then output is just a small piece of book
+ *                    ignore (Array} - list of attributes to ignore on word objects
+ *                    map {Object} - dictionary of attribute names to map to new name on word objects
+ *                    mileStoneIgnore (Array} - list of attributes to ignore on milestone objects
+ *                    mileStoneMap {Object} - dictionary of attribute names to map to new name on milestone objects
  * @return {String} - Scripture in USFM
  */
 export const jsonToUSFM = (json, params) => {
   params_ = params || {}; // save current parameters
+  processParams();
   USFM.init();
   let output = [];
   if (json.headers) {

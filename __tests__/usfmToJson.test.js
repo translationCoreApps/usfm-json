@@ -5,10 +5,12 @@ import {usfmToJSON} from '../src/js/usfmToJson';
  * Generator for testing usfm to json migration
  * @param {string} name - the name of the test files to use. e.g. `valid` will test `valid.usfm` to `valid.json`
  * @param {object} args - optional arguments to be passed to the converter
+ * @param {string} expectedName - optional different expected file
  */
-const generateTest = (name, args = {}) => {
+const generateTest = (name, args = {}, expectedName) => {
   const input = readUSFM(`${name}.usfm`);
-  const expected = readJSON(`${name}.json`);
+  const expectedBaseName = expectedName ? expectedName : name;
+  const expected = readJSON(`${expectedBaseName}.json`);
   expect(input).toBeTruthy();
   expect(expected).toBeTruthy();
   const output = usfmToJSON(input, args);
@@ -115,5 +117,17 @@ describe("USFM to JSON", () => {
 
   it('handles greek word attributes and spans', () => {
     generateTest('greek_verse_objects', {"chunk": true, "content-source": "bhp"});
+  });
+
+  it('handles Tit 1:1 alignment', () => {
+    generateTest('tit1:1_alignment',
+      {chunk: true, convertToInt: ["occurrence", "occurrences"], map: {ugnt: "content"}},
+      'tit1:1_alignment_no_lemma');
+  });
+
+  it('handles Tit 1:1 alignment converts strongs to strong', () => {
+    generateTest('tit1:1_alignment_strongs',
+      {chunk: true, convertToInt: ["occurrence", "occurrences"], map: {ugnt: "content"}},
+      'tit1:1_alignment_no_lemma');
   });
 });

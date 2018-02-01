@@ -1,0 +1,410 @@
+{
+  "chapters": {},
+  "headers": [],
+  "verses": {
+    "1": {
+      "verseObjects": [
+        {
+          "strong": "G39720",
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "k",
+          "type": "milestone",
+          "content": "Παῦλος",
+          "children": [
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "Paul",
+              "occurrence": 1,
+              "occurrences": 1
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": ","
+        },
+        {
+          "strong": "G14010",
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "k",
+          "type": "milestone",
+          "content": "δοῦλος",
+          "children": [
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "a",
+              "occurrence": 1,
+              "occurrences": 1
+            },
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "servant",
+              "occurrence": 1,
+              "occurrences": 1
+            }
+          ]
+        },
+        {
+          "strong": "G23160",
+          "occurrence": 1,
+          "occurrences": 2,
+          "tag": "k",
+          "type": "milestone",
+          "content": "Θεοῦ",
+          "children": [
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "of",
+              "occurrence": 1,
+              "occurrences": 4
+            },
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "God",
+              "occurrence": 1,
+              "occurrences": 2
+            }
+          ]
+        },
+        {
+          "strong": "G06520",
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "k",
+          "type": "milestone",
+          "content": "ἀπόστολος",
+          "children": [
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "and",
+              "occurrence": 1,
+              "occurrences": 2
+            },
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "an",
+              "occurrence": 1,
+              "occurrences": 4
+            },
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "apostle",
+              "occurrence": 1,
+              "occurrences": 1
+            }
+          ]
+        },
+        {
+          "strong": "G11610",
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "k",
+          "type": "milestone",
+          "content": "δὲ",
+          "children": [
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "of",
+              "occurrence": 2,
+              "occurrences": 4
+            }
+          ]
+        },
+        {
+          "strong": "G24240",
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "k",
+          "type": "milestone",
+          "content": "Ἰησοῦ",
+          "children": [
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "Jesus",
+              "occurrence": 1,
+              "occurrences": 1
+            }
+          ]
+        },
+        {
+          "strong": "G55470",
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "k",
+          "type": "milestone",
+          "content": "Χριστοῦ",
+          "children": [
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "Christ",
+              "occurrence": 1,
+              "occurrences": 1
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": ","
+        },
+        {
+          "strong": "G25960",
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "k",
+          "type": "milestone",
+          "content": "κατὰ",
+          "children": [
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "for",
+              "occurrence": 1,
+              "occurrences": 1
+            }
+          ]
+        },
+        {
+          "strong": "G41020",
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "k",
+          "type": "milestone",
+          "content": "πίστιν",
+          "children": [
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "the",
+              "occurrence": 1,
+              "occurrences": 3
+            },
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "faith",
+              "occurrence": 1,
+              "occurrences": 1
+            }
+          ]
+        },
+        {
+          "strong": "G23160",
+          "occurrence": 2,
+          "occurrences": 2,
+          "tag": "k",
+          "type": "milestone",
+          "content": "Θεοῦ",
+          "children": [
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "of",
+              "occurrence": 3,
+              "occurrences": 4
+            },
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "God",
+              "occurrence": 2,
+              "occurrences": 2
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "'"
+        },
+        {
+          "tag": "w",
+          "type": "word",
+          "text": "s",
+          "occurrence": 1,
+          "occurrences": 1
+        },
+        {
+          "strong": "G15880",
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "k",
+          "type": "milestone",
+          "content": "ἐκλεκτῶν",
+          "children": [
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "chosen",
+              "occurrence": 1,
+              "occurrences": 1
+            },
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "people",
+              "occurrence": 1,
+              "occurrences": 1
+            }
+          ]
+        },
+        {
+          "strong": "G25320",
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "k",
+          "type": "milestone",
+          "content": "καὶ",
+          "children": [
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "and",
+              "occurrence": 2,
+              "occurrences": 2
+            }
+          ]
+        },
+        {
+          "strong": "G02250",
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "k",
+          "type": "milestone",
+          "content": "ἀληθείας",
+          "children": [
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "the",
+              "occurrence": 2,
+              "occurrences": 3
+            }
+          ]
+        },
+        {
+          "strong": "G19220",
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "k",
+          "type": "milestone",
+          "content": "ἐπίγνωσιν",
+          "children": [
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "knowledge",
+              "occurrence": 1,
+              "occurrences": 1
+            }
+          ]
+        },
+        {
+          "strong": "G02250",
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "k",
+          "type": "milestone",
+          "content": "ἀληθείας",
+          "children": [
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "of",
+              "occurrence": 4,
+              "occurrences": 4
+            },
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "truth",
+              "occurrence": 1,
+              "occurrences": 1
+            },
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "the",
+              "occurrence": 3,
+              "occurrences": 3
+            }
+          ]
+        },
+        {
+          "strong": "G35880",
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "k",
+          "type": "milestone",
+          "content": "τῆς",
+          "children": [
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "that",
+              "occurrence": 1,
+              "occurrences": 1
+            }
+          ]
+        },
+        {
+          "strong": "G25960",
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "k",
+          "type": "milestone",
+          "content": "κατ’",
+          "children": [
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "agrees",
+              "occurrence": 1,
+              "occurrences": 1
+            },
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "with",
+              "occurrence": 1,
+              "occurrences": 1
+            }
+          ]
+        },
+        {
+          "strong": "G21500",
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "k",
+          "type": "milestone",
+          "content": "εὐσέβειαν",
+          "children": [
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "godliness",
+              "occurrence": 1,
+              "occurrences": 1
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": ",\n"
+        }
+      ]
+    }
+  }
+}
+

@@ -37,6 +37,6 @@ it('removes q tags', () => {
 });
 
 it('cleans 1jn1:4', () => {
-  generateTest('filter/1jn1:4', ['f', 'q', 's5', 'p']);
+  generateTest('filter/1jn1:4', ['f', 'q', 's5', 'p', 'z']);
 });
 

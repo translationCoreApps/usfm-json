@@ -15,5 +15,18 @@ export const removeMarker = (string = '', types) => {
     const regex = new RegExp('\\\\q', 'g');
     string = string.replace(regex, '');
   }
+  if (types) {
+    for (let type of types) {
+      if ((type === 'f') || (type === 'q')) { // if this type was already handled, skip
+        continue;
+      }
+      if (!string.includes('\\')) { // if no more USFM tags, then done
+        break;
+      }
+      const regString = '\\\\' + type;
+      const regex = new RegExp(regString, 'g');
+      string = string.replace(regex, '');
+    }
+  }
   return string;
 };

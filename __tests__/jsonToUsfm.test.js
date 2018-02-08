@@ -96,4 +96,9 @@ describe("JSON to USFM", () => {
       {chunk: true, mileStoneIgnore: ["lemma", "morph"], mileStoneMap: {content: "ugnt"}},
       'tit1:1_alignment');
   });
+
+  it('handles Heb 1:1 alignment', () => {
+    generateTest('heb1:1_multi_alignment',
+      {convertToInt: ["occurrence", "occurrences"], map: {ugnt: "content"}});
+  });
 });

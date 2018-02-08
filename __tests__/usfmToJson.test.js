@@ -130,4 +130,9 @@ describe("USFM to JSON", () => {
       {chunk: true, convertToInt: ["occurrence", "occurrences"], map: {ugnt: "content"}},
       'tit1:1_alignment_no_lemma');
   });
+
+  it('handles Heb 1:1 alignment', () => {
+    generateTest('heb1:1_multi_alignment',
+      {convertToInt: ["occurrence", "occurrences"], map: {ugnt: "content"}});
+  });
 });

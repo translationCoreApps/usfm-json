@@ -227,11 +227,28 @@ const parseLine = (line, lastLine) => {
 };
 
 /**
+ * get top phrase if doing phrase (milestone)
+ * @param {object} state - holds parsing state information
+ * @return {object} location to add to phrase or null
+ */
+const getLastPhrase = state => {
+  if (state.phrase !== null) {
+    return state.phrase[state.phrase.length - 1];
+  }
+  return null;
+};
+
+/**
  * @description - get location for chapter/verse, if location doesn't exist, create it.
  * @param {object} state - holds parsing state information
  * @return {array} location to place verse content
  */
 const getSaveToLocation = state => {
+  const phrase = getLastPhrase(state);
+  if (phrase !== null) {
+    return phrase;
+  }
+
   if (state.params.chunk) {
     if (!state.verses[state.currentVerse]) {
       state.verses[state.currentVerse] = [];
@@ -292,10 +309,8 @@ const createUsfmObject = (tag, number, content) => {
  */
 const pushObject = (state, saveTo, usfmObject) => {
   if (!Array.isArray(saveTo)) {
-    const isPhrase = Array.isArray(state.phrase);
-    if (isPhrase) {
-      saveTo = state.phrase;
-    } else {
+    const phrase = getLastPhrase(state);
+    if (phrase === null) {
       const isNestedMarker = state.nested.length > 0;
       if (isNestedMarker) { // if this marker is nested in another marker, then we need to add to content as string
         const last = state.nested.length - 1;
@@ -317,6 +332,8 @@ const pushObject = (state, saveTo, usfmObject) => {
         lastObject[contentAttr] = output;
         return;
       }
+    } else {
+      saveTo = phrase;
     }
   }
 
@@ -617,11 +634,18 @@ export const usfmToJSON = (usfm, params = {}) => {
           let saveTo = getSaveToLocation(state);
           wordObject.tag = "k";
           delete wordObject.text;
-          state.phrase = [];
-          wordObject.children = state.phrase;
+          if (state.phrase === null) {
+            state.phrase = []; // create new phrase stack
+          }
+          state.phrase.push([]); // push new empty list onto phrase stack
+          wordObject.children = getLastPhrase(state); // point to top of phrase stack
           pushObject(state, saveTo, wordObject);
         } else if (milestone === '-e') { // milestone end
-          state.phrase = null; // stop adding to phrase
+          if (state.phrase.length > 1) {
+            state.phrase.pop(); // remove last phrases
+          } else {
+            state.phrase = null; // stop adding to phrases
+          }
           if ((i + 1 < markers.length) && markers[i + 1].content) {
             let content = markers[i + 1].content;
             let trimLength = 0;

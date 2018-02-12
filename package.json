@@ -6,7 +6,7 @@
   "scripts": {
     "test": "eslint ./src ./index.js && jest",
     "fix": "eslint ./src ./index.js --fix",
-    "compile": "rimraf lib/* && babel src/ -d lib/",
+    "compile": "rimraf rimraf lib __tests__ && babel src/ -d lib/",
     "prepublish": "npm run compile"
   },
   "jest": {

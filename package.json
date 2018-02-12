@@ -1,6 +1,6 @@
 {
   "name": "usfm-js",
-  "version": "1.0.0-beta.24",
+  "version": "1.0.0-beta.25",
   "description": "A small library that provides functions to convert usfm to JSON and vice-versa",
   "main": "lib/index.js",
   "scripts": {

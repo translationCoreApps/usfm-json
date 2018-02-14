@@ -26,7 +26,7 @@
           "morph": "Gr,CC,,,,,,,,"
         },
         {
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "tw": "rc://*/tw/dict/bible/kt/jesus",
           "children": [
@@ -82,7 +82,7 @@
           "morph": "Gr,P,,,,,G,,,"
         },
         {
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "tw": "rc://*/tw/dict/bible/kt/godthefather",
           "children": [

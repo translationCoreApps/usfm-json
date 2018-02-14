@@ -13,7 +13,7 @@ let milestoneIgnore_ = [];
 /**
  * @description checks if we need to add a newline if next object is not text or newline
  * @param {Object} nextObject - next object to be output
- * @return {string} either newline or empty string
+ * @return {String} either newline or empty string
  */
 const needsNewLine = nextObject => {
   let retVal = '\n';
@@ -63,17 +63,17 @@ const generatePhrase = (phraseObject, nextObject) => {
       if (milestoneMap_[key]) { // see if we should convert this key
         key = milestoneMap_[key];
       }
-      let prefix = (key === 'strong') ? '' : 'x-';
+      let prefix = 'x-';
       let attribute = prefix + key + '="' + value + '"';
       attributes.push(attribute);
     }
   });
-  let line = '\\k-s | ' + attributes.join(' ') + '\n';
+  let line = '\\zaln-s | ' + attributes.join(' ') + '\n';
 
 /* eslint-disable no-use-before-define */
   line += objectToString(phraseObject.children);
 /* eslint-enable no-use-before-define */
-  line += "\\k-e\\*" + needsNewLine(nextObject);
+  line += "\\zaln-e\\*" + needsNewLine(nextObject);
   return line;
 };
 

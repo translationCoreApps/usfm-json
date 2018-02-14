@@ -11,7 +11,7 @@ const NUMBER = /(\d+)/;
  * @description - Finds all of the regex matches in a string
  * @param {String} string - the string to find matches in
  * @param {RegExp} regex - the RegExp to find matches with, must use global flag /.../g
- * @param {boolean} lastLine - true if last line of file
+ * @param {Boolean} lastLine - true if last line of file
  * @return {Array} - array of results
 */
 const getMatches = (string, regex, lastLine) => {
@@ -136,7 +136,7 @@ const createMarkerFromText = text => {
 /**
  * @description - Parses the line and determines what content is in it
  * @param {String} line - the string to find the markers and content
- * @param {boolean} lastLine - true if last line of file
+ * @param {Boolean} lastLine - true if last line of file
  * @return {Array} - array of objects that describe open/close and content
 */
 const parseLine = (line, lastLine) => {
@@ -626,13 +626,13 @@ export const usfmToJSON = (usfm, params = {}) => {
         }
         break;
       }
-      case 'k': { // keyphrase
+      case 'zaln': { // phrase
         const wordObject = parseWord(state, marker.content);
         wordObject.type = "milestone";
         const milestone = wordObject.text.trim();
         if (milestone === '-s') { // milestone start
           let saveTo = getSaveToLocation(state);
-          wordObject.tag = "k";
+          wordObject.tag = "zaln";
           delete wordObject.text;
           if (state.phrase === null) {
             state.phrase = []; // create new phrase stack

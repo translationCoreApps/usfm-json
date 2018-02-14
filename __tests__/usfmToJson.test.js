@@ -18,7 +18,6 @@ const generateTest = (name, args = {}, expectedName) => {
 };
 
 describe("USFM to JSON", () => {
-
   it('converts usfm to json', () => {
     generateTest('valid');
   });

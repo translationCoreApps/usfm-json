@@ -14,7 +14,7 @@
       "1": {
         "verseObjects": [
           {
-            "tag": "k",
+            "tag": "zaln",
             "type": "milestone",
             "strong": "G38190",
             "lemma": "πάλαι",
@@ -40,7 +40,7 @@
             ]
           },
           {
-            "tag": "k",
+            "tag": "zaln",
             "type": "milestone",
             "strong": "G35880",
             "lemma": "ὁ",
@@ -50,7 +50,7 @@
             "content": "ὁ",
             "children": [
               {
-                "tag": "k",
+                "tag": "zaln",
                 "type": "milestone",
                 "strong": "G23160",
                 "lemma": "θεός",
@@ -71,7 +71,7 @@
             ]
           },
           {
-            "tag": "k",
+            "tag": "zaln",
             "type": "milestone",
             "strong": "G29800",
             "lemma": "λαλέω",
@@ -97,7 +97,7 @@
             ]
           },
           {
-            "tag": "k",
+            "tag": "zaln",
             "type": "milestone",
             "strong": "G35880",
             "lemma": "ὁ",
@@ -116,7 +116,7 @@
             ]
           },
           {
-            "tag": "k",
+            "tag": "zaln",
             "type": "milestone",
             "strong": "G35880",
             "lemma": "ὁ",
@@ -126,7 +126,7 @@
             "content": "τοῖς",
             "children": [
               {
-                "tag": "k",
+                "tag": "zaln",
                 "type": "milestone",
                 "strong": "G39620",
                 "lemma": "πατήρ",
@@ -136,7 +136,7 @@
                 "content": "πατράσιν",
                 "children": [
                   {
-                    "tag": "k",
+                    "tag": "zaln",
                     "type": "milestone",
                     "strong": "G17220",
                     "lemma": "ἐν",
@@ -166,7 +166,7 @@
             ]
           },
           {
-            "tag": "k",
+            "tag": "zaln",
             "type": "milestone",
             "lemma": "προφήτης",
             "morph": "Gr,N,,,,,DMP,",
@@ -193,7 +193,7 @@
             ]
           },
           {
-            "tag": "k",
+            "tag": "zaln",
             "type": "milestone",
             "strong": "G41810",
             "lemma": "πολυμερῶς",
@@ -226,7 +226,7 @@
             ]
           },
           {
-            "tag": "k",
+            "tag": "zaln",
             "type": "milestone",
             "strong": "G25320",
             "lemma": "καί",
@@ -245,7 +245,7 @@
             ]
           },
           {
-            "tag": "k",
+            "tag": "zaln",
             "type": "milestone",
             "strong": "G41870",
             "lemma": "πολυτρόπως",

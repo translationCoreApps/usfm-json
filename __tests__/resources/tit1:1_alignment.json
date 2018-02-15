@@ -10,7 +10,7 @@
           "morph": "Gr,N,,,,,NMS,",
           "occurrence": 1,
           "occurrences": 1,
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "content": "Παῦλος",
           "children": [
@@ -33,7 +33,7 @@
           "morph": "Gr,N,,,,,NMS,",
           "occurrence": 1,
           "occurrences": 1,
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "content": "δοῦλος",
           "children": [
@@ -59,7 +59,7 @@
           "morph": "Gr,N,,,,,GMS,",
           "occurrence": 1,
           "occurrences": 2,
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "content": "Θεοῦ",
           "children": [
@@ -85,7 +85,7 @@
           "morph": "Gr,N,,,,,NMS,",
           "occurrence": 1,
           "occurrences": 1,
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "content": "ἀπόστολος",
           "children": [
@@ -118,7 +118,7 @@
           "morph": "Gr,CC,,,,,,,,",
           "occurrence": 1,
           "occurrences": 1,
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "content": "δὲ",
           "children": [
@@ -137,7 +137,7 @@
           "morph": "Gr,N,,,,,GMS,",
           "occurrence": 1,
           "occurrences": 1,
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "content": "Ἰησοῦ",
           "children": [
@@ -156,7 +156,7 @@
           "morph": "Gr,N,,,,,GMS,",
           "occurrence": 1,
           "occurrences": 1,
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "content": "Χριστοῦ",
           "children": [
@@ -179,7 +179,7 @@
           "morph": "Gr,P,,,,,A,,,",
           "occurrence": 1,
           "occurrences": 1,
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "content": "κατὰ",
           "children": [
@@ -198,7 +198,7 @@
           "morph": "Gr,N,,,,,AFS,",
           "occurrence": 1,
           "occurrences": 1,
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "content": "πίστιν",
           "children": [
@@ -224,7 +224,7 @@
           "morph": "Gr,N,,,,,GMS,",
           "occurrence": 2,
           "occurrences": 2,
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "content": "Θεοῦ",
           "children": [
@@ -261,7 +261,7 @@
           "morph": "Gr,NS,,,,GMP,",
           "occurrence": 1,
           "occurrences": 1,
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "content": "ἐκλεκτῶν",
           "children": [
@@ -287,7 +287,7 @@
           "morph": "Gr,CC,,,,,,,,",
           "occurrence": 1,
           "occurrences": 1,
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "content": "καὶ",
           "children": [
@@ -306,7 +306,7 @@
           "morph": "Gr,N,,,,,GFS,",
           "occurrence": 1,
           "occurrences": 1,
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "content": "ἀληθείας",
           "children": [
@@ -325,7 +325,7 @@
           "morph": "Gr,N,,,,,AFS,",
           "occurrence": 1,
           "occurrences": 1,
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "content": "ἐπίγνωσιν",
           "children": [
@@ -344,7 +344,7 @@
           "morph": "Gr,N,,,,,GFS,",
           "occurrence": 1,
           "occurrences": 1,
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "content": "ἀληθείας",
           "children": [
@@ -377,7 +377,7 @@
           "morph": "Gr,RR,,,,GFS,",
           "occurrence": 1,
           "occurrences": 1,
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "content": "τῆς",
           "children": [
@@ -396,7 +396,7 @@
           "morph": "Gr,P,,,,,A,,,",
           "occurrence": 1,
           "occurrences": 1,
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "content": "κατ’",
           "children": [
@@ -422,7 +422,7 @@
           "morph": "Gr,N,,,,,AFS,",
           "occurrence": 1,
           "occurrences": 1,
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "content": "εὐσέβειαν",
           "children": [

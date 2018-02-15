@@ -33,7 +33,7 @@
             "morph": "Gr,CC,,,,,,,,"
           },
           {
-            "tag": "k",
+            "tag": "zaln",
             "type": "milestone",
             "content-source": "bhp",
             "tw": "rc://*/tw/dict/bible/kt/jesus",
@@ -94,7 +94,7 @@
           "morph": "Gr,P,,,,,G,,,"
         },
         {
-          "tag": "k",
+          "tag": "zaln",
           "type": "milestone",
           "content-source": "bhp",
           "tw": "rc://*/tw/dict/bible/kt/godthefather",

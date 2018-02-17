@@ -101,4 +101,8 @@ describe("JSON to USFM", () => {
     generateTest('heb1-1_multi_alignment',
       {convertToInt: ["occurrence", "occurrences"], map: {ugnt: "content"}});
   });
+
+  it('handles Tit 1:1 no newlines', () => {
+    generateTest('titus_no_newlines');
+  });
 });

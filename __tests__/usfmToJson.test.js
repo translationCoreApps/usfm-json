@@ -119,19 +119,19 @@ describe("USFM to JSON", () => {
   });
 
   it('handles Tit 1:1 alignment', () => {
-    generateTest('tit1:1_alignment',
+    generateTest('tit1-1_alignment',
       {chunk: true, convertToInt: ["occurrence", "occurrences"], map: {ugnt: "content"}},
-      'tit1:1_alignment_no_lemma');
+      'tit1-1_alignment_no_lemma');
   });
 
   it('handles Tit 1:1 alignment converts strongs to strong', () => {
-    generateTest('tit1:1_alignment_strongs',
+    generateTest('tit1-1_alignment_strongs',
       {chunk: true, convertToInt: ["occurrence", "occurrences"], map: {ugnt: "content"}},
-      'tit1:1_alignment_no_lemma');
+      'tit1-1_alignment_no_lemma');
   });
 
   it('handles Heb 1:1 alignment', () => {
-    generateTest('heb1:1_multi_alignment',
+    generateTest('heb1-1_multi_alignment',
       {convertToInt: ["occurrence", "occurrences"], map: {ugnt: "content"}});
   });
 });

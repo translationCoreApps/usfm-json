@@ -88,17 +88,17 @@ describe("JSON to USFM", () => {
   });
 
   it('handles Tit 1:1 alignment', () => {
-    generateTest('tit1:1_alignment', {chunk: true, mileStoneIgnore: ["lemma", "morph"], mileStoneMap: {content: "ugnt"}});
+    generateTest('tit1-1_alignment', {chunk: true, mileStoneIgnore: ["lemma", "morph"], mileStoneMap: {content: "ugnt"}});
   });
 
   it('handles Tit 1:1 alignment converts strongs to strong', () => {
-    generateTest('tit1:1_alignment_strongs',
+    generateTest('tit1-1_alignment_strongs',
       {chunk: true, mileStoneIgnore: ["lemma", "morph"], mileStoneMap: {content: "ugnt"}},
-      'tit1:1_alignment');
+      'tit1-1_alignment');
   });
 
   it('handles Heb 1:1 alignment', () => {
-    generateTest('heb1:1_multi_alignment',
+    generateTest('heb1-1_multi_alignment',
       {convertToInt: ["occurrence", "occurrences"], map: {ugnt: "content"}});
   });
 });

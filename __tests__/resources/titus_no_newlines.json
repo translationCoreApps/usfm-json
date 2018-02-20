@@ -1,0 +1,82 @@
+{
+  "headers": [
+    {
+      "content": "TIT Titus",
+      "tag": "id"
+    },
+    {
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Titus",
+      "tag": "h"
+    },
+    {
+      "content": "Titus",
+      "tag": "toc2"
+    },
+    {
+      "content": "Tit",
+      "tag": "toc3"
+    },
+    {
+      "content": "Titus",
+      "tag": "mt"
+    }
+  ],
+  "chapters": {
+    "1": {
+      "1": {
+        "verseObjects": [
+          {
+            "type": "text",
+            "text": "Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,"
+          }
+        ]
+      },
+      "2": {
+        "verseObjects": [
+          {
+            "type": "text",
+            "text": "with the certain hope of everlasting life that God, who does not lie, promised before all the ages of time."
+          }
+        ]
+      },
+      "3": {
+        "verseObjects": [
+          {
+            "type": "text",
+            "text": "At the right time, he revealed his word by the message that he trusted me to deliver, by the command of God our savior."
+          }
+        ]
+      },
+      "4": {
+        "verseObjects": [
+          {
+            "type": "text",
+            "text": "To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior."
+          }
+        ]
+      }
+    },
+    "2": {
+      "1": {
+        "verseObjects": [
+          {
+            "type": "text",
+            "text": "But you, speak what fits with faithful instruction."
+          }
+        ]
+      },
+      "2": {
+        "verseObjects": [
+          {
+            "type": "text",
+            "text": "Teach older men to be temperate, dignified, sensible, sound in faith, in love, and in perseverance."
+          }
+        ]
+      }
+    }
+  }
+}

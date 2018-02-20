@@ -174,6 +174,49 @@ const generateVerse = (verseNumber, verseObjects) => {
 };
 
 /**
+ * @description adds verse to lines array, makes sure there is a newline before verse
+ * @param {Array} lines - array to add to
+ * @param {String} verse - line to add
+ * @return {Array} updated lines array
+ */
+const addVerse = (lines, verse) => {
+  if (lines && lines.length) {
+    const lastLine = lines[lines.length - 1];
+    const lastChar = (lastLine) ? lastLine.substr(lastLine.length - 1) : '';
+    const index = ['\n', '\r'].indexOf(lastChar);
+    if (index < 0) { // need to add newline
+      const quoted = lastLine.indexOf('\n\\q') >= 0;
+      if (!quoted) { // don't add newline before verse if quoted
+        verse = '\n' + verse;
+      }
+    }
+  }
+  lines = lines.concat(verse);
+  return lines;
+};
+
+/**
+ * @description adds chapter to lines array, makes sure there is a newline before chapters
+ * @param {Array} lines - array to add to
+ * @param {Array} chapter - chapter lines to add
+ * @return {Array} updated lines array
+ */
+const addChapter = (lines, chapter) => {
+  if (lines && lines.length) {
+    const lastLine = lines[lines.length - 1];
+    const lastChar = (lastLine) ? lastLine.substr(lastLine.length - 1) : '';
+    const index = ['\n', '\r'].indexOf(lastChar);
+    if (index < 0) { // need to add newline
+      if (chapter && chapter.length) {
+        chapter[0] = '\n' + chapter[0]; // add newline to start of chapter
+      }
+    }
+  }
+  lines = lines.concat(chapter);
+  return lines;
+};
+
+/**
  * @description Takes in chapter json and outputs it as a USFM line array.
  * @param {String} chapterNumber - number to use for the chapter
  * @param {Object} chapterObject - chapter in JSON
@@ -199,7 +242,7 @@ const generateChapterLines = (chapterNumber, chapterObject) => {
     }
     const verseObjects = chapterObject[verseNumber];
     const verseLine = generateVerse(verseNumber, verseObjects);
-    lines = lines.concat(verseLine);
+    lines = addVerse(lines, verseLine);
   });
   return lines;
 };
@@ -264,7 +307,7 @@ export const jsonToUSFM = (json, params) => {
       const chapterLines = generateChapterLines(
           chapterNumber, chapterObject,
       );
-      output = output.concat(chapterLines);
+      output = addChapter(output, chapterLines);
     });
   }
   if (json.verses) {
@@ -274,7 +317,7 @@ export const jsonToUSFM = (json, params) => {
       const verse = generateVerse(
           verseNumber, verseObjects,
       );
-      output = output.concat(verse);
+      output = addVerse(output, verse);
     });
   }
   return output.join('');

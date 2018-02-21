@@ -626,20 +626,21 @@ export const usfmToJSON = (usfm, params = {}) => {
         }
         break;
       }
+      case 'k':
       case 'zaln': { // phrase
-        const wordObject = parseWord(state, marker.content);
-        wordObject.type = "milestone";
-        const milestone = wordObject.text.trim();
+        const phrase = parseWord(state, marker.content); // very similar to word marker, so start with this and modify
+        phrase.type = "milestone";
+        const milestone = phrase.text.trim();
         if (milestone === '-s') { // milestone start
           let saveTo = getSaveToLocation(state);
-          wordObject.tag = "zaln";
-          delete wordObject.text;
+          phrase.tag = marker.tag;
+          delete phrase.text;
           if (state.phrase === null) {
             state.phrase = []; // create new phrase stack
           }
           state.phrase.push([]); // push new empty list onto phrase stack
-          wordObject.children = getLastPhrase(state); // point to top of phrase stack
-          pushObject(state, saveTo, wordObject);
+          phrase.children = getLastPhrase(state); // point to top of phrase stack
+          pushObject(state, saveTo, phrase);
         } else if (milestone === '-e') { // milestone end
           if (state.phrase.length > 1) {
             state.phrase.pop(); // remove last phrases

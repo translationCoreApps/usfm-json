@@ -55,6 +55,7 @@ const generateWord = (wordObject, nextObject) => {
  * @return {String} - word in USFM
  */
 const generatePhrase = (phraseObject, nextObject) => {
+  const tag = phraseObject.tag || 'zaln';
   const keys = Object.keys(phraseObject);
   let attributes = [];
   keys.forEach(function(key) {
@@ -68,12 +69,12 @@ const generatePhrase = (phraseObject, nextObject) => {
       attributes.push(attribute);
     }
   });
-  let line = '\\zaln-s | ' + attributes.join(' ') + '\n';
+  let line = '\\' + tag + '-s | ' + attributes.join(' ') + '\n';
 
 /* eslint-disable no-use-before-define */
   line += objectToString(phraseObject.children);
 /* eslint-enable no-use-before-define */
-  line += "\\zaln-e\\*" + needsNewLine(nextObject);
+  line += '\\' + tag + '-e\\*' + needsNewLine(nextObject);
   return line;
 };
 

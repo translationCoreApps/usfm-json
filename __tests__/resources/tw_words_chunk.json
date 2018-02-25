@@ -63,7 +63,7 @@
         },
         {
           "type": "text",
-          "text": "\n"
+          "text": "\n\n"
         }
       ]
     },
@@ -112,6 +112,10 @@
           "lemma": "καί",
           "strong": "G25320",
           "morph": "Gr,CC,,,,,,,,"
+        },
+        {
+          "type": "text",
+          "text": "\n"
         }
       ]
     }

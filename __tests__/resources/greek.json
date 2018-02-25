@@ -112,6 +112,10 @@
             "morph": "Gr,RR,,,,ANP,",
             "tag": "w",
             "type": "word"
+          },
+          {
+            "type": "text",
+            "text": "\n"
           }
         ]
       }

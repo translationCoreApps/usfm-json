@@ -10,10 +10,6 @@
       "1": {
         "verseObjects": [
           {
-            "type": "text",
-            "text": "\n"
-          },
-          {
             "text": "ἀπόστολος",
             "tag": "w",
             "type": "word",
@@ -61,7 +57,7 @@
           },
           {
             "type": "text",
-            "text": ",\n"
+            "text": ","
           },
           {
             "text": "κατὰ",
@@ -74,16 +70,12 @@
           },
           {
             "type": "text",
-            "text": "\n\n"
+            "text": "\n"
           }
         ]
       },
       "4": {
         "verseObjects": [
-        {
-          "type": "text",
-          "text": "\n"
-        },
         {
           "text": "ἀπὸ",
           "tag": "w",
@@ -110,10 +102,6 @@
               "tw": "rc://*/tw/dict/bible/kt/god"
             },
             {
-              "type": "text",
-              "text": " "
-            },
-            {
               "text": "Πατρὸς",
               "tag": "w",
               "type": "word",
@@ -132,10 +120,6 @@
           "lemma": "καί",
           "strong": "G25320",
           "morph": "Gr,CC,,,,,,,,"
-        },
-        {
-          "type": "text",
-          "text": "\n"
         }
       ]
       }

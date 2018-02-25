@@ -5,10 +5,6 @@
     "1": {
       "verseObjects": [
         {
-          "type": "text",
-          "text": "\n"
-        },
-        {
           "tag": "k",
           "type": "milestone",
           "content-source": "bhp",

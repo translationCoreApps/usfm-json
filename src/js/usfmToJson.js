@@ -358,6 +358,38 @@ const pushObject = (state, saveTo, usfmObject) => {
 };
 
 /**
+ * @description test if last character was newline (or return) char
+ * @param {String} line - line to test
+ * @return {boolean} true if newline
+ */
+const lastCharIsNewLine = line => {
+  const lastChar = (line) ? line.substr(line.length - 1) : '';
+  const index = ['\n', '\r'].indexOf(lastChar);
+  return index >= 0;
+};
+
+/**
+ * @description - remove previous new line from text
+ * @param {object} state - holds parsing state information
+ */
+const removeLastNewLine = (state) => {
+  const saveTo = getSaveToLocation(state);
+  if (saveTo && saveTo.length) {
+    const lastObject = saveTo[saveTo.length - 1];
+    if (lastObject.type === 'text') {
+      const text = lastObject.text;
+      if (lastCharIsNewLine((text))) {
+        if (text.length === 1) {
+          saveTo.pop();
+        } else {
+          lastObject.text = text.substr(0, text.length - 1);
+        }
+      }
+    }
+  }
+};
+
+/**
  * @description - rollback nested to endpoint for this tag
  * @param {object} state - holds parsing state information
  * @param {String} content - usfm marker content
@@ -628,6 +660,7 @@ export const usfmToJSON = (usfm, params = {}) => {
       }
       case 'k':
       case 'zaln': { // phrase
+        removeLastNewLine(state);
         const phrase = parseWord(state, marker.content); // very similar to word marker, so start with this and modify
         phrase.type = "milestone";
         const milestone = phrase.text.trim();
@@ -672,6 +705,7 @@ export const usfmToJSON = (usfm, params = {}) => {
         break;
       }
       case 'w': { // word
+        removeLastNewLine(state);
         const wordObject = parseWord(state, marker.content);
         pushObject(state, null, wordObject);
         if (marker.nextChar) {

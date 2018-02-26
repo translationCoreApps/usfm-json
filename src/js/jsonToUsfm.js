@@ -30,8 +30,7 @@ const needsNewLine = nextObject => {
  */
 const lastCharIsNewLine = line => {
   const lastChar = (line) ? line.substr(line.length - 1) : '';
-  const index = ['\n', '\r'].indexOf(lastChar);
-  return index >= 0;
+  return (lastChar === '\n');
 };
 
 /**
@@ -135,7 +134,7 @@ const addOnNewLine = (text, output) => {
   output = output || "";
   if (text) {
     const lastChar = (output) ? output.substr(output.length - 1) : '';
-    if ((!lastChar) || (['\n', '\r'].indexOf(lastChar) < 0)) {
+    if ((!lastChar) || (lastChar !== '\n')) {
       text = '\n' + text;
     }
     output += text;

@@ -372,7 +372,7 @@ const lastCharIsNewLine = line => {
  * @description - remove previous new line from text
  * @param {object} state - holds parsing state information
  */
-const removeLastNewLine = (state) => {
+const removeLastNewLine = state => {
   const saveTo = getSaveToLocation(state);
   if (saveTo && saveTo.length) {
     const lastObject = saveTo[saveTo.length - 1];
@@ -714,7 +714,7 @@ export const usfmToJSON = (usfm, params = {}) => {
         break;
       }
       case 'w*': {
-        if (marker.nextChar && (marker.nextChar !== '\n') && (marker.nextChar !== ' ')) {
+        if (marker.nextChar && (marker.nextChar !== ' ')) {
           pushObject(state, null, marker.nextChar);
         }
         break;

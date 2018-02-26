@@ -57,6 +57,10 @@
             "morph": "Gr,P,,,,,A,,,",
             "tag": "w",
             "type": "word"
+          },
+          {
+            "type": "text",
+            "text": "\n"
           }
         ]
       }
@@ -104,6 +108,10 @@
             "morph": "Gr,RR,,,,ANP,",
             "tag": "w",
             "type": "word"
+          },
+          {
+            "type": "text",
+            "text": "\n"
           }
         ]
       }

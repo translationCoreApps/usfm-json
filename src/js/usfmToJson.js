@@ -362,27 +362,42 @@ const pushObject = (state, saveTo, usfmObject) => {
  * @param {String} line - line to test
  * @return {boolean} true if newline
  */
-const lastCharIsNewLine = line => {
+const isLastCharNewLine = line => {
   const lastChar = (line) ? line.substr(line.length - 1) : '';
   const index = ['\n', '\r'].indexOf(lastChar);
   return index >= 0;
 };
 
 /**
+ * @description test if next to last character is quote
+ * @param {String} line - line to test
+ * @return {boolean} true if newline
+ */
+const isNextToLastCharQuote = (line) => {
+  const nextToLastChar = (line && (line.length >= 2)) ? line.substr(line.length - 2, 1) : '';
+  const index = ['"', '“'].indexOf(nextToLastChar);
+  return index >= 0;
+};
+
+/**
  * @description - remove previous new line from text
  * @param {object} state - holds parsing state information
+ * @param {boolean} ignoreQuote - if true then don't remove last new line if preceded by quote.
  */
-const removeLastNewLine = state => {
+const removeLastNewLine = (state, ignoreQuote = false) => {
   const saveTo = getSaveToLocation(state);
   if (saveTo && saveTo.length) {
     const lastObject = saveTo[saveTo.length - 1];
     if (lastObject.type === 'text') {
       const text = lastObject.text;
-      if (lastCharIsNewLine((text))) {
-        if (text.length === 1) {
-          saveTo.pop();
-        } else {
-          lastObject.text = text.substr(0, text.length - 1);
+      if (isLastCharNewLine((text))) {
+        const removeNewLine = !ignoreQuote || !isNextToLastCharQuote(text);
+        if (removeNewLine) {
+          if (text.length === 1) {
+            saveTo.pop();
+          } else {
+            lastObject.text = text.substr(0, text.length - 1);
+          }
         }
       }
     }
@@ -705,7 +720,7 @@ export const usfmToJSON = (usfm, params = {}) => {
         break;
       }
       case 'w': { // word
-        removeLastNewLine(state);
+        removeLastNewLine(state, true);
         const wordObject = parseWord(state, marker.content);
         pushObject(state, null, wordObject);
         if (marker.nextChar) {

@@ -78,7 +78,7 @@ const removeLeadingSpace = text => {
 const parseWord = (state, wordContent) => {
   let object = {};
   const wordParts = wordContent.split('|');
-  const word = removeLeadingSpace(wordParts[0]);
+  const word = wordParts[0].trim();
   const attributeContent = wordParts[1];
   object = {
     text: word,

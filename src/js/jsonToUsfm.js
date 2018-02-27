@@ -134,7 +134,7 @@ const addOnNewLine = (text, output) => {
   output = output || "";
   if (text) {
     const lastChar = (output) ? output.substr(output.length - 1) : '';
-    if ((!lastChar) || (lastChar !== '\n')) {
+    if ((!lastChar) || (['\n', '"', '“'].indexOf(lastChar) < 0)) {
       text = '\n' + text;
     }
     output += text;

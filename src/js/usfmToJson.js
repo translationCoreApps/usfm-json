@@ -373,7 +373,7 @@ const isLastCharNewLine = line => {
  * @param {String} line - line to test
  * @return {boolean} true if newline
  */
-const isNextToLastCharQuote = (line) => {
+const isNextToLastCharQuote = line => {
   const nextToLastChar = (line && (line.length >= 2)) ? line.substr(line.length - 2, 1) : '';
   const index = ['"', '“'].indexOf(nextToLastChar);
   return index >= 0;

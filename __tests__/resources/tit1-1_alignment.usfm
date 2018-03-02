@@ -1,6 +1,8 @@
-\v 1 \zaln-s | x-strong="G39720" x-occurrence="1" x-occurrences="1" x-ugnt="Παῦλος"
+\v 1
+\zaln-s | x-strong="G39720" x-occurrence="1" x-occurrences="1" x-ugnt="Παῦλος"
 \w Paul|x-occurrence="1" x-occurrences="1"\w*
-\zaln-e\*,\zaln-s | x-strong="G14010" x-occurrence="1" x-occurrences="1" x-ugnt="δοῦλος"
+\zaln-e\*,
+\zaln-s | x-strong="G14010" x-occurrence="1" x-occurrences="1" x-ugnt="δοῦλος"
 \w a|x-occurrence="1" x-occurrences="1"\w*
 \w servant|x-occurrence="1" x-occurrences="1"\w*
 \zaln-e\*
@@ -21,7 +23,8 @@
 \zaln-e\*
 \zaln-s | x-strong="G55470" x-occurrence="1" x-occurrences="1" x-ugnt="Χριστοῦ"
 \w Christ|x-occurrence="1" x-occurrences="1"\w*
-\zaln-e\*,\zaln-s | x-strong="G25960" x-occurrence="1" x-occurrences="1" x-ugnt="κατὰ"
+\zaln-e\*,
+\zaln-s | x-strong="G25960" x-occurrence="1" x-occurrences="1" x-ugnt="κατὰ"
 \w for|x-occurrence="1" x-occurrences="1"\w*
 \zaln-e\*
 \zaln-s | x-strong="G41020" x-occurrence="1" x-occurrences="1" x-ugnt="πίστιν"
@@ -31,7 +34,8 @@
 \zaln-s | x-strong="G23160" x-occurrence="2" x-occurrences="2" x-ugnt="Θεοῦ"
 \w of|x-occurrence="3" x-occurrences="4"\w*
 \w God|x-occurrence="2" x-occurrences="2"\w*
-\zaln-e\*'\w s|x-occurrence="1" x-occurrences="1"\w*
+\zaln-e\*'
+\w s|x-occurrence="1" x-occurrences="1"\w*
 \zaln-s | x-strong="G15880" x-occurrence="1" x-occurrences="1" x-ugnt="ἐκλεκτῶν"
 \w chosen|x-occurrence="1" x-occurrences="1"\w*
 \w people|x-occurrence="1" x-occurrences="1"\w*

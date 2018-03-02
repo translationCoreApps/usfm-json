@@ -27,10 +27,6 @@
       "1": {
         "verseObjects": [
           {
-            "type": "text",
-            "text": "\n"
-          },
-          {
             "text": "Παῦλος",
             "lemma": "Παῦλος",
             "strong": "G39720",
@@ -61,6 +57,10 @@
             "morph": "Gr,P,,,,,A,,,",
             "tag": "w",
             "type": "word"
+          },
+          {
+            "type": "text",
+            "text": "\n"
           }
         ]
       }
@@ -77,10 +77,6 @@
       },
       "1": {
         "verseObjects": [
-          {
-            "type": "text",
-            "text": "\n"
-          },
           {
             "text": "Σὺ",
             "lemma": "σύ",
@@ -112,6 +108,10 @@
             "morph": "Gr,RR,,,,ANP,",
             "tag": "w",
             "type": "word"
+          },
+          {
+            "type": "text",
+            "text": "\n"
           }
         ]
       }

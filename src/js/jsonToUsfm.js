@@ -24,6 +24,16 @@ const needsNewLine = nextObject => {
 };
 
 /**
+ * @description test if last character was newline (or return) char
+ * @param {String} line - line to test
+ * @return {boolean} true if newline
+ */
+const lastCharIsNewLine = line => {
+  const lastChar = (line) ? line.substr(line.length - 1) : '';
+  return (lastChar === '\n');
+};
+
+/**
  * @description Takes in word json and outputs it as USFM.
  * @param {Object} wordObject - word in JSON
  * @param {Object} nextObject - next object to be output
@@ -44,7 +54,7 @@ const generateWord = (wordObject, nextObject) => {
       attributes.push(attribute);
     }
   });
-  let line = '\\w ' + word + '|' + attributes.join(' ') + '\\w*' + needsNewLine(nextObject);
+  let line = '\\w ' + word + '|' + attributes.join(' ') + '\\w*';
   return line;
 };
 
@@ -72,8 +82,11 @@ const generatePhrase = (phraseObject, nextObject) => {
   let line = '\\' + tag + '-s | ' + attributes.join(' ') + '\n';
 
 /* eslint-disable no-use-before-define */
-  line += objectToString(phraseObject.children);
+  line = objectToString(phraseObject.children, line);
 /* eslint-enable no-use-before-define */
+  if (!lastCharIsNewLine(line)) {
+    line += '\n';
+  }
   line += '\\' + tag + '-e\\*' + needsNewLine(nextObject);
   return line;
 };
@@ -112,19 +125,40 @@ const usfmMarkerToString = usfmObject => {
 };
 
 /**
- * @description Identifies type of
+ * @description adds text to the line and makes sure it is on a new line
+ * @param {String} text - to add
+ * @param {String} output - string to add to
+ * @return {String} updated output
+ */
+const addOnNewLine = (text, output) => {
+  output = output || "";
+  if (text) {
+    const lastChar = (output) ? output.substr(output.length - 1) : '';
+    if ((!lastChar) || (['\n', '"', '“'].indexOf(lastChar) < 0)) {
+      text = '\n' + text;
+    }
+    output += text;
+  }
+  return output;
+};
+
+/**
+ * @description converts object to string and appends to line
  * @param {string|array|object} object - marker to print
+ * @param {string} output - marker to print
  * @param {String|array|object} nextObject - optional object that is next entry.  Used to determine if we need to
  *                                add a space between current marker and following text
- * @return {String} Text equivalent of marker.
+ * @return {String} Text equivalent of marker appended to output.
  */
-const objectToString = (object, nextObject) => {
+const objectToString = (object, output, nextObject) => {
   if (!object) {
     return "";
   }
 
+  output = output || "";
+
   if (object.type === 'text') {
-    return object.text;
+    return output + object.text;
   }
 
   if (object.verseObjects) { // support new verse object format
@@ -132,30 +166,26 @@ const objectToString = (object, nextObject) => {
   }
 
   if (Array.isArray(object)) {
-    let output = "";
     for (let i = 0; i < object.length; i++) {
       const objectN = object[i];
       const nextObject = (i + 1 < object.length) ? object[i + 1] : null;
-      let text = objectToString(objectN, nextObject);
-      if (text) {
-        output += text;
-      }
+      output = objectToString(objectN, output, nextObject);
     }
     return output;
   }
 
   if (object.type === 'word') { // usfm word marker
-    return generateWord(object, nextObject);
+    return addOnNewLine(generateWord(object, nextObject), output);
   }
 
   if (object.type === 'milestone') { // usfm keyterm with milestone (phrase)
-    return generatePhrase(object, nextObject);
+    return addOnNewLine(generatePhrase(object, nextObject), output);
   }
 
   if (object.tag) { // any other USFM marker tag
-    return usfmMarkerToString(object);
+    return output + usfmMarkerToString(object);
   }
-  return "";
+  return output;
 };
 
 /**
@@ -183,9 +213,7 @@ const generateVerse = (verseNumber, verseObjects) => {
 const addVerse = (lines, verse) => {
   if (lines && lines.length) {
     const lastLine = lines[lines.length - 1];
-    const lastChar = (lastLine) ? lastLine.substr(lastLine.length - 1) : '';
-    const index = ['\n', '\r'].indexOf(lastChar);
-    if (index < 0) { // need to add newline
+    if (!lastCharIsNewLine(lastLine)) { // need to add newline
       const quoted = lastLine.indexOf('\n\\q') >= 0;
       if (!quoted) { // don't add newline before verse if quoted
         verse = '\n' + verse;
@@ -205,9 +233,7 @@ const addVerse = (lines, verse) => {
 const addChapter = (lines, chapter) => {
   if (lines && lines.length) {
     const lastLine = lines[lines.length - 1];
-    const lastChar = (lastLine) ? lastLine.substr(lastLine.length - 1) : '';
-    const index = ['\n', '\r'].indexOf(lastChar);
-    if (index < 0) { // need to add newline
+    if (!lastCharIsNewLine(lastLine)) { // need to add newline
       if (chapter && chapter.length) {
         chapter[0] = '\n' + chapter[0]; // add newline to start of chapter
       }

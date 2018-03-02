@@ -5,10 +5,6 @@
     "1": {
       "verseObjects": [
         {
-          "type": "text",
-          "text": "\n"
-        },
-        {
           "text": "ἀπόστολος",
           "tag": "w",
           "type": "word",
@@ -51,7 +47,7 @@
         },
         {
           "type": "text",
-          "text": ",\n"
+          "text": ","
         },
         {
           "text": "κατὰ",
@@ -63,16 +59,12 @@
         },
         {
           "type": "text",
-          "text": "\n"
+          "text": "\n\n"
         }
       ]
     },
     "4": {
       "verseObjects": [
-        {
-          "type": "text",
-          "text": "\n"
-        },
         {
           "text": "ἀπὸ",
           "tag": "w",
@@ -112,6 +104,10 @@
           "lemma": "καί",
           "strong": "G25320",
           "morph": "Gr,CC,,,,,,,,"
+        },
+        {
+          "type": "text",
+          "text": "\n"
         }
       ]
     }

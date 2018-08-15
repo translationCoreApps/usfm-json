@@ -633,7 +633,7 @@ export const usfmToJSON = (usfm, params = {}) => {
   let lastLine = lines.length - 1;
   for (let i = 0; i < lines.length; i++) {
     const parsedLine = parseLine(lines[i], i >= lastLine);
-    markers = markers.concat(parsedLine);
+    markers.push.apply(markers, parsedLine);
   }
   const state = {
     currentChapter: 0,

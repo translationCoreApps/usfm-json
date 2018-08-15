@@ -33,7 +33,9 @@ describe("JSON to USFM", () => {
     const totalNano = end[0] * 10e9 + end[1];
     const avgNano = totalNano / iterations;
     const avgSeconds = avgNano / 10e9;
-    expect(avgSeconds).toBeLessThanOrEqual(0.6);
+    // TRICKY: performance may vary depending on the platform.
+    // Three seconds is a high bar to avoid tests failing on slow CI.
+    expect(avgSeconds).toBeLessThanOrEqual(3);
   });
 
   it('converts json to usfm', () => {

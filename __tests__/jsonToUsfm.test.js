@@ -1,5 +1,6 @@
 import {readJSON, readUSFM} from './util';
 import {jsonToUSFM} from '../src/js/jsonToUsfm';
+import {usfmToJSON} from '../src/js/usfmToJson';
 
 /**
  * Generator for testing json to usfm migration
@@ -18,6 +19,22 @@ const generateTest = (name, params, expectedName) => {
 };
 
 describe("JSON to USFM", () => {
+
+  it('handle large files quickly', () => {
+    const input = readUSFM(`large.usfm`);
+    expect(input).toBeTruthy();
+
+    const iterations = 10;
+    const start = process.hrtime();
+    for (let i = 0; i < iterations; i++) {
+      usfmToJSON(input);
+    }
+    const end = process.hrtime(start);
+    const totalNano = end[0] * 10e9 + end[1];
+    const avgNano = totalNano / iterations;
+    const avgSeconds = avgNano / 10e9;
+    expect(avgSeconds).toBeLessThanOrEqual(0.6);
+  });
 
   it('converts json to usfm', () => {
     generateTest('valid');

@@ -18,6 +18,24 @@ const generateTest = (name, args = {}, expectedName) => {
 };
 
 describe("USFM to JSON", () => {
+  it('handle large files quickly', () => {
+    const input = readUSFM(`large.usfm`);
+    expect(input).toBeTruthy();
+
+    const iterations = 10;
+    const start = process.hrtime();
+    for (let i = 0; i < iterations; i++) {
+      usfmToJSON(input);
+    }
+    const end = process.hrtime(start);
+    const totalNano = end[0] * 10e9 + end[1];
+    const avgNano = totalNano / iterations;
+    const avgSeconds = avgNano / 10e9;
+    // TRICKY: performance may vary depending on the platform.
+    // Three seconds is a high bar to avoid tests failing on slow CI.
+    expect(avgSeconds).toBeLessThanOrEqual(3);
+  });
+
   it('converts usfm to json', () => {
     generateTest('valid');
   });

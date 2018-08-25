@@ -105,4 +105,8 @@ describe("JSON to USFM", () => {
   it('handles Tit 1:1 no newlines', () => {
     generateTest('titus_no_newlines');
   });
+
+  it('handles Gen 12:2 empty word', () => {
+    generateTest('heb1-f10_gen12-2_empty_word');
+  });
 });

@@ -2,27 +2,229 @@
   "headers": [],
   "chapters": {},
   "verses": {
-    "13": {
+    "1": {
       "verseObjects": [
         {
           "type": "text",
-          "text": "I had many things to write to you, but I do not wish to write them to you with pen and ink.\n"
+          "text": "L'"
+        },
+        {
+          "text": "Éternel",
+          "tag": "w",
+          "type": "word",
+          "content-source": "bhp",
+          "strong": "H3068"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "dit",
+          "tag": "w",
+          "type": "word",
+          "content-source": "bhp",
+          "strong": "H559",
+          "morph": "strongMorph:TH8799"
+        },
+        {
+          "type": "text",
+          "text": " à "
+        },
+        {
+          "text": "Abram",
+          "tag": "w",
+          "type": "word",
+          "content-source": "bhp",
+          "strong": "H87"
+        },
+        {
+          "type": "text",
+          "text": ": Va-t-"
+        },
+        {
+          "text": "en",
+          "tag": "w",
+          "type": "word",
+          "content-source": "bhp",
+          "strong": "H3212",
+          "morph": "strongMorph:TH8798"
+        },
+        {
+          "type": "text",
+          "text": " de ton "
+        },
+        {
+          "text": "pays",
+          "tag": "w",
+          "type": "word",
+          "content-source": "bhp",
+          "strong": "H776"
+        },
+        {
+          "type": "text",
+          "text": ", de ta "
+        },
+        {
+          "text": "patrie",
+          "tag": "w",
+          "type": "word",
+          "content-source": "bhp",
+          "strong": "H4138"
+        },
+        {
+          "type": "text",
+          "text": ", et de la "
+        },
+        {
+          "text": "maison",
+          "tag": "w",
+          "type": "word",
+          "content-source": "bhp",
+          "strong": "H1004"
+        },
+        {
+          "type": "text",
+          "text": " de ton "
+        },
+        {
+          "text": "père",
+          "tag": "w",
+          "type": "word",
+          "content-source": "bhp",
+          "strong": "H1"
+        },
+        {
+          "type": "text",
+          "text": ", dans le "
+        },
+        {
+          "text": "pays",
+          "tag": "w",
+          "type": "word",
+          "content-source": "bhp",
+          "strong": "H776"
+        },
+        {
+          "type": "text",
+          "text": " que je te "
+        },
+        {
+          "text": "montrerai",
+          "tag": "w",
+          "type": "word",
+          "content-source": "bhp",
+          "strong": "H7200",
+          "morph": "strongMorph:TH8686"
+        },
+        {
+          "type": "text",
+          "text": ". \n"
         }
       ]
     },
-    "14": {
+    "2": {
       "verseObjects": [
         {
           "type": "text",
-          "text": "\nBut I expect to see you soon, and we will speak face to face. "
-        }
-      ]
-    },
-    "15": {
-      "verseObjects": [
+          "text": "Je ferai de "
+        },
+        {
+          "text": "toi",
+          "tag": "w",
+          "type": "word",
+          "content-source": "bhp",
+          "strong": "H6213",
+          "morph": "strongMorph:TH8799"
+        },
         {
           "type": "text",
-          "text": "May peace be\nwith you.\n        The friends greet you.\nGreet the friends by name.\n"
+          "text": " une "
+        },
+        {
+          "text": "grande",
+          "tag": "w",
+          "type": "word",
+          "content-source": "bhp",
+          "strong": "H1419"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "nation",
+          "tag": "w",
+          "type": "word",
+          "content-source": "bhp",
+          "strong": "H1471"
+        },
+        {
+          "type": "text",
+          "text": ", et je te "
+        },
+        {
+          "text": "bénirai",
+          "tag": "w",
+          "type": "word",
+          "content-source": "bhp",
+          "strong": "H1288",
+          "morph": "strongMorph:TH8762"
+        },
+        {
+          "type": "text",
+          "text": "; je "
+        },
+        {
+          "text": "rendrai",
+          "tag": "w",
+          "type": "word",
+          "content-source": "bhp",
+          "strong": "H1431"
+        },
+        {
+          "text": "",
+          "tag": "w",
+          "type": "word",
+          "content-source": "bhp"
+        },
+        {
+          "type": "text",
+          "text": " ton "
+        },
+        {
+          "text": "nom",
+          "tag": "w",
+          "type": "word",
+          "content-source": "bhp",
+          "strong": "H8034"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "grand",
+          "tag": "w",
+          "type": "word",
+          "content-source": "bhp",
+          "strong": "H1431",
+          "morph": "strongMorph:TH8762"
+        },
+        {
+          "type": "text",
+          "text": ", et tu seras une source de "
+        },
+        {
+          "text": "bénédiction",
+          "tag": "w",
+          "type": "word",
+          "content-source": "bhp",
+          "strong": "H1293"
+        },
+        {
+          "type": "text",
+          "text": ". \n"
         }
       ]
     }

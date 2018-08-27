@@ -154,6 +154,6 @@ describe("USFM to JSON", () => {
   });
 
   it('handles Gen 12:2 empty word', () => {
-    generateTest('heb1-f10_gen12-2_empty_word', {"chunk": true, "content-source": "bhp"});
+    generateTest('f10_gen12-2_empty_word', {"chunk": true, "content-source": "bhp"});
   });
 });

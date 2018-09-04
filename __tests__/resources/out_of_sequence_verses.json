@@ -47,7 +47,8 @@
           },
           {
             "tag": "b",
-            "content": "\n"
+            "text": "\n",
+            "type": "paragraph"
           },
           {
             "text": "\n",

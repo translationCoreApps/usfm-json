@@ -81,8 +81,9 @@
       "front": {
         "verseObjects": [
           {
-            "content": "\n",
-            "tag": "m"
+            "text": "\n",
+            "tag": "m",
+            "type": "paragraph"
           },
           {
             "tag": "q",

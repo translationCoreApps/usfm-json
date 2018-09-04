@@ -73,8 +73,9 @@
             "type": "quote"
           },
           {
-            "content": "\n",
-            "tag": "m"
+            "text": "\n",
+            "tag": "m",
+            "type": "paragraph"
           }
         ]
       },

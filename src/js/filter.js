@@ -7,8 +7,7 @@
 export const removeMarker = (string = '', types) => {
   if (typeof (types) === 'string') types = [types];
   if (!types || types.includes('f')) {
-    const regString = '\\\\f[\\S\\s]*\\\\f[^a-z|A-Z|0-9|\\s]*';
-    const regex = new RegExp(regString, 'g');
+    const regex = new RegExp(/\\f[\S\s]*\\f[^a-z|A-Z|0-9|\s|\\]*/g);
     string = string.replace(regex, '');
   }
   if (!types || types.includes('q')) {

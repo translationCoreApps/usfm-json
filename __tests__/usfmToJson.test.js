@@ -36,6 +36,22 @@ describe("USFM to JSON", () => {
     expect(avgSeconds).toBeLessThanOrEqual(3);
   });
 
+  it('parses verse with an \\m marker inline with the text', () => {
+    const input = "\\v 1 but the word of the Lord remains forever.\"\n\\m And this is the word of the gospel that was proclaimed to you.";
+    const data = usfmToJSON(input, {chunk: true}).verses["1"].verseObjects;
+    expect(data).toEqual([
+      {
+        "type": "text",
+        "text": "but the word of the Lord remains forever.\"\n"
+      },
+      {
+        "tag": "m",
+        "type": "paragraph",
+        "text": "And this is the word of the gospel that was proclaimed to you."
+      }
+    ]);
+  });
+
   it('converts usfm to json', () => {
     generateTest('valid');
   });

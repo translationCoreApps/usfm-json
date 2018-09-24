@@ -127,7 +127,7 @@ export const MARK_CONTENT_AS_TEXT = [
   "wj"
 ];
 
-// for these tags we must embed following text in content until we find an end marker,
+// for these tags we span the following text until we find an end marker,
 export const NEED_TERMINATION_MARKERS = [
   "bd",
   "bdit",

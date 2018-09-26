@@ -77,7 +77,8 @@ export const mergeVerseData = (verseData, filter) => {
   let verseText = '';
   for (let verse of verseArray) {
     if (verse) {
-      if (verseText && (verseText[verseText.length - 1] !== '\n')) {
+      const lastChar = verseText.substr(verseText.length - 1);
+      if (verseText && ((lastChar !== '\n') && (lastChar !== ' '))) {
         verseText += ' ';
       }
       verseText += verse;

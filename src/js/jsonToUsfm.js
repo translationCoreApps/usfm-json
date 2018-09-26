@@ -115,6 +115,10 @@ const usfmMarkerToString = usfmObject => {
     output += content;
   }
 
+  if (usfmObject.attrib) {
+    output += usfmObject.attrib;
+  }
+
   if (markerTermination) {
     output += '\\' + markerTermination;
   }
@@ -257,7 +261,9 @@ const generateChapterLines = (chapterNumber, chapterObject) => {
   const verseNumbers = Object.keys(chapterObject).sort((a, b) => {
     return parseInt(a, 10) - parseInt(b, 10);
   });
-  verseNumbers.forEach(function(verseNumber) {
+  const verseLen = verseNumbers.length;
+  for (let i = 0; i < verseLen; i++) {
+    const verseNumber = verseNumbers[i];
     // check if verse is inside previous line (such as \q)
     const lastLine = lines.length ? lines[lines.length - 1] : "";
     const lastChar = lastLine ? lastLine.substr(lastLine.length - 1) : "";
@@ -267,7 +273,7 @@ const generateChapterLines = (chapterNumber, chapterObject) => {
     const verseObjects = chapterObject[verseNumber];
     const verseLine = generateVerse(verseNumber, verseObjects);
     lines = addVerse(lines, verseLine);
-  });
+  }
   return lines;
 };
 
@@ -325,23 +331,27 @@ export const jsonToUSFM = (json, params) => {
   }
   if (json.chapters) {
     const chapterNumbers = Object.keys(json.chapters);
-    chapterNumbers.forEach(function(chapterNumber) {
+    const chapterLen = chapterNumbers.length;
+    for (let i = 0; i < chapterLen; i++) {
+      const chapterNumber = chapterNumbers[i];
       const chapterObject = json.chapters[chapterNumber];
       const chapterLines = generateChapterLines(
           chapterNumber, chapterObject,
       );
       output = addChapter(output, chapterLines);
-    });
+    }
   }
   if (json.verses) {
     const verseNumbers = Object.keys(json.verses);
-    verseNumbers.forEach(function(verseNumber) {
+    const verseLen = verseNumbers.length;
+    for (let i = 0; i < verseLen; i++) {
+      const verseNumber = verseNumbers[i];
       const verseObjects = json.verses[verseNumber];
       const verse = generateVerse(
           verseNumber, verseObjects,
       );
       output = addVerse(output, verse);
-    });
+    }
   }
   return output.join('');
 };

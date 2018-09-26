@@ -10,9 +10,11 @@ export const MARKERS_WITH_NUMBERS = {
 };
 
 // for each USFM tag, specify associated properties
-//    display - if true then attribute content is translatable text
-//    type - optional category
-//    endTag - text to indicate the end of content/text
+//    {boolean} display - optionalif true then attribute content is translatable text
+//    {string} type - optional category
+//    {string|array} endTag - optional text to indicate the end of content/text
+//    {boolean} attrib - optional if true then expect attributes delimited by `|`
+//    {boolean} milestone - optional if true then contents between tags with `-s` and `-b`
 const USFM_PROPERTIES = {
   "add": {
     "display": true
@@ -77,7 +79,8 @@ const USFM_PROPERTIES = {
     "endTag": "*"
   },
   "fig": {
-    "endTag": "*"
+    "endTag": "*",
+    "attrib": true
   },
   "fm": {
     "endTag": "*"
@@ -111,7 +114,9 @@ const USFM_PROPERTIES = {
     "display": true
   },
   "jmp": {
-    "endTag": "*"
+    "endTag": "*",
+    "attrib": true,
+    "display": true
   },
   "k": {
     "endTag": "*",
@@ -208,6 +213,10 @@ const USFM_PROPERTIES = {
     "display": true
   },
   "p": {
+    "type": "paragraph",
+    "display": true
+  },
+  "pb": {
     "type": "paragraph",
     "display": true
   },
@@ -344,13 +353,17 @@ const USFM_PROPERTIES = {
     "endTag": "*",
     "display": true
   },
+  // this is an oddball since span can either be `\qt ... \qt*` or `\qt-s\* ... \qt-e\*`
   "qt": {
     "type": "quote",
-    "endTag": "*",
-    "display": true
+    "endTag": ["*", "-e"],
+    "display": true,
+    "milestone": true,
+    "attrib": true
   },
   "rb": {
-    "endTag": "*"
+    "endTag": "*",
+    "attrib": true
   },
   "rq": {
     "endTag": "*"
@@ -401,6 +414,13 @@ const USFM_PROPERTIES = {
     "endTag": "*",
     "display": true
   },
+  "ts": {
+    "type": "quote",
+    "display": true,
+    "endTag": "-e",
+    "milestone": true,
+    "attrib": true
+  },
   "v": {
     "display": true
   },
@@ -412,7 +432,8 @@ const USFM_PROPERTIES = {
   },
   "w": {
     "endTag": "*",
-    "display": true
+    "display": true,
+    "attrib": true
   },
   "wa": {
     "endTag": "*",
@@ -445,6 +466,10 @@ const USFM_PROPERTIES = {
   "xot": {
     "endTag": "*"
   },
+  "xt": {
+    "endTag": "*",
+    "attrib": true
+  },
   "xta": {
     "endTag": "*"
   }
@@ -458,6 +483,11 @@ export const markerType = tag => {
 export const markerTermination = tag => {
   let tagProps = USFM_PROPERTIES[tag];
   return tagProps && tagProps.endTag;
+};
+
+export const markerHasAttributes = tag => {
+  let tagProps = USFM_PROPERTIES[tag];
+  return tagProps && tagProps.attrib;
 };
 
 export const markContentAsText = tag => {

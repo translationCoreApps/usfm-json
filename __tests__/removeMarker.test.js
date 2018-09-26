@@ -74,3 +74,7 @@ it('cleans multiple usfm tags from 1jn1:4', () => {
   generateTest('filter/1jn1:4');
 });
 
+it('cleans jmp tag', () => {
+  generateTest('filter/jmp');
+});
+

@@ -105,4 +105,8 @@ describe("JSON to USFM", () => {
   it('handles Tit 1:1 no newlines', () => {
     generateTest('titus_no_newlines');
   });
+
+  it('handles jmp tag', () => {
+    generateTest('jmp', {chunk: true});
+  });
 });

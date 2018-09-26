@@ -172,4 +172,8 @@ describe("USFM to JSON", () => {
   it('handles Gen 12:2 empty word', () => {
     generateTest('f10_gen12-2_empty_word', {"chunk": true, "content-source": "bhp"});
   });
+
+  it('handles jmp tag', () => {
+    generateTest('jmp', {chunk: true});
+  });
 });

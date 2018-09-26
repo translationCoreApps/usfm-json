@@ -281,7 +281,15 @@ const createUsfmObject = (tag, number, content) => {
     if (type) {
       output.type = type;
     }
-    contentAttr = USFM.markContentAsText(tag) ? 'text' : 'content';
+    const isContentText = USFM.markContentAsText(tag);
+    contentAttr = isContentText ? 'text' : 'content';
+    if (isContentText && USFM.markerHasAttributes(tag)) {
+      const pos = content.indexOf('|');
+      if (pos >= 0) {
+        output.attrib = content.substr(pos);
+        content = content.substr(0, pos);
+      }
+    }
   } else { // default to text type
     contentAttr = output.type = "text";
   }
@@ -473,6 +481,29 @@ const stripLeadingZeros = text => {
   return text;
 };
 
+const checkForEndMarker = (usfmObject, tag) => {
+  let endMarker = null;
+  let content = usfmObject.content || "";
+  const baseTag = (tag[tag.length - 1] === "*") ? tag.substr(0, tag.length - 1) : tag;
+  let terminations = USFM.markerTermination(baseTag);
+  if (terminations) {
+    if (typeof terminations === 'string') {
+      terminations = [terminations];
+    }
+    const length = terminations.length;
+    for (let i = 0; i < length; i++) {
+      const termination = terminations[i];
+      let termLength = termination.length;
+      if ((content && (content.substr(0, termLength) === termination)) ||
+        (tag.substr(tag.length - termLength) === termination)) {
+        endMarker = termination;
+        break;
+      }
+    }
+  }
+  return {endMarker, content};
+};
+
 /**
  * @description - adds usfm object to current verse and handles nested USFM objects
  * @param {object} state - holds parsing state information
@@ -485,15 +516,8 @@ const addToCurrentVerse = (state, usfmObject, tag = null) => {
     pushObject(state, null, usfmObject);
     return;
   }
-
-  let content = usfmObject.content || "";
-  let endMarker;
-  let isEndMarker;
-  if ((content && (content[0] === "*")) || (tag[tag.length - 1] === "*")) {
-    endMarker = '*';
-    isEndMarker = true;
-  }
-  if (isEndMarker) { // check for end marker
+  let {endMarker, content} = checkForEndMarker(usfmObject, tag);
+  if (endMarker) { // check for end marker
     unPopNestedMarker(state, content, tag, usfmObject.nextChar, endMarker);
   } else {
     if (usfmObject.nextChar && !usfmObject.close) {

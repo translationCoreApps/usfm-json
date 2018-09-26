@@ -49,6 +49,7 @@
           {
             "content": "+ \\ft Some versions have \\fqa This man declared, \"I am weary, O God, I am weary. I am unable to do anything.\" \\fqa* ",
             "tag": "f",
+            "endTag": "f*",
             "type": "footnote"
           },
           {

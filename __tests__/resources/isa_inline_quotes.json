@@ -10,6 +10,7 @@
           {
             "content": "+ \\ft Instead of \\fqa 50,070 men \\fqa* , some later copies and modern versions have, \\fqa seventy men. \\fqa* ",
             "tag": "f",
+            "endTag": "f*",
             "type": "footnote"
           },
           {
@@ -22,7 +23,7 @@
         "verseObjects": [
           {
             "tag": "s5",
-            "text": "\n",
+            "content": "\n",
             "type": "section"
           },
           {
@@ -38,7 +39,7 @@
         "verseObjects": [
           {
             "tag": "s5",
-            "text": "\n",
+            "content": "\n",
             "type": "section"
           }
         ]
@@ -52,6 +53,7 @@
           {
             "content": "+ \\ft Instead of \\fqa Tiphsah \\fqa* , one ancient version and some modern versions read,\n\\fqa Tappuah. ",
             "tag": "f",
+            "endTag": "f*",
             "type": "footnote"
           },
           {
@@ -115,7 +117,7 @@
           {
             "tag": "s5",
             "type": "section",
-            "text": "\n"
+            "content": "\n"
           },
           {
             "tag": "q1",

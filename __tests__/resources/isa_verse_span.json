@@ -54,7 +54,7 @@
           {
             "tag": "s5",
             "type": "section",
-            "text": "\n"
+            "content": "\n"
           }
         ]
       },
@@ -79,6 +79,7 @@
           },
           {
             "tag": "f",
+            "endTag": "f*",
             "type": "footnote",
             "content": "+ \\ft Some modern versions have \\fqa and in the ruins of the rich, lambs will graze \\fqb . "
           },

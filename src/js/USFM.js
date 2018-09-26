@@ -1,230 +1,470 @@
+/* eslint-disable quote-props */
 /**
  * USFM definitions
  */
 
-// type descriptions for tags
-export const MARKER_TYPE = {
-  b: "paragraph",
-  cls: "paragraph",
-  f: "footnote",
-  m: "paragraph",
-  mi: "paragraph",
-  nb: "paragraph",
-  p: "paragraph",
-  pc: "paragraph",
-  ph1: "paragraph",
-  ph2: "paragraph",
-  ph3: "paragraph",
-  ph4: "paragraph",
-  ph5: "paragraph",
-  ph: "paragraph",
-  pi1: "paragraph",
-  pi2: "paragraph",
-  pi3: "paragraph",
-  pi4: "paragraph",
-  pi5: "paragraph",
-  pi: "paragraph",
-  pm: "paragraph",
-  pmc: "paragraph",
-  pmo: "paragraph",
-  pmr: "paragraph",
-  po: "paragraph",
-  pr: "paragraph",
-  q1: "quote",
-  q2: "quote",
-  q3: "quote",
-  q4: "quote",
-  q: "quote",
-  qa: "quote",
-  qac: "quote",
-  qc: "quote",
-  qm: "quote",
-  qr: "quote",
-  qs: "quote",
-  qt: "quote",
-  s1: "section",
-  s2: "section",
-  s3: "section",
-  s4: "section",
-  s5: "section",
-  s: "section"
+// for these tags we support number attribute
+export const MARKERS_WITH_NUMBERS = {
+  "c": true,
+  "v": true
 };
 
-// for these tags we support number attribute
-export const MARKERS_WITH_NUMBERS = [
-  "c",
-  "v"
-];
-
-// for these tags we embed the contained text as a displayable text attribute instead of content
-export const MARK_CONTENT_AS_TEXT = [
-  "add",
-  "b",
-  "bd",
-  "bdit",
-  "bk",
-  "cls",
-  "dc",
-  "em",
-  "it",
-  "k",
-  "lit",
-  "m",
-  "mi",
-  "nb",
-  "nd",
-  "no",
-  "ord",
-  "p",
-  "pc",
-  "ph",
-  "ph1",
-  "ph2",
-  "ph3",
-  "ph4",
-  "ph5",
-  "pi",
-  "pi1",
-  "pi2",
-  "pi3",
-  "pi4",
-  "pi5",
-  "pm",
-  "pmc",
-  "pmo",
-  "pmr",
-  "pn",
-  "po",
-  "pr",
-  "q",
-  "q1",
-  "q2",
-  "q3",
-  "q4",
-  "qa",
-  "qac",
-  "qc",
-  "qm",
-  "qr",
-  "qs",
-  "qt",
-  "s",
-  "s1",
-  "s2",
-  "s3",
-  "s4",
-  "s5",
-  "sc",
-  "sig",
-  "sls",
-  "sp",
-  "tl",
-  "v",
-  "w",
-  "wa",
-  "wg",
-  "wh",
-  "wj"
-];
-
-// for these tags we span the following text until we find an end marker,
-export const NEED_TERMINATION_MARKERS = [
-  "bd",
-  "bdit",
-  "bk",
-  "ca",
-  "cat",
-  "dc",
-  "ef",
-  "em",
-  "ex",
-  "f",
-  "fa",
-  "fdc",
-  "fe",
-  "fig",
-  "fm",
-  "fqa",
-  "fv",
-  "imte",
-  "imte1",
-  "imte2",
-  "imte3",
-  "ior",
-  "iqt",
-  "it",
-  "jmp",
-  "k",
-  "lik",
-  "litl",
-  "liv",
-  "liv1",
-  "liv2",
-  "liv3",
-  "nd",
-  "ndx",
-  "no",
-  "ord",
-  "pn",
-  "png",
-  "pro",
-  "qac",
-  "qs",
-  "qt",
-  "rb",
-  "rq",
-  "rt",
-  "sc",
-  "sig",
-  "sis",
-  "tl",
-  "va",
-  "vp",
-  "w",
-  "wa",
-  "wg",
-  "wh",
-  "wj",
-  "x",
-  "xdc",
-  "xnt",
-  "xop",
-  "xot",
-  "xta"
-];
-
-/**
- * @description - initialize by putting tags in object for fast lookup
- * @param {object} lookup - target lookup dictionary
- * @param {array} keys - list of tags for lookup
- */
-export const initLookup = (lookup, keys) => {
-  for (let item of keys) {
-    lookup[item] = true;
+// for each USFM tag, specify associated properties
+//    display - if true then attribute content is translatable text
+//    type - optional category
+//    endTag - text to indicate the end of content/text
+const USFM_PROPERTIES = {
+  "add": {
+    "display": true
+  },
+  "b": {
+    "type": "paragraph",
+    "display": true
+  },
+  "bd": {
+    "endTag": "*",
+    "display": true
+  },
+  "bdit": {
+    "endTag": "*",
+    "display": true
+  },
+  "bk": {
+    "endTag": "*",
+    "display": true
+  },
+  "ca": {
+    "endTag": "*"
+  },
+  "cat": {
+    "endTag": "*"
+  },
+  "cls": {
+    "type": "paragraph",
+    "display": true
+  },
+  "d": {
+    "display": true
+  },
+  "dc": {
+    "endTag": "*",
+    "display": true
+  },
+  "ef": {
+    "endTag": "*"
+  },
+  "em": {
+    "endTag": "*",
+    "display": true
+  },
+  "esb": {
+    "endTag": "esbe"
+  },
+  "ex": {
+    "endTag": "*"
+  },
+  "f": {
+    "type": "footnote",
+    "endTag": "*"
+  },
+  "fa": {
+    "endTag": "*"
+  },
+  "fdc": {
+    "endTag": "*"
+  },
+  "fe": {
+    "endTag": "*"
+  },
+  "fig": {
+    "endTag": "*"
+  },
+  "fm": {
+    "endTag": "*"
+  },
+  "fqa": {
+    "endTag": "*"
+  },
+  "fv": {
+    "endTag": "*"
+  },
+  "imte": {
+    "endTag": "*"
+  },
+  "imte1": {
+    "endTag": "*"
+  },
+  "imte2": {
+    "endTag": "*"
+  },
+  "imte3": {
+    "endTag": "*"
+  },
+  "ior": {
+    "endTag": "*"
+  },
+  "iqt": {
+    "endTag": "*"
+  },
+  "it": {
+    "endTag": "*",
+    "display": true
+  },
+  "jmp": {
+    "endTag": "*"
+  },
+  "k": {
+    "endTag": "*",
+    "display": true
+  },
+  "lf": {
+    "display": true
+  },
+  "lh": {
+    "display": true
+  },
+  "li": {
+    "endTag": "*",
+    "display": true
+  },
+  "lik": {
+    "endTag": "*",
+    "display": true
+  },
+  "lim": {
+    "display": true
+  },
+  "lim1": {
+    "display": true
+  },
+  "lim2": {
+    "display": true
+  },
+  "lim3": {
+    "display": true
+  },
+  "lim4": {
+    "display": true
+  },
+  "lim5": {
+    "display": true
+  },
+  "lit": {
+    "display": true
+  },
+  "litl": {
+    "endTag": "*",
+    "display": true
+  },
+  "liv": {
+    "endTag": "*",
+    "display": true
+  },
+  "liv1": {
+    "endTag": "*",
+    "display": true
+  },
+  "liv2": {
+    "endTag": "*",
+    "display": true
+  },
+  "liv3": {
+    "endTag": "*",
+    "display": true
+  },
+  "liv4": {
+    "endTag": "*",
+    "display": true
+  },
+  "liv5": {
+    "endTag": "*",
+    "display": true
+  },
+  "m": {
+    "type": "paragraph",
+    "display": true
+  },
+  "mi": {
+    "type": "paragraph",
+    "display": true
+  },
+  "nb": {
+    "type": "paragraph",
+    "display": true
+  },
+  "nd": {
+    "endTag": "*",
+    "display": true
+  },
+  "ndx": {
+    "endTag": "*"
+  },
+  "no": {
+    "endTag": "*",
+    "display": true
+  },
+  "ord": {
+    "endTag": "*",
+    "display": true
+  },
+  "p": {
+    "type": "paragraph",
+    "display": true
+  },
+  "pc": {
+    "type": "paragraph",
+    "display": true
+  },
+  "ph": {
+    "type": "paragraph",
+    "display": true
+  },
+  "ph1": {
+    "type": "paragraph",
+    "display": true
+  },
+  "ph2": {
+    "type": "paragraph",
+    "display": true
+  },
+  "ph3": {
+    "type": "paragraph",
+    "display": true
+  },
+  "ph4": {
+    "type": "paragraph",
+    "display": true
+  },
+  "ph5": {
+    "type": "paragraph",
+    "display": true
+  },
+  "pi": {
+    "type": "paragraph",
+    "display": true
+  },
+  "pi1": {
+    "type": "paragraph",
+    "display": true
+  },
+  "pi2": {
+    "type": "paragraph",
+    "display": true
+  },
+  "pi3": {
+    "type": "paragraph",
+    "display": true
+  },
+  "pi4": {
+    "type": "paragraph",
+    "display": true
+  },
+  "pi5": {
+    "type": "paragraph",
+    "display": true
+  },
+  "pm": {
+    "type": "paragraph",
+    "display": true
+  },
+  "pmc": {
+    "type": "paragraph",
+    "display": true
+  },
+  "pmo": {
+    "type": "paragraph",
+    "display": true
+  },
+  "pmr": {
+    "type": "paragraph",
+    "display": true
+  },
+  "pn": {
+    "endTag": "*",
+    "display": true
+  },
+  "png": {
+    "endTag": "*",
+    "display": true
+  },
+  "po": {
+    "type": "paragraph",
+    "display": true
+  },
+  "pr": {
+    "type": "paragraph",
+    "display": true
+  },
+  "pro": {
+    "endTag": "*"
+  },
+  "q": {
+    "type": "quote",
+    "display": true
+  },
+  "q1": {
+    "type": "quote",
+    "display": true
+  },
+  "q2": {
+    "type": "quote",
+    "display": true
+  },
+  "q3": {
+    "type": "quote",
+    "display": true
+  },
+  "q4": {
+    "type": "quote",
+    "display": true
+  },
+  "qa": {
+    "type": "quote",
+    "display": true
+  },
+  "qac": {
+    "type": "quote",
+    "endTag": "*",
+    "display": true
+  },
+  "qc": {
+    "type": "quote",
+    "display": true
+  },
+  "qm": {
+    "type": "quote",
+    "display": true
+  },
+  "qr": {
+    "type": "quote",
+    "display": true
+  },
+  "qs": {
+    "type": "quote",
+    "endTag": "*",
+    "display": true
+  },
+  "qt": {
+    "type": "quote",
+    "endTag": "*",
+    "display": true
+  },
+  "rb": {
+    "endTag": "*"
+  },
+  "rq": {
+    "endTag": "*"
+  },
+  "rt": {
+    "endTag": "*"
+  },
+  "s": {
+    "type": "section"
+  },
+  "s1": {
+    "type": "section"
+  },
+  "s2": {
+    "type": "section"
+  },
+  "s3": {
+    "type": "section"
+  },
+  "s4": {
+    "type": "section"
+  },
+  "s5": {
+    "type": "section"
+  },
+  "sc": {
+    "endTag": "*",
+    "display": true
+  },
+  "sig": {
+    "endTag": "*",
+    "display": true
+  },
+  "sis": {
+    "endTag": "*"
+  },
+  "sls": {
+    "display": true
+  },
+  "sp": {
+    "display": true
+  },
+  "sup": {
+    "endTag": "*",
+    "display": true
+  },
+  "tl": {
+    "endTag": "*",
+    "display": true
+  },
+  "v": {
+    "display": true
+  },
+  "va": {
+    "endTag": "*"
+  },
+  "vp": {
+    "endTag": "*"
+  },
+  "w": {
+    "endTag": "*",
+    "display": true
+  },
+  "wa": {
+    "endTag": "*",
+    "display": true
+  },
+  "wg": {
+    "endTag": "*",
+    "display": true
+  },
+  "wh": {
+    "endTag": "*",
+    "display": true
+  },
+  "wj": {
+    "endTag": "*",
+    "display": true
+  },
+  "x": {
+    "endTag": "*"
+  },
+  "xdc": {
+    "endTag": "*"
+  },
+  "xnt": {
+    "endTag": "*"
+  },
+  "xop": {
+    "endTag": "*"
+  },
+  "xot": {
+    "endTag": "*"
+  },
+  "xta": {
+    "endTag": "*"
   }
 };
 
-export const NEED_TERMINATION_MARKERS_LOOKUP = {};
-export const MARK_CONTENT_AS_TEXT_LOOKUP = {};
-export const MARKERS_WITH_NUMBERS_LOOKUP = {};
-
-/**
- * description - initialize by putting tags in dictionary for fast lookup
- */
-export const init = () => {
-  initLookup(NEED_TERMINATION_MARKERS_LOOKUP, NEED_TERMINATION_MARKERS);
-  initLookup(MARK_CONTENT_AS_TEXT_LOOKUP, MARK_CONTENT_AS_TEXT);
-  initLookup(MARKERS_WITH_NUMBERS_LOOKUP, MARKERS_WITH_NUMBERS);
+export const markerType = tag => {
+  let tagProps = USFM_PROPERTIES[tag];
+  return tagProps && tagProps.type;
 };
 
-export const markerRequiresTermination = tag => {
-  return NEED_TERMINATION_MARKERS_LOOKUP[tag] === true;
+export const markerTermination = tag => {
+  let tagProps = USFM_PROPERTIES[tag];
+  return tagProps && tagProps.endTag;
 };
 
 export const markContentAsText = tag => {
-  return MARK_CONTENT_AS_TEXT_LOOKUP[tag] === true;
+  let tagProps = USFM_PROPERTIES[tag];
+  return tagProps && tagProps.display;
 };
 
 export const markerSupportsNumbers = tag => {
-  return MARKERS_WITH_NUMBERS_LOOKUP[tag] === true;
+  return MARKERS_WITH_NUMBERS[tag];
 };

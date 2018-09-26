@@ -53,6 +53,7 @@
           {
             "tag": "f",
             "type": "footnote",
+            "endTag": "f*",
             "content": "+ \\ft Some early versions omit, \\fqa in Ephesus, \\fqa* but this expression is probably in Paul's original letter. "
           },
           {

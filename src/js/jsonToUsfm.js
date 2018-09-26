@@ -2,8 +2,6 @@
  * @description for converting from json format to USFM.  Main method is jsonToUSFM()
  */
 
-import * as USFM from './USFM';
-
 let params_ = {};
 let wordMap_ = {};
 let wordIgnore_ = [];
@@ -99,17 +97,16 @@ const generatePhrase = (phraseObject, nextObject) => {
 const usfmMarkerToString = usfmObject => {
   let output = "";
   const content = usfmObject.text || usfmObject.content || "";
-  const markerRequiresTermination =
-    USFM.markerRequiresTermination(usfmObject.tag);
+  const markerTermination = usfmObject.endTag;
   if (usfmObject.tag) {
     output = '\\' + usfmObject.tag;
     if (usfmObject.number) {
       output += ' ' + usfmObject.number;
     }
     const firstChar = content.substr(0, 1);
-    if (!markerRequiresTermination && (firstChar !== '') && (firstChar !== '\n') && (content !== ' \n')) {
+    if (!markerTermination && (firstChar !== '') && (firstChar !== '\n') && (content !== ' \n')) {
       output += ' ';
-    } else if (markerRequiresTermination && (firstChar !== ' ')) {
+    } else if (markerTermination && (firstChar !== ' ')) {
       output += ' ';
     }
   }
@@ -118,8 +115,8 @@ const usfmMarkerToString = usfmObject => {
     output += content;
   }
 
-  if (markerRequiresTermination) {
-    output += '\\' + usfmObject.tag + '*';
+  if (markerTermination) {
+    output += '\\' + markerTermination;
   }
   return output;
 };
@@ -320,7 +317,6 @@ const processParams = () => {
 export const jsonToUSFM = (json, params) => {
   params_ = params || {}; // save current parameters
   processParams();
-  USFM.init();
   let output = [];
   if (json.headers) {
     for (let header of json.headers) {

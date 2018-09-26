@@ -8,9 +8,9 @@ import {usfmToJSON} from './usfmToJson';
 export const removeMarker = (string = '') => {
   let output = string; // default results
   if (string) {
-    const testData = convertStringToVerseObjects(string);
-    if (testData) {
-      output = mergeVerseData(testData); // get displayed text from verseObjects
+    const verseObjects = convertStringToVerseObjects(string);
+    if (verseObjects) {
+      output = mergeVerseData(verseObjects); // get displayed text from verseObjects
     }
   }
   return output;
@@ -23,9 +23,9 @@ export const removeMarker = (string = '') => {
  */
 export const convertStringToVerseObjects = text => {
 // first parse to verse objects
-  const verseObjects = usfmToJSON('\\v 1 ' + text, {chunk: true});
-  const verseText = verseObjects && verseObjects.verses["1"] && verseObjects.verses["1"].verseObjects;
-  return verseText;
+  const jsonData = usfmToJSON('\\v 1 ' + text, {chunk: true});
+  const verseObjects = jsonData && jsonData.verses && jsonData.verses["1"] && jsonData.verses["1"].verseObjects;
+  return verseObjects;
 };
 
 /**

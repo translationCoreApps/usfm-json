@@ -28,6 +28,7 @@
           {
             "content": "+ \\ft Some copies have: \\fqa ... his hand ... \\fqa* ",
             "tag": "f",
+            "endTag": "f*",
             "type": "footnote"
           },
           {

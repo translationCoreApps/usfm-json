@@ -277,8 +277,9 @@ const createUsfmObject = (tag, number, content) => {
   let contentAttr;
   if (tag) {
     output.tag = tag;
-    if (USFM.MARKER_TYPE[tag]) {
-      output.type = USFM.MARKER_TYPE[tag];
+    let type = USFM.markerType(tag);
+    if (type) {
+      output.type = type;
     }
     contentAttr = USFM.markContentAsText(tag) ? 'text' : 'content';
   } else { // default to text type
@@ -410,19 +411,22 @@ const removeLastNewLine = (state, ignoreQuote = false) => {
  * @param {String} content - usfm marker content
  * @param {String} tag - usfm marker tag
  * @param {string} nextChar - next character after marker
+ * @param {string} endTag - end suffix
  */
-const unPopNestedMarker = (state, content, tag, nextChar) => {
+const unPopNestedMarker = (state, content, tag, nextChar, endTag) => {
   let extra = content.substr(1); // pull out data after end marker
-  if (tag[tag.length - 1] === "*") {
-    tag = tag.substr(0, tag.length - 1);
+  if (tag.substr(tag.length - endTag.length) === endTag) {
+    tag = tag.substr(0, tag.length - endTag.length);
   }
   let found = false;
   for (let j = state.nested.length - 1; j >= 0; j--) {
-    const stackTYpe = state.nested[j].tag;
+    let beginning = state.nested[j];
+    const stackTYpe = beginning.tag;
     if (tag === stackTYpe) {
       while (state.nested.length > j) { // rollback nested to this point
         state.nested.pop();
       }
+      beginning.endTag = tag + endTag;
       found = true;
       break;
     }
@@ -451,7 +455,7 @@ const saveUsfmObject = (state, tag, usfmObject) => {
   } else { // not nested
     const saveTo = getSaveToLocation(state);
     saveTo.push(usfmObject);
-    if (USFM.markerRequiresTermination(tag)) { // need to handle nested data
+    if (USFM.markerTermination(tag)) { // need to handle nested data
       state.nested.push(usfmObject);
     }
   }
@@ -483,10 +487,14 @@ const addToCurrentVerse = (state, usfmObject, tag = null) => {
   }
 
   let content = usfmObject.content || "";
-  const isEndMarker = (content && (content[0] === "*")) ||
-    (tag[tag.length - 1] === "*");
+  let endMarker;
+  let isEndMarker;
+  if ((content && (content[0] === "*")) || (tag[tag.length - 1] === "*")) {
+    endMarker = '*';
+    isEndMarker = true;
+  }
   if (isEndMarker) { // check for end marker
-    unPopNestedMarker(state, content, tag, usfmObject.nextChar);
+    unPopNestedMarker(state, content, tag, usfmObject.nextChar, endMarker);
   } else {
     if (usfmObject.nextChar && !usfmObject.close) {
       content += usfmObject.nextChar;
@@ -626,7 +634,6 @@ const getVerseObjectsForBook = (usfmJSON, state) => {
  * @return {Object} - json object that holds the parsed usfm data, headers and chapters
 */
 export const usfmToJSON = (usfm, params = {}) => {
-  USFM.init();
   let lines = usfm.split(/\r?\n/); // get all the lines
   let usfmJSON = {};
   let markers = [];

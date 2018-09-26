@@ -94,6 +94,7 @@
           {
             "text": "Selah",
             "tag": "qs",
+            "endTag": "qs*",
             "type": "quote"
           },
           {
@@ -103,7 +104,7 @@
           {
             "tag": "s5",
             "type": "section",
-            "text": "\n"
+            "content": "\n"
           },
           {
             "tag": "q",
@@ -140,7 +141,7 @@
           {
             "tag": "s5",
             "type": "section",
-            "text": "\n"
+            "content": "\n"
           },
           {
             "tag": "q",

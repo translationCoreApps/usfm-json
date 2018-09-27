@@ -39,7 +39,7 @@ export const extractWordsFromVerseObject = verseObject => {
   if (typeof verseObject === 'object') {
     if (verseObject.word || verseObject.type === 'word') {
       words.push(verseObject);
-    } else if (verseObject.type === 'milestone' && verseObject.children) {
+    } else if (verseObject.children) {
       for (let child of verseObject.children) {
         const childWords = extractWordsFromVerseObject(child);
         words = words.concat(childWords);
@@ -65,7 +65,7 @@ export const mergeVerseData = (verseData, filter) => {
       verseArray.push(part);
     }
     let words = [part];
-    if (part.type === 'milestone') {
+    if (part.children) {
       words = extractWordsFromVerseObject(part);
     }
     words.forEach(word => {

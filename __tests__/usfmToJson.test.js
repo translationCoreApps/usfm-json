@@ -176,4 +176,8 @@ describe("USFM to JSON", () => {
   it('handles jmp tag', () => {
     generateTest('jmp', {chunk: true});
   });
+
+  it('handles esb tag', () => {
+    generateTest('esb', {chunk: true});
+  });
 });

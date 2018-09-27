@@ -9,6 +9,11 @@ export const MARKERS_WITH_NUMBERS = {
   "v": true
 };
 
+// maps end marker back to start marker
+export const SPECIAL_END_TAGS = {
+  "esbe": "esb"
+};
+
 // for each USFM tag, specify associated properties
 //    {boolean} display - optionalif true then attribute content is translatable text
 //    {string} type - optional category
@@ -119,8 +124,10 @@ const USFM_PROPERTIES = {
     "display": true
   },
   "k": {
-    "endTag": "*",
-    "display": true
+    "endTag": "-e",
+    type: "milestone",
+    "display": true,
+    "attrib": true
   },
   "lf": {
     "display": true
@@ -472,6 +479,13 @@ const USFM_PROPERTIES = {
   },
   "xta": {
     "endTag": "*"
+  },
+
+  "zaln": {
+    "endTag": "-e",
+    type: "milestone",
+    "display": true,
+    "attrib": true
   }
 };
 

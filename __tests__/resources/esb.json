@@ -1,0 +1,66 @@
+{
+  "chapters": {},
+  "headers": [],
+  "verses": {
+    "16": {
+      "verseObjects": [
+        {
+          "text": "\n",
+          "type": "text"
+        },
+        {
+          "children": [
+            {
+              "content": "History",
+              "endTag": "cat*",
+              "tag": "cat"
+            },
+            {
+              "content": "Fish and Fishing\n",
+              "tag": "ms"
+            },
+            {
+              "tag": "p",
+              "text": "In Jesus' time, fishing took place mostly on lake Galilee, because Jewish people\n",
+              "type": "paragraph"
+            },
+            {
+              "content": "Lev 11.9-12",
+              "endTag": "xt*",
+              "tag": "xt"
+            },
+            {
+              "text": "). Fish were also probably brought from Tyre and Sidon,",
+              "type": "text"
+            },
+            {
+              "tag": "p",
+              "text": "Among early Christians, the fish was a favorite image for Jesus, because the Greek\n",
+              "type": "paragraph"
+            },
+            {
+              "endTag": "tl*",
+              "tag": "tl",
+              "text": "ichthus"
+            },
+            {
+              "text": ") consists of the first letters of the Greek words that",
+              "type": "text"
+            },
+            {
+              "content": "Christian Fish Image|christfish.jpg||||Ihsous Christos Theou\n",
+              "endTag": "fig*",
+              "tag": "fig"
+            }
+          ],
+          "endTag": "esbe",
+          "tag": "esb"
+        },
+        {
+          "text": "could not use many of the harbors along the coast of the Mediterranean Sea, since these\nharbors were often controlled by unfriendly neighbors. The most common fish in the Lake\nof Galilee were carp and catfish. The Law of Moses allowed people to eat any fish with\nfins and scales, but since catfish lack scales (as do eels and sharks) they were not to\nbe eaten (where they were dried and salted.\n...\nword for fish (tell who Jesus is: Uios Swthr|Passing alongside the Sea of Galilee, he saw Simon and Andrew the brother of Simon casting a net into the sea, for they were fishermen.\n",
+          "type": "text"
+        }
+      ]
+    }
+  }
+}

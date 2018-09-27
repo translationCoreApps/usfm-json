@@ -2,6 +2,8 @@
  * @description for converting from json format to USFM.  Main method is jsonToUSFM()
  */
 
+import * as USFM from './USFM';
+
 let params_ = {};
 let wordMap_ = {};
 let wordIgnore_ = [];
@@ -65,6 +67,12 @@ const generateWord = (wordObject, nextObject) => {
 const generatePhrase = (phraseObject, nextObject) => {
   const tag = phraseObject.tag || 'zaln';
   const keys = Object.keys(phraseObject);
+  let markerTermination = '';
+  if (phraseObject.endTag) {
+    markerTermination = phraseObject.endTag + '-e\\*'; // new format takes precidence
+  } else {
+    markerTermination = '\\' + tag + '-e\\*'; // fall back to old generation method
+  }
   let attributes = [];
   keys.forEach(function(key) {
     if (!(milestoneIgnore_.includes(key))) {
@@ -77,7 +85,7 @@ const generatePhrase = (phraseObject, nextObject) => {
       attributes.push(attribute);
     }
   });
-  let line = '\\' + tag + '-s | ' + attributes.join(' ') + '\n';
+  let line = markerTermination + ' | ' + attributes.join(' ') + '\n';
 
 /* eslint-disable no-use-before-define */
   line = objectToString(phraseObject.children, line);
@@ -97,7 +105,10 @@ const generatePhrase = (phraseObject, nextObject) => {
 const usfmMarkerToString = usfmObject => {
   let output = "";
   const content = usfmObject.text || usfmObject.content || "";
-  const markerTermination = usfmObject.endTag;
+  let markerTermination = usfmObject.endTag; // new format takes precidence
+  if (!markerTermination && USFM.markerTermination(usfmObject.tag)) {
+    markerTermination = '\\' + usfmObject.tag + '*'; // fall back to old generation method
+  }
   if (usfmObject.tag) {
     output = '\\' + usfmObject.tag;
     if (usfmObject.number) {

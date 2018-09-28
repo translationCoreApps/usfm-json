@@ -1,4 +1,73 @@
 {
+  "chapters": {
+    "30": {
+      "1": {
+        "verseObjects": [
+          {
+            "text": "The words of Agur son of Jakeh—the utterance:\n",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "text": "This man declared to Ithiel, to Ithiel and Ucal:\n",
+            "type": "quote"
+          },
+          {
+            "content": "+ \\ft Some versions have \\fqa This man declared, \"I am weary, O God, I am weary. I am unable to do anything.\" \\fqa* ",
+            "endTag": "f*",
+            "nextChar": "\n",
+            "tag": "f",
+            "type": "footnote"
+          },
+          {
+            "tag": "q",
+            "text": "\n",
+            "type": "quote"
+          }
+        ]
+      },
+      "2": {
+        "verseObjects": [
+          {
+            "text": "Surely I am more like an animal than any human\n",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "text": "and I do not have the understanding of a human being.\n",
+            "type": "quote"
+          },
+          {
+            "tag": "q",
+            "text": "\n",
+            "type": "quote"
+          }
+        ]
+      },
+      "3": {
+        "verseObjects": [
+          {
+            "text": "I have not learned wisdom,\n",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "text": "nor do I have knowledge of the Holy One.\n",
+            "type": "quote"
+          }
+        ]
+      },
+      "front": {
+        "verseObjects": [
+          {
+            "tag": "p",
+            "text": "\n",
+            "type": "paragraph"
+          }
+        ]
+      }
+    }
+  },
   "headers": [
     {
       "content": "PRO Unlocked Literal Bible",
@@ -32,77 +101,5 @@
       "tag": "s5",
       "type": "section"
     }
-  ],
-  "chapters": {
-    "30": {
-      "1": {
-        "verseObjects": [
-          {
-            "text": "The words of Agur son of Jakeh—the utterance:\n",
-            "type": "text"
-          },
-          {
-            "tag": "q",
-            "type": "quote",
-            "text": "This man declared to Ithiel, to Ithiel and Ucal:\n"
-          },
-          {
-            "content": "+ \\ft Some versions have \\fqa This man declared, \"I am weary, O God, I am weary. I am unable to do anything.\" \\fqa* ",
-            "tag": "f",
-            "endTag": "f*",
-            "type": "footnote"
-          },
-          {
-            "text": "\n",
-            "type": "text"
-          },
-          {
-            "tag": "q",
-            "type": "quote",
-            "text": "\n"
-          }
-        ]
-      },
-      "2": {
-        "verseObjects": [
-          {
-            "text": "Surely I am more like an animal than any human\n",
-            "type": "text"
-          },
-          {
-            "tag": "q",
-            "type": "quote",
-            "text": "and I do not have the understanding of a human being.\n"
-          },
-          {
-            "tag": "q",
-            "type": "quote",
-            "text": "\n"
-          }
-        ]
-      },
-      "3": {
-        "verseObjects": [
-          {
-            "text": "I have not learned wisdom,\n",
-            "type": "text"
-          },
-          {
-            "tag": "q",
-            "type": "quote",
-            "text": "nor do I have knowledge of the Holy One.\n"
-          }
-        ]
-      },
-      "front": {
-        "verseObjects": [
-          {
-            "tag": "p",
-            "type": "paragraph",
-            "text": "\n"
-          }
-        ]
-      }
-    }
-  }
+  ]
 }

@@ -1,4 +1,4 @@
-/* eslint-disable no-use-before-define */
+/* eslint-disable no-use-before-define,no-negated-condition,brace-style */
 /**
  * @description for converting from USFM to json format.  Main method is usfmToJSON()
  */
@@ -504,16 +504,78 @@ const saveUsfmObject = (state, tag, usfmObject) => {
   const parentPhrase = getPhraseParent(state);
   if (parentPhrase) {
     if (parentPhrase.content) {
-      const content = markerToText(usfmObject);
-      parentPhrase.content += content;
-      return;
+      parentPhrase.content +=
+        (typeof usfmObject === 'string') ? usfmObject : markerToText(usfmObject);
     }
   } else if (state.nested.length > 0) { // is nested object
     pushObject(state, null, usfmObject);
   } else { // not nested
     const saveTo = getSaveToLocation(state);
-    saveTo.push(usfmObject);
+    const usfmObject_ = (typeof usfmObject === 'string') ?
+      createUsfmObject(null, null, usfmObject) : usfmObject;
+    saveTo.push(usfmObject_);
   }
+};
+
+/**
+ * keeps nesting count if of same type
+ * @param {object} state - holds parsing state information
+ * @param {object} phraseParent - object adding to
+ * @param {string} tag - tag for verseObject
+ * @return {boolean} true if match
+ */
+const incrementPhraseNesting = (state, phraseParent, tag) => {
+  if (phraseParent && (phraseParent.tag === tag)) {
+    if (!phraseParent.nesting) {
+      phraseParent.nesting = 0;
+    }
+    phraseParent.nesting++;
+    return true;
+  }
+  return false;
+};
+
+/**
+ * keeps nesting count if of same type
+ * @param {object} state - holds parsing state information
+ * @param {object} phraseParent - object adding to
+ * @param {string} endTag - tag for verseObject
+ * @return {{matchesParent: (boolean), count: (number)}} return new values
+ */
+const decrementPhraseNesting = (state, phraseParent, endTag) => {
+  let matchesParent = false;
+  let count = -1;
+  if (phraseParent) {
+    let terminations = USFM.markerTermination(phraseParent.tag);
+    if (terminations) {
+      if (typeof terminations === 'string') {
+        terminations = [terminations];
+      }
+      const length = terminations.length;
+      for (let i = 0; i < length; i++) {
+        const termination = terminations[i];
+        matchesParent = (termination === endTag) ||
+          (phraseParent.tag + termination === endTag);
+        if (matchesParent) {
+          break;
+        }
+      }
+    }
+    if (!matchesParent &&
+      (USFM.SPECIAL_END_TAGS[endTag] === phraseParent.tag)) {
+      matchesParent = true;
+    }
+    if (matchesParent) {
+      count = phraseParent.nesting || 0;
+      if (count) {
+        phraseParent.nesting = --count;
+      }
+      if (!count) {
+        delete phraseParent.nesting;
+      }
+    }
+  }
+  return {matchesParent, count};
 };
 
 /**
@@ -524,23 +586,22 @@ const saveUsfmObject = (state, tag, usfmObject) => {
  */
 const startSpan = (state, marker, tag) => {
   marker.tag = tag;
-  const parentPhrase = getPhraseParent(state);
-  if (parentPhrase) {
-    if (parentPhrase.content) {
-      const content = markerToText(marker);
-      parentPhrase.content += content;
+  const phraseParent = getPhraseParent(state);
+  if (phraseParent) {
+    if (phraseParent.content) {
+      phraseParent.content += markerToText(marker);
+      incrementPhraseNesting(state, phraseParent, tag);
+      return;
     }
-    return;
   }
   if (USFM.markContentAsText(tag)) { // we need to nest
+    pushObject(state, null, marker);
     if (state.phrase === null) {
       state.phrase = []; // create new phrase stack
       state.phraseParent = marker;
     }
     state.phrase.push([]); // push new empty list onto phrase stack
     marker.children = getLastPhrase(state); // point to top of phrase stack
-    const saveTo = getSaveToLocation(state);
-    pushObject(state, saveTo, marker);
   } else {
     saveUsfmObject(state, tag, marker);
     if (state.phrase === null) {
@@ -549,8 +610,10 @@ const startSpan = (state, marker, tag) => {
         last = last[last.length - 1];
       }
       state.phrase = []; // create new phrase stack
+      state.phrase.push([]); // push new empty list onto phrase stack
       state.phraseParent = last;
     }
+    incrementPhraseNesting(state, getLastPhrase(state), tag);
   }
 };
 
@@ -560,12 +623,41 @@ const startSpan = (state, marker, tag) => {
  * @return {Object} parent
  */
 const getPhraseParent = state => {
-  let last = getLastPhrase(state); // point to top of phrase stack;
-  if (last && last.length) {
-    last = last[last.length - 1];
+  let parent = null;
+  if ((state.phrase !== null) && (state.phrase.length > 1)) {
+    parent = state.phrase[state.phrase.length - 2];
   }
-  if (!last) {
-    last = state.phraseParent;
+  if (parent) {
+    if (parent.length > 0) {
+      parent = parent[parent.length - 1]; // get last in array
+    } else {
+      parent = null;
+    }
+  }
+  if (!parent) {
+    parent = state.phraseParent;
+  }
+  return parent;
+};
+
+/**
+ * pop and return last phrase
+ * @param {object} state - holds parsing state information
+ * @return {object} last phrase
+ */
+const popPhrase = state => {
+  let last = null;
+  if (state.phrase && (state.phrase.length > 0)) {
+    state.phrase.pop(); // remove last phrases
+    if (state.phrase.length <= 0) {
+      state.phrase = null; // stop adding to phrases
+      last = state.phraseParent;
+      state.phraseParent = null;
+    } else {
+      last = getPhraseParent(state);
+    }
+  } else {
+    state.phraseParent = null;
   }
   return last;
 };
@@ -579,29 +671,27 @@ const getPhraseParent = state => {
  * @return {number} new index
  */
 const endSpan = (state, index, markers, endMarker) => {
-  let last = null;
-  if (state.phrase && (state.phrase.length > 0)) {
-    state.phrase.pop(); // remove last phrases
-    if (state.phrase.length <= 0) {
-      state.phrase = null; // stop adding to phrases
-      last = state.phraseParent;
-      state.phraseParent = null;
-    } else {
-      last = getPhraseParent(state);
+  let current = markers[index];
+  let phraseParent = getPhraseParent(state);
+  if (!phraseParent || (phraseParent && !phraseParent.content)) {
+    let last = popPhrase(state);
+    if (!last) {
+      last = getSaveToLocation(state);
+      if (last && last.length) {
+        last = last[last.length - 1];
+      }
     }
-  } else {
-    last = getSaveToLocation(state);
-    if (last && last.length) {
-      last = last[last.length - 1];
-    }
-  }
-  if (last && endMarker) {
-    last.endTag = endMarker;
-    if ((last.children !== undefined) && !last.children.length) {
-      delete last.children; // remove unneeded empty children
+    if (last && endMarker) {
+      last.endTag = endMarker;
+      if ((last.children !== undefined) && !last.children.length) {
+        delete last.children; // remove unneeded empty children
+      }
+      if (current && current.nextChar) {
+        last.nextChar = current.nextChar;
+      }
     }
   }
-  let content = markers[index].content;
+  let content = current.content;
   if (content) {
     let trimLength = 0;
     if ((content.substr(0, 2) === "\\*")) { // check if content is part of milestone end
@@ -644,18 +734,31 @@ const endSpan = (state, index, markers, endMarker) => {
       content = content.substr(trimLength); // remove phrase end marker
     }
   }
-  if (content) {
-    pushObject(state, null, content);
+  if (phraseParent) {
+    if (phraseParent.content) {
+      let endMarker_ = "\\" + endMarker;
+      const {matchesParent, count} =
+        decrementPhraseNesting(state, phraseParent, endMarker);
+      const finishPhrase = matchesParent && (count <= 0);
+      let nextChar = current && current.nextChar;
+      if (content && nextChar) {
+        content += nextChar;
+        nextChar = '';
+      }
+      if (!finishPhrase) {
+        phraseParent.content += endMarker_ + (nextChar || "");
+      } else {
+        phraseParent.endTag = endMarker;
+        if (nextChar) {
+          phraseParent.nextChar = nextChar;
+        }
+        popPhrase(state);
+      }
+    }
   }
-  // if (((index + 1) < markers.length) && markers[index + 1].content) {
-  //
-  //     if (content) {
-  //       markers[index + 1].content = content;
-  //     } else { // no text after end marker
-  //       index++; // skip following text
-  //     }
-  //   }
-  // }
+  if (content) {
+    saveUsfmObject(state, null, content);
+  }
   return index;
 };
 

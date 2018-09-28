@@ -1,132 +1,134 @@
 {
-  "headers": [
-    {
-      "tag": "id",
-      "content": "TIT Titus"
-    }
-  ],
   "chapters": {
     "1": {
       "1": {
         "verseObjects": [
           {
-            "text": "ἀπόστολος",
-            "tag": "w",
-            "type": "word",
             "content-source": "bhp",
             "lemma": "ἀπόστολος",
-            "strong": "G06520",
             "morph": "Gr,N,,,,,NMS,",
-            "tw": "rc://*/tw/dict/bible/kt/apostle"
+            "strong": "G06520",
+            "tag": "w",
+            "text": "ἀπόστολος",
+            "tw": "rc://*/tw/dict/bible/kt/apostle",
+            "type": "word"
           },
           {
-            "text": "δὲ",
-            "tag": "w",
-            "type": "word",
             "content-source": "bhp",
             "lemma": "δέ",
+            "morph": "Gr,CC,,,,,,,,",
             "strong": "G11610",
-            "morph": "Gr,CC,,,,,,,,"
+            "tag": "w",
+            "text": "δὲ",
+            "type": "word"
           },
           {
-            "tag": "k",
-            "type": "milestone",
-            "content-source": "bhp",
-            "tw": "rc://*/tw/dict/bible/kt/jesus",
             "children": [
               {
-                "text": "Ἰησοῦ",
-                "tag": "w",
-                "type": "word",
                 "content-source": "bhp",
                 "lemma": "Ἰησοῦς",
+                "morph": "Gr,N,,,,,GMS,",
                 "strong": "G24240",
-                "morph": "Gr,N,,,,,GMS,"
+                "tag": "w",
+                "text": "Ἰησοῦ",
+                "type": "word"
               },
               {
-                "text": "Χριστοῦ",
-                "tag": "w",
-                "type": "word",
                 "content-source": "bhp",
                 "lemma": "χριστός",
-                "strong": "G55470",
                 "morph": "Gr,N,,,,,GMS,",
-                "tw": "rc://*/tw/dict/bible/kt/christ"
+                "strong": "G55470",
+                "tag": "w",
+                "text": "Χριστοῦ",
+                "tw": "rc://*/tw/dict/bible/kt/christ",
+                "type": "word"
               }
-            ]
+            ],
+            "content-source": "bhp",
+            "endTag": "k-e",
+            "tag": "k",
+            "tw": "rc://*/tw/dict/bible/kt/jesus",
+            "type": "milestone"
           },
           {
-            "type": "text",
-            "text": ","
+            "text": ",",
+            "type": "text"
           },
           {
-            "text": "κατὰ",
-            "tag": "w",
-            "type": "word",
             "content-source": "bhp",
             "lemma": "κατά",
+            "morph": "Gr,P,,,,,A,,,",
             "strong": "G25960",
-            "morph": "Gr,P,,,,,A,,,"
+            "tag": "w",
+            "text": "κατὰ",
+            "type": "word"
           },
           {
-            "type": "text",
-            "text": "\n\n"
+            "text": "\n\n",
+            "type": "text"
           }
         ]
       },
       "4": {
         "verseObjects": [
-        {
-          "text": "ἀπὸ",
-          "tag": "w",
-          "type": "word",
-          "content-source": "bhp",
-          "lemma": "ἀπό",
-          "strong": "G05750",
-          "morph": "Gr,P,,,,,G,,,"
-        },
-        {
-          "tag": "k",
-          "type": "milestone",
-          "content-source": "bhp",
-          "tw": "rc://*/tw/dict/bible/kt/godthefather",
-          "children": [
-            {
-              "text": "Θεοῦ",
-              "tag": "w",
-              "type": "word",
-              "content-source": "bhp",
-              "lemma": "θεός",
-              "strong": "G23160",
-              "morph": "Gr,N,,,,,GMS,",
-              "tw": "rc://*/tw/dict/bible/kt/god"
-            },
-            {
-              "text": "Πατρὸς",
-              "tag": "w",
-              "type": "word",
-              "content-source": "bhp",
-              "lemma": "πατήρ",
-              "strong": "G39620",
-              "morph": "Gr,N,,,,,GMS,"
-            }
-          ]
-        },
-        {
-          "text": "καὶ",
-          "tag": "w",
-          "type": "word",
-          "content-source": "bhp",
-          "lemma": "καί",
-          "strong": "G25320",
-          "morph": "Gr,CC,,,,,,,,"
-        },
-        {
-          "type": "text",
-          "text": "\n"
-        }
-      ]
+          {
+            "content-source": "bhp",
+            "lemma": "ἀπό",
+            "morph": "Gr,P,,,,,G,,,",
+            "strong": "G05750",
+            "tag": "w",
+            "text": "ἀπὸ",
+            "type": "word"
+          },
+          {
+            "children": [
+              {
+                "content-source": "bhp",
+                "lemma": "θεός",
+                "morph": "Gr,N,,,,,GMS,",
+                "strong": "G23160",
+                "tag": "w",
+                "text": "Θεοῦ",
+                "tw": "rc://*/tw/dict/bible/kt/god",
+                "type": "word"
+              },
+              {
+                "content-source": "bhp",
+                "lemma": "πατήρ",
+                "morph": "Gr,N,,,,,GMS,",
+                "strong": "G39620",
+                "tag": "w",
+                "text": "Πατρὸς",
+                "type": "word"
+              }
+            ],
+            "content-source": "bhp",
+            "endTag": "k-e",
+            "tag": "k",
+            "tw": "rc://*/tw/dict/bible/kt/godthefather",
+            "type": "milestone"
+          },
+          {
+            "content-source": "bhp",
+            "lemma": "καί",
+            "morph": "Gr,CC,,,,,,,,",
+            "strong": "G25320",
+            "tag": "w",
+            "text": "καὶ",
+            "type": "word"
+          },
+          {
+            "text": "\n",
+            "type": "text"
+          }
+        ]
       }
     }
-  }
+  },
+  "headers": [
+    {
+      "content": "TIT Titus",
+      "tag": "id"
+    }
+  ]
 }

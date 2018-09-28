@@ -17,23 +17,9 @@
             "type": "text"
           },
           {
-            "children": [
-              {
-                "content": "Some early versions omit, ",
-                "tag": "ft"
-              },
-              {
-                "content": "in Ephesus, ",
-                "endTag": "fqa*",
-                "tag": "fqa"
-              },
-              {
-                "text": " but this expression is probably in Paul's original letter. ",
-                "type": "text"
-              }
-            ],
-            "content": "+ ",
+            "content": "+ \\ft Some early versions omit, \\fqa in Ephesus, \\fqa* but this expression is probably in Paul's original letter. ",
             "endTag": "f*",
+            "nextChar": "\n",
             "tag": "f",
             "type": "footnote"
           }

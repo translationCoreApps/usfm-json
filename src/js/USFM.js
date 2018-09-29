@@ -504,7 +504,7 @@ export const markerHasAttributes = tag => {
   return tagProps && tagProps.attrib;
 };
 
-export const markContentAsText = tag => {
+export const isContentDisplayable = tag => {
   let tagProps = USFM_PROPERTIES[tag];
   return tagProps && tagProps.display;
 };

@@ -15,7 +15,7 @@
             }
           ],
           "content": "Παῦλος",
-          "endTag": "zaln-e*",
+          "endTag": "zaln-e\\*",
           "occurrence": 1,
           "occurrences": 1,
           "strong": "G39720",
@@ -44,7 +44,7 @@
             }
           ],
           "content": "δοῦλος",
-          "endTag": "zaln-e*",
+          "endTag": "zaln-e\\*",
           "occurrence": 1,
           "occurrences": 1,
           "strong": "G14010",
@@ -69,7 +69,7 @@
             }
           ],
           "content": "Θεοῦ",
-          "endTag": "zaln-e*",
+          "endTag": "zaln-e\\*",
           "occurrence": 1,
           "occurrences": 2,
           "strong": "G23160",
@@ -101,7 +101,7 @@
             }
           ],
           "content": "ἀπόστολος",
-          "endTag": "zaln-e*",
+          "endTag": "zaln-e\\*",
           "occurrence": 1,
           "occurrences": 1,
           "strong": "G06520",
@@ -119,7 +119,7 @@
             }
           ],
           "content": "δὲ",
-          "endTag": "zaln-e*",
+          "endTag": "zaln-e\\*",
           "occurrence": 1,
           "occurrences": 1,
           "strong": "G11610",
@@ -137,7 +137,7 @@
             }
           ],
           "content": "Ἰησοῦ",
-          "endTag": "zaln-e*",
+          "endTag": "zaln-e\\*",
           "occurrence": 1,
           "occurrences": 1,
           "strong": "G24240",
@@ -155,7 +155,7 @@
             }
           ],
           "content": "Χριστοῦ",
-          "endTag": "zaln-e*",
+          "endTag": "zaln-e\\*",
           "occurrence": 1,
           "occurrences": 1,
           "strong": "G55470",
@@ -177,7 +177,7 @@
             }
           ],
           "content": "κατὰ",
-          "endTag": "zaln-e*",
+          "endTag": "zaln-e\\*",
           "occurrence": 1,
           "occurrences": 1,
           "strong": "G25960",
@@ -202,7 +202,7 @@
             }
           ],
           "content": "πίστιν",
-          "endTag": "zaln-e*",
+          "endTag": "zaln-e\\*",
           "occurrence": 1,
           "occurrences": 1,
           "strong": "G41020",
@@ -227,7 +227,7 @@
             }
           ],
           "content": "Θεοῦ",
-          "endTag": "zaln-e*",
+          "endTag": "zaln-e\\*",
           "occurrence": 2,
           "occurrences": 2,
           "strong": "G23160",
@@ -263,7 +263,7 @@
             }
           ],
           "content": "ἐκλεκτῶν",
-          "endTag": "zaln-e*",
+          "endTag": "zaln-e\\*",
           "occurrence": 1,
           "occurrences": 1,
           "strong": "G15880",
@@ -281,7 +281,7 @@
             }
           ],
           "content": "καὶ",
-          "endTag": "zaln-e*",
+          "endTag": "zaln-e\\*",
           "occurrence": 1,
           "occurrences": 1,
           "strong": "G25320",
@@ -299,7 +299,7 @@
             }
           ],
           "content": "ἀληθείας",
-          "endTag": "zaln-e*",
+          "endTag": "zaln-e\\*",
           "occurrence": 1,
           "occurrences": 1,
           "strong": "G02250",
@@ -317,7 +317,7 @@
             }
           ],
           "content": "ἐπίγνωσιν",
-          "endTag": "zaln-e*",
+          "endTag": "zaln-e\\*",
           "occurrence": 1,
           "occurrences": 1,
           "strong": "G19220",
@@ -349,7 +349,7 @@
             }
           ],
           "content": "ἀληθείας",
-          "endTag": "zaln-e*",
+          "endTag": "zaln-e\\*",
           "occurrence": 1,
           "occurrences": 1,
           "strong": "G02250",
@@ -367,7 +367,7 @@
             }
           ],
           "content": "τῆς",
-          "endTag": "zaln-e*",
+          "endTag": "zaln-e\\*",
           "occurrence": 1,
           "occurrences": 1,
           "strong": "G35880",
@@ -392,7 +392,7 @@
             }
           ],
           "content": "κατ’",
-          "endTag": "zaln-e*",
+          "endTag": "zaln-e\\*",
           "occurrence": 1,
           "occurrences": 1,
           "strong": "G25960",
@@ -410,7 +410,7 @@
             }
           ],
           "content": "εὐσέβειαν",
-          "endTag": "zaln-e*",
+          "endTag": "zaln-e\\*",
           "occurrence": 1,
           "occurrences": 1,
           "strong": "G21500",

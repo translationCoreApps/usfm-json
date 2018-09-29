@@ -21,7 +21,7 @@
               }
             ],
             "content": "πάλαι",
-            "endTag": "zaln-e*",
+            "endTag": "zaln-e\\*",
             "lemma": "πάλαι",
             "morph": "Gr,D,,,,,,,,,",
             "occurrence": 1,
@@ -53,7 +53,7 @@
               }
             ],
             "content": "ὁ",
-            "endTag": "zaln-e*",
+            "endTag": "zaln-e\\*",
             "lemma": "ὁ",
             "morph": "Gr,EA,,,,NMS,",
             "occurrence": 1,
@@ -80,7 +80,7 @@
               }
             ],
             "content": "λαλήσας",
-            "endTag": "zaln-e*",
+            "endTag": "zaln-e\\*",
             "lemma": "λαλέω",
             "morph": "Gr,V,PAA,NMS,",
             "occurrence": 1,
@@ -100,7 +100,7 @@
               }
             ],
             "content": "τοῖς",
-            "endTag": "zaln-e*",
+            "endTag": "zaln-e\\*",
             "lemma": "ὁ",
             "morph": "Gr,EA,,,,DMP,",
             "occurrence": 1,
@@ -141,7 +141,7 @@
                   }
                 ],
                 "content": "πατράσιν",
-                "endTag": "zaln-e*",
+                "endTag": "zaln-e\\*",
                 "lemma": "πατήρ",
                 "morph": "Gr,N,,,,,DMP,",
                 "occurrence": 1,
@@ -152,7 +152,7 @@
               }
             ],
             "content": "τοῖς",
-            "endTag": "zaln-e*",
+            "endTag": "zaln-e\\*",
             "lemma": "ὁ",
             "morph": "Gr,EA,,,,DMP,",
             "occurrence": 2,
@@ -180,7 +180,7 @@
               }
             ],
             "content": "προφήταις",
-            "endTag": "zaln-e*",
+            "endTag": "zaln-e\\*",
             "lemma": "προφήτης",
             "morph": "Gr,N,,,,,DMP,",
             "occurrence": 1,
@@ -214,7 +214,7 @@
               }
             ],
             "content": "πολυμερῶς",
-            "endTag": "zaln-e*",
+            "endTag": "zaln-e\\*",
             "lemma": "πολυμερῶς",
             "morph": "Gr,D,,,,,,,,,",
             "occurrence": 1,
@@ -234,7 +234,7 @@
               }
             ],
             "content": "καὶ",
-            "endTag": "zaln-e*",
+            "endTag": "zaln-e\\*",
             "lemma": "καί",
             "morph": "Gr,CC,,,,,,,,",
             "occurrence": 1,
@@ -268,7 +268,7 @@
               }
             ],
             "content": "πολυτρόπως",
-            "endTag": "zaln-e*",
+            "endTag": "zaln-e\\*",
             "lemma": "πολυτρόπως",
             "morph": "Gr,D,,,,,,,,,",
             "occurrence": 1,

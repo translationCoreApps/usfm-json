@@ -987,7 +987,7 @@ export const usfmToJSON = (usfm, params = {}) => {
           delete phrase.text;
           startSpan(state, phrase, marker.tag);
         } else if (milestone === '-e') { // milestone end
-          i = endSpan(state, i, markers, marker.tag + "-e*");
+          i = endSpan(state, i, markers, marker.tag + "-e\\*");
         }
         break;
       }

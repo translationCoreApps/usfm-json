@@ -41,7 +41,7 @@
               "type": "word"
             }
           ],
-          "endTag": "k-e",
+          "endTag": "k-e*",
           "tag": "k",
           "tw": "rc://*/tw/dict/bible/kt/jesus",
           "type": "milestone"
@@ -94,7 +94,7 @@
               "type": "word"
             }
           ],
-          "endTag": "k-e",
+          "endTag": "k-e*",
           "tag": "k",
           "tw": "rc://*/tw/dict/bible/kt/godthefather",
           "type": "milestone"

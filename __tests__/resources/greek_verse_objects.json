@@ -27,7 +27,7 @@
             }
           ],
           "content-source": "bhp",
-          "endTag": "k-e",
+          "endTag": "k-e*",
           "tag": "k",
           "tw": "rc://*/tw/dict/bible/kt/jesus",
           "type": "milestone"

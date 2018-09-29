@@ -703,6 +703,9 @@ const endSpan = (state, index, markers, endMarker) => {
     else if ((content.substr(0, 4) === "-e\\*")) { // check if content marker is part of milestone end
       trimLength = 4;
     }
+    else if ((content.substr(0, 3) === "-e*")) { // check if content marker is part of milestone end
+      trimLength = 3;
+    }
     else if ((content === "-e")) { // check if content + next marker is part of milestone end
       if ((index + 1) < markers.length) {
         const nextItem = markers[index + 1];
@@ -712,8 +715,13 @@ const endSpan = (state, index, markers, endMarker) => {
           type = "text";
           nextContent = nextItem.text;
         }
-        if ((nextContent.substr(0, 2) === "\\*")) { // check if content is part of milestone end
+        if ((nextContent.substr(0, 1) === "*")) { // check if content is part of milestone end
+          trimLength = 1;
+        }
+        else if ((nextContent.substr(0, 2) === "\\*")) { // check if content is part of milestone end
           trimLength = 2;
+        }
+        if (trimLength) {
           if (nextContent.substr(trimLength, 1) === '\n') {
             trimLength++;
           }
@@ -979,7 +987,7 @@ export const usfmToJSON = (usfm, params = {}) => {
           delete phrase.text;
           startSpan(state, phrase, marker.tag);
         } else if (milestone === '-e') { // milestone end
-          i = endSpan(state, i, markers, marker.tag + "-e");
+          i = endSpan(state, i, markers, marker.tag + "-e*");
         }
         break;
       }

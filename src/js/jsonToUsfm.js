@@ -66,13 +66,14 @@ const generateWord = (wordObject, nextObject) => {
  */
 const generatePhrase = (phraseObject, nextObject) => {
   const tag = phraseObject.tag || 'zaln';
-  const keys = Object.keys(phraseObject);
   let markerTermination = '';
   if (phraseObject.endTag) {
-    markerTermination = phraseObject.endTag + '-e\\*'; // new format takes precidence
+    markerTermination = phraseObject.endTag; // new format takes precidence
+    delete phraseObject.endTag;
   } else {
-    markerTermination = '\\' + tag + '-e\\*'; // fall back to old generation method
+    markerTermination = tag + '-e\\*'; // fall back to old generation method
   }
+  const keys = Object.keys(phraseObject);
   let attributes = [];
   keys.forEach(function(key) {
     if (!(milestoneIgnore_.includes(key))) {
@@ -85,7 +86,7 @@ const generatePhrase = (phraseObject, nextObject) => {
       attributes.push(attribute);
     }
   });
-  let line = markerTermination + ' | ' + attributes.join(' ') + '\n';
+  let line = '\\' + tag + '-s | ' + attributes.join(' ') + '\n';
 
 /* eslint-disable no-use-before-define */
   line = objectToString(phraseObject.children, line);
@@ -93,7 +94,7 @@ const generatePhrase = (phraseObject, nextObject) => {
   if (!lastCharIsNewLine(line)) {
     line += '\n';
   }
-  line += '\\' + tag + '-e\\*' + needsNewLine(nextObject);
+  line += '\\' + markerTermination + needsNewLine(nextObject);
   return line;
 };
 
@@ -107,7 +108,7 @@ const usfmMarkerToString = usfmObject => {
   const content = usfmObject.text || usfmObject.content || "";
   let markerTermination = usfmObject.endTag; // new format takes precidence
   if (!markerTermination && USFM.markerTermination(usfmObject.tag)) {
-    markerTermination = '\\' + usfmObject.tag + '*'; // fall back to old generation method
+    markerTermination = usfmObject.tag + '*'; // fall back to old generation method
   }
   if (usfmObject.tag) {
     output = '\\' + usfmObject.tag;
@@ -132,6 +133,9 @@ const usfmMarkerToString = usfmObject => {
 
   if (markerTermination) {
     output += '\\' + markerTermination;
+  }
+  if (usfmObject.nextChar) {
+    output += usfmObject.nextChar;
   }
   return output;
 };

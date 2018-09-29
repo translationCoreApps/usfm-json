@@ -6,8 +6,8 @@
       "verseObjects": [
         {
           "lemma": "ἀπόστολος",
-          "morph": "Gr,N,,,,,NMS,",
           "strong": "G06520",
+          "morph": "Gr,N,,,,,NMS,",
           "tag": "w",
           "text": "ἀπόστολος",
           "tw": "rc://*/tw/dict/bible/kt/apostle",
@@ -15,8 +15,8 @@
         },
         {
           "lemma": "δέ",
-          "morph": "Gr,CC,,,,,,,,",
           "strong": "G11610",
+          "morph": "Gr,CC,,,,,,,,",
           "tag": "w",
           "text": "δὲ",
           "type": "word"
@@ -25,16 +25,16 @@
           "children": [
             {
               "lemma": "Ἰησοῦς",
-              "morph": "Gr,N,,,,,GMS,",
               "strong": "G24240",
+              "morph": "Gr,N,,,,,GMS,",
               "tag": "w",
               "text": "Ἰησοῦ",
               "type": "word"
             },
             {
               "lemma": "χριστός",
-              "morph": "Gr,N,,,,,GMS,",
               "strong": "G55470",
+              "morph": "Gr,N,,,,,GMS,",
               "tag": "w",
               "text": "Χριστοῦ",
               "tw": "rc://*/tw/dict/bible/kt/christ",
@@ -52,8 +52,8 @@
         },
         {
           "lemma": "κατά",
-          "morph": "Gr,P,,,,,A,,,",
           "strong": "G25960",
+          "morph": "Gr,P,,,,,A,,,",
           "tag": "w",
           "text": "κατὰ",
           "type": "word"
@@ -68,8 +68,8 @@
       "verseObjects": [
         {
           "lemma": "ἀπό",
-          "morph": "Gr,P,,,,,G,,,",
           "strong": "G05750",
+          "morph": "Gr,P,,,,,G,,,",
           "tag": "w",
           "text": "ἀπὸ",
           "type": "word"
@@ -78,8 +78,8 @@
           "children": [
             {
               "lemma": "θεός",
-              "morph": "Gr,N,,,,,GMS,",
               "strong": "G23160",
+              "morph": "Gr,N,,,,,GMS,",
               "tag": "w",
               "text": "Θεοῦ",
               "tw": "rc://*/tw/dict/bible/kt/god",
@@ -87,8 +87,8 @@
             },
             {
               "lemma": "πατήρ",
-              "morph": "Gr,N,,,,,GMS,",
               "strong": "G39620",
+              "morph": "Gr,N,,,,,GMS,",
               "tag": "w",
               "text": "Πατρὸς",
               "type": "word"
@@ -101,8 +101,8 @@
         },
         {
           "lemma": "καί",
-          "morph": "Gr,CC,,,,,,,,",
           "strong": "G25320",
+          "morph": "Gr,CC,,,,,,,,",
           "tag": "w",
           "text": "καὶ",
           "type": "word"

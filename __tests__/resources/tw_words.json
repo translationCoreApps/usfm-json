@@ -6,8 +6,8 @@
           {
             "content-source": "bhp",
             "lemma": "ἀπόστολος",
-            "morph": "Gr,N,,,,,NMS,",
             "strong": "G06520",
+            "morph": "Gr,N,,,,,NMS,",
             "tag": "w",
             "text": "ἀπόστολος",
             "tw": "rc://*/tw/dict/bible/kt/apostle",
@@ -16,8 +16,8 @@
           {
             "content-source": "bhp",
             "lemma": "δέ",
-            "morph": "Gr,CC,,,,,,,,",
             "strong": "G11610",
+            "morph": "Gr,CC,,,,,,,,",
             "tag": "w",
             "text": "δὲ",
             "type": "word"
@@ -27,8 +27,8 @@
               {
                 "content-source": "bhp",
                 "lemma": "Ἰησοῦς",
-                "morph": "Gr,N,,,,,GMS,",
                 "strong": "G24240",
+                "morph": "Gr,N,,,,,GMS,",
                 "tag": "w",
                 "text": "Ἰησοῦ",
                 "type": "word"
@@ -36,8 +36,8 @@
               {
                 "content-source": "bhp",
                 "lemma": "χριστός",
-                "morph": "Gr,N,,,,,GMS,",
                 "strong": "G55470",
+                "morph": "Gr,N,,,,,GMS,",
                 "tag": "w",
                 "text": "Χριστοῦ",
                 "tw": "rc://*/tw/dict/bible/kt/christ",
@@ -57,8 +57,8 @@
           {
             "content-source": "bhp",
             "lemma": "κατά",
-            "morph": "Gr,P,,,,,A,,,",
             "strong": "G25960",
+            "morph": "Gr,P,,,,,A,,,",
             "tag": "w",
             "text": "κατὰ",
             "type": "word"
@@ -74,8 +74,8 @@
           {
             "content-source": "bhp",
             "lemma": "ἀπό",
-            "morph": "Gr,P,,,,,G,,,",
             "strong": "G05750",
+            "morph": "Gr,P,,,,,G,,,",
             "tag": "w",
             "text": "ἀπὸ",
             "type": "word"
@@ -85,8 +85,8 @@
               {
                 "content-source": "bhp",
                 "lemma": "θεός",
-                "morph": "Gr,N,,,,,GMS,",
                 "strong": "G23160",
+                "morph": "Gr,N,,,,,GMS,",
                 "tag": "w",
                 "text": "Θεοῦ",
                 "tw": "rc://*/tw/dict/bible/kt/god",
@@ -95,8 +95,8 @@
               {
                 "content-source": "bhp",
                 "lemma": "πατήρ",
-                "morph": "Gr,N,,,,,GMS,",
                 "strong": "G39620",
+                "morph": "Gr,N,,,,,GMS,",
                 "tag": "w",
                 "text": "Πατρὸς",
                 "type": "word"
@@ -111,8 +111,8 @@
           {
             "content-source": "bhp",
             "lemma": "καί",
-            "morph": "Gr,CC,,,,,,,,",
             "strong": "G25320",
+            "morph": "Gr,CC,,,,,,,,",
             "tag": "w",
             "text": "καὶ",
             "type": "word"

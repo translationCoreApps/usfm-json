@@ -29,27 +29,30 @@ export const convertStringToVerseObjects = text => {
 };
 
 /**
- * extracts word objects from verse object. If verseObject is word type, return that in array, else if it is a
+ * extracts text objects within verse object. If verseObject is word type, return that in array, else if it is a
  * milestone, then add words found in children to word array.  If no words found return empty array.
  * @param {object} verseObject - verse objects to have words extracted from
- * @return {Array} words found
+ * @return {Array} verseObjects found
  */
-export const extractWordsFromVerseObject = verseObject => {
-  let words = [];
+export const extractTextFromVerseObject = verseObject => {
+  let verseObjects = [];
   if (typeof verseObject === 'object') {
     if (verseObject.text) {
-      words.push(verseObject.text);
+      verseObjects.push({type: 'text', text: verseObject.text});
     }
     if (verseObject.word || verseObject.type === 'word') {
-      words.push(verseObject);
+      verseObjects.push(verseObject);
     } else if (verseObject.children) {
       for (let child of verseObject.children) {
-        const childWords = extractWordsFromVerseObject(child);
-        words = words.concat(childWords);
+        const childWords = extractTextFromVerseObject(child);
+        verseObjects = verseObjects.concat(childWords);
+        if (child.nextChar) {
+          verseObjects.push({type: 'text', text: child.nextChar});
+        }
       }
     }
   }
-  return words;
+  return verseObjects;
 };
 
 /**
@@ -69,15 +72,20 @@ export const mergeVerseData = (verseData, filter) => {
     if (typeof part === 'string') {
       verseArray.push(part);
     }
-    let words = [part];
+    let verseObjects = [part];
     if (part.children) {
-      words = extractWordsFromVerseObject(part);
+      verseObjects = extractTextFromVerseObject(part);
     }
-    words.forEach(word => {
+    const voLength = verseObjects.length;
+    for (let w = 0; w < voLength; w++) {
+      const word = verseObjects[w];
       if (!filter || (word.text && word.type && filter.includes(word.type))) {
         verseArray.push(word.text);
       }
-    });
+    }
+    if (part.nextChar) {
+      verseArray.push(part.nextChar);
+    }
   }
   let verseText = '';
   for (let verse of verseArray) {

@@ -672,23 +672,16 @@ const popPhrase = state => {
  */
 const endSpan = (state, index, markers, endMarker) => {
   let current = markers[index];
-  let phraseParent = getPhraseParent(state);
   let content = current.content;
-  if (!phraseParent || USFM.isContentDisplayable(phraseParent.tag)) {
-    let last = popPhrase(state);
-    if (!last) {
-      last = getSaveToLocation(state);
-      if (last && last.length) {
-        last = last[last.length - 1];
-      }
-    }
-    if (last && endMarker) {
-      last.endTag = endMarker;
-      if ((last.children !== undefined) && !last.children.length) {
-        delete last.children; // remove unneeded empty children
-      }
-      if (current && current.nextChar) {
-        content = (content || "") + current.nextChar;
+  let phraseParent = getPhraseParent(state);
+  const parentContentDisplayable = USFM.isContentDisplayable(phraseParent.tag);
+  if (!phraseParent || parentContentDisplayable) {
+    popPhrase(state);
+    if (phraseParent && endMarker) {
+      phraseParent.endTag = endMarker;
+      if ((phraseParent.children !== undefined) &&
+            !phraseParent.children.length) {
+        delete phraseParent.children; // remove unneeded empty children
       }
     }
   }
@@ -742,12 +735,18 @@ const endSpan = (state, index, markers, endMarker) => {
       content = content.substr(trimLength); // remove phrase end marker
     }
   }
+  if (current && current.nextChar) {
+    if (content) {
+      content += current.nextChar;
+      delete current.nextChar;
+    }
+  }
   if (phraseParent) {
-    if (!USFM.isContentDisplayable(phraseParent.tag)) {
-      let endMarker_ = "\\" + endMarker;
-      const {matchesParent, count} =
-        decrementPhraseNesting(state, phraseParent, endMarker);
-      const finishPhrase = matchesParent && (count <= 0);
+    let endMarker_ = "\\" + endMarker;
+    const {matchesParent, count} =
+      decrementPhraseNesting(state, phraseParent, endMarker);
+    const finishPhrase = matchesParent && (count <= 0);
+    if (!parentContentDisplayable) {
       let nextChar = current && current.nextChar;
       if (content && nextChar) {
         content += nextChar;
@@ -762,6 +761,11 @@ const endSpan = (state, index, markers, endMarker) => {
           phraseParent.nextChar = nextChar;
         }
         popPhrase(state);
+      }
+    } else if (finishPhrase) { // parent displayable and this finishes
+      phraseParent.endTag = endMarker;
+      if (current && current.nextChar) {
+        phraseParent.nextChar = current.nextChar;
       }
     }
   }

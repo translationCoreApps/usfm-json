@@ -49,6 +49,7 @@
                 "occurrences": 1,
                 "strong": "G23160",
                 "tag": "zaln",
+                "endTag": "zaln-e\\*",
                 "type": "milestone"
               }
             ],
@@ -137,6 +138,7 @@
                     "occurrences": 1,
                     "strong": "G17220",
                     "tag": "zaln",
+                    "endTag": "zaln-e\\*",
                     "type": "milestone"
                   }
                 ],

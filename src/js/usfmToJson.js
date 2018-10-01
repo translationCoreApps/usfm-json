@@ -861,6 +861,17 @@ const processAsText = (state, marker) => {
   }
 };
 
+const addTextField = text => {
+  let results = "";
+  if (text) {
+    if (text.substr(0, 1) !== " ") {
+      results += " ";
+    }
+    results += text;
+  }
+  return results;
+};
+
 /**
  * @description - convert marker to text
  * @param {object} marker - object to convert to text
@@ -871,8 +882,8 @@ const markerToText = marker => {
   if (marker.number) {
     text += " " + marker.number;
   }
-  text += (marker.content ? " " + marker.content : "");
-  text += (marker.text ? " " + marker.text : "");
+  text += addTextField(marker.content);
+  text += addTextField(marker.text);
   if (marker.nextChar) {
     text += marker.nextChar;
   }

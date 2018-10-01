@@ -78,3 +78,6 @@ it('cleans jmp tag', () => {
   generateTest('filter/jmp');
 });
 
+it('cleans nd tag', () => {
+  generateTest('filter/nd');
+});

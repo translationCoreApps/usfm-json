@@ -48,7 +48,7 @@ const getMatches = (string, regex, lastLine) => {
 const parseMarkerOpen = markerOpen => {
   let object = {};
   if (markerOpen) {
-    const regex = /(\w+)\s*(\d*)/g;
+    const regex = /(\+?\w+)\s*(\d*)/g;
     const matches = getMatches(markerOpen, regex, true);
     object = {
       tag: matches[0][1],
@@ -149,7 +149,7 @@ const parseLine = (line, lastLine) => {
     }
     return array;
   }
-  const regex = /([^\\]+)?\\(\w+\s*\d*)(?!\w)\s*([^\\]+)?(\\\w\*)?/g;
+  const regex = /([^\\]+)?\\(\+?\w+\s*\d*)(?!\w)\s*([^\\]+)?(\\\w\*)?/g;
   const matches = getMatches(line, regex, lastLine);
   let lastObject = null;
   if (regex.exec(line)) { // normal formatting with marker followed by content
@@ -673,6 +673,7 @@ const popPhrase = state => {
 const endSpan = (state, index, markers, endMarker) => {
   let current = markers[index];
   let phraseParent = getPhraseParent(state);
+  let content = current.content;
   if (!phraseParent || USFM.isContentDisplayable(phraseParent.tag)) {
     let last = popPhrase(state);
     if (!last) {
@@ -687,11 +688,10 @@ const endSpan = (state, index, markers, endMarker) => {
         delete last.children; // remove unneeded empty children
       }
       if (current && current.nextChar) {
-        last.nextChar = current.nextChar;
+        content = (content || "") + current.nextChar;
       }
     }
   }
-  let content = current.content;
   if (content) {
     let trimLength = 0;
     if ((content.substr(0, 2) === "\\*")) { // check if content is part of milestone end

@@ -37,6 +37,9 @@ export const convertStringToVerseObjects = text => {
 export const extractWordsFromVerseObject = verseObject => {
   let words = [];
   if (typeof verseObject === 'object') {
+    if (verseObject.text) {
+      words.push(verseObject.text);
+    }
     if (verseObject.word || verseObject.type === 'word') {
       words.push(verseObject);
     } else if (verseObject.children) {
@@ -60,7 +63,9 @@ export const mergeVerseData = (verseData, filter) => {
     verseData = verseData.verseObjects;
   }
   const verseArray = [];
-  verseData.forEach(part => {
+  const length = verseData.length;
+  for (let i = 0; i < length; i++) {
+    const part = verseData[i];
     if (typeof part === 'string') {
       verseArray.push(part);
     }
@@ -73,7 +78,7 @@ export const mergeVerseData = (verseData, filter) => {
         verseArray.push(word.text);
       }
     });
-  });
+  }
   let verseText = '';
   for (let verse of verseArray) {
     if (verse) {

@@ -21,6 +21,10 @@ export const SPECIAL_END_TAGS = {
 //    {boolean} attrib - optional if true then expect attributes delimited by `|`
 //    {boolean} milestone - optional if true then contents between tags with `-s` and `-b`
 const USFM_PROPERTIES = {
+  "+nd": {
+    "endTag": "*",
+    "display": true
+  },
   "add": {
     "display": true
   },

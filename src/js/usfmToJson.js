@@ -282,7 +282,7 @@ const createUsfmObject = (tag, number, content) => {
     if (type) {
       output.type = type;
     }
-    const isContentText = USFM.isContentDisplayable(tag);
+    const isContentText = USFM.markerContentDisplayable(tag);
     contentAttr = isContentText ? 'text' : 'content';
     if (isContentText && USFM.markerHasAttributes(tag)) {
       const pos = content.indexOf('|');
@@ -324,7 +324,7 @@ const pushObject = (state, saveTo, usfmObject) => {
       const isNestedMarker = state.nested.length > 0;
       if (isNestedMarker) { // if this marker is nested in another marker, then we need to add to content as string
         const last = state.nested.length - 1;
-        const contentAttr = USFM.isContentDisplayable(usfmObject.tag) ? 'text' : 'content';
+        const contentAttr = USFM.markerContentDisplayable(usfmObject.tag) ? 'text' : 'content';
         const lastObject = state.nested[last];
         let output = lastObject[contentAttr];
         if (typeof usfmObject === "string") {
@@ -503,9 +503,15 @@ const checkForEndMarker = (usfmObject, tag) => {
 const saveUsfmObject = (state, tag, usfmObject) => {
   const phraseParent = getPhraseParent(state);
   if (phraseParent) {
-    if (!USFM.isContentDisplayable(phraseParent.tag)) {
+    if (!USFM.markerContentDisplayable(phraseParent.tag)) {
       const objectText = (typeof usfmObject === 'string') ? usfmObject : markerToText(usfmObject);
       phraseParent.content = (phraseParent.content || "") + objectText;
+    }
+    else {
+      const saveTo = getLastPhrase(state);
+      const usfmObject_ = (typeof usfmObject === 'string') ?
+        createUsfmObject(null, null, usfmObject) : usfmObject;
+      saveTo.push(usfmObject_);
     }
   } else if (state.nested.length > 0) { // is nested object
     pushObject(state, null, usfmObject);
@@ -573,9 +579,37 @@ const decrementPhraseNesting = (state, phraseParent, endTag) => {
       if (!count) {
         delete phraseParent.nesting;
       }
+      delete phraseParent.usfm3Milestone;
     }
   }
   return {matchesParent, count};
+};
+
+/**
+ * process USFM3 start tag, format `\qt-s |who="Pilate"\*`
+ * @param {boolean} displayable - if true then displayable text
+ * @param {object} marker - current marker being processed
+ * @param {string} tag - current marker tag
+ * @return {string} new tag
+ */
+const handleUsfm3Milestone = (displayable, marker, tag) => {
+  const field = displayable ? "text" : "content";
+  if (marker[field]) {
+    let markerLen = (marker[field].substr(0, 3) === "-s ") ? 3 : 0;
+    if (!markerLen) {
+      markerLen = (marker[field].substr(0, 2) === "-s") ? 2 : 0;
+    }
+    if (markerLen) {
+      tag += "-s";
+      marker.tag = tag;
+      marker[field] = marker[field].substr(markerLen);
+      if (!marker[field]) {
+        delete marker[field];
+      }
+      marker.usfm3Milestone = true;
+    }
+  }
+  return tag;
 };
 
 /**
@@ -587,14 +621,19 @@ const decrementPhraseNesting = (state, phraseParent, endTag) => {
 const startSpan = (state, marker, tag) => {
   marker.tag = tag;
   const phraseParent = getPhraseParent(state);
+  const tagProps = USFM.USFM_PROPERTIES[tag];
+  const displayable = tagProps && tagProps.display;
+  if (tagProps && tagProps.usfm3Milestone) {
+    tag = handleUsfm3Milestone(displayable, marker, tag);
+  }
   if (phraseParent) {
-    if (!USFM.isContentDisplayable(phraseParent.tag)) {
+    if (!USFM.markerContentDisplayable(phraseParent.tag)) {
       phraseParent.content = (phraseParent.content || "") + markerToText(marker);
       incrementPhraseNesting(state, phraseParent, tag);
       return;
     }
   }
-  if (USFM.isContentDisplayable(tag)) { // we need to nest
+  if (displayable) { // we need to nest
     pushObject(state, null, marker);
     if (state.phrase === null) {
       state.phrase = []; // create new phrase stack
@@ -674,7 +713,8 @@ const endSpan = (state, index, markers, endMarker) => {
   let current = markers[index];
   let content = current.content;
   let phraseParent = getPhraseParent(state);
-  const parentContentDisplayable = USFM.isContentDisplayable(phraseParent.tag);
+  const parentContentDisplayable =
+    USFM.markerContentDisplayable(phraseParent.tag);
   if (!phraseParent || parentContentDisplayable) {
     popPhrase(state);
     if (phraseParent && endMarker) {
@@ -715,7 +755,8 @@ const endSpan = (state, index, markers, endMarker) => {
           trimLength = 2;
         }
         if (trimLength) {
-          if (nextContent.substr(trimLength, 1) === '\n') {
+          const nextChar = nextContent.substr(trimLength, 1);
+          if ((nextChar === '\n') || (nextChar === ' ')) {
             trimLength++;
           }
           content = '';
@@ -1022,7 +1063,22 @@ export const usfmToJSON = (usfm, params = {}) => {
         break;
       }
       case undefined: { // likely orphaned text for the preceding verse marker
-        processAsText(state, marker);
+        if (marker) {
+          if (marker.content && (marker.content.substr(0, 2) === "\\*")) {
+            // is part of usfm3 milestone marker
+            marker.content = marker.content.substr(2);
+          }
+          if (marker.content && (marker.content.substr(0, 1) === "*")) {
+            const phraseParent = getPhraseParent(state);
+            if (phraseParent && phraseParent.usfm3Milestone) {
+              // is part of usfm3 milestone marker
+              marker.content = marker.content.substr(1);
+            }
+          }
+          if (marker.content) {
+            processAsText(state, marker);
+          }
+        }
         break;
       }
       default: {

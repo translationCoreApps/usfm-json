@@ -81,3 +81,11 @@ it('cleans jmp tag', () => {
 it('cleans nd tag', () => {
   generateTest('filter/nd');
 });
+
+it('cleans rb tag', () => {
+  generateTest('filter/rb');
+});
+
+it('cleans qt tag', () => {
+  generateTest('filter/qt');
+});

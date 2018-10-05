@@ -184,4 +184,8 @@ describe("USFM to JSON", () => {
   it('handles qt tag', () => {
     generateTest('qt', {chunk: true});
   });
+
+  it('handles nb tag', () => {
+    generateTest('nb', {chunk: true});
+  });
 });

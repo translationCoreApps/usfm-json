@@ -74,14 +74,9 @@ const generatePhrase = (phraseObject, nextObject) => {
   } else {
     markerTermination = tag + '-e\\*'; // fall back to old generation method
   }
-  let attrib = '';
-  const isMilestone = USFM.markerIsMilestone(tag);
-  if (isMilestone) {
-    if (phraseObject.attrib) {
-      attrib = ' ' + phraseObject.attrib;
-    }
-    attrib += "\\*";
-  } else {
+  let content = '';
+  const milestoneType = (phraseObject.type === 'milestone');
+  if (milestoneType) {
     const keys = Object.keys(phraseObject);
     let attributes = [];
     keys.forEach(function(key) {
@@ -95,14 +90,28 @@ const generatePhrase = (phraseObject, nextObject) => {
         attributes.push(attribute);
       }
     });
-    attrib = '-s | ' + attributes.join(' ') + '\n';
+    content = '-s | ' + attributes.join(' ') + '\n';
+  } else {
+    const isUsfm2Milestone = USFM.markerIsMilestone(tag);
+    if (isUsfm2Milestone) {
+      if (phraseObject.attrib) {
+        content = ' ' + phraseObject.attrib;
+      }
+      content += "\\*";
+    }
+    if (phraseObject.text) {
+      content += ' ' + phraseObject.text;
+    }
+    if (phraseObject.content) {
+      content += ' ' + phraseObject.content;
+    }
   }
-  let line = '\\' + tag + attrib;
+  let line = '\\' + tag + content;
 
 /* eslint-disable no-use-before-define */
   line = objectToString(phraseObject.children, line);
 /* eslint-enable no-use-before-define */
-  if (!isMilestone && !lastCharIsNewLine(line)) {
+  if (milestoneType && !lastCharIsNewLine(line)) {
     line += '\n';
   }
   line += '\\' + markerTermination + (phraseObject.nextChar || needsNewLine(nextObject));

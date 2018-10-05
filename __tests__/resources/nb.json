@@ -1,0 +1,88 @@
+{
+  "chapters": {},
+  "headers": [
+    {
+      "content": "The Garden of Eden",
+      "tag": "s1",
+      "type": "section"
+    }
+  ],
+  "verses": {
+    "1": {
+      "verseObjects": [
+        {
+          "text": "\n",
+          "type": "text"
+        },
+        {
+          "tag": "p",
+          "text": "When the ",
+          "type": "paragraph"
+        },
+        {
+          "endTag": "nd*",
+          "tag": "nd",
+          "text": "Lord"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "content": "+ \\fr 2.4: \\fk the \\+nd Lord\\+nd*: \\ft Where the Hebrew text\nhas Yahweh, traditionally transliterated as Jehovah, this translation employs \\+nd Lord\\+nd*\nwith capital letters, following a usage which is widespread in English versions.",
+          "endTag": "f*",
+          "tag": "f",
+          "type": "footnote"
+        },
+        {
+          "text": " God made\nthe universe,\n",
+          "type": "text"
+        }
+      ]
+    },
+    "5": {
+      "verseObjects": [
+        {
+          "text": "there were no plants on the earth and no seeds had sprouted, because he had not sent\nany rain, and there was no one to cultivate the land;\n",
+          "type": "text"
+        }
+      ]
+    },
+    "14": {
+      "verseObjects": [
+        {
+          "text": "That is why ",
+          "type": "text"
+        },
+        {
+          "children": [
+            {
+              "endTag": "+nd*",
+              "tag": "+nd",
+              "text": "Lord"
+            },
+            {
+              "text": "'s Battles",
+              "type": "text"
+            }
+          ],
+          "endTag": "bk*",
+          "tag": "bk",
+          "text": "The Book of the "
+        },
+        {
+          "text": " speaks of “...the\ntown of Waheb in the area of Suphah, and the valleys; the Arnon River,\n",
+          "type": "text"
+        }
+      ]
+    },
+    "15": {
+      "verseObjects": [
+        {
+          "text": "and the slope of the valleys that extend to the town of Ar and toward the border\nof Moab.”\n",
+          "type": "text"
+        }
+      ]
+    }
+  }
+}

@@ -1,3 +1,4 @@
+/* eslint-disable brace-style */
 /**
  * @description for converting from json format to USFM.  Main method is jsonToUSFM()
  */
@@ -73,28 +74,38 @@ const generatePhrase = (phraseObject, nextObject) => {
   } else {
     markerTermination = tag + '-e\\*'; // fall back to old generation method
   }
-  const keys = Object.keys(phraseObject);
-  let attributes = [];
-  keys.forEach(function(key) {
-    if (!(milestoneIgnore_.includes(key))) {
-      const value = phraseObject[key];
-      if (milestoneMap_[key]) { // see if we should convert this key
-        key = milestoneMap_[key];
-      }
-      let prefix = 'x-';
-      let attribute = prefix + key + '="' + value + '"';
-      attributes.push(attribute);
+  let attrib = '';
+  const isMilestone = USFM.markerIsMilestone(tag);
+  if (isMilestone) {
+    if (phraseObject.attrib) {
+      attrib = ' ' + phraseObject.attrib;
     }
-  });
-  let line = '\\' + tag + '-s | ' + attributes.join(' ') + '\n';
+    attrib += "\\*";
+  } else {
+    const keys = Object.keys(phraseObject);
+    let attributes = [];
+    keys.forEach(function(key) {
+      if (!(milestoneIgnore_.includes(key))) {
+        const value = phraseObject[key];
+        if (milestoneMap_[key]) { // see if we should convert this key
+          key = milestoneMap_[key];
+        }
+        let prefix = 'x-';
+        let attribute = prefix + key + '="' + value + '"';
+        attributes.push(attribute);
+      }
+    });
+    attrib = '-s | ' + attributes.join(' ') + '\n';
+  }
+  let line = '\\' + tag + attrib;
 
 /* eslint-disable no-use-before-define */
   line = objectToString(phraseObject.children, line);
 /* eslint-enable no-use-before-define */
-  if (!lastCharIsNewLine(line)) {
+  if (!isMilestone && !lastCharIsNewLine(line)) {
     line += '\n';
   }
-  line += '\\' + markerTermination + needsNewLine(nextObject);
+  line += '\\' + markerTermination + (phraseObject.nextChar || needsNewLine(nextObject));
   return line;
 };
 
@@ -194,8 +205,11 @@ const objectToString = (object, output, nextObject) => {
     return addOnNewLine(generateWord(object, nextObject), output);
   }
 
-  if (object.type === 'milestone') { // usfm keyterm with milestone (phrase)
+  if (object.type === 'milestone') { // milestone type (phrase)
     return addOnNewLine(generatePhrase(object, nextObject), output);
+  }
+  else if (object.children && object.children.length) {
+    return output + generatePhrase(object, nextObject);
   }
 
   if (object.tag) { // any other USFM marker tag

@@ -19,7 +19,7 @@
           },
           {
             "tag": "q",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "quote"
           }
         ]
@@ -47,13 +47,13 @@
             "type": "text"
           },
           {
-            "content": "\n",
+            "nextChar": "\n",
             "tag": "s5",
             "type": "section"
           },
           {
             "tag": "q",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "quote"
           }
         ]
@@ -84,13 +84,13 @@
             "type": "text"
           },
           {
-            "content": "\n",
+            "nextChar": "\n",
             "tag": "s5",
             "type": "section"
           },
           {
             "tag": "q",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "quote"
           }
         ]
@@ -108,7 +108,7 @@
           },
           {
             "tag": "q",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "quote"
           }
         ]
@@ -130,12 +130,12 @@
         "verseObjects": [
           {
             "tag": "p",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "paragraph"
           },
           {
             "tag": "q",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "quote"
           }
         ]

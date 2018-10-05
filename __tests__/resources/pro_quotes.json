@@ -15,7 +15,7 @@
           {
             "tag": "q",
             "type": "quote",
-            "text": "\n"
+            "nextChar": "\n"
           }
         ]
       },
@@ -33,12 +33,12 @@
           {
             "tag": "s5",
             "type": "section",
-            "content": "\n"
+            "nextChar": "\n"
           },
           {
             "tag": "q",
             "type": "quote",
-            "text": "\n"
+            "nextChar": "\n"
           }
         ]
       },
@@ -86,7 +86,7 @@
           {
             "tag": "q",
             "type": "quote",
-            "text": "\n"
+            "nextChar": "\n"
           },
           {
             "type": "text",

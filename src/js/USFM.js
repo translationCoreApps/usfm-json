@@ -9,14 +9,14 @@ export const MARKERS_WITH_NUMBERS = {
   v: true
 };
 
-// maps end marker back to start marker
+// maps milestone end marker back to start marker
 export const SPECIAL_END_TAGS = {
   esbe: "esb",
   "qt-e": "qt-s"
 };
 
 // for each USFM tag, specify associated properties
-//    {boolean} display - optionalif true then attribute content is translatable text
+//    {boolean} display - optional, if true then attribute content is translatable text
 //    {string} type - optional category
 //    {string|array} endTag - optional text to indicate the end of content/text
 //    {boolean} attrib - optional if true then expect attributes delimited by `|`
@@ -504,9 +504,13 @@ export const USFM_PROPERTIES = {
   }
 };
 
+export const getMarkerType = tagProps => {
+  return tagProps && tagProps.type;
+};
+
 export const markerType = tag => {
   const tagProps = USFM_PROPERTIES[tag];
-  return tagProps && tagProps.type;
+  return getMarkerType(tagProps);
 };
 
 export const markerTermination = tag => {
@@ -514,16 +518,37 @@ export const markerTermination = tag => {
   return tagProps && tagProps.endTag;
 };
 
+export const propAttributes = tagProps => {
+  return tagProps && tagProps.attrib;
+};
+
 export const markerHasAttributes = tag => {
   const tagProps = USFM_PROPERTIES[tag];
-  return tagProps && tagProps.attrib;
+  return propAttributes(tagProps);
+};
+
+export const propDisplayable = tagProps => {
+  return tagProps && tagProps.display;
 };
 
 export const markerContentDisplayable = tag => {
   const tagProps = USFM_PROPERTIES[tag];
-  return tagProps && tagProps.display;
+  return propDisplayable(tagProps);
 };
 
 export const markerSupportsNumbers = tag => {
   return MARKERS_WITH_NUMBERS[tag];
+};
+
+export const markerIsMilestone = tag => {
+  const tagProps = USFM_PROPERTIES[tag];
+  return tagProps && tagProps.milestone;
+};
+
+export const markerHasSpecialEndTag = tag => {
+  return SPECIAL_END_TAGS[tag];
+};
+
+export const propUsfm3Milestone = tagProps => {
+  return tagProps && tagProps.usfm3Milestone;
 };

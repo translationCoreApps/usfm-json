@@ -180,4 +180,8 @@ describe("USFM to JSON", () => {
   it('handles esb tag', () => {
     generateTest('esb', {chunk: true});
   });
+
+  it('handles qt tag', () => {
+    generateTest('qt', {chunk: true});
+  });
 });

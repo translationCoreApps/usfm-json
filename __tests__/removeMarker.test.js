@@ -44,15 +44,15 @@ it('removes f and s5 tags', () => {
 });
 
 it('removes f tags and following p tag', () => {
-  const input = "\\f + \\ft Acts 28:29—Some ancient copies have verse 29: \\fqa When he had said these things, the Jews went away. They were having a great dispute among themselves \\fqa* . \\f*\\p";
-  const expected = '';
+  const input = "\\f + \\ft Acts 28:29—Some ancient copies have verse 29: \\fqa When he had said these things, the Jews went away. They were having a great dispute among themselves \\fqa* . \\f*\\p\n";
+  const expected = '\n';
   const output = removeMarker(input);
   expect(output).toEqual(expected);
 });
 
 it('removes f and p tags', () => {
-  const input = "\\f + \\ft Acts 28:29—Some ancient copies have verse 29: \\fqa When he had said these things, the Jews went away. They were having a great dispute among themselves \\fqa* . \\f*\\p";
-  const expected = '';
+  const input = "\\f + \\ft Acts 28:29—Some ancient copies have verse 29: \\fqa When he had said these things, the Jews went away. They were having a great dispute among themselves \\fqa* . \\f*\\p\n";
+  const expected = '\n';
   const output = removeMarker(input);
   expect(output).toEqual(expected);
 });

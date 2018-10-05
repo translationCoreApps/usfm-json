@@ -109,4 +109,8 @@ describe("JSON to USFM", () => {
   it('handles jmp tag', () => {
     generateTest('jmp', {chunk: true});
   });
+
+  it('handles qt tag', () => {
+    generateTest('qt', {chunk: true});
+  });
 });

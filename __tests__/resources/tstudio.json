@@ -14,7 +14,7 @@
           },
           {
             "tag": "q",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "quote"
           }
         ]
@@ -36,12 +36,12 @@
           },
           {
             "tag": "s5",
-            "content": "\n",
+            "nextChar": "\n",
             "type": "section"
           },
           {
             "tag": "q",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "quote"
           }
         ]
@@ -59,7 +59,7 @@
           },
           {
             "tag": "q",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "quote"
           },
           {
@@ -81,13 +81,13 @@
       "front": {
         "verseObjects": [
           {
-            "text": "\n",
+            "nextChar": "\n",
             "tag": "m",
             "type": "paragraph"
           },
           {
             "tag": "q",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "quote"
           }
         ]

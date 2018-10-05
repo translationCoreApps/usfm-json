@@ -221,7 +221,7 @@ const parseLine = (line, lastLine) => {
     }
   } else { // doesn't have a marker but may have content
     // this is considered an orphaned line
-    const object = makeTextMarker(line + '\n');
+    const object = makeTextMarker(line + (lastLine ? '' : '\n'));
     array.push(object);
   }
   return array;
@@ -268,23 +268,25 @@ const getSaveToLocation = state => {
 
 /**
  * @description - create a USFM object with fields passed
- * @param {string|null} tag - string to use for tag
- * @param {string|null} number - optional number attribute
- * @param {string} content - optional content (may be saved as content or text depending on tag)
+ * @param {object} marker - object that contains usfm marker
+ * @param {boolean} noNext - if true, then ignore nextChar
  * @return {{tag: *}} USFM object
  */
-const createUsfmObject = (tag, number, content) => {
+const createUsfmObject = (marker, noNext = false) => {
   const output = { };
   let contentAttr;
+  const tag = marker.tag;
+  let content = marker.content;
+  const tagProps = USFM.USFM_PROPERTIES[tag];
+  const type = USFM.getMarkerType(tagProps);
   if (tag) {
     output.tag = tag;
-    let type = USFM.markerType(tag);
     if (type) {
       output.type = type;
     }
-    const isContentText = USFM.markerContentDisplayable(tag);
+    const isContentText = USFM.propDisplayable(tagProps);
     contentAttr = isContentText ? 'text' : 'content';
-    if (isContentText && USFM.markerHasAttributes(tag)) {
+    if (isContentText && USFM.propAttributes(tagProps)) {
       const pos = content.indexOf('|');
       if (pos >= 0) {
         output.attrib = content.substr(pos);
@@ -294,15 +296,26 @@ const createUsfmObject = (tag, number, content) => {
   } else { // default to text type
     contentAttr = output.type = "text";
   }
-  if (number) {
+  if (marker.number) {
     if (USFM.markerSupportsNumbers(tag)) {
-      output.number = number;
+      output.number = marker.number;
     } else { // handle rare case that parser places part of content as number
-      let newContent = number;
+      let newContent = marker.number;
       if (content) {
         newContent += ' ' + content;
       }
       content = newContent;
+    }
+  }
+  if (!noNext) {
+    if (marker.nextChar) {
+      if (content) {
+        content += marker.nextChar;
+      } else {
+        output.nextChar = marker.nextChar;
+      }
+    } else if (!content && (type === 'paragraph') && (!marker.nextChar)) {
+      output.nextChar = ' ';
     }
   }
   if (content) {
@@ -351,7 +364,7 @@ const pushObject = (state, saveTo, usfmObject) => {
     if (usfmObject === '') { // skip empty strings
       return;
     }
-    usfmObject = createUsfmObject(null, null, usfmObject);
+    usfmObject = createUsfmObject({content: usfmObject});
   }
 
   saveTo = Array.isArray(saveTo) ? saveTo : getSaveToLocation(state);
@@ -510,7 +523,7 @@ const saveUsfmObject = (state, tag, usfmObject) => {
     else {
       const saveTo = getLastPhrase(state);
       const usfmObject_ = (typeof usfmObject === 'string') ?
-        createUsfmObject(null, null, usfmObject) : usfmObject;
+        createUsfmObject({content: usfmObject}) : usfmObject;
       saveTo.push(usfmObject_);
     }
   } else if (state.nested.length > 0) { // is nested object
@@ -518,7 +531,7 @@ const saveUsfmObject = (state, tag, usfmObject) => {
   } else { // not nested
     const saveTo = getSaveToLocation(state);
     const usfmObject_ = (typeof usfmObject === 'string') ?
-      createUsfmObject(null, null, usfmObject) : usfmObject;
+      createUsfmObject({content: usfmObject}) : usfmObject;
     saveTo.push(usfmObject_);
   }
 };
@@ -561,7 +574,10 @@ const decrementPhraseNesting = (state, phraseParent, endTag) => {
       for (let i = 0; i < length; i++) {
         const termination = terminations[i];
         matchesParent = (termination === endTag) ||
-          (phraseParent.tag + termination === endTag);
+          (phraseParent.tag + termination === endTag) ||
+          // compare USFM3 milestones such as '\\qt-s' and '\\qt-e\\*`
+          (phraseParent.tag.substr(0, phraseParent.tag.length - 2) +
+              termination + '\\*' === endTag);
         if (matchesParent) {
           break;
         }
@@ -613,6 +629,19 @@ const handleUsfm3Milestone = (displayable, marker, tag) => {
 };
 
 /**
+ * get the last item that was saved
+ * @param {object} state - holds parsing state information
+ * @return {Object} last item
+ */
+const getLastItem = state => {
+  let last = getSaveToLocation(state);
+  if (last && last.length) {
+    last = last[last.length - 1];
+  }
+  return last;
+};
+
+/**
  * mark the beginning of a spanned usfm
  * @param {object} state - holds parsing state information
  * @param {object} marker - verseObject to save
@@ -622,8 +651,8 @@ const startSpan = (state, marker, tag) => {
   marker.tag = tag;
   const phraseParent = getPhraseParent(state);
   const tagProps = USFM.USFM_PROPERTIES[tag];
-  const displayable = tagProps && tagProps.display;
-  if (tagProps && tagProps.usfm3Milestone) {
+  const displayable = USFM.propDisplayable(tagProps);
+  if (USFM.propUsfm3Milestone(tagProps)) {
     tag = handleUsfm3Milestone(displayable, marker, tag);
   }
   if (phraseParent) {
@@ -644,10 +673,7 @@ const startSpan = (state, marker, tag) => {
   } else {
     saveUsfmObject(state, tag, marker);
     if (state.phrase === null) {
-      let last = getSaveToLocation(state);
-      if (last && last.length) {
-        last = last[last.length - 1];
-      }
+      let last = getLastItem(state);
       state.phrase = []; // create new phrase stack
       state.phrase.push([]); // push new empty list onto phrase stack
       state.phraseParent = last;
@@ -713,8 +739,11 @@ const endSpan = (state, index, markers, endMarker) => {
   let current = markers[index];
   let content = current.content;
   let phraseParent = getPhraseParent(state);
-  const parentContentDisplayable =
-    USFM.markerContentDisplayable(phraseParent.tag);
+  const phraseParentProps = USFM.USFM_PROPERTIES[phraseParent.tag];
+  const parentContentDisplayable = USFM.propDisplayable(phraseParentProps);
+  if (endMarker && USFM.propUsfm3Milestone(phraseParentProps)) {
+    endMarker += "\\*";
+  }
   if (!phraseParent || parentContentDisplayable) {
     popPhrase(state);
     if (phraseParent && endMarker) {
@@ -742,29 +771,25 @@ const endSpan = (state, index, markers, endMarker) => {
     else if ((content === "-e")) { // check if content + next marker is part of milestone end
       if ((index + 1) < markers.length) {
         const nextItem = markers[index + 1];
-        let type = "content";
         let nextContent = nextItem.content;
-        if (!nextContent && nextItem.text) {
-          type = "text";
-          nextContent = nextItem.text;
-        }
         if ((nextContent.substr(0, 1) === "*")) { // check if content is part of milestone end
           trimLength = 1;
         }
         else if ((nextContent.substr(0, 2) === "\\*")) { // check if content is part of milestone end
           trimLength = 2;
         }
+        const nextChar = nextContent.substr(trimLength, 1);
+        if ((nextChar === ' ') || nextChar === '\n') {
+          trimLength++;
+          current.nextChar = nextChar;
+        }
         if (trimLength) {
-          const nextChar = nextContent.substr(trimLength, 1);
-          if ((nextChar === '\n') || (nextChar === ' ')) {
-            trimLength++;
-          }
           content = '';
           nextContent = nextContent.substr(trimLength);
-          nextItem[type] = nextContent;
+          nextItem.content = nextContent;
           trimLength = 0;
         }
-        if ((type === "content") && !nextContent) {
+        if (!nextContent) {
           index++;
         }
       }
@@ -819,20 +844,16 @@ const endSpan = (state, index, markers, endMarker) => {
 /**
  * @description - adds usfm object to current verse and handles nested USFM objects
  * @param {object} state - holds parsing state information
- * @param {object} usfmObject - object that contains usfm marker
+ * @param {object} marker - object that contains usfm marker
  * @param {boolean} span - true if starting usfm span
  */
-const addToCurrentVerse = (state, usfmObject, span = false) => {
-  let tag = usfmObject.tag;
+const addToCurrentVerse = (state, marker, span = false) => {
+  let tag = marker.tag;
   if (!tag) {
-    pushObject(state, null, usfmObject);
+    pushObject(state, null, marker);
     return;
   }
-  let content = usfmObject.content || "";
-  if (usfmObject.nextChar && !usfmObject.close) {
-    content += usfmObject.nextChar;
-  }
-  const output = createUsfmObject(tag, null, content);
+  const output = createUsfmObject(marker);
   if (span) {
     startSpan(state, output, tag);
   } else {
@@ -888,8 +909,7 @@ const processAsText = (state, marker) => {
   if (state.currentChapter > 0 && marker.content) {
     addToCurrentVerse(state, marker.content);
   } else if (state.currentChapter === 0 && !state.currentVerse) { // if we haven't seen chapter yet, its a header
-    pushObject(state, state.headers, createUsfmObject(marker.tag,
-          marker.number, marker.content));
+    pushObject(state, state.headers, createUsfmObject(marker));
   }
   if (state.params.chunk && state.currentVerse > 0 && marker.content) {
     if (!state.verses[state.currentVerse])
@@ -1067,7 +1087,7 @@ export const usfmToJSON = (usfm, params = {}) => {
           if (marker.content && (marker.content.substr(0, 2) === "\\*")) {
             // is part of usfm3 milestone marker
             marker.content = marker.content.substr(2);
-          }
+          } else
           if (marker.content && (marker.content.substr(0, 1) === "*")) {
             const phraseParent = getPhraseParent(state);
             if (phraseParent && phraseParent.usfm3Milestone) {
@@ -1109,15 +1129,14 @@ export const usfmToJSON = (usfm, params = {}) => {
         }
         if (marker) { // if not yet processed
           if (state.currentChapter === 0 && !state.currentVerse) { // if we haven't seen chapter yet, its a header
-            pushObject(state, state.headers, createUsfmObject(marker.tag,
-              marker.number, marker.content));
+            pushObject(state, state.headers, createUsfmObject(marker, true));
           } else if (state.currentChapter ||
             (state.params.chunk && state.currentVerse)) {
             let tag = marker.tag;
             let {endMarker, content, spannedUsfm} =
               checkForEndMarker(marker, tag);
-            if (!endMarker && USFM.SPECIAL_END_TAGS[tag]) { // check for one-off end markers
-              const startMarker = USFM.SPECIAL_END_TAGS[tag];
+            if (!endMarker && USFM.markerHasSpecialEndTag(tag)) { // check for one-off end markers
+              const startMarker = USFM.markerHasSpecialEndTag(tag);
               endMarker = tag;
               tag = startMarker;
               spannedUsfm = true;

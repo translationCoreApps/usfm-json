@@ -61,16 +61,17 @@ export const extractTextFromVerseObject = verseObject => {
  * @param {array} filter - Optional filter to get a specific type of word object type.
  * @return {String} - the merged verse object string
  */
-export const mergeVerseData = (verseData, filter) => {
+export const mergeVerseData = verseData => {
   if (verseData.verseObjects) {
     verseData = verseData.verseObjects;
   }
   const verseArray = [];
-  const length = verseData.length;
+  let length = verseData.length;
   for (let i = 0; i < length; i++) {
     const part = verseData[i];
     if (typeof part === 'string') {
       verseArray.push(part);
+      continue;
     }
     let verseObjects = [part];
     if (part.children) {
@@ -79,7 +80,7 @@ export const mergeVerseData = (verseData, filter) => {
     const voLength = verseObjects.length;
     for (let w = 0; w < voLength; w++) {
       const word = verseObjects[w];
-      if (!filter || (word.text && word.type && filter.includes(word.type))) {
+      if (word.text) {
         verseArray.push(word.text);
       }
     }
@@ -88,11 +89,19 @@ export const mergeVerseData = (verseData, filter) => {
     }
   }
   let verseText = '';
-  for (let verse of verseArray) {
+  length = verseArray.length;
+  for (let i = 0; i < length; i++) {
+    const verse = verseArray[i];
     if (verse) {
-      const lastChar = verseText.substr(verseText.length - 1);
-      if (verseText && ((lastChar !== '\n') && (lastChar !== ' '))) {
-        verseText += ' ';
+      if (verseText) {
+        // make sure words aren't crammed together
+        const lastChar = verseText.substr(verseText.length - 1);
+        if ((lastChar !== '\n') && (lastChar !== ' ')) {
+          const nextChar = verse[0];
+          if ((nextChar !== '\n') && (nextChar !== ' ')) {
+            verseText += ' ';
+          }
+        }
       }
       verseText += verse;
     }

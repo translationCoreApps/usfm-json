@@ -43,7 +43,7 @@
         "verseObjects": [
           {
             "tag": "p",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "paragraph"
           }
         ]
@@ -56,7 +56,7 @@
           },
           {
             "tag": "p",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "paragraph"
           }
         ]
@@ -69,12 +69,12 @@
           },
           {
             "tag": "s5",
-            "content": "\n",
+            "nextChar": "\n",
             "type": "section"
           },
           {
             "tag": "p",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "paragraph"
           }
         ]

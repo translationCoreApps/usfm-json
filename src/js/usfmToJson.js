@@ -478,33 +478,68 @@ const stripLeadingZeros = text => {
 
 /**
  * check if object is an end marker
- * @param {object} usfmObject - object to check
- * @param {string} tag - tag for object
- * @return {{endMarker: (null|string), content: (string), spannedUsfm: (boolean)}} return new values
+ * @param {object} marker - object to check
+ * @return {{endMarker: (null|string), spannedUsfm: (boolean)}} return new values
  */
-const checkForEndMarker = (usfmObject, tag) => {
+const checkForEndMarker = marker => {
   let spannedUsfm = false;
   let endMarker = null;
-  let content = usfmObject.content || "";
-  const baseTag = (tag[tag.length - 1] === "*") ? tag.substr(0, tag.length - 1) : tag;
-  let terminations = USFM.markerTermination(baseTag);
-  if (terminations) {
-    spannedUsfm = true;
-    if (typeof terminations === 'string') {
-      terminations = [terminations];
+  let content = marker.content || "";
+  let initialTag = marker.tag;
+  let baseTag = marker.tag;
+  if (baseTag.substr(baseTag.length - 1) === "*") {
+    baseTag = baseTag.substr(0, baseTag.length - 1);
+    endMarker = marker.tag;
+  }
+  else if (content.substr(0, 1) === '-') {
+    const nextChar = content.substr(1, 1);
+    if ((nextChar === 's') || (nextChar === 'e')) {
+      let trim = 2;
+      if (content.substr(trim, 1) === ' ') {
+        trim++;
+      }
+      marker.tag += content.substr(0, 2);
+      endMarker = (nextChar === 'e') ? marker.tag : null;
+      baseTag += '-s';
+      content = content.substr(trim);
+      marker.content = content;
     }
-    const length = terminations.length;
-    for (let i = 0; i < length; i++) {
-      const termination = terminations[i];
-      let termLength = termination.length;
-      if ((content && (content.substr(0, termLength) === termination)) ||
-        (tag.substr(tag.length - termLength) === termination)) {
-        endMarker = baseTag + termination;
-        break;
+  }
+  else if (content.substr(0, 1) === '*') {
+    let trim = 1;
+    let space = '';
+    if (content.substr(trim, 1) === ' ') {
+      trim++;
+      space = ' ';
+    }
+    marker.tag += content.substr(0, 1);
+    endMarker = marker.tag;
+    content = content.substr(trim);
+    if (content) {
+      content += (marker.nextChar || '');
+      delete marker.nextChar;
+    }
+    if (space) {
+      if (content) {
+        marker.endMarkerChar = space;
+      } else {
+        marker.nextChar = space;
+      }
+    }
+    marker.content = content;
+  }
+  if (endMarker) {
+    spannedUsfm = true;
+  } else {
+    let termination = USFM.markerTermination(baseTag);
+    if (termination) {
+      spannedUsfm = true;
+      if ((initialTag + termination === marker.tag)) {
+        endMarker = marker.tag;
       }
     }
   }
-  return {endMarker, content, spannedUsfm};
+  return {endMarker, spannedUsfm};
 };
 
 /**
@@ -565,23 +600,13 @@ const decrementPhraseNesting = (state, phraseParent, endTag) => {
   let matchesParent = false;
   let count = -1;
   if (phraseParent) {
-    let terminations = USFM.markerTermination(phraseParent.tag);
-    if (terminations) {
-      if (typeof terminations === 'string') {
-        terminations = [terminations];
-      }
-      const length = terminations.length;
-      for (let i = 0; i < length; i++) {
-        const termination = terminations[i];
-        matchesParent = (termination === endTag) ||
-          (phraseParent.tag + termination === endTag) ||
-          // compare USFM3 milestones such as '\\qt-s' and '\\qt-e\\*`
-          (phraseParent.tag.substr(0, phraseParent.tag.length - 2) +
-              termination + '\\*' === endTag);
-        if (matchesParent) {
-          break;
-        }
-      }
+    let termination = USFM.markerTermination(phraseParent.tag);
+    if (termination) {
+      matchesParent = (termination === endTag) ||
+        (phraseParent.tag + termination === endTag) ||
+        // compare USFM3 milestones such as '\\qt-s' and '\\qt-e\\*`
+        (phraseParent.tag.substr(0, phraseParent.tag.length - 2) +
+            termination + '\\*' === endTag);
     }
     if (!matchesParent &&
       (USFM.SPECIAL_END_TAGS[endTag] === phraseParent.tag)) {
@@ -599,33 +624,6 @@ const decrementPhraseNesting = (state, phraseParent, endTag) => {
     }
   }
   return {matchesParent, count};
-};
-
-/**
- * process USFM3 start tag, format `\qt-s |who="Pilate"\*`
- * @param {boolean} displayable - if true then displayable text
- * @param {object} marker - current marker being processed
- * @param {string} tag - current marker tag
- * @return {string} new tag
- */
-const handleUsfm3Milestone = (displayable, marker, tag) => {
-  const field = displayable ? "text" : "content";
-  if (marker[field]) {
-    let markerLen = (marker[field].substr(0, 3) === "-s ") ? 3 : 0;
-    if (!markerLen) {
-      markerLen = (marker[field].substr(0, 2) === "-s") ? 2 : 0;
-    }
-    if (markerLen) {
-      tag += "-s";
-      marker.tag = tag;
-      marker[field] = marker[field].substr(markerLen);
-      if (!marker[field]) {
-        delete marker[field];
-      }
-      marker.usfm3Milestone = true;
-    }
-  }
-  return tag;
 };
 
 /**
@@ -653,7 +651,7 @@ const startSpan = (state, marker, tag) => {
   const tagProps = USFM.USFM_PROPERTIES[tag];
   const displayable = USFM.propDisplayable(tagProps);
   if (USFM.propUsfm3Milestone(tagProps)) {
-    tag = handleUsfm3Milestone(displayable, marker, tag);
+    marker.usfm3Milestone = true;
   }
   if (phraseParent) {
     if (!USFM.markerContentDisplayable(phraseParent.tag)) {
@@ -754,8 +752,9 @@ const endSpan = (state, index, markers, endMarker) => {
       }
     }
   }
+  let checkNext = false;
+  let trimLength = 0;
   if (content) {
-    let trimLength = 0;
     if ((content.substr(0, 2) === "\\*")) { // check if content is part of milestone end
       trimLength = 2;
     }
@@ -769,9 +768,21 @@ const endSpan = (state, index, markers, endMarker) => {
       trimLength = 3;
     }
     else if ((content === "-e")) { // check if content + next marker is part of milestone end
-      if ((index + 1) < markers.length) {
-        const nextItem = markers[index + 1];
-        let nextContent = nextItem.content;
+      checkNext = true;
+    }
+    if (trimLength) {
+      if (content.substr(trimLength, 1) === '\n') {
+        trimLength++;
+      }
+      content = content.substr(trimLength); // remove phrase end marker
+    }
+  }
+  if (checkNext || (!content && !current.nextChar && endMarker)) {
+    trimLength = 0;
+    if ((index + 1) < markers.length) {
+      const nextItem = markers[index + 1];
+      if (!nextItem.tag) {
+        let nextContent = nextItem.content || '';
         if ((nextContent.substr(0, 1) === "*")) { // check if content is part of milestone end
           trimLength = 1;
         }
@@ -794,12 +805,6 @@ const endSpan = (state, index, markers, endMarker) => {
         }
       }
     }
-    if (trimLength) {
-      if (content.substr(trimLength, 1) === '\n') {
-        trimLength++;
-      }
-      content = content.substr(trimLength); // remove phrase end marker
-    }
   }
   if (current && current.nextChar) {
     if (content) {
@@ -813,14 +818,15 @@ const endSpan = (state, index, markers, endMarker) => {
       decrementPhraseNesting(state, phraseParent, endMarker);
     const finishPhrase = matchesParent && (count <= 0);
     if (!parentContentDisplayable) {
-      let nextChar = current && current.nextChar;
+      let nextChar = current && current.nextChar || '';
       if (content && nextChar) {
         content += nextChar;
         nextChar = '';
       }
+      nextChar += (current && current.endMarkerChar) || '';
       if (!finishPhrase) {
         phraseParent.content = (phraseParent.content || "") +
-            endMarker_ + (nextChar || "");
+            endMarker_ + nextChar;
       } else {
         phraseParent.endTag = endMarker;
         if (nextChar) {
@@ -830,8 +836,9 @@ const endSpan = (state, index, markers, endMarker) => {
       }
     } else if (finishPhrase) { // parent displayable and this finishes
       phraseParent.endTag = endMarker;
-      if (current && current.nextChar) {
-        phraseParent.nextChar = current.nextChar;
+      const nextChar = current && (current.nextChar || current.endMarkerChar);
+      if (nextChar) {
+        phraseParent.nextChar = nextChar;
       }
     }
   }
@@ -1132,24 +1139,21 @@ export const usfmToJSON = (usfm, params = {}) => {
             pushObject(state, state.headers, createUsfmObject(marker, true));
           } else if (state.currentChapter ||
             (state.params.chunk && state.currentVerse)) {
-            let tag = marker.tag;
-            let {endMarker, content, spannedUsfm} =
-              checkForEndMarker(marker, tag);
-            if (!endMarker && USFM.markerHasSpecialEndTag(tag)) { // check for one-off end markers
-              const startMarker = USFM.markerHasSpecialEndTag(tag);
-              endMarker = tag;
-              tag = startMarker;
+            let {endMarker, spannedUsfm} = checkForEndMarker(marker);
+            if (!endMarker && USFM.markerHasSpecialEndTag(marker.tag)) { // check for one-off end markers
+              const startMarker = USFM.markerHasSpecialEndTag(marker.tag);
+              endMarker = marker.tag;
+              marker.tag = startMarker;
               spannedUsfm = true;
             }
             if (endMarker) { // check for end marker
               if (spannedUsfm) {
                 i = endSpan(state, i, markers, endMarker);
               } else {
-                unPopNestedMarker(state, content, tag, marker.nextChar,
-                  endMarker);
+                unPopNestedMarker(state, marker.content, endMarker,
+                  marker.nextChar, endMarker);
               }
             } else {
-              marker.tag = tag;
               addToCurrentVerse(state, marker, spannedUsfm);
             }
           }

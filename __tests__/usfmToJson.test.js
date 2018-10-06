@@ -1,3 +1,4 @@
+/* eslint-disable quote-props */
 import {readJSON, readUSFM} from './util';
 import {usfmToJSON} from '../src/js/usfmToJson';
 
@@ -17,7 +18,7 @@ const generateTest = (name, args = {}, expectedName) => {
   expect(output).toEqual(expected);
 };
 
-describe("USFM to JSON", () => {
+describe("Large - USFM to JSON", () => {
   it('handle large files quickly', () => {
     const input = readUSFM(`large.usfm`);
     expect(input).toBeTruthy();
@@ -35,7 +36,9 @@ describe("USFM to JSON", () => {
     // Three seconds is a high bar to avoid tests failing on slow CI.
     expect(avgSeconds).toBeLessThanOrEqual(3);
   });
+});
 
+describe("USFM to JSON", () => {
   it('parses verse with an \\m marker inline with the text', () => {
     const input = "\\v 1 but the word of the Lord remains forever.\"\n\\m And this is the word of the gospel that was proclaimed to you.";
     const data = usfmToJSON(input, {chunk: true}).verses["1"].verseObjects;

@@ -365,18 +365,16 @@ export const USFM_PROPERTIES = {
     endTag: "*",
     display: true
   },
-  // qt is an oddball since span can either be `\qt ... \qt*` or `\qt-s\* ... \qt-e\*`
   qt: {
     type: "quote",
-    endTag: ["*", "-e"],
+    endTag: "*",
     display: true,
     milestone: true,
-    usfm3Milestone: true,
     attrib: true
   },
   "qt-s": {
     type: "quote",
-    endTag: ["*", "-e"],
+    endTag: "-e",
     display: true,
     milestone: true,
     usfm3Milestone: true,
@@ -437,11 +435,13 @@ export const USFM_PROPERTIES = {
     display: true
   },
   ts: {
-    type: "quote",
-    display: true,
-    endTag: "-e",
-    milestone: true,
-    attrib: true
+    display: false
+  },
+  "ts-e": {
+    display: false
+  },
+  "ts-s": {
+    display: false
   },
   v: {
     display: true
@@ -551,4 +551,9 @@ export const markerHasSpecialEndTag = tag => {
 
 export const propUsfm3Milestone = tagProps => {
   return tagProps && tagProps.usfm3Milestone;
+};
+
+export const markerIsUsfm3Milestone = tag => {
+  const tagProps = USFM_PROPERTIES[tag];
+  return propUsfm3Milestone(tagProps);
 };

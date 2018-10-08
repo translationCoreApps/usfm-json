@@ -89,3 +89,11 @@ it('cleans rb tag', () => {
 it('cleans qt tag', () => {
   generateTest('filter/qt');
 });
+
+it('cleans ts tag', () => {
+  generateTest('filter/ts');
+});
+
+it('cleans ts_2 tag', () => {
+  generateTest('filter/ts_2');
+});

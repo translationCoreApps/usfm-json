@@ -20,7 +20,9 @@ export const SPECIAL_END_TAGS = {
 //    {string} type - optional category
 //    {string|array} endTag - optional text to indicate the end of content/text
 //    {boolean} attrib - optional if true then expect attributes delimited by `|`
+//    {boolean} endAttrib - optional if true then expect attributes on end milestone delimited by `|`
 //    {boolean} milestone - optional if true then contents between tags with `-s` and `-b`
+//    {boolean} standalone - optional if true then force a milestone marker to be treated as standalone
 export const USFM_PROPERTIES = {
   "+nd": {
     endTag: "*",
@@ -435,13 +437,21 @@ export const USFM_PROPERTIES = {
     display: true
   },
   ts: {
-    display: false
+    milestone: true,
+    display: false,
+    standalone: true
   },
   "ts-e": {
-    display: false
+    milestone: true,
+    display: false,
+    endAttrib: true,
+    standalone: true
   },
   "ts-s": {
-    display: false
+    milestone: true,
+    display: false,
+    endAttrib: true,
+    standalone: true
   },
   v: {
     display: true
@@ -513,9 +523,13 @@ export const markerType = tag => {
   return getMarkerType(tagProps);
 };
 
+export const propTermination = tagProps => {
+  return tagProps && tagProps.endTag;
+};
+
 export const markerTermination = tag => {
   const tagProps = USFM_PROPERTIES[tag];
-  return tagProps && tagProps.endTag;
+  return propTermination(tagProps);
 };
 
 export const propAttributes = tagProps => {
@@ -525,6 +539,20 @@ export const propAttributes = tagProps => {
 export const markerHasAttributes = tag => {
   const tagProps = USFM_PROPERTIES[tag];
   return propAttributes(tagProps);
+};
+
+export const markerHasEndAttributes = tag => {
+  const tagProps = USFM_PROPERTIES[tag];
+  return tagProps && tagProps.endAttrib;
+};
+
+export const propStandalone = tagProps => {
+  return tagProps && tagProps.standalone;
+};
+
+export const markerStandalone = tag => {
+  const tagProps = USFM_PROPERTIES[tag];
+  return propStandalone(tagProps);
 };
 
 export const propDisplayable = tagProps => {

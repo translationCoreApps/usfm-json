@@ -434,43 +434,6 @@ const removeLastNewLine = (state, ignoreQuote = false) => {
 };
 
 /**
- * @description - rollback nested to endpoint for this tag
- * @param {object} state - holds parsing state information
- * @param {String} content - usfm marker content
- * @param {String} tag - usfm marker tag
- * @param {string} nextChar - next character after marker
- * @param {string} endTag - end suffix
- */
-const unPopNestedMarker = (state, content, tag, nextChar, endTag) => {
-  let extra = content && content.substr(1); // pull out data after end marker
-  if (tag.substr(tag.length - endTag.length) === endTag) {
-    tag = tag.substr(0, tag.length - endTag.length);
-  }
-  let found = false;
-  for (let j = state.nested.length - 1; j >= 0; j--) {
-    let beginning = state.nested[j];
-    const stackTYpe = beginning.tag;
-    if (tag === stackTYpe) {
-      while (state.nested.length > j) { // rollback nested to this point
-        state.nested.pop();
-      }
-      beginning.endTag = endTag;
-      found = true;
-      break;
-    }
-  }
-  if (!found) { // since nested and not in stack, add end marker to text content
-    pushObject(state, null, '\\' + tag + '*');
-  }
-  if (extra) {
-    pushObject(state, null, extra);
-  }
-  if (nextChar) {
-    pushObject(state, null, nextChar);
-  }
-};
-
-/**
  * @description normalize the numbers in string by removing leading '0'
  * @param {string} text - number string to normalize
  * @return {string} normalized number string
@@ -1196,9 +1159,6 @@ export const usfmToJSON = (usfm, params = {}) => {
             if (endMarker) { // check for end marker
               if (spannedUsfm) {
                 i = endSpan(state, i, markers, endMarker);
-              } else {
-                unPopNestedMarker(state, marker.content, endMarker,
-                  marker.nextChar, endMarker);
               }
             } else if (spannedUsfm) {
               startSpan(state, createUsfmObject(marker), marker.tag);

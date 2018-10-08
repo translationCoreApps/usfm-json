@@ -518,11 +518,6 @@ export const getMarkerType = tagProps => {
   return tagProps && tagProps.type;
 };
 
-export const markerType = tag => {
-  const tagProps = USFM_PROPERTIES[tag];
-  return getMarkerType(tagProps);
-};
-
 export const propTermination = tagProps => {
   return tagProps && tagProps.endTag;
 };
@@ -534,11 +529,6 @@ export const markerTermination = tag => {
 
 export const propAttributes = tagProps => {
   return tagProps && tagProps.attrib;
-};
-
-export const markerHasAttributes = tag => {
-  const tagProps = USFM_PROPERTIES[tag];
-  return propAttributes(tagProps);
 };
 
 export const markerHasEndAttributes = tag => {
@@ -579,9 +569,4 @@ export const markerHasSpecialEndTag = tag => {
 
 export const propUsfm3Milestone = tagProps => {
   return tagProps && tagProps.usfm3Milestone;
-};
-
-export const markerIsUsfm3Milestone = tag => {
-  const tagProps = USFM_PROPERTIES[tag];
-  return propUsfm3Milestone(tagProps);
 };

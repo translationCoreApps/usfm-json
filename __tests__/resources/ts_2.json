@@ -1,0 +1,62 @@
+{
+  "chapters": {},
+  "headers": [
+    {
+      "attrib": "|sid=\"ts_JUD_5-6\"",
+      "tag": "ts-s\\*"
+    },
+    {
+      "tag": "p",
+      "type": "paragraph"
+    }
+  ],
+  "verses": {
+    "5": {
+      "verseObjects": [
+        {
+          "text": "Now I wish to remind you, although you know everything, that the Lord once saved a\npeople out of the land of Egypt, but that afterward he destroyed those who did not believe.\n",
+          "type": "text"
+        }
+      ]
+    },
+    "6": {
+      "verseObjects": [
+        {
+          "text": "And angels who did not keep to their own principality, but left their proper dwelling\nplace—God has kept them in everlasting chains in darkness for the judgment of the\ngreat day.\n",
+          "type": "text"
+        },
+        {
+          "attrib": "|eid=\"ts_JUD_5-6\"",
+          "nextChar": "\n",
+          "tag": "ts-e\\*"
+        },
+        {
+          "attrib": "|sid=\"ts_JUD_7-8\"",
+          "nextChar": "\n",
+          "tag": "ts-s\\*"
+        }
+      ]
+    },
+    "7": {
+      "verseObjects": [
+        {
+          "text": "It is just like Sodom and Gomorrah and the cities around them, which in a similar way\ngave themselves over to fornication and pursued unnatural desires. They were given as\nexamples of those who suffer the punishment of eternal fire.\n",
+          "type": "text"
+        }
+      ]
+    },
+    "8": {
+      "verseObjects": [
+        {
+          "text": "Yet in the same way these also pollute their bodies in their dreams, and they reject\nauthority, and they say evil things about the glorious ones.\n",
+          "type": "text"
+        },
+        {
+          "attrib": "|eid=\"ts_JUD_7-8\"",
+          "nextChar": "\n",
+          "tag": "ts-e\\*"
+        }
+      ]
+    }
+  }
+}

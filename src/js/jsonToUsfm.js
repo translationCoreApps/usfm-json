@@ -148,7 +148,12 @@ const usfmMarkerToString = usfmObject => {
   }
 
   if (usfmObject.attrib) {
-    output += usfmObject.attrib;
+    if (usfmObject.tag.substr(-2) === '\\*') { // we need to apply attibute before \*
+      output = output.substr(0, output.length - 2) + usfmObject.attrib +
+        output.substr(-2);
+    } else {
+      output += usfmObject.attrib;
+    }
   }
 
   if (markerTermination) {

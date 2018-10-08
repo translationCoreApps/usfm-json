@@ -245,25 +245,29 @@ const getLastPhrase = state => {
  * @return {array} location to place verse content
  */
 const getSaveToLocation = state => {
+  let saveTo = state.headers;
   const phrase = getLastPhrase(state);
   if (phrase !== null) {
-    return phrase;
+    saveTo = phrase;
   }
-
-  if (state.params.chunk) {
-    if (!state.verses[state.currentVerse]) {
-      state.verses[state.currentVerse] = [];
+  else if (state.params.chunk) {
+    if (state.currentVerse) {
+      if (!state.verses[state.currentVerse]) {
+        state.verses[state.currentVerse] = [];
+      }
+      saveTo = state.verses[state.currentVerse];
     }
-    return state.verses[state.currentVerse];
   }
+  else if (state.currentChapter) {
+    if (!state.currentVerse) {
+      state.currentVerse = 'front';
+    }
+    if (!state.chapters[state.currentChapter][state.currentVerse])
+      state.chapters[state.currentChapter][state.currentVerse] = [];
 
-  if (!state.currentVerse) {
-    state.currentVerse = 'front';
+    saveTo = state.chapters[state.currentChapter][state.currentVerse];
   }
-  if (!state.chapters[state.currentChapter][state.currentVerse])
-    state.chapters[state.currentChapter][state.currentVerse] = [];
-
-  return state.chapters[state.currentChapter][state.currentVerse];
+  return saveTo;
 };
 
 /**
@@ -756,9 +760,10 @@ const popPhrase = state => {
  * @param {number} index - current position in markers
  * @param {array} markers - parsed markers we are iterating through
  * @param {string} endMarker - end marker for phrase
+ * @param {boolean} header - if true then saving to header
  * @return {number} new index
  */
-const endSpan = (state, index, markers, endMarker) => {
+const endSpan = (state, index, markers, endMarker, header = false) => {
   let current = markers[index];
   let content = current.content;
   let phraseParent = getPhraseParent(state);
@@ -881,7 +886,7 @@ const endSpan = (state, index, markers, endMarker) => {
     content = current;
   }
   if (content || !phraseParent) {
-    saveUsfmObject(state, null, createUsfmObject(content));
+    saveUsfmObject(state, null, createUsfmObject(content, header));
   }
   return index;
 };
@@ -1173,11 +1178,15 @@ export const usfmToJSON = (usfm, params = {}) => {
           }
         }
         if (marker) { // if not yet processed
+          let {endMarker, spannedUsfm} = checkForEndMarker(marker);
           if (state.currentChapter === 0 && !state.currentVerse) { // if we haven't seen chapter yet, its a header
-            pushObject(state, state.headers, createUsfmObject(marker, true));
+            if (spannedUsfm) {
+              i = endSpan(state, i, markers, endMarker, true);
+            } else {
+              pushObject(state, state.headers, createUsfmObject(marker, true));
+            }
           } else if (state.currentChapter ||
             (state.params.chunk && state.currentVerse)) {
-            let {endMarker, spannedUsfm} = checkForEndMarker(marker);
             if (!endMarker && USFM.markerHasSpecialEndTag(marker.tag)) { // check for one-off end markers
               const startMarker = USFM.markerHasSpecialEndTag(marker.tag);
               endMarker = marker.tag;

@@ -117,4 +117,8 @@ describe("JSON to USFM", () => {
   it('handles nb tag', () => {
     generateTest('nb', {chunk: true});
   });
+
+  it('handles ts tag', () => {
+    generateTest('ts', {chunk: true});
+  });
 });

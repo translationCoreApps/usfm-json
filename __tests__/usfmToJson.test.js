@@ -1,6 +1,6 @@
 /* eslint-disable quote-props */
 import {readJSON, readUSFM} from './util';
-import {usfmToJSON} from '../src/js/usfmToJson';
+import {usfmToJSON, createUsfmObject, pushObject} from '../src/js/usfmToJson';
 
 /**
  * Generator for testing usfm to json migration
@@ -198,5 +198,36 @@ describe("USFM to JSON", () => {
 
   it('handles ts_2 tag', () => {
     generateTest('ts_2', {chunk: true});
+  });
+});
+
+describe("createUsfmObject", () => {
+  it('handles mis-parse of numbers in content', () => {
+    const expected = {tag: "nuts", content: "5 kinds"};
+    const marker = {open: "nuts 5", tag: "nuts", number: "5", text: "kinds"};
+    const results = createUsfmObject(marker);
+    expect(results).toEqual(expected);
+  });
+});
+
+describe("pushObject", () => {
+  it('handles pushing nested USFM String', () => {
+    const expected = "1, 2";
+    const state = {
+      nested: [{content: "1"}]
+    };
+    const usfmObject = ", 2";
+    pushObject(state, null, usfmObject);
+    expect(state.nested[0].content).toEqual(expected);
+  });
+
+  it('handles pushing nested USFM Object', () => {
+    const expected = "1 \\nuts 2";
+    const state = {
+      nested: [{content: "1 "}]
+    };
+    const usfmObject = {tag: "nuts", content: "2"};
+    pushObject(state, null, usfmObject);
+    expect(state.nested[0].content).toEqual(expected);
   });
 });

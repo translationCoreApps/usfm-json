@@ -17,6 +17,20 @@ const generateTest = (name, type) => {
   expect(output).toEqual(expected);
 };
 
+it('will not crash with null string', () => {
+  const input = null;
+  const expected = input;
+  const output = removeMarker(input);
+  expect(output).toEqual(expected);
+});
+
+it('will not crash with empty string', () => {
+  const input = '';
+  const expected = input;
+  const output = removeMarker(input);
+  expect(output).toEqual(expected);
+});
+
 it('removes all extra tags', () => {
   const expected = '...Christ Jesus. ';
   const output = removeMarker(input);

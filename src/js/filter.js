@@ -62,9 +62,6 @@ export const extractTextFromVerseObject = verseObject => {
  * @return {String} - the merged verse object string
  */
 export const mergeVerseData = verseData => {
-  if (verseData.verseObjects) {
-    verseData = verseData.verseObjects;
-  }
   const verseArray = [];
   let length = verseData.length;
   for (let i = 0; i < length; i++) {

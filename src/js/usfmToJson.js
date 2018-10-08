@@ -233,7 +233,7 @@ const parseLine = (line, lastLine) => {
  * @return {object} location to add to phrase or null
  */
 const getLastPhrase = state => {
-  if ((state.phrase !== null) && (state.phrase.length > 0)) {
+  if (state.phrase && (state.phrase.length > 0)) {
     return state.phrase[state.phrase.length - 1];
   }
   return null;
@@ -276,7 +276,7 @@ const getSaveToLocation = state => {
  * @param {boolean} noNext - if true, then ignore nextChar
  * @return {{tag: *}} USFM object
  */
-const createUsfmObject = (marker, noNext = false) => {
+export const createUsfmObject = (marker, noNext = false) => {
   if (typeof marker === 'string') {
     return ({
       type: "text",
@@ -305,6 +305,7 @@ const createUsfmObject = (marker, noNext = false) => {
         newContent += ' ' + content;
       }
       content = newContent;
+      delete output.number;
     }
   } else {
     delete output.number;
@@ -336,7 +337,7 @@ const createUsfmObject = (marker, noNext = false) => {
  * @param {array} saveTo - location to place verse content
  * @param {object|string} usfmObject - object that contains usfm marker, or could be raw text
  */
-const pushObject = (state, saveTo, usfmObject) => {
+export const pushObject = (state, saveTo, usfmObject) => {
   if (!Array.isArray(saveTo)) {
     const phrase = getLastPhrase(state);
     if (phrase === null) {

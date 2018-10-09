@@ -318,8 +318,6 @@ export const createUsfmObject = (marker, noNext = false) => {
       content += marker.nextChar;
       delete output.nextChar;
     }
-  } else if (!content && (type === 'paragraph') && (!marker.nextChar)) {
-    output.nextChar = ' ';
   }
   delete output.content;
   delete output.text;

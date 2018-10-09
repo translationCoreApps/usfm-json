@@ -121,9 +121,10 @@ const generatePhrase = (phraseObject, nextObject) => {
 /**
  * @description convert usfm marker to string
  * @param {object} usfmObject - usfm object to output
+ * @param {object} nextObject - usfm object that will come next
  * @return {String} Text equivalent of marker.
  */
-const usfmMarkerToString = usfmObject => {
+const usfmMarkerToString = (usfmObject, nextObject = null) => {
   let output = "";
   const content = usfmObject.text || usfmObject.content || "";
   let markerTermination = usfmObject.endTag; // new format takes precidence
@@ -136,9 +137,14 @@ const usfmMarkerToString = usfmObject => {
       output += ' ' + usfmObject.number;
     }
     const firstChar = content.substr(0, 1);
-    if (!markerTermination && (firstChar !== '') && (firstChar !== '\n') && (content !== ' \n')) {
-      output += ' ';
-    } else if (markerTermination && (firstChar !== ' ')) {
+    if (!markerTermination) {
+      if ((firstChar !== '') && (firstChar !== '\n') && (content !== ' \n')) { // make sure some whitespace
+        output += ' ';
+      }
+      else if (nextObject && (usfmObject.type === "paragraph") && !content && !usfmObject.nextChar) { // make sure some whitespace on paragraph marker
+        output += ' ';
+      }
+    } else if (firstChar !== ' ') { // if marker termination, make sure we have space
       output += ' ';
     }
   }
@@ -227,7 +233,7 @@ const objectToString = (object, output, nextObject) => {
   }
 
   if (object.tag) { // any other USFM marker tag
-    return output + usfmMarkerToString(object);
+    return output + usfmMarkerToString(object, nextObject);
   }
   return output;
 };

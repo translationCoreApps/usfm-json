@@ -374,7 +374,82 @@ export const USFM_PROPERTIES = {
     milestone: true,
     attrib: true
   },
+  qt1: {
+    type: "quote",
+    endTag: "*",
+    display: true,
+    milestone: true,
+    attrib: true
+  },
+  qt2: {
+    type: "quote",
+    endTag: "*",
+    display: true,
+    milestone: true,
+    attrib: true
+  },
+  qt3: {
+    type: "quote",
+    endTag: "*",
+    display: true,
+    milestone: true,
+    attrib: true
+  },
+  qt4: {
+    type: "quote",
+    endTag: "*",
+    display: true,
+    milestone: true,
+    attrib: true
+  },
+  qt5: {
+    type: "quote",
+    endTag: "*",
+    display: true,
+    milestone: true,
+    attrib: true
+  },
   "qt-s": {
+    type: "quote",
+    endTag: "-e",
+    display: true,
+    milestone: true,
+    usfm3Milestone: true,
+    attrib: true
+  },
+  "qt1-s": {
+    type: "quote",
+    endTag: "-e",
+    display: true,
+    milestone: true,
+    usfm3Milestone: true,
+    attrib: true
+  },
+  "qt2-s": {
+    type: "quote",
+    endTag: "-e",
+    display: true,
+    milestone: true,
+    usfm3Milestone: true,
+    attrib: true
+  },
+  "qt3-s": {
+    type: "quote",
+    endTag: "-e",
+    display: true,
+    milestone: true,
+    usfm3Milestone: true,
+    attrib: true
+  },
+  "qt4-s": {
+    type: "quote",
+    endTag: "-e",
+    display: true,
+    milestone: true,
+    usfm3Milestone: true,
+    attrib: true
+  },
+  "qt5-s": {
     type: "quote",
     endTag: "-e",
     display: true,

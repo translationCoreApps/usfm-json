@@ -111,3 +111,11 @@ it('cleans ts tag', () => {
 it('cleans ts_2 tag', () => {
   generateTest('filter/ts_2');
 });
+
+it('cleans acts-1-4 tag', () => {
+  generateTest('filter/acts-1-4');
+});
+
+it('cleans acts-1-5 tag', () => {
+  generateTest('filter/acts-1-5');
+});

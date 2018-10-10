@@ -875,6 +875,8 @@ const terminatePhrases = state => {
   let phraseParent = getPhraseParent(state);
   while (phraseParent) {
     phraseParent.endTag = '';
+    delete phraseParent.nesting;
+    delete phraseParent.usfm3Milestone;
     phraseParent = popPhrase(state);
   }
 };
@@ -1183,6 +1185,7 @@ export const usfmToJSON = (usfm, params = {}) => {
       }
     }
   }
+  terminatePhrases(state);
   usfmJSON.headers = state.headers;
   getVerseObjectsForBook(usfmJSON, state);
   if (Object.keys(state.verses).length > 0) {

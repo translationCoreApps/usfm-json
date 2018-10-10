@@ -1,0 +1,26 @@
+{
+  "chapters": {},
+  "headers": [],
+  "verses": {
+    "4": {
+      "verseObjects": [
+        {
+          "text": "When he was meeting together with them, he commanded them not to leave Jerusalem, but to wait for the promise of the Father, about which, he said, ",
+          "type": "text"
+        },
+        {
+          "attrib": "|who=\"Jesus\"",
+          "children": [
+            {
+              "text": "\"You heard from me\n",
+              "type": "text"
+            }
+          ],
+          "tag": "qt-s",
+          "type": "quote",
+          "endTag": ""
+        }
+      ]
+    }
+  }
+}

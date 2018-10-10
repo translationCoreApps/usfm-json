@@ -204,6 +204,10 @@ describe("USFM to JSON", () => {
     generateTest('acts_1_11', {chunk: true});
   });
 
+  it('handles acts_1_4 tag', () => {
+    generateTest('acts_1_4', {chunk: true});
+  });
+
   it('handles acts_1_milestone tag', () => {
     generateTest('acts_1_milestone');
   });

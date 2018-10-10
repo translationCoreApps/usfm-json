@@ -68,7 +68,7 @@ const generateWord = (wordObject, nextObject) => {
 const generatePhrase = (phraseObject, nextObject) => {
   const tag = phraseObject.tag || 'zaln';
   let markerTermination = '';
-  if (phraseObject.endTag) {
+  if (typeof phraseObject.endTag === 'string') {
     markerTermination = phraseObject.endTag; // new format takes precidence
     delete phraseObject.endTag;
   } else {
@@ -114,7 +114,10 @@ const generatePhrase = (phraseObject, nextObject) => {
   if (milestoneType && !lastCharIsNewLine(line)) {
     line += '\n';
   }
-  line += '\\' + markerTermination + (phraseObject.nextChar || needsNewLine(nextObject));
+  if (markerTermination) {
+    line += '\\' + markerTermination +
+              (phraseObject.nextChar || needsNewLine(nextObject));
+  }
   return line;
 };
 
@@ -128,7 +131,7 @@ const usfmMarkerToString = (usfmObject, nextObject = null) => {
   let output = "";
   const content = usfmObject.text || usfmObject.content || "";
   let markerTermination = usfmObject.endTag; // new format takes precidence
-  if (!markerTermination && USFM.markerTermination(usfmObject.tag)) {
+  if ((typeof markerTermination !== 'string') && USFM.markerTermination(usfmObject.tag)) {
     markerTermination = usfmObject.tag + '*'; // fall back to old generation method
   }
   if (usfmObject.tag) {

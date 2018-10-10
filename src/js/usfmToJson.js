@@ -868,11 +868,24 @@ const addToCurrentVerse = (state, marker) => {
 };
 
 /**
+ * makes sure that phrases are terminated before we begin a new verse or chapter
+ * @param {object} state - holds parsing state information
+ */
+const terminatePhrases = state => {
+  let phraseParent = getPhraseParent(state);
+  while (phraseParent) {
+    phraseParent.endTag = '';
+    phraseParent = popPhrase(state);
+  }
+};
+
+/**
  * @description - process marker as a verse
  * @param {object} state - holds parsing state information
  * @param {object} marker - marker object containing content
  */
 const parseAsVerse = (state, marker) => {
+  terminatePhrases(state);
   state.nested = [];
   marker.content = marker.content || "";
   if (marker.nextChar === "\n") {
@@ -969,6 +982,7 @@ const markerToText = marker => {
  * @param {object} marker - marker object containing content
  */
 const processAsChapter = (state, marker) => {
+  terminatePhrases(state);
   state.nested = [];
   state.currentChapter = stripLeadingZeros(marker.number);
   state.chapters[state.currentChapter] = {};

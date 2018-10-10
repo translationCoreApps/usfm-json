@@ -203,6 +203,10 @@ describe("USFM to JSON", () => {
   it('handles acts_1_11 tag', () => {
     generateTest('acts_1_11', {chunk: true});
   });
+
+  it('handles acts_1_milestone tag', () => {
+    generateTest('acts_1_milestone');
+  });
 });
 
 describe("createUsfmObject", () => {

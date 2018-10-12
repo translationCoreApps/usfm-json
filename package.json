@@ -7,7 +7,11 @@
     "test": "eslint ./src ./index.js && jest",
     "fix": "eslint ./src ./index.js --fix",
     "compile": "rimraf lib && babel src/ -d lib/",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run compile",
+    "prebuild": "rimraf lib",
+    "build": "npm run compile",
+    "prepare": "if [ ! -d './lib/' ]; then npm run build; fi",
+    "prepublishOnly": "npm test && npm run build"
   },
   "jest": {
     "collectCoverageFrom": [

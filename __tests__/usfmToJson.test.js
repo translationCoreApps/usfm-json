@@ -91,12 +91,24 @@ describe("USFM to JSON", () => {
     generateTest('tit_1_12');
   });
 
-  it('preserves white space in usfm new_line', () => {
+  it('preserves punctuation in usfm - word not on line start', () => {
+    generateTest('tit_1_12.word.not.at.line.start', {}, 'tit_1_12');
+  });
+
+  it('word on new line after quote', () => {
     generateTest('tit_1_12_new_line');
   });
 
   it('preserves footnotes in usfm', () => {
     generateTest('tit_1_12_footnote');
+  });
+
+  it('preserves alignment in usfm', () => {
+    generateTest('tit_1_12.alignment');
+  });
+
+  it('preserves alignment in usfm - zaln not at start', () => {
+    generateTest('tit_1_12.alignment.zaln.not.start', {}, 'tit_1_12.alignment');
   });
 
   it('process ISA footnote', () => {

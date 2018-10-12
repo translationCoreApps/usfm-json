@@ -221,8 +221,8 @@
 \w αὐτῶν|lemma="αὐτός" strong="G08460" x-morph="Gr,RP,,,3GMP,"\w*,
 \w ἴδιος|lemma="ἴδιος" strong="G23980" x-morph="Gr,RD,,,,NMS,"\w*
 \w αὐτῶν|lemma="αὐτός" strong="G08460" x-morph="Gr,RP,,,3GMP,"\w*
-\w προφήτης|lemma="προφήτης" strong="G43960" x-morph="Gr,N,,,,,NMS," x-tw="rc://*/tw/dict/bible/kt/prophet" \w*,
-“\w Κρῆτες|lemma="Κρής" strong="G29120" x-morph="Gr,N,,,,,NMP," x-tw="rc://*/tw/dict/bible/names/crete" \w*
+\w προφήτης|lemma="προφήτης" strong="G43960" x-morph="Gr,N,,,,,NMS," x-tw="rc://*/tw/dict/bible/kt/prophet" \w*, “
+\w Κρῆτες|lemma="Κρής" strong="G29120" x-morph="Gr,N,,,,,NMP," x-tw="rc://*/tw/dict/bible/names/crete" \w*
 \w ἀεὶ|lemma="ἀεί" strong="G01040" x-morph="Gr,D,,,,,,,,,"\w*
 \w ψεῦσται|lemma="ψεύστης" strong="G55830" x-morph="Gr,N,,,,,NMP,"\w*,
 \w κακὰ|lemma="κακός" strong="G25560" x-morph="Gr,AA,,,,NNP," x-tw="rc://*/tw/dict/bible/kt/evil" \w*
@@ -667,7 +667,8 @@
 \w βούλομαί|lemma="βούλομαι" strong="G10140" x-morph="Gr,V,IPM1,,S,"\w*
 \w σε|lemma="σύ" strong="G47710" x-morph="Gr,RP,,,2A,S,"\w*
 \w διαβεβαιοῦσθαι|lemma="διαβεβαιόομαι" strong="G12260" x-morph="Gr,V,NPM,,,,,"\w*,
-“\w ἵνα|lemma="ἵνα" strong="G24430" x-morph="Gr,CS,,,,,,,,"\w*
+“
+\w ἵνα|lemma="ἵνα" strong="G24430" x-morph="Gr,CS,,,,,,,,"\w*
 \w φροντίζωσιν|lemma="φροντίζω" strong="G54310" x-morph="Gr,V,SPA3,,P,"\w*
 \w καλῶν|lemma="καλός" strong="G25700" x-morph="Gr,AA,,,,GNP," x-tw="rc://*/tw/dict/bible/kt/good" \w*
 \w ἔργων|lemma="ἔργον" strong="G20410" x-morph="Gr,N,,,,,GNP," x-tw="rc://*/tw/dict/bible/kt/works" \w*,

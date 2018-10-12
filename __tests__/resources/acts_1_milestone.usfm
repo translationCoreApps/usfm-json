@@ -252,7 +252,8 @@
 \zaln-s | x-strong="G37390" x-lemma="ὅς" x-morph="Gr,RR,,,,AFS," x-occurrence="1" x-occurrences="1" x-content="ἣν"
 \w he|x-occurrence="3" x-occurrences="3"\w*
 \w said|x-occurrence="1" x-occurrences="1"\w*
-\zaln-e\*,\qt-s |who="Jesus"\*"\zaln-s | x-strong="G14730" x-lemma="ἐγώ" x-morph="Gr,RP,,,1G,S," x-occurrence="1" x-occurrences="1" x-content="μου"
+\zaln-e\*,\qt-s |who="Jesus"\*"
+\zaln-s | x-strong="G14730" x-lemma="ἐγώ" x-morph="Gr,RP,,,1G,S," x-occurrence="1" x-occurrences="1" x-content="μου"
 \w You|x-occurrence="1" x-occurrences="1"\w*
 \zaln-e\*
 \zaln-s | x-strong="G01910" x-lemma="ἀκούω" x-morph="Gr,V,IAA2,,P," x-occurrence="1" x-occurrences="1" x-content="ἠκούσατέ"
@@ -339,7 +340,8 @@
 \zaln-e\*,
 \zaln-s | x-strong="G30040" x-lemma="λέγω" x-morph="Gr,V,PPA,NMP," x-occurrence="1" x-occurrences="1" x-content="λέγοντες"
 \w saying|x-occurrence="1" x-occurrences="1"\w*
-\zaln-e\*,"\zaln-s | x-strong="G29620" x-lemma="κύριος" x-morph="Gr,N,,,,,VMS," x-occurrence="1" x-occurrences="1" x-content="Κύριε"
+\zaln-e\*,"
+\zaln-s | x-strong="G29620" x-lemma="κύριος" x-morph="Gr,N,,,,,VMS," x-occurrence="1" x-occurrences="1" x-content="Κύριε"
 \w Lord|x-occurrence="1" x-occurrences="1"\w*
 \zaln-e\*,
 \zaln-s | x-strong="G14870" x-lemma="εἰ" x-morph="Gr,T,,,,,,,,," x-occurrence="1" x-occurrences="1" x-content="εἰ"

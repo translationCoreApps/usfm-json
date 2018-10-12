@@ -20,12 +20,24 @@ describe("JSON to USFM", () => {
     generateTest('tit_1_12');
   });
 
-  it('preserves white space in usfm new_line', () => {
+  it('preserves punctuation in usfm when no words', () => {
+    generateTest('tit_1_12.no.words');
+  });
+
+  it('\'word on new line after quote', () => {
     generateTest('tit_1_12_new_line');
   });
 
   it('preserves footnotes in usfm', () => {
     generateTest('tit_1_12_footnote');
+  });
+
+  it('preserves alignment in usfm', () => {
+    generateTest('tit_1_12.alignment', {zaln: true});
+  });
+
+  it('preserves alignment in usfm', () => {
+    generateTest('tit_1_12.alignment', {zaln: true});
   });
 
   it('process ISA footnote', () => {

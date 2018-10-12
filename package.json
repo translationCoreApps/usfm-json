@@ -1,13 +1,15 @@
 {
   "name": "usfm-js",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A small library that provides functions to convert usfm to JSON and vice-versa",
   "main": "lib/index.js",
   "scripts": {
     "test": "eslint ./src ./index.js && jest",
     "fix": "eslint ./src ./index.js --fix",
-    "compile": "rimraf lib && babel src/ -d lib/",
-    "prepublish": "npm run compile"
+    "prebuild": "rm -rf ./lib",
+    "build": "babel ./src -d ./lib",
+    "prepare": "if [ ! -d './lib/' ]; then npm run build; fi",
+    "prepublishOnly": "npm test && npm run build"
   },
   "jest": {
     "collectCoverageFrom": [

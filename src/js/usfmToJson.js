@@ -1096,7 +1096,7 @@ export const usfmToJSON = (usfm, params = {}) => {
         break;
       }
       case 'w': { // word
-        removeLastNewLine(state, true);
+        removeLastNewLine(state);
         const wordObject = parseWord(state, marker.content);
         pushObject(state, null, wordObject);
         if (marker.nextChar) {

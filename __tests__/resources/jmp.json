@@ -1,0 +1,22 @@
+{
+  "chapters": {}, 
+  "headers": [], 
+  "verses": {
+    "1": {
+      "verseObjects": [
+        {
+          "text": "From Abraham to King David, the following ancestors are listed: Abraham,\nIsaac, Jacob, Judah and his brothers; then Perez and Zerah (their mother was Tamar*),\nHezron, Ram, Amminadab, Nahshon, Salmon, Boaz (his mother was Rahab*), Obed (his\nmother was ",
+          "type": "text"},
+        {
+          "attrib": "|link-href=\"#article-Ruth\"", 
+          "endTag": "jmp*", 
+          "tag": "jmp", 
+          "text": "Ruth"
+        }, 
+        {
+          "text": "), Jesse, and King David.",
+          "type": "text"}
+      ]
+    }
+  }
+}

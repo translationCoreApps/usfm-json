@@ -1,4 +1,147 @@
 {
+  "chapters": {
+    "1": {
+      "1": {
+        "verseObjects": [
+          {
+            "text": "Blessed is the man who does not walk in the advice of the wicked,\n",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "text": "or stand in the pathway with sinners,\n",
+            "type": "quote"
+          },
+          {
+            "tag": "q",
+            "text": "or sit in the assembly of mockers.\n",
+            "type": "quote"
+          },
+          {
+            "tag": "q",
+            "nextChar": "\n",
+            "type": "quote"
+          }
+        ]
+      },
+      "2": {
+        "verseObjects": [
+          {
+            "text": "But his delight is in the law of Yahweh,\n",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "text": "and on his law he meditates day and night.\n",
+            "type": "quote"
+          },
+          {
+            "endTag": "qs*",
+            "nextChar": "\n",
+            "tag": "qs",
+            "text": "Selah",
+            "type": "quote"
+          },
+          {
+            "text": "\n ",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          },
+          {
+            "tag": "q",
+            "nextChar": "\n",
+            "type": "quote"
+          }
+        ]
+      },
+      "3": {
+        "verseObjects": [
+          {
+            "text": "He will be like a tree planted by the streams of water\n",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "text": "that produces its fruit in its season,\n",
+            "type": "quote"
+          },
+          {
+            "tag": "q",
+            "text": "whose leaves do not wither;\n",
+            "type": "quote"
+          },
+          {
+            "tag": "q",
+            "text": "whatever he does will prosper.\n",
+            "type": "quote"
+          },
+          {
+            "text": "\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          },
+          {
+            "tag": "q",
+            "nextChar": "\n",
+            "type": "quote"
+          }
+        ]
+      },
+      "4": {
+        "verseObjects": [
+          {
+            "text": "The wicked are not so,\n",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "text": "but are instead like the chaff that the wind drives away.\n",
+            "type": "quote"
+          },
+          {
+            "tag": "q",
+            "nextChar": "\n",
+            "type": "quote"
+          }
+        ]
+      },
+      "5": {
+        "verseObjects": [
+          {
+            "text": "So the wicked will not stand in the judgment,\n",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "text": "nor sinners in the assembly of the righteous.\n",
+            "type": "quote"
+          }
+        ]
+      },
+      "front": {
+        "verseObjects": [
+          {
+            "tag": "p",
+            "nextChar": "\n",
+            "type": "paragraph"
+          },
+          {
+            "tag": "q",
+            "nextChar": "\n",
+            "type": "quote"
+          }
+        ]
+      }
+    }
+  },
   "headers": [
     {
       "content": "PSA Unlocked Literal Bible",
@@ -40,146 +183,5 @@
       "content": "Psalm",
       "tag": "cl"
     }
-  ],
-  "chapters": {
-    "1": {
-      "front": {
-        "verseObjects": [
-          {
-            "tag": "p",
-            "type": "paragraph",
-            "text": "\n"
-          },
-          {
-            "tag": "q",
-            "text": "\n",
-            "type": "quote"
-          }
-        ]
-      },
-      "1": {
-        "verseObjects": [
-          {
-            "type": "text",
-            "text": "Blessed is the man who does not walk in the advice of the wicked,\n"
-          },
-          {
-            "tag": "q",
-            "type": "quote",
-            "text": "or stand in the pathway with sinners,\n"
-          },
-          {
-            "tag": "q",
-            "type": "quote",
-            "text": "or sit in the assembly of mockers.\n"
-          },
-          {
-            "tag": "q",
-            "type": "quote",
-            "text": "\n"
-          }
-        ]
-      },
-      "2": {
-        "verseObjects": [
-          {
-            "type": "text",
-            "text": "But his delight is in the law of Yahweh,\n"
-          },
-          {
-            "tag": "q",
-            "type": "quote",
-            "text": "and on his law he meditates day and night.\n"
-          },
-          {
-            "text": "Selah",
-            "tag": "qs",
-            "type": "quote"
-          },
-          {
-            "text": "\n\n ",
-            "type": "text"
-          },
-          {
-            "tag": "s5",
-            "type": "section",
-            "text": "\n"
-          },
-          {
-            "tag": "q",
-            "type": "quote",
-            "text": "\n"
-          }
-        ]
-      },
-      "3": {
-        "verseObjects": [
-          {
-            "type": "text",
-            "text": "He will be like a tree planted by the streams of water\n"
-          },
-          {
-            "tag": "q",
-            "type": "quote",
-            "text": "that produces its fruit in its season,\n"
-          },
-          {
-            "tag": "q",
-            "type": "quote",
-            "text": "whose leaves do not wither;\n"
-          },
-          {
-            "tag": "q",
-            "type": "quote",
-            "text": "whatever he does will prosper.\n"
-          },
-          {
-            "text": "\n",
-            "type": "text"
-          },
-          {
-            "tag": "s5",
-            "type": "section",
-            "text": "\n"
-          },
-          {
-            "tag": "q",
-            "type": "quote",
-            "text": "\n"
-          }
-        ]
-      },
-      "4": {
-        "verseObjects": [
-          {
-            "type": "text",
-            "text": "The wicked are not so,\n"
-          },
-          {
-            "tag": "q",
-            "type": "quote",
-            "text": "but are instead like the chaff that the wind drives away.\n"
-          },
-          {
-            "tag": "q",
-            "type": "quote",
-            "text": "\n"
-          }
-        ]
-      },
-      "5": {
-        "verseObjects": [
-          {
-            "type": "text",
-            "text": "So the wicked will not stand in the judgment,\n"
-          },
-          {
-            "tag": "q",
-            "type": "quote",
-            "text": "nor sinners in the assembly of the righteous.\n"
-          }
-        ]
-      }
-    }
-  }
+  ]
 }

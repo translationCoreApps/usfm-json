@@ -1,113 +1,115 @@
 {
-  "headers": [],
   "chapters": {},
+  "headers": [],
   "verses": {
     "1": {
       "verseObjects": [
         {
-          "text": "ἀπόστολος",
-          "tag": "w",
-          "type": "word",
           "lemma": "ἀπόστολος",
           "strong": "G06520",
           "morph": "Gr,N,,,,,NMS,",
-          "tw": "rc://*/tw/dict/bible/kt/apostle"
+          "tag": "w",
+          "text": "ἀπόστολος",
+          "tw": "rc://*/tw/dict/bible/kt/apostle",
+          "type": "word"
         },
         {
-          "text": "δὲ",
-          "tag": "w",
-          "type": "word",
           "lemma": "δέ",
           "strong": "G11610",
-          "morph": "Gr,CC,,,,,,,,"
+          "morph": "Gr,CC,,,,,,,,",
+          "tag": "w",
+          "text": "δὲ",
+          "type": "word"
         },
         {
-          "tag": "k",
-          "type": "milestone",
-          "tw": "rc://*/tw/dict/bible/kt/jesus",
           "children": [
             {
-              "text": "Ἰησοῦ",
-              "tag": "w",
-              "type": "word",
               "lemma": "Ἰησοῦς",
               "strong": "G24240",
-              "morph": "Gr,N,,,,,GMS,"
+              "morph": "Gr,N,,,,,GMS,",
+              "tag": "w",
+              "text": "Ἰησοῦ",
+              "type": "word"
             },
             {
-              "text": "Χριστοῦ",
-              "tag": "w",
-              "type": "word",
               "lemma": "χριστός",
               "strong": "G55470",
               "morph": "Gr,N,,,,,GMS,",
-              "tw": "rc://*/tw/dict/bible/kt/christ"
+              "tag": "w",
+              "text": "Χριστοῦ",
+              "tw": "rc://*/tw/dict/bible/kt/christ",
+              "type": "word"
             }
-          ]
+          ],
+          "endTag": "k-e\\*",
+          "tag": "k",
+          "tw": "rc://*/tw/dict/bible/kt/jesus",
+          "type": "milestone"
         },
         {
-          "type": "text",
-          "text": ","
+          "text": ",",
+          "type": "text"
         },
         {
-          "text": "κατὰ",
-          "tag": "w",
-          "type": "word",
           "lemma": "κατά",
           "strong": "G25960",
-          "morph": "Gr,P,,,,,A,,,"
+          "morph": "Gr,P,,,,,A,,,",
+          "tag": "w",
+          "text": "κατὰ",
+          "type": "word"
         },
         {
-          "type": "text",
-          "text": "\n\n"
+          "text": "\n\n",
+          "type": "text"
         }
       ]
     },
     "4": {
       "verseObjects": [
         {
-          "text": "ἀπὸ",
-          "tag": "w",
-          "type": "word",
           "lemma": "ἀπό",
           "strong": "G05750",
-          "morph": "Gr,P,,,,,G,,,"
+          "morph": "Gr,P,,,,,G,,,",
+          "tag": "w",
+          "text": "ἀπὸ",
+          "type": "word"
         },
         {
-          "tag": "k",
-          "type": "milestone",
-          "tw": "rc://*/tw/dict/bible/kt/godthefather",
           "children": [
             {
-              "text": "Θεοῦ",
-              "tag": "w",
-              "type": "word",
               "lemma": "θεός",
               "strong": "G23160",
               "morph": "Gr,N,,,,,GMS,",
-              "tw": "rc://*/tw/dict/bible/kt/god"
+              "tag": "w",
+              "text": "Θεοῦ",
+              "tw": "rc://*/tw/dict/bible/kt/god",
+              "type": "word"
             },
             {
-              "text": "Πατρὸς",
-              "tag": "w",
-              "type": "word",
               "lemma": "πατήρ",
               "strong": "G39620",
-              "morph": "Gr,N,,,,,GMS,"
+              "morph": "Gr,N,,,,,GMS,",
+              "tag": "w",
+              "text": "Πατρὸς",
+              "type": "word"
             }
-          ]
+          ],
+          "endTag": "k-e\\*",
+          "tag": "k",
+          "tw": "rc://*/tw/dict/bible/kt/godthefather",
+          "type": "milestone"
         },
         {
-          "text": "καὶ",
-          "tag": "w",
-          "type": "word",
           "lemma": "καί",
           "strong": "G25320",
-          "morph": "Gr,CC,,,,,,,,"
+          "morph": "Gr,CC,,,,,,,,",
+          "tag": "w",
+          "text": "καὶ",
+          "type": "word"
         },
         {
-          "type": "text",
-          "text": "\n"
+          "text": "\n",
+          "type": "text"
         }
       ]
     }

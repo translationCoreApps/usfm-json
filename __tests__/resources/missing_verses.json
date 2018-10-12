@@ -43,7 +43,7 @@
         "verseObjects": [
           {
             "tag": "p",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "paragraph"
           }
         ]
@@ -64,7 +64,7 @@
           },
           {
             "tag": "b",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "paragraph"
           },
           {
@@ -73,12 +73,12 @@
           },
           {
             "tag": "s5",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "section"
           },
           {
             "tag": "p",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "paragraph"
           }
         ]
@@ -99,7 +99,7 @@
           },
           {
             "tag": "s5",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "section"
           }
         ]
@@ -110,7 +110,7 @@
         "verseObjects": [
           {
             "tag": "p",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "paragraph"
           }
         ]
@@ -123,7 +123,7 @@
           },
           {
             "tag": "s5",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "section"
           }
         ]

@@ -1,3 +1,4 @@
+/* eslint-disable brace-style */
 /**
  * @description for converting from json format to USFM.  Main method is jsonToUSFM()
  */
@@ -66,50 +67,87 @@ const generateWord = (wordObject, nextObject) => {
  */
 const generatePhrase = (phraseObject, nextObject) => {
   const tag = phraseObject.tag || 'zaln';
-  const keys = Object.keys(phraseObject);
-  let attributes = [];
-  keys.forEach(function(key) {
-    if (!(milestoneIgnore_.includes(key))) {
-      const value = phraseObject[key];
-      if (milestoneMap_[key]) { // see if we should convert this key
-        key = milestoneMap_[key];
+  let markerTermination = '';
+  if (typeof phraseObject.endTag === 'string') {
+    markerTermination = phraseObject.endTag; // new format takes precidence
+    delete phraseObject.endTag;
+  } else {
+    markerTermination = tag + '-e\\*'; // fall back to old generation method
+  }
+  let content = '';
+  const milestoneType = (phraseObject.type === 'milestone');
+  if (milestoneType) {
+    const keys = Object.keys(phraseObject);
+    let attributes = [];
+    keys.forEach(function(key) {
+      if (!(milestoneIgnore_.includes(key))) {
+        const value = phraseObject[key];
+        if (milestoneMap_[key]) { // see if we should convert this key
+          key = milestoneMap_[key];
+        }
+        let prefix = 'x-';
+        let attribute = prefix + key + '="' + value + '"';
+        attributes.push(attribute);
       }
-      let prefix = 'x-';
-      let attribute = prefix + key + '="' + value + '"';
-      attributes.push(attribute);
+    });
+    content = '-s | ' + attributes.join(' ') + '\n';
+  } else {
+    const isUsfm2Milestone = USFM.markerIsMilestone(tag);
+    if (isUsfm2Milestone) {
+      if (phraseObject.attrib) {
+        content = ' ' + phraseObject.attrib;
+      }
+      content += "\\*";
     }
-  });
-  let line = '\\' + tag + '-s | ' + attributes.join(' ') + '\n';
+    if (phraseObject.text) {
+      content += ' ' + phraseObject.text;
+    }
+    if (phraseObject.content) {
+      content += ' ' + phraseObject.content;
+    }
+  }
+  let line = '\\' + tag + content;
 
 /* eslint-disable no-use-before-define */
   line = objectToString(phraseObject.children, line);
 /* eslint-enable no-use-before-define */
-  if (!lastCharIsNewLine(line)) {
+  if (milestoneType && !lastCharIsNewLine(line)) {
     line += '\n';
   }
-  line += '\\' + tag + '-e\\*' + needsNewLine(nextObject);
+  if (markerTermination) {
+    line += '\\' + markerTermination +
+              (phraseObject.nextChar || needsNewLine(nextObject));
+  }
   return line;
 };
 
 /**
  * @description convert usfm marker to string
  * @param {object} usfmObject - usfm object to output
+ * @param {object} nextObject - usfm object that will come next
  * @return {String} Text equivalent of marker.
  */
-const usfmMarkerToString = usfmObject => {
+const usfmMarkerToString = (usfmObject, nextObject = null) => {
   let output = "";
   const content = usfmObject.text || usfmObject.content || "";
-  const markerRequiresTermination =
-    USFM.markerRequiresTermination(usfmObject.tag);
+  let markerTermination = usfmObject.endTag; // new format takes precidence
+  if ((typeof markerTermination !== 'string') && USFM.markerTermination(usfmObject.tag)) {
+    markerTermination = usfmObject.tag + '*'; // fall back to old generation method
+  }
   if (usfmObject.tag) {
     output = '\\' + usfmObject.tag;
     if (usfmObject.number) {
       output += ' ' + usfmObject.number;
     }
     const firstChar = content.substr(0, 1);
-    if (!markerRequiresTermination && (firstChar !== '') && (firstChar !== '\n') && (content !== ' \n')) {
-      output += ' ';
-    } else if (markerRequiresTermination && (firstChar !== ' ')) {
+    if (!markerTermination) {
+      if ((firstChar !== '') && (firstChar !== '\n') && (content !== ' \n')) { // make sure some whitespace
+        output += ' ';
+      }
+      else if (nextObject && (usfmObject.type === "paragraph") && !content && !usfmObject.nextChar) { // make sure some whitespace on paragraph marker
+        output += ' ';
+      }
+    } else if (firstChar !== ' ') { // if marker termination, make sure we have space
       output += ' ';
     }
   }
@@ -118,8 +156,20 @@ const usfmMarkerToString = usfmObject => {
     output += content;
   }
 
-  if (markerRequiresTermination) {
-    output += '\\' + usfmObject.tag + '*';
+  if (usfmObject.attrib) {
+    if (usfmObject.tag.substr(-2) === '\\*') { // we need to apply attibute before \*
+      output = output.substr(0, output.length - 2) + usfmObject.attrib +
+        output.substr(-2);
+    } else {
+      output += usfmObject.attrib;
+    }
+  }
+
+  if (markerTermination) {
+    output += '\\' + markerTermination;
+  }
+  if (usfmObject.nextChar) {
+    output += usfmObject.nextChar;
   }
   return output;
 };
@@ -178,12 +228,15 @@ const objectToString = (object, output, nextObject) => {
     return addOnNewLine(generateWord(object, nextObject), output);
   }
 
-  if (object.type === 'milestone') { // usfm keyterm with milestone (phrase)
+  if (object.type === 'milestone') { // milestone type (phrase)
     return addOnNewLine(generatePhrase(object, nextObject), output);
+  }
+  else if (object.children && object.children.length) {
+    return output + generatePhrase(object, nextObject);
   }
 
   if (object.tag) { // any other USFM marker tag
-    return output + usfmMarkerToString(object);
+    return output + usfmMarkerToString(object, nextObject);
   }
   return output;
 };
@@ -260,7 +313,9 @@ const generateChapterLines = (chapterNumber, chapterObject) => {
   const verseNumbers = Object.keys(chapterObject).sort((a, b) => {
     return parseInt(a, 10) - parseInt(b, 10);
   });
-  verseNumbers.forEach(function(verseNumber) {
+  const verseLen = verseNumbers.length;
+  for (let i = 0; i < verseLen; i++) {
+    const verseNumber = verseNumbers[i];
     // check if verse is inside previous line (such as \q)
     const lastLine = lines.length ? lines[lines.length - 1] : "";
     const lastChar = lastLine ? lastLine.substr(lastLine.length - 1) : "";
@@ -270,7 +325,7 @@ const generateChapterLines = (chapterNumber, chapterObject) => {
     const verseObjects = chapterObject[verseNumber];
     const verseLine = generateVerse(verseNumber, verseObjects);
     lines = addVerse(lines, verseLine);
-  });
+  }
   return lines;
 };
 
@@ -320,7 +375,6 @@ const processParams = () => {
 export const jsonToUSFM = (json, params) => {
   params_ = params || {}; // save current parameters
   processParams();
-  USFM.init();
   let output = [];
   if (json.headers) {
     for (let header of json.headers) {
@@ -329,23 +383,27 @@ export const jsonToUSFM = (json, params) => {
   }
   if (json.chapters) {
     const chapterNumbers = Object.keys(json.chapters);
-    chapterNumbers.forEach(function(chapterNumber) {
+    const chapterLen = chapterNumbers.length;
+    for (let i = 0; i < chapterLen; i++) {
+      const chapterNumber = chapterNumbers[i];
       const chapterObject = json.chapters[chapterNumber];
       const chapterLines = generateChapterLines(
           chapterNumber, chapterObject,
       );
       output = addChapter(output, chapterLines);
-    });
+    }
   }
   if (json.verses) {
     const verseNumbers = Object.keys(json.verses);
-    verseNumbers.forEach(function(verseNumber) {
+    const verseLen = verseNumbers.length;
+    for (let i = 0; i < verseLen; i++) {
+      const verseNumber = verseNumbers[i];
       const verseObjects = json.verses[verseNumber];
       const verse = generateVerse(
           verseNumber, verseObjects,
       );
       output = addVerse(output, verse);
-    });
+    }
   }
   return output.join('');
 };

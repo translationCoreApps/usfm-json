@@ -1,4 +1,69 @@
 {
+  "chapters": {
+    "5": {
+      "17": {
+        "verseObjects": [
+          {
+            "text": "Then the sheep will feed as in their own pasture, and in the ruins, lambs will graze as foreigners.\n",
+            "type": "text"
+          },
+          {
+            "content": "+ \\ft Some modern versions have \\fqa and in the ruins of the rich, lambs will graze \\fqb . ",
+            "endTag": "f*",
+            "nextChar": "\n",
+            "tag": "f",
+            "type": "footnote"
+          },
+          {
+            "tag": "p",
+            "nextChar": "\n",
+            "type": "paragraph"
+          },
+          {
+            "tag": "q1",
+            "nextChar": "\n",
+            "type": "quote"
+          }
+        ]
+      },
+      "15-16": {
+        "verseObjects": [
+          {
+            "text": "Man is brought down, and the great man is humbled, and the eyes of the lofty are cast down.\nYahweh of hosts is exalted in his justice, and God the Holy One shows himself holy by his righteousness.\n",
+            "type": "text"
+          },
+          {
+            "tag": "q1",
+            "nextChar": "\n",
+            "type": "quote"
+          }
+        ]
+      },
+      "front": {
+        "verseObjects": [
+          {
+            "tag": "p",
+            "nextChar": "\n",
+            "type": "paragraph"
+          },
+          {
+            "tag": "q1",
+            "nextChar": "\n",
+            "type": "quote"
+          },
+          {
+            "text": "\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      }
+    }
+  },
   "headers": [
     {
       "content": "ISA Unlocked Literal Bible",
@@ -32,72 +97,5 @@
       "tag": "s5",
       "type": "section"
     }
-  ],
-  "chapters": {
-    "5": {
-      "front": {
-        "verseObjects": [
-          {
-            "tag": "p",
-            "type": "paragraph",
-            "text": "\n"
-          },
-          {
-            "tag": "q1",
-            "type": "quote",
-            "text": "\n"
-          },
-          {
-            "type": "text",
-            "text": "\n"
-          },
-          {
-            "tag": "s5",
-            "type": "section",
-            "text": "\n"
-          }
-        ]
-      },
-      "15-16": {
-        "verseObjects": [
-          {
-            "type": "text",
-            "text": "Man is brought down, and the great man is humbled, and the eyes of the lofty are cast down.\nYahweh of hosts is exalted in his justice, and God the Holy One shows himself holy by his righteousness.\n"
-          },
-          {
-            "tag": "q1",
-            "type": "quote",
-            "text": "\n"
-          }
-        ]
-      },
-      "17": {
-        "verseObjects": [
-          {
-            "type": "text",
-            "text": "Then the sheep will feed as in their own pasture, and in the ruins, lambs will graze as foreigners.\n"
-          },
-          {
-            "tag": "f",
-            "type": "footnote",
-            "content": "+ \\ft Some modern versions have \\fqa and in the ruins of the rich, lambs will graze \\fqb . "
-          },
-          {
-            "text": "\n",
-            "type": "text"
-          },
-          {
-            "tag": "p",
-            "type": "paragraph",
-            "text": "\n"
-          },
-          {
-            "tag": "q1",
-            "type": "quote",
-            "text": "\n"
-          }
-        ]
-      }
-    }
-  }
+  ]
 }

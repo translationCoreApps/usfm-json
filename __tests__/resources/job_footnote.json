@@ -9,8 +9,8 @@
           },
           {
             "tag": "q",
-            "type": "quote",
-            "text": "\n"
+            "nextChar": "\n",
+            "type": "quote"
           }
         ]
       },
@@ -22,16 +22,18 @@
           },
           {
             "tag": "q",
-            "type": "quote",
-            "text": "my hand "
+            "text": "my hand ",
+            "type": "quote"
           },
           {
             "content": "+ \\ft Some copies have: \\fqa ... his hand ... \\fqa* ",
+            "endTag": "f*",
+            "nextChar": " ",
             "tag": "f",
             "type": "footnote"
           },
           {
-            "text": " is heavy because of my groaning.\n\n",
+            "text": "is heavy because of my groaning.\n\n",
             "type": "text"
           }
         ]
@@ -40,8 +42,8 @@
         "verseObjects": [
           {
             "tag": "p",
-            "type": "paragraph",
-            "text": "\n"
+            "nextChar": "\n",
+            "type": "paragraph"
           }
         ]
       }

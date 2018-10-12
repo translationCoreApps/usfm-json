@@ -11,7 +11,7 @@
         "verseObjects": [
           {
             "tag": "p",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "paragraph"
           }
         ]

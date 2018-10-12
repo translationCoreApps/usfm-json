@@ -19,7 +19,7 @@
         "verseObjects": [
           {
             "tag": "p",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "paragraph"
           }
         ]
@@ -70,7 +70,7 @@
         "verseObjects": [
           {
             "tag": "p",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "paragraph"
           }
         ]

@@ -41,7 +41,7 @@
           },
           {
             "tag": "s5",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "section"
           }
         ]
@@ -50,7 +50,7 @@
         "verseObjects": [
           {
             "tag": "s5",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "section"
           },
           {
@@ -73,7 +73,7 @@
             "type": "quote"
           },
           {
-            "text": "\n",
+            "nextChar": "\n",
             "tag": "m",
             "type": "paragraph"
           }
@@ -91,7 +91,7 @@
         "verseObjects": [
           {
             "tag": "s5",
-            "text": "\n",
+            "nextChar": "\n",
             "type": "section"
           }
         ]

@@ -1,4 +1,40 @@
 {
+  "chapters": {
+    "1": {
+      "12": {
+        "verseObjects": [
+          {
+            "text": "\n...\n",
+            "type": "text"
+          },
+          {
+            "tag": "q",
+            "nextChar": "\n",
+            "type": "quote"
+          },
+          {
+            "text": "Christ Jesus.\n",
+            "type": "text"
+          },
+          {
+            "content": "+ \\ft Some early versions omit, \\fqa in Ephesus, \\fqa* but this expression is probably in Paul's original letter. ",
+            "endTag": "f*",
+            "nextChar": "\n",
+            "tag": "f",
+            "type": "footnote"
+          }
+        ]
+      },
+      "front": {
+        "verseObjects": [
+          {
+            "text": "\n",
+            "type": "text"
+          }
+        ]
+      }
+    }
+  },
   "headers": [
     {
       "content": "TIT Titus",
@@ -24,43 +60,5 @@
       "content": "Titus",
       "tag": "mt"
     }
-  ],
-  "chapters": {
-    "1": {
-      "front": {
-        "verseObjects": [
-          {
-            "text": "\n",
-            "type": "text"
-          }
-        ]
-      },
-      "12": {
-        "verseObjects": [
-          {
-            "type": "text",
-            "text": "\n...\n"
-          },
-          {
-            "tag": "q",
-            "text": "\n",
-            "type": "quote"
-          },
-          {
-            "type": "text",
-            "text": "Christ Jesus.\n"
-          },
-          {
-            "tag": "f",
-            "type": "footnote",
-            "content": "+ \\ft Some early versions omit, \\fqa in Ephesus, \\fqa* but this expression is probably in Paul's original letter. "
-          },
-          {
-            "text": "\n",
-            "type": "text"
-          }
-        ]
-      }
-    }
-  }
+  ]
 }

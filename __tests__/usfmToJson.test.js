@@ -1,5 +1,6 @@
+/* eslint-disable quote-props */
 import {readJSON, readUSFM} from './util';
-import {usfmToJSON} from '../src/js/usfmToJson';
+import {usfmToJSON, createUsfmObject, pushObject} from '../src/js/usfmToJson';
 
 /**
  * Generator for testing usfm to json migration
@@ -17,7 +18,7 @@ const generateTest = (name, args = {}, expectedName) => {
   expect(output).toEqual(expected);
 };
 
-describe("USFM to JSON", () => {
+describe("Large - USFM to JSON", () => {
   it('handle large files quickly', () => {
     const input = readUSFM(`large.usfm`);
     expect(input).toBeTruthy();
@@ -35,7 +36,9 @@ describe("USFM to JSON", () => {
     // Three seconds is a high bar to avoid tests failing on slow CI.
     expect(avgSeconds).toBeLessThanOrEqual(3);
   });
+});
 
+describe("USFM to JSON", () => {
   it('parses verse with an \\m marker inline with the text', () => {
     const input = "\\v 1 but the word of the Lord remains forever.\"\n\\m And this is the word of the gospel that was proclaimed to you.";
     const data = usfmToJSON(input, {chunk: true}).verses["1"].verseObjects;
@@ -171,5 +174,72 @@ describe("USFM to JSON", () => {
 
   it('handles Gen 12:2 empty word', () => {
     generateTest('f10_gen12-2_empty_word', {"chunk": true, "content-source": "bhp"});
+  });
+
+  it('handles jmp tag', () => {
+    generateTest('jmp', {chunk: true});
+  });
+
+  it('handles esb tag', () => {
+    generateTest('esb', {chunk: true});
+  });
+
+  it('handles qt tag', () => {
+    generateTest('qt', {chunk: true});
+  });
+
+  it('handles nb tag', () => {
+    generateTest('nb', {chunk: true});
+  });
+
+  it('handles ts tag', () => {
+    generateTest('ts', {chunk: true});
+  });
+
+  it('handles ts_2 tag', () => {
+    generateTest('ts_2', {chunk: true});
+  });
+
+  it('handles acts_1_11 tag', () => {
+    generateTest('acts_1_11', {chunk: true});
+  });
+
+  it('handles acts_1_4 tag', () => {
+    generateTest('acts_1_4', {chunk: true});
+  });
+
+  it('handles acts_1_milestone tag', () => {
+    generateTest('acts_1_milestone');
+  });
+});
+
+describe("createUsfmObject", () => {
+  it('handles mis-parse of numbers in content', () => {
+    const expected = {tag: "nuts", content: "5 kinds"};
+    const marker = {open: "nuts 5", tag: "nuts", number: "5", text: "kinds"};
+    const results = createUsfmObject(marker);
+    expect(results).toEqual(expected);
+  });
+});
+
+describe("pushObject", () => {
+  it('handles pushing nested USFM String', () => {
+    const expected = "1, 2";
+    const state = {
+      nested: [{content: "1"}]
+    };
+    const usfmObject = ", 2";
+    pushObject(state, null, usfmObject);
+    expect(state.nested[0].content).toEqual(expected);
+  });
+
+  it('handles pushing nested USFM Object', () => {
+    const expected = "1 \\nuts 2";
+    const state = {
+      nested: [{content: "1 "}]
+    };
+    const usfmObject = {tag: "nuts", content: "2"};
+    pushObject(state, null, usfmObject);
+    expect(state.nested[0].content).toEqual(expected);
   });
 });

@@ -1,0 +1,107 @@
+{
+  "chapters": {},
+  "headers": [],
+  "verses": {
+    "11": {
+      "verseObjects": [
+        {
+          "text": "Jesus stood before the Roman governor, who questioned him. ",
+          "type": "text"
+        },
+        {
+          "attrib": "|who=\"Pilate\"",
+          "children": [
+            {
+              "text": "“Are\n",
+              "type": "text"
+            },
+            {
+              "text": "you the king of the Jews?”",
+              "type": "text"
+            }
+          ],
+          "endTag": "qt-e\\*",
+          "tag": "qt-s",
+          "nextChar": " ",
+          "type": "quote"
+        },
+        {
+          "text": "he asked.\n",
+          "type": "text"
+        },
+        {
+          "tag": "p",
+          "type": "paragraph"
+        },
+        {
+          "attrib": "|who=\"Jesus\"",
+          "children": [
+            {
+              "text": "“So you say,”",
+              "type": "text"
+            }
+          ],
+          "endTag": "qt-e\\*",
+          "nextChar": " ",
+          "tag": "qt-s",
+          "type": "quote"
+        },
+        {
+          "text": "answered Jesus.\n",
+          "type": "text"
+        }
+      ]
+    },
+    "12": {
+      "verseObjects": [
+        {
+          "text": "But he said nothing in response to the accusations of the chief priests and elders.\n",
+          "type": "text"
+        },
+        {
+          "tag": "p",
+          "nextChar": "\n",
+          "type": "paragraph"
+        }
+      ]
+    },
+    "13": {
+      "verseObjects": [
+        {
+          "text": "So Pilate said to him, ",
+          "type": "text"
+        },
+        {
+          "attrib": "|who=\"Pilate\"",
+          "children": [
+            {
+              "text": "“Don't you hear all these things they\n",
+              "type": "text"
+            },
+            {
+              "text": "accuse you of?”",
+              "type": "text"
+            }
+          ],
+          "endTag": "qt-e\\*",
+          "tag": "qt-s",
+          "nextChar": "\n",
+          "type": "quote"
+        },
+        {
+          "tag": "p",
+          "nextChar": "\n",
+          "type": "paragraph"
+        }
+      ]
+    },
+    "14": {
+      "verseObjects": [
+        {
+          "text": "But Jesus refused to answer a single word, with the result that the Governor was greatly\nsurprised.",
+          "type": "text"
+        }
+      ]
+    }
+  }
+}

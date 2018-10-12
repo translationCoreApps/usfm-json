@@ -20,6 +20,10 @@ describe("JSON to USFM", () => {
     generateTest('tit_1_12');
   });
 
+  it('preserves punctuation in usfm when no words', () => {
+    generateTest('tit_1_12.no.words');
+  });
+
   it('\'word on new line after quote', () => {
     generateTest('tit_1_12_new_line');
   });

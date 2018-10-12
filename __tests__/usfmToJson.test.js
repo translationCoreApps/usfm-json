@@ -91,6 +91,10 @@ describe("USFM to JSON", () => {
     generateTest('tit_1_12');
   });
 
+  it('preserves punctuation in usfm when no words', () => {
+    generateTest('tit_1_12.no.words');
+  });
+
   it('preserves punctuation in usfm - word not on line start', () => {
     generateTest('tit_1_12.word.not.at.line.start', {}, 'tit_1_12');
   });

@@ -1,4 +1,4 @@
-/* eslint-disable no-use-before-define */
+/* eslint-disable no-use-before-define,padded-blocks */
 import {readJSON, readUSFM} from './util';
 import {jsonToUSFM} from '../src/js/jsonToUsfm';
 
@@ -123,15 +123,19 @@ describe("JSON to USFM", () => {
     generateTest('ts_2', {chunk: true});
   });
 
-  it('handles acts_1_11 tag', () => {
+  it('handles acts_1_11', () => {
     generateTest('acts_1_11', {chunk: true});
   });
 
-  it('handles acts_1_4 tag', () => {
+  it('handles acts_1_4', () => {
     generateTest('acts_1_4', {chunk: true});
   });
 
-  it('handles acts_1_milestone tag', () => {
+  it('handles acts_1_4.aligned', () => {
+    generateTest('acts_1_4.aligned', {chunk: true, zaln: true});
+  });
+
+  it('handles acts_1_milestone', () => {
     generateTest('acts_1_milestone', {zaln: true});
   });
 });

@@ -216,12 +216,16 @@ describe("USFM to JSON", () => {
     generateTest('ts_2', {chunk: true});
   });
 
-  it('handles acts_1_11 tag', () => {
+  it('handles acts_1_11', () => {
     generateTest('acts_1_11', {chunk: true});
   });
 
-  it('handles acts_1_4 tag', () => {
+  it('handles acts_1_4', () => {
     generateTest('acts_1_4', {chunk: true});
+  });
+
+  it('handles acts_1_4.aligned', () => {
+    generateTest('acts_1_4.aligned', {chunk: true});
   });
 
   it('handles acts_1_milestone tag', () => {

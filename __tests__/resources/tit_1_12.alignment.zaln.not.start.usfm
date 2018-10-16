@@ -27,7 +27,7 @@
 \zaln-s | x-strong="G30040" x-lemma="λέγω" x-morph="Gr,V,IAA3,,S," x-occurrence="1" x-occurrences="1" x-content="εἶπέν"
 \w has|x-occurrence="1" x-occurrences="1"\w*
 \w said|x-occurrence="1" x-occurrences="1"\w*
-\zaln-e\*,"\zaln-s | x-strong="G29120" x-lemma="Κρής" x-morph="Gr,N,,,,,NMP," x-occurrence="1" x-occurrences="1" x-content="Κρῆτες"
+\zaln-e\*, "\zaln-s | x-strong="G29120" x-lemma="Κρής" x-morph="Gr,N,,,,,NMP," x-occurrence="1" x-occurrences="1" x-content="Κρῆτες"
 \w Cretans|x-occurrence="1" x-occurrences="1"\w*
 \zaln-e\*
 \zaln-s | x-strong="G55830" x-lemma="ψεύστης" x-morph="Gr,N,,,,,NMP," x-occurrence="1" x-occurrences="1" x-content="ψεῦσται"
@@ -38,13 +38,13 @@
 \zaln-e\*
 \zaln-s | x-strong="G55830" x-lemma="ψεύστης" x-morph="Gr,N,,,,,NMP," x-occurrence="1" x-occurrences="1" x-content="ψεῦσται"
 \w liars|x-occurrence="1" x-occurrences="1"\w*
-\zaln-e\*,
+\zaln-e\*, 
 \zaln-s | x-strong="G25560" x-lemma="κακός" x-morph="Gr,AA,,,,NNP," x-occurrence="1" x-occurrences="1" x-content="κακὰ"
 \w evil|x-occurrence="1" x-occurrences="1"\w*
 \zaln-e\*
 \zaln-s | x-strong="G23420" x-lemma="θηρίον" x-morph="Gr,N,,,,,NNP," x-occurrence="1" x-occurrences="1" x-content="θηρία"
 \w beasts|x-occurrence="1" x-occurrences="1"\w*
-\zaln-e\*,
+\zaln-e\*, 
 \zaln-s | x-strong="G06920" x-lemma="ἀργός" x-morph="Gr,AA,,,,NFP," x-occurrence="1" x-occurrences="1" x-content="ἀργαί"
 \w lazy|x-occurrence="1" x-occurrences="1"\w*
 \zaln-e\*

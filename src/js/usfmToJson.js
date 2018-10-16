@@ -210,7 +210,7 @@ const parseLine = (line, lastLine) => {
       const lastMatch = matches[matches.length - 1];
       const endPos = lastMatch.index + lastMatch[0].length;
       if (endPos < line.length) {
-        let orphanText = line.substr(endPos) + '\n';
+        let orphanText = line.substr(endPos) + (lastLine ? '' : '\n');
         if (lastObject && lastObject.nextChar &&
           (lastObject.nextChar === ' ')) {
           orphanText = orphanText.substr(1); // remove first space since already handled

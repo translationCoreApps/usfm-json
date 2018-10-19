@@ -138,6 +138,10 @@ describe("JSON to USFM", () => {
   it('handles acts_1_milestone', () => {
     generateTest('acts_1_milestone', {zaln: true});
   });
+
+  it('handles acts-1-20.aligned.crammed', () => {
+    generateTest('acts-1-20.aligned.crammed', {chunk: true, zaln: true}, 'acts-1-20.aligned');
+  });
 });
 
 //
@@ -158,6 +162,7 @@ function normalizeAtributes(tag, source) {
   const normalized = parts.join(tag);
   return normalized;
 }
+
 /**
  * Generator for testing json to usfm migration
  * @param {string} name - the name of the test files to use. e.g. `valid` will test `valid.usfm` to `valid.json`

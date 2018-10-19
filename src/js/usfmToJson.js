@@ -416,7 +416,10 @@ const removeLastNewLine = (state, ignoreQuote = false) => {
   const saveTo = getSaveToLocation(state);
   if (saveTo && saveTo.length) {
     const lastObject = saveTo[saveTo.length - 1];
-    if (lastObject.type === 'text') {
+    if (lastObject.nextChar === '\n') {
+      delete lastObject.nextChar;
+    }
+    else if (lastObject.text) {
       const text = lastObject.text;
       if (isLastCharNewLine((text))) {
         const removeNewLine = !ignoreQuote || !isNextToLastCharQuote(text);

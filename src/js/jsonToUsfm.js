@@ -144,7 +144,8 @@ const usfmMarkerToString = (usfmObject, nextObject = null) => {
       if ((firstChar !== '') && (firstChar !== '\n') && (content !== ' \n')) { // make sure some whitespace
         output += ' ';
       }
-      else if (nextObject && (usfmObject.type === "paragraph") && !content && !usfmObject.nextChar) { // make sure some whitespace on paragraph marker
+      else if (nextObject && (usfmObject.type === "paragraph") && !content && !usfmObject.nextChar && // make sure some whitespace on paragraph marker
+                !['w', 'k', 'zaln'].includes(nextObject.tag)) {
         output += ' ';
       }
     } else if (firstChar !== ' ') { // if marker termination, make sure we have space

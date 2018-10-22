@@ -128,6 +128,10 @@ it('cleans mat-4-6', () => {
   generateTest('filter/mat-4-6');
 });
 
+it('cleans mat-4-6.aligned', () => {
+  generateTest('filter/mat-4-6.aligned');
+});
+
 it('cleans heb-12-27.grc', () => {
   generateTest('filter/heb-12-27.grc');
 });

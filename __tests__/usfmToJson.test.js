@@ -247,6 +247,10 @@ describe("USFM to JSON", () => {
   it('handles mat-4-6', () => {
     generateTest('mat-4-6', {chunk: true, zaln: true});
   });
+
+  it('handles mat-4-6.whitespace', () => {
+    generateTest('mat-4-6.whitespace', {chunk: true, zaln: true});
+  });
 });
 
 describe("createUsfmObject", () => {

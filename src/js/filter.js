@@ -1,7 +1,6 @@
 /* eslint-disable no-use-before-define,brace-style */
 import _ from "lodash";
 import {usfmToJSON} from './usfmToJson';
-import {jsonToUSFM} from './jsonToUsfm';
 
 /* Method to filter specified usfm marker from a string
  * @param {string} string - The string to remove specfic marker from
@@ -30,32 +29,6 @@ export const convertStringToVerseObjects = text => {
   return verseObjects;
 };
 
-/**
- * extracts text objects within verse object. If verseObject is word type, return that in array, else if it is a
- * milestone, then add words found in children to word array.  If no words found return empty array.
- * @param {object} verseObject - verse objects to have words extracted from
- * @return {Array} verseObjects found
- */
-export const extractTextFromVerseObject = verseObject => {
-  let verseObjects = [];
-  if (typeof verseObject === 'object') {
-    if (verseObject.text) {
-      verseObjects.push({type: 'text', text: verseObject.text});
-    }
-    if (verseObject.word || verseObject.type === 'word') {
-      verseObjects.push(verseObject);
-    } else if (verseObject.children) {
-      for (let child of verseObject.children) {
-        const childWords = extractTextFromVerseObject(child);
-        verseObjects = verseObjects.concat(childWords);
-        if (child.nextChar) {
-          verseObjects.push({type: 'text', text: child.nextChar});
-        }
-      }
-    }
-  }
-  return verseObjects;
-};
 
 /**
  * dive down into milestone to extract words and text
@@ -143,27 +116,6 @@ const replaceWordsAndMilestones = (verseObject, wordSpacing) => {
     }
   }
   return {verseObject, wordSpacing};
-};
-
-/**
- * convert verseObjects to Text
- * @param {Array} verseObjects - to convert
- * @return {string} converted text
- */
-export const verseObjectsToText = verseObjects => {
-  const outputData = {
-    chapters: {},
-    headers: [],
-    verses: {
-      1: verseObjects
-    }
-  };
-  const USFM = jsonToUSFM(outputData, {chunk: true});
-  let split = USFM.split("\\v 1 ");
-  if (split.length <= 1) {
-    split = USFM.split("\\v 1");
-  }
-  return split.length > 1 ? split[1] : "";
 };
 
 /**

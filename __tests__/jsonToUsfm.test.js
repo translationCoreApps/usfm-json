@@ -142,6 +142,10 @@ describe("JSON to USFM", () => {
   it('handles acts-1-20.aligned.crammed', () => {
     generateTest('acts-1-20.aligned.crammed', {chunk: true, zaln: true}, 'acts-1-20.aligned');
   });
+
+  it('handles mat-4-6', () => {
+    generateTest('mat-4-6', {chunk: true, zaln: true});
+  });
 });
 
 //

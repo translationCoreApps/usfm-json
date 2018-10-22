@@ -239,6 +239,14 @@ describe("USFM to JSON", () => {
   it('handles acts-1-20.aligned.crammed', () => {
     generateTest('acts-1-20.aligned.crammed', {chunk: true});
   });
+
+  it('handlesheb-12-27.grc', () => {
+    generateTest('heb-12-27.grc', {chunk: true});
+  });
+
+  it('handles mat-4-6', () => {
+    generateTest('mat-4-6', {chunk: true, zaln: true});
+  });
 });
 
 describe("createUsfmObject", () => {

@@ -29,7 +29,6 @@ export const convertStringToVerseObjects = text => {
   return verseObjects;
 };
 
-
 /**
  * dive down into milestone to extract words and text
  * @param {Object} verseObject - milestone to parse

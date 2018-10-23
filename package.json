@@ -1,6 +1,6 @@
 {
   "name": "usfm-js",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A small library that provides functions to convert usfm to JSON and vice-versa",
   "main": "lib/index.js",
   "scripts": {
@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
+    "lodash": "^4.17.11",
     "rimraf": "^2.6.2",
     "transform-runtime": "0.0.0"
   }

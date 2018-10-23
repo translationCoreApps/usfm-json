@@ -153,11 +153,15 @@ const parseLine = (line, lastLine) => {
   const matches = getMatches(line, regex, lastLine);
   let lastObject = null;
   if (regex.exec(line)) { // normal formatting with marker followed by content
-    for (let match of matches) {
+    const length = matches.length;
+    for (let i = 0; i < length; i++) {
+      const match = matches[i];
       const orphan = match[1];
       if (orphan) {
         const object = {content: orphan};
         array.push(object);
+        match[0] = match[0].substr(orphan.length); // trim out orphan text
+        match.index += orphan.length;
       }
       const open = match[2] ? match[2].trim() : undefined;
       const content = match[3] || undefined;
@@ -416,7 +420,10 @@ const removeLastNewLine = (state, ignoreQuote = false) => {
   const saveTo = getSaveToLocation(state);
   if (saveTo && saveTo.length) {
     const lastObject = saveTo[saveTo.length - 1];
-    if (lastObject.type === 'text') {
+    if (lastObject.nextChar === '\n') {
+      delete lastObject.nextChar;
+    }
+    else if (lastObject.text) {
       const text = lastObject.text;
       if (isLastCharNewLine((text))) {
         const removeNewLine = !ignoreQuote || !isNextToLastCharQuote(text);

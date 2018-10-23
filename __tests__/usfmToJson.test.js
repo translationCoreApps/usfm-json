@@ -228,8 +228,28 @@ describe("USFM to JSON", () => {
     generateTest('acts_1_4.aligned', {chunk: true});
   });
 
-  it('handles acts_1_milestone tag', () => {
+  it('handles acts_1_milestone', () => {
     generateTest('acts_1_milestone');
+  });
+
+  it('handles acts-1-20.aligned', () => {
+    generateTest('acts-1-20.aligned', {chunk: true});
+  });
+
+  it('handles acts-1-20.aligned.crammed', () => {
+    generateTest('acts-1-20.aligned.crammed', {chunk: true});
+  });
+
+  it('handlesheb-12-27.grc', () => {
+    generateTest('heb-12-27.grc', {chunk: true});
+  });
+
+  it('handles mat-4-6', () => {
+    generateTest('mat-4-6', {chunk: true, zaln: true});
+  });
+
+  it('handles mat-4-6.whitespace', () => {
+    generateTest('mat-4-6.whitespace', {chunk: true, zaln: true});
   });
 });
 

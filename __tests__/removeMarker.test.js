@@ -112,10 +112,26 @@ it('cleans ts_2 tag', () => {
   generateTest('filter/ts_2');
 });
 
-it('cleans acts_1_4 tag', () => {
+it('cleans acts_1_4', () => {
   generateTest('filter/acts_1_4');
 });
 
-it('cleans acts_1_5 tag', () => {
+it('cleans acts_1_5', () => {
   generateTest('filter/acts_1_5');
+});
+
+it('cleans acts_1_20', () => {
+  generateTest('filter/acts_1_20');
+});
+
+it('cleans mat-4-6', () => {
+  generateTest('filter/mat-4-6');
+});
+
+it('cleans mat-4-6.aligned', () => {
+  generateTest('filter/mat-4-6.aligned');
+});
+
+it('cleans heb-12-27.grc', () => {
+  generateTest('filter/heb-12-27.grc');
 });

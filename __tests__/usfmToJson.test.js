@@ -1,22 +1,6 @@
-/* eslint-disable quote-props */
+/* eslint-disable quote-props,no-use-before-define */
 import {readJSON, readUSFM} from './util';
 import {usfmToJSON, createUsfmObject, pushObject} from '../src/js/usfmToJson';
-
-/**
- * Generator for testing usfm to json migration
- * @param {string} name - the name of the test files to use. e.g. `valid` will test `valid.usfm` to `valid.json`
- * @param {object} args - optional arguments to be passed to the converter
- * @param {string} expectedName - optional different expected file
- */
-const generateTest = (name, args = {}, expectedName) => {
-  const input = readUSFM(`${name}.usfm`);
-  const expectedBaseName = expectedName ? expectedName : name;
-  const expected = readJSON(`${expectedBaseName}.json`);
-  expect(input).toBeTruthy();
-  expect(expected).toBeTruthy();
-  const output = usfmToJSON(input, args);
-  expect(output).toEqual(expected);
-};
 
 describe("Large - USFM to JSON", () => {
   it('handle large files quickly', () => {
@@ -251,6 +235,10 @@ describe("USFM to JSON", () => {
   it('handles mat-4-6.whitespace', () => {
     generateTest('mat-4-6.whitespace', {chunk: true, zaln: true});
   });
+
+  it('handles gn_headers', () => {
+    generateTest('gn_headers');
+  });
 });
 
 describe("createUsfmObject", () => {
@@ -283,3 +271,24 @@ describe("pushObject", () => {
     expect(state.nested[0].content).toEqual(expected);
   });
 });
+
+//
+// helpers
+//
+
+/**
+ * Generator for testing usfm to json migration
+ * @param {string} name - the name of the test files to use. e.g. `valid` will test `valid.usfm` to `valid.json`
+ * @param {object} args - optional arguments to be passed to the converter
+ * @param {string} expectedName - optional different expected file
+ */
+const generateTest = (name, args = {}, expectedName) => {
+  const input = readUSFM(`${name}.usfm`);
+  const expectedBaseName = expectedName ? expectedName : name;
+  const expected = readJSON(`${expectedBaseName}.json`);
+  expect(input).toBeTruthy();
+  expect(expected).toBeTruthy();
+  const output = usfmToJSON(input, args);
+  expect(output).toEqual(expected);
+};
+

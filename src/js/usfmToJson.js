@@ -1,4 +1,5 @@
 /* eslint-disable no-use-before-define,no-negated-condition,brace-style */
+import _ from "lodash";
 /**
  * @description for converting from USFM to json format.  Main method is usfmToJSON()
  */
@@ -894,6 +895,7 @@ const terminatePhrases = state => {
  * @param {object} marker - marker object containing content
  */
 const parseAsVerse = (state, marker) => {
+  state.inHeader = false;
   terminatePhrases(state);
   state.nested = [];
   marker.content = marker.content || "";
@@ -991,6 +993,7 @@ const markerToText = marker => {
  * @param {object} marker - marker object containing content
  */
 const processAsChapter = (state, marker) => {
+  state.inHeader = false;
   terminatePhrases(state);
   state.nested = [];
   state.currentChapter = stripLeadingZeros(marker.number);
@@ -1032,6 +1035,96 @@ const getVerseObjectsForBook = (usfmJSON, state) => {
 };
 
 /**
+ * add marker to header
+ * @param {object} state - holds parsing state information
+ * @param {object} marker - marker object containing content
+ */
+const addHeaderMarker = (state, marker) => {
+  const nextChar = marker.nextChar; // save nextChar
+  const usfmObject = createUsfmObject(marker, true);
+  if (nextChar !== undefined) {
+    usfmObject.nextChar = nextChar; // add back in
+  }
+  const lastHeader = (state.headers.length) ?
+    state.headers[state.headers.length - 1] : null;
+  const lastNext = lastHeader ? lastHeader.nextChar : null;
+  const appendToLast = lastHeader && (lastNext !== '\n');
+  if (appendToLast) {
+    const key = (lastHeader.text) ? 'text' : 'content';
+    let content = (lastHeader[key] || '') + (lastHeader.next || '') + markerToText(marker);
+    delete lastHeader.next;
+    if (content.substr(-1) === '\n') {
+      lastHeader.nextChar = '\n';
+      content = content.substr(0, content.length - 1); // trim off
+    }
+    lastHeader[key] = content;
+  } else {
+    if (usfmObject.text && (!usfmObject.nextChar) && (usfmObject.text.substr(-1) === '\n')) {
+      usfmObject.nextChar = '\n';
+      usfmObject.text = usfmObject.text.substr(0, usfmObject.text.length - 1); // trim off
+    }
+    state.headers.push(usfmObject);
+  }
+};
+
+/**
+ * processes the marker checking for spans
+ * @param {object} state - holds parsing state information
+ * @param {object} marker - marker object containing content
+ * @param {Number} i - current index in markers
+ * @param {Array} markers - array of parsed markers
+ * @return {Number} new index in markers
+ */
+const processNextMarker = (state, marker, i, markers) => {
+  let {endMarker, spannedUsfm} = checkForEndMarker(marker);
+  if (!endMarker && USFM.markerHasSpecialEndTag(marker.tag)) { // check for one-off end markers
+    const startMarker = USFM.markerHasSpecialEndTag(marker.tag);
+    endMarker = marker.tag;
+    marker.tag = startMarker;
+    spannedUsfm = true;
+  }
+  if (endMarker) { // check for end marker
+    if (spannedUsfm) {
+      i = endSpan(state, i, markers, endMarker, state.inHeader);
+    }
+  } else if (spannedUsfm) {
+    startSpan(state, createUsfmObject(marker), marker.tag);
+  } else {
+    addToCurrentVerse(state, marker);
+  }
+  return i;
+};
+
+/**
+ * clean of trailing newlines in headers since it is implicit
+ * @param {object} state - holds parsing state information
+ */
+const cleanupHeaderNewLines = state => {
+  for (let i = 0; i < state.headers.length; i++) {
+    const header = state.headers[i];
+    if (header.type === 'text') {
+      header.text += (header.nextChar || '');
+      while (i + 1 < state.headers.length) {
+        const headerNext = (i + 1) < state.headers.length ?
+          state.headers[i + 1] : {};
+        if (headerNext.type === 'text') {
+          header.text += headerNext.text + (headerNext.nextChar || '');
+          state.headers.splice(i + 1, 1);
+        } else {
+          break;
+        }
+      }
+      if (header.text.substr(-1) === '\n') {
+        header.text = header.text.substr(0, header.text.length - 1);
+      }
+    }
+    if (header && header.nextChar === '\n') {
+      delete header.nextChar;
+    }
+  }
+};
+
+/**
  * @description - Parses the usfm string and returns an object
  * @param {String} usfm - the raw usfm string
  * @param {Object} params - extra params to use for chunk parsing. Properties:
@@ -1059,6 +1152,7 @@ export const usfmToJSON = (usfm, params = {}) => {
     phrase: null,
     phraseParent: null,
     onSameChapter: false,
+    inHeader: true,
     params: params
   };
   for (let i = 0; i < markers.length; i++) {
@@ -1090,36 +1184,49 @@ export const usfmToJSON = (usfm, params = {}) => {
       }
       case 'k':
       case 'zaln': { // phrase
-        removeLastNewLine(state);
-        const phrase = parseWord(state, marker.content); // very similar to word marker, so start with this and modify
-        phrase.type = "milestone";
-        const milestone = phrase.text.trim();
-        if (milestone === '-s') { // milestone start
-          delete phrase.text;
-          startSpan(state, phrase, marker.tag);
-        } else if (milestone === '-e') { // milestone end
-          i = endSpan(state, i, markers, marker.tag + "-e\\*");
+        if (state.inHeader) {
+          addHeaderMarker(state, marker);
+        } else {
+          removeLastNewLine(state);
+          const phrase = parseWord(state, marker.content); // very similar to word marker, so start with this and modify
+          phrase.type = "milestone";
+          const milestone = phrase.text.trim();
+          if (milestone === '-s') { // milestone start
+            delete phrase.text;
+            startSpan(state, phrase, marker.tag);
+          } else if (milestone === '-e') { // milestone end
+            i = endSpan(state, i, markers, marker.tag + "-e\\*");
+          }
         }
         break;
       }
       case 'w': { // word
-        removeLastNewLine(state);
-        const wordObject = parseWord(state, marker.content);
-        pushObject(state, null, wordObject);
-        if (marker.nextChar) {
-          pushObject(state, null, marker.nextChar);
+        if (state.inHeader) {
+          addHeaderMarker(state, marker);
+        } else {
+          removeLastNewLine(state);
+          const wordObject = parseWord(state, marker.content);
+          pushObject(state, null, wordObject);
+          if (marker.nextChar) {
+            pushObject(state, null, marker.nextChar);
+          }
         }
         break;
       }
       case 'w*': {
-        if (marker.nextChar && (marker.nextChar !== ' ')) {
+        if (state.inHeader) {
+          addHeaderMarker(state, marker);
+        } else if (marker.nextChar && (marker.nextChar !== ' ')) {
           pushObject(state, null, marker.nextChar);
         }
         break;
       }
       case undefined: { // likely orphaned text for the preceding verse marker
         if (marker) {
-          if (marker.content && (marker.content.substr(0, 2) === "\\*")) {
+          if (state.inHeader) {
+            addHeaderMarker(state, marker);
+          }
+          else if (marker.content && (marker.content.substr(0, 2) === "\\*")) {
             // is part of usfm3 milestone marker
             marker.content = marker.content.substr(2);
           } else
@@ -1163,36 +1270,19 @@ export const usfmToJSON = (usfm, params = {}) => {
           }
         }
         if (marker) { // if not yet processed
-          let {endMarker, spannedUsfm} = checkForEndMarker(marker);
-          if (state.currentChapter === 0 && !state.currentVerse) { // if we haven't seen chapter yet, its a header
-            if (spannedUsfm) {
-              i = endSpan(state, i, markers, endMarker, true);
-            } else {
-              pushObject(state, state.headers, createUsfmObject(marker, true));
-            }
+          if (state.currentChapter === 0 && !state.currentVerse) { // if we haven't seen chapter or verse yet, its a header
+            state.inHeader = true;
+            addHeaderMarker(state, marker);
           } else if (state.currentChapter ||
             (state.params.chunk && state.currentVerse)) {
-            if (!endMarker && USFM.markerHasSpecialEndTag(marker.tag)) { // check for one-off end markers
-              const startMarker = USFM.markerHasSpecialEndTag(marker.tag);
-              endMarker = marker.tag;
-              marker.tag = startMarker;
-              spannedUsfm = true;
-            }
-            if (endMarker) { // check for end marker
-              if (spannedUsfm) {
-                i = endSpan(state, i, markers, endMarker);
-              }
-            } else if (spannedUsfm) {
-              startSpan(state, createUsfmObject(marker), marker.tag);
-            } else {
-              addToCurrentVerse(state, marker);
-            }
+            i = processNextMarker(state, marker, i, markers);
           }
         }
       }
     }
   }
   terminatePhrases(state);
+  cleanupHeaderNewLines(state);
   usfmJSON.headers = state.headers;
   getVerseObjectsForBook(usfmJSON, state);
   if (Object.keys(state.verses).length > 0) {

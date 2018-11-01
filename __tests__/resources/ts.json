@@ -2,7 +2,8 @@
   "chapters": {},
   "headers": [
     {
-      "tag": "ts\\*"
+      "content": "\\*",
+      "tag": "ts"
     },
     {
       "tag": "p",

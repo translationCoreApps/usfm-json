@@ -2,8 +2,8 @@
   "chapters": {},
   "headers": [
     {
-      "attrib": "|sid=\"ts_JUD_5-6\"",
-      "tag": "ts-s\\*"
+      "content": "-s|sid=\"ts_JUD_5-6\"\\*",
+      "tag": "ts"
     },
     {
       "tag": "p",

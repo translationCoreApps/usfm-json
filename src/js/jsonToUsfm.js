@@ -125,9 +125,11 @@ const generatePhrase = (phraseObject, nextObject) => {
  * @description convert usfm marker to string
  * @param {object} usfmObject - usfm object to output
  * @param {object} nextObject - usfm object that will come next
+ * @param {Boolean} noSpaceAfterTag - if true then do not put space after tage
  * @return {String} Text equivalent of marker.
  */
-const usfmMarkerToString = (usfmObject, nextObject = null) => {
+const usfmMarkerToString = (usfmObject, nextObject = null,
+                            noSpaceAfterTag = false) => {
   let output = "";
   const content = usfmObject.text || usfmObject.content || "";
   let markerTermination = usfmObject.endTag; // new format takes precidence
@@ -140,7 +142,10 @@ const usfmMarkerToString = (usfmObject, nextObject = null) => {
       output += ' ' + usfmObject.number;
     }
     const firstChar = content.substr(0, 1);
-    if (!markerTermination) {
+    if (noSpaceAfterTag) {
+      // no spacing
+    }
+    else if (!markerTermination) {
       if ((firstChar !== '') && (firstChar !== '\n') && (content !== ' \n')) { // make sure some whitespace
         output += ' ';
       }
@@ -336,7 +341,12 @@ const generateChapterLines = (chapterNumber, chapterObject) => {
  * @param {Object} usfmObject - USFM object to convert to string
  */
 const outputHeaderObject = (output, usfmObject) => {
-  let text = usfmMarkerToString(usfmObject);
+  const firstChar = usfmObject.content && usfmObject.content.substr(0, 1);
+  const noSpace = ['-', '\\'].includes(firstChar);
+  let text = usfmMarkerToString(usfmObject, null, noSpace);
+  if (usfmObject.type === 'text' && (typeof usfmObject.text === 'string')) {
+    text += '\n';
+  } else
   if (usfmObject.tag) {
     text += '\n';
   }

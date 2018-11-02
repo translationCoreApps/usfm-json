@@ -103,18 +103,6 @@ export const USFM_PROPERTIES = {
   fv: {
     endTag: "*"
   },
-  imte: {
-    endTag: "*"
-  },
-  imte1: {
-    endTag: "*"
-  },
-  imte2: {
-    endTag: "*"
-  },
-  imte3: {
-    endTag: "*"
-  },
   ior: {
     endTag: "*"
   },

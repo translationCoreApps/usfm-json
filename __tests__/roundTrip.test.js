@@ -1,23 +1,12 @@
+/* eslint-disable no-use-before-define */
 import fs from 'fs';
 import path from 'path';
 import {readUSFM} from './util';
 import {usfmToJSON} from '../src/js/usfmToJson';
 import {jsonToUSFM} from '../src/js/jsonToUsfm';
 
-const roundTripTest = (name) => {
-  console.log("Testing: " + name);
-  const input = readUSFM(path.join('ugnt', name));
-  expect(input).toBeTruthy();
-  const json = usfmToJSON(input);
-  const usfm = jsonToUSFM(json);
-/* eslint-disable no-use-before-define */
-  let errors = validateUSFM(usfm, input);
-  errors = validateUSFM3(json, errors);
-  expect(errors).toEqual(0);
-};
-
-describe("USFM to JSON", () => {
-  const folder = path.join('__tests__', 'resources', 'ugnt');
+describe("USFM to JSON to USFM", () => {
+  const folder = path.join('__tests__', 'resources', 'roundTrip');
   let files = fs.readdirSync(folder);
   files = files.filter(file => {
     const parsed = path.parse(file);
@@ -213,3 +202,15 @@ function validateUSFM3(json, errors) {
   }
   return errors;
 }
+
+const roundTripTest = name => {
+  console.log("Testing: " + name);
+  const input = readUSFM(path.join('roundTrip', name));
+  expect(input).toBeTruthy();
+  const json = usfmToJSON(input);
+  const usfm = jsonToUSFM(json);
+  let errors = validateUSFM(usfm, input);
+  errors = validateUSFM3(json, errors);
+  expect(errors).toEqual(0);
+};
+

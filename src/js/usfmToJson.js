@@ -966,9 +966,10 @@ const addTextField = text => {
 /**
  * @description - convert marker to text
  * @param {object} marker - object to convert to text
+ * @param {boolean} noSpaceAfterTag - if true then don't add space after tag
  * @return {string} text representation of marker
  */
-const markerToText = marker => {
+const markerToText = (marker, noSpaceAfterTag = false) => {
   if (!marker.tag) {
     return marker.text || marker.content;
   }
@@ -977,7 +978,11 @@ const markerToText = marker => {
     text += " " + marker.number;
   }
   const content = marker.content || marker.text;
-  text += addTextField(content);
+  if (noSpaceAfterTag) {
+    text += content;
+  } else {
+    text += addTextField(content);
+  }
   if (marker.attrib) {
     text += (content ? '' : ' ') + marker.attrib;
   }
@@ -1050,8 +1055,10 @@ const addHeaderMarker = (state, marker) => {
   const lastNext = lastHeader ? lastHeader.nextChar : null;
   const appendToLast = lastHeader && (lastNext !== '\n');
   if (appendToLast) {
+    const markerContent = (marker.content || marker.text || '');
+    const noSpaceAfterTag = (markerContent.substr(0, 1) === '*'); // special handling for end tags
     const key = (lastHeader.text) ? 'text' : 'content';
-    let content = (lastHeader[key] || '') + (lastHeader.next || '') + markerToText(marker);
+    let content = (lastHeader[key] || '') + (lastHeader.next || '') + markerToText(marker, noSpaceAfterTag);
     delete lastHeader.next;
     if (content.substr(-1) === '\n') {
       lastHeader.nextChar = '\n';

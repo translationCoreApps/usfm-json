@@ -341,8 +341,11 @@ const generateChapterLines = (chapterNumber, chapterObject) => {
  * @param {Object} usfmObject - USFM object to convert to string
  */
 const outputHeaderObject = (output, usfmObject) => {
-  const firstChar = usfmObject.content && usfmObject.content.substr(0, 1);
-  const noSpace = ['-', '\\'].includes(firstChar);
+  let noSpace = false;
+  if (usfmObject.content) {
+    const firstChar = usfmObject.content.substr(0, 1);
+    noSpace = ['-', '*'].includes(firstChar) || (usfmObject.content.substr(0, 2) === '\\*');
+  }
   let text = usfmMarkerToString(usfmObject, null, noSpace);
   if (usfmObject.type === 'text' && (typeof usfmObject.text === 'string')) {
     text += '\n';

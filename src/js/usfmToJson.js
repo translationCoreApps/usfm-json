@@ -1,5 +1,4 @@
 /* eslint-disable no-use-before-define,no-negated-condition,brace-style */
-import _ from "lodash";
 /**
  * @description for converting from USFM to json format.  Main method is usfmToJSON()
  */

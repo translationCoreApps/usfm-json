@@ -239,6 +239,10 @@ describe("USFM to JSON", () => {
   it('handles gn_headers', () => {
     generateTest('gn_headers');
   });
+
+  it('handles usfmBodyTestD', () => {
+    generateTest('usfmBodyTestD');
+  });
 });
 
 describe("createUsfmObject", () => {

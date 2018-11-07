@@ -149,8 +149,8 @@ const usfmMarkerToString = (usfmObject, nextObject = null,
       if ((firstChar !== '') && (firstChar !== '\n') && (content !== ' \n')) { // make sure some whitespace
         output += ' ';
       }
-      else if (nextObject && (usfmObject.type === "paragraph") && !content && !usfmObject.nextChar && // make sure some whitespace on paragraph marker
-                !['w', 'k', 'zaln'].includes(nextObject.tag)) {
+      else if (nextObject && usfmObject.tag && !content && // make sure some whitespace
+                !usfmObject.nextChar && !['w', 'k', 'zaln'].includes(nextObject.tag)) {
         output += ' ';
       }
     } else if (firstChar !== ' ') { // if marker termination, make sure we have space
@@ -222,10 +222,12 @@ const objectToString = (object, output, nextObject) => {
   }
 
   if (Array.isArray(object)) {
-    for (let i = 0; i < object.length; i++) {
-      const objectN = object[i];
+    let lastObject;
+    for (let i = 0, len = object.length; i < len; i++) {
+      const objectN = lastObject ? lastObject : object[i];
       const nextObject = (i + 1 < object.length) ? object[i + 1] : null;
       output = objectToString(objectN, output, nextObject);
+      lastObject = nextObject;
     }
     return output;
   }
@@ -234,7 +236,7 @@ const objectToString = (object, output, nextObject) => {
     return addOnNewLine(generateWord(object, nextObject), output);
   }
 
-  if (object.type === 'milestone') { // milestone type (phrase)
+  if ((object.type === 'milestone') && (object.endTag !== object.tag + '*')) { // milestone type (phrase)
     return addOnNewLine(generatePhrase(object, nextObject), output);
   }
   else if (object.children && object.children.length) {
@@ -303,6 +305,22 @@ const addChapter = (lines, chapter) => {
 };
 
 /**
+ * get sorted list of verses. `front` will be first, the rest sorted alphabetically
+ * @param {Array} verses - to sort
+ * @return {string[]} sorted verses
+ */
+const sortVerses = verses => {
+  const sortedVerses = verses.sort((a, b) => {
+    let delta = parseInt(a, 10) - parseInt(b, 10);
+    if (delta === 0) { // handle verse spans, unspanned verse first
+      delta = (a > b) ? 1 : -1;
+    }
+    return delta;
+  });
+  return sortedVerses;
+};
+
+/**
  * @description Takes in chapter json and outputs it as a USFM line array.
  * @param {String} chapterNumber - number to use for the chapter
  * @param {Object} chapterObject - chapter in JSON
@@ -316,9 +334,7 @@ const generateChapterLines = (chapterNumber, chapterObject) => {
     lines = lines.concat(verseText);
     delete chapterObject.front;
   }
-  const verseNumbers = Object.keys(chapterObject).sort((a, b) => {
-    return parseInt(a, 10) - parseInt(b, 10);
-  });
+  const verseNumbers = sortVerses(Object.keys(chapterObject));
   const verseLen = verseNumbers.length;
   for (let i = 0; i < verseLen; i++) {
     const verseNumber = verseNumbers[i];
@@ -408,7 +424,7 @@ export const jsonToUSFM = (json, params) => {
     }
   }
   if (json.verses) {
-    const verseNumbers = Object.keys(json.verses);
+    const verseNumbers = sortVerses(Object.keys(json.verses));
     const verseLen = verseNumbers.length;
     for (let i = 0; i < verseLen; i++) {
       const verseNumber = verseNumbers[i];

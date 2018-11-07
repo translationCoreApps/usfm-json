@@ -171,15 +171,20 @@ function validateVerseObjects(verseObjects, chapter, verse, errors) {
       error = error || verifyTwAttribute(object, chapter, verse, true);
       error = error || verifyNoAttribute(object, 'children', chapter, verse);
     } else if (object.type === 'milestone') {
-      error = error || verifyAttribute(object, 'tag', chapter, verse);
-      error = error || verifyNoAttribute(object, 'text', chapter, verse);
-      error = error || verifyNoAttribute(object, 'lemma', chapter, verse);
-      error = error || verifyNoAttribute(object, 'morph', chapter, verse);
-      error = error || verifyNoAttribute(object, 'strong', chapter, verse);
-      error = error || verifyTwAttribute(object, chapter, verse);
-      error = error || verifychildren(object, chapter, verse);
+      if (object.endTag !== object.tag + '*') {
+        error = error || verifyAttribute(object, 'tag', chapter, verse);
+        error = error || verifyNoAttribute(object, 'text', chapter, verse);
+        error = error || verifyNoAttribute(object, 'lemma', chapter, verse);
+        error = error || verifyNoAttribute(object, 'morph', chapter, verse);
+        error = error || verifyNoAttribute(object, 'strong', chapter, verse);
+        error = error || verifyTwAttribute(object, chapter, verse);
+        error = error || verifychildren(object, chapter, verse);
+      } else {
+        console.log("Skipping milestone Object that is not ours: " + JSON.stringify(object));
+      }
     }
     if (error) {
+      console.log("Invalid Object: " + JSON.stringify(object));
       errors++;
     }
   }

@@ -297,10 +297,13 @@ export const createUsfmObject = (marker, noNext = false) => {
   const tag = marker.tag;
   let content = marker.content || marker.text;
   const tagProps = USFM.USFM_PROPERTIES[tag];
-  const type = USFM.getMarkerType(tagProps);
+  let type = USFM.getMarkerType(tagProps);
   let isText = true;
   if (tag) {
     isText = USFM.propDisplayable(tagProps);
+    if ((type === 'milestone') && (tag.indexOf('-s') < 0)) { // verify that it actually is a milestone
+      type = '';
+    }
     if (type) {
       output.type = type;
     }

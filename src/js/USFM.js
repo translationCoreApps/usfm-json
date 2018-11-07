@@ -21,7 +21,7 @@ export const SPECIAL_END_TAGS = {
 //    {string|array} endTag - optional text to indicate the end of content/text
 //    {boolean} attrib - optional if true then expect attributes delimited by `|`
 //    {boolean} endAttrib - optional if true then expect attributes on end milestone delimited by `|`
-//    {boolean} milestone - optional if true then contents between tags with `-s` and `-b`
+//    {boolean} milestone - optional if true then contents between tags with `-s` and `-e` (used for our custom milestones)
 //    {boolean} standalone - optional if true then force a milestone marker to be treated as standalone
 export const USFM_PROPERTIES = {
   "+nd": {
@@ -119,7 +119,7 @@ export const USFM_PROPERTIES = {
     display: true
   },
   k: {
-    endTag: "-e",
+    endTag: ["-e", "*"],
     type: "milestone",
     display: true,
     attrib: true
@@ -565,10 +565,6 @@ export const USFM_PROPERTIES = {
     endTag: "*",
     attrib: true
   },
-  xta: {
-    endTag: "*"
-  },
-
   zaln: {
     endTag: "-e",
     type: "milestone",

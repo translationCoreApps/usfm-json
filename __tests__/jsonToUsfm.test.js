@@ -162,6 +162,10 @@ describe("JSON to USFM", () => {
   it('handles links', () => {
     generateTest('links');
   });
+
+  it('handles usfmIntroTest', () => {
+    generateTest('usfmIntroTest', {}, 'usfmIntroTestCleaned');
+  });
 });
 
 //

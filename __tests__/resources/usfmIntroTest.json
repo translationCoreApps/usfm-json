@@ -1,0 +1,752 @@
+{
+  "chapters": {
+    "1": {
+      "1": {
+        "verseObjects": [
+          {
+            "text": "Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,\n",
+            "type": "text"
+          }
+        ]
+      },
+      "2": {
+        "verseObjects": [
+          {
+            "text": "with the certain hope of everlasting life that God, who does not lie, promised before all the ages of time.\n",
+            "type": "text"
+          }
+        ]
+      },
+      "3": {
+        "verseObjects": [
+          {
+            "text": "At the right time, he revealed his word by the message that he trusted me to deliver, by the command of God our savior.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "4": {
+        "verseObjects": [
+          {
+            "text": "To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior.\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "p",
+            "type": "paragraph"
+          }
+        ]
+      },
+      "5": {
+        "verseObjects": [
+          {
+            "text": "For this purpose I left you in Crete, that you might set in order things not yet complete and ordain elders in every city as I directed you.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "6": {
+        "verseObjects": [
+          {
+            "text": "An elder must be without blame, the husband of one wife, with faithful children not accused of reckless behavior or undisciplined.\n",
+            "type": "text"
+          }
+        ]
+      },
+      "7": {
+        "verseObjects": [
+          {
+            "text": "It is necessary for the overseer, as God's household manager, to be blameless. He must not be arrogant, not be easily angered, not addicted to wine, not a brawler, and not a greedy man.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "8": {
+        "verseObjects": [
+          {
+            "text": "Instead, he should be hospitable and a friend of what is good. He must be sensible, righteous, godly, and self-controlled.\n",
+            "type": "text"
+          }
+        ]
+      },
+      "9": {
+        "verseObjects": [
+          {
+            "text": "He should hold tightly to the trustworthy message that was taught, so that he may be able to encourage others with good teaching and correct those who oppose him.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "p",
+            "type": "paragraph"
+          }
+        ]
+      },
+      "10": {
+        "verseObjects": [
+          {
+            "text": "For there are many rebellious people, empty talkers and deceivers, especially those of the circumcision.\n",
+            "type": "text"
+          }
+        ]
+      },
+      "11": {
+        "verseObjects": [
+          {
+            "text": "It is necessary to stop them. They are upsetting whole families by teaching for shameful profit what they should not teach.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "p",
+            "type": "paragraph"
+          }
+        ]
+      },
+      "12": {
+        "verseObjects": [
+          {
+            "text": "At once the Spirit made him go into the desert, ",
+            "type": "text"
+          }
+        ]
+      },
+      "13": {
+        "verseObjects": [
+          {
+            "text": "where he stayed 40 days, being\ntempted by Satan. Wild animals were there also, but angels came and helped him.\n",
+            "type": "text"
+          },
+          {
+            "content": "Jesus' Public Ministry in Galilee\n",
+            "tag": "ms"
+          },
+          {
+            "content": "1.14--9.50\n",
+            "tag": "mr"
+          },
+          {
+            "content": "Jesus returns to Galilee and does not go back to Judea until the close of his public\n",
+            "tag": "ip"
+          },
+          {
+            "text": "ministry. There is no indication of how long his Galilean ministry lasted: only when he is\nback in Judea is a ",
+            "type": "text"
+          },
+          {
+            "tag": "w",
+            "text": "festival ",
+            "type": "word"
+          },
+          {
+            "content": "(",
+            "tag": "ft"
+          },
+          {
+            "tag": "w",
+            "text": "passover",
+            "type": "word"
+          },
+          {
+            "content": ") mentioned (14.1). He spends much of his\n",
+            "tag": "ft"
+          },
+          {
+            "text": "time in Capernaum (1.21; 2.1; 3.1, 20; 9.33) and other places around Lake Galilee (1.9; 2.13;\n3.7; 4.1). Twice Jesus ventures out of Galilee: into the region of the Ten Towns (5.1-20) and\nPhoenicia (7.24-31). His actions and teachings soon arouse opposition from the religious\nleaders (2.6-7, 24; 3.6, 22; 7.1-13; 8.11-12), and before long he predicts his coming arrest,\ncondemnation, and crucifixion (8.31; 9.30-31).\n",
+            "type": "text"
+          },
+          {
+            "content": "Jesus Calls Four Fishermen\n",
+            "tag": "s1",
+            "type": "section"
+          },
+          {
+            "content": "(Mt 4.12-22; Lk 4.14-15; 5.1-11)\n",
+            "tag": "r"
+          },
+          {
+            "content": "Jesus' message is about the arrival of the ",
+            "tag": "ip"
+          },
+          {
+            "tag": "w",
+            "text": "kingdom of god",
+            "type": "word"
+          },
+          {
+            "text": ", which will happen soon.\nTo prepare for it, the people need to repent (1.15). He immediately summons two pairs of\nfishermen brothers to be his followers and helpers.\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "p",
+            "type": "paragraph"
+          }
+        ]
+      },
+      "14": {
+        "verseObjects": [
+          {
+            "text": "After John had been put in prison, Jesus went to Galilee and preached the Good News\nfrom God.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "15": {
+        "verseObjects": [
+          {
+            "text": "To those who are pure, all things are pure. But to those who are corrupt and unbelieving, nothing is pure, but both their minds and their consciences have been corrupted.\n",
+            "type": "text"
+          }
+        ]
+      },
+      "16": {
+        "verseObjects": [
+          {
+            "text": "They profess to know God, but they deny him by their actions. They are detestable, disobedient, and unfit for doing any good work.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "front": {
+        "verseObjects": [
+          {
+            "nextChar": "\n",
+            "tag": "p",
+            "type": "paragraph"
+          }
+        ]
+      }
+    },
+    "2": {
+      "1": {
+        "verseObjects": [
+          {
+            "text": "But you, speak what fits with faithful instruction.\n",
+            "type": "text"
+          }
+        ]
+      },
+      "2": {
+        "verseObjects": [
+          {
+            "text": "Teach older men to be temperate, dignified, sensible, sound in faith, in love, and in perseverance.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "3": {
+        "verseObjects": [
+          {
+            "text": "Teach older women likewise to be reverent in behavior, not slanderers or being slaves to much wine, but to be teachers of what is good.\n",
+            "type": "text"
+          }
+        ]
+      },
+      "4": {
+        "verseObjects": [
+          {
+            "text": "In this way they may train the younger women to love their own husbands and children,\n",
+            "type": "text"
+          }
+        ]
+      },
+      "5": {
+        "verseObjects": [
+          {
+            "text": "to be sensible, pure, good housekeepers, and obedient to their own husbands, so that God's word may not be insulted.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "6": {
+        "verseObjects": [
+          {
+            "text": "In the same way, encourage the younger men to use good sense.\n",
+            "type": "text"
+          }
+        ]
+      },
+      "7": {
+        "verseObjects": [
+          {
+            "text": "In all ways present yourself as an example of good works. In your teaching, show integrity, dignity,\n",
+            "type": "text"
+          }
+        ]
+      },
+      "8": {
+        "verseObjects": [
+          {
+            "text": "and a correct message that is above criticism, so that anyone who opposes you may be ashamed because they have nothing bad to say about us.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "9": {
+        "verseObjects": [
+          {
+            "text": "Teach slaves to obey their masters in everything, to please them and not argue with them,\n",
+            "type": "text"
+          }
+        ]
+      },
+      "10": {
+        "verseObjects": [
+          {
+            "text": "to not steal from them, but instead to demonstrate all good faith, so that in every way they may bring credit to the teaching about God our Savior.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "11": {
+        "verseObjects": [
+          {
+            "text": "For the grace of God has appeared for the salvation of all people.\n",
+            "type": "text"
+          }
+        ]
+      },
+      "12": {
+        "verseObjects": [
+          {
+            "text": "It trains us to reject godlessness and worldly passions, and to live self-controlled, upright, and godly lives in this age,\n",
+            "type": "text"
+          }
+        ]
+      },
+      "13": {
+        "verseObjects": [
+          {
+            "text": "while we look forward to receiving our blessed hope, the appearance of the glory of our great God and Savior Jesus Christ.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "14": {
+        "verseObjects": [
+          {
+            "text": "Jesus gave himself for us in order to redeem us from all lawlessness and to make pure, for himself, a special people who are eager to do good works.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "p",
+            "type": "paragraph"
+          }
+        ]
+      },
+      "15": {
+        "verseObjects": [
+          {
+            "text": "Speak of these things, encourage people to do them, and give correction with all authority. Let no one disregard you.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "front": {
+        "verseObjects": [
+          {
+            "nextChar": "\n",
+            "tag": "p",
+            "type": "paragraph"
+          }
+        ]
+      }
+    },
+    "3": {
+      "1": {
+        "verseObjects": [
+          {
+            "text": "Remind them to submit to rulers and authorities, to obey them, to be ready for every good work,\n",
+            "type": "text"
+          }
+        ]
+      },
+      "2": {
+        "verseObjects": [
+          {
+            "text": "to revile no one, to not be eager to fight, and to be gentle, showing all humility toward everyone.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "3": {
+        "verseObjects": [
+          {
+            "text": "For once we ourselves were thoughtless and disobedient. We were led astray and enslaved by various passions and pleasures. We lived in evil and envy. We were detestable and hated one another.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "4": {
+        "verseObjects": [
+          {
+            "text": "But when the kindness of God our savior and his love for mankind appeared,\n",
+            "type": "text"
+          }
+        ]
+      },
+      "5": {
+        "verseObjects": [
+          {
+            "text": "it was not by works of righteousness that we did, but by his mercy that he saved us, through the washing of new birth and renewal by the Holy Spirit,\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "6": {
+        "verseObjects": [
+          {
+            "text": "whom God richly poured on us through our Savior Jesus Christ,\n",
+            "type": "text"
+          }
+        ]
+      },
+      "7": {
+        "verseObjects": [
+          {
+            "text": "so that having been justified by his grace, we might become heirs with the certain hope of eternal life.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "8": {
+        "verseObjects": [
+          {
+            "text": "This message is trustworthy. I want you to insist on these things, so that those who have believed in God may be careful to engage themselves in good works. These things are good and useful for everyone.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "9": {
+        "verseObjects": [
+          {
+            "text": "But avoid foolish debates and genealogies and strife and conflict about the law. Those things are unprofitable and worthless.\n",
+            "type": "text"
+          }
+        ]
+      },
+      "10": {
+        "verseObjects": [
+          {
+            "text": "Reject anyone who is causing divisions among you, after one or two warnings,\n",
+            "type": "text"
+          }
+        ]
+      },
+      "11": {
+        "verseObjects": [
+          {
+            "text": "knowing that such a person has turned from the right way and is sinning and condemns himself.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "p",
+            "type": "paragraph"
+          }
+        ]
+      },
+      "12": {
+        "verseObjects": [
+          {
+            "text": "When I send Artemas or Tychicus to you, hurry and come to me at Nicopolis, where I have decided to spend the winter.\n",
+            "type": "text"
+          }
+        ]
+      },
+      "13": {
+        "verseObjects": [
+          {
+            "text": "Do everything you can to send on their way Zenas the lawyer and Apollos, so that they lack nothing. \n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "14": {
+        "verseObjects": [
+          {
+            "text": "Our people must learn to engage themselves in good works that provide for urgent needs, and so not be unfruitful.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "p",
+            "type": "paragraph"
+          }
+        ]
+      },
+      "15": {
+        "verseObjects": [
+          {
+            "text": "All those who are with me greet you. Greet those who love us in faith. Grace be with all of you.\n",
+            "type": "text"
+          }
+        ]
+      },
+      "front": {
+        "verseObjects": [
+          {
+            "nextChar": "\n",
+            "tag": "p",
+            "type": "paragraph"
+          }
+        ]
+      }
+    }
+  },
+  "headers": [
+    {
+      "content": "TIT Unlocked Literal Bible",
+      "tag": "id"
+    },
+    {
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Titus",
+      "tag": "h"
+    },
+    {
+      "content": "The Letter of Paul to Titus",
+      "tag": "toc1"
+    },
+    {
+      "content": "Titus",
+      "tag": "toc2"
+    },
+    {
+      "content": "Tit",
+      "tag": "toc3"
+    },
+    {
+      "content": "Titus",
+      "tag": "mt"
+    },
+    {
+      "text": "",
+      "type": "text"
+    },
+    {
+      "content": "Outline of Contents",
+      "tag": "iot"
+    },
+    {
+      "content": "The beginning of the gospel 1.1-13",
+      "tag": "io1"
+    },
+    {
+      "content": "Jesus' public ministry in Galilee 1.14-9.50",
+      "tag": "io1"
+    },
+    {
+      "content": "From Galilee to Jerusalem 10.1-52",
+      "tag": "io1"
+    },
+    {
+      "content": "The last week in and near Jerusalem 11.1-15.47",
+      "tag": "io1"
+    },
+    {
+      "content": "The resurrection of Jesus 16.1-8",
+      "tag": "io1"
+    },
+    {
+      "content": "[An Old Ending to the Gospel 16.9-20]",
+      "tag": "io1"
+    },
+    {
+      "content": "[Another Old Ending 16.9-10]",
+      "tag": "io1"
+    },
+    {
+      "content": "The opening words of \\bk The Gospel according to Mark\\bk* tell its readers that the",
+      "tag": "ip"
+    },
+    {
+      "text": "subject of this book is the Good News about Jesus Christ. With the coming of Jesus Christ,\nit announces, the time set by God to bring salvation to humankind has arrived (1.15).\nThough the book concentrates on his deeds and words, it is not a biography of Jesus of\nNazareth. Only one year, or a little more, of Jesus' life appears to be recorded (chapters\n1--10), and over one-third of the book (chapters 11--16) is taken up with the last week of\nJesus in and near \\w Jerusalem\\w*. Nothing is said about his birth, childhood, home, or\nparents. When he first appears, unknown and unannounced, Jesus is a full-grown adult who\ncomes to John the Baptist to be \\w baptized\\w* by him.",
+      "type": "text"
+    },
+    {
+      "content": "The author's primary interest in writing is religious. The Gospel is written \"from",
+      "tag": "ip"
+    },
+    {
+      "tag": "w",
+      "text": "faith\\w* to faith\"."
+    },
+    {
+      "text": "",
+      "type": "text"
+    },
+    {
+      "content": "The Story",
+      "tag": "is1"
+    },
+    {
+      "content": "\\bk Mark's\\bk* story of Jesus is told quickly and with an abundance of details that",
+      "tag": "ip"
+    },
+    {
+      "text": "enhance its dramatic impact. Jesus appears suddenly in Judea, where he joins those who\nare being baptized in the Jordan by John the Baptist. Just as suddenly, he returns to\nGalilee, where he proclaims the message that the \\w kingdom of god\\w* is about to\narrive.\n",
+      "type": "text"
+    },
+    {
+      "content": "However, he is more than a teacher, healer, or \\w miracle\\w*-worker. He is also the",
+      "tag": "ip"
+    },
+    {
+      "text": "Messiah, the Son of God, the Son of Man. These three titles express the first Christians'\nunderstanding of who Jesus is.",
+      "type": "text"
+    },
+    {
+      "content": "1 \\k The Messiah\\k* is the one promised by God, the one who would come and free God's",
+      "tag": "ili"
+    },
+    {
+      "text": "people. By the time \\bk The Gospel of Mark\\bk* appeared, the title \"Messiah\" (in Greek,\n\"\\w christ\\w*\") had become a proper name, so that the Gospel opens with \"the Good News\nabout Jesus Christ\" (and not \"Jesus the Christ\"). Peter's confession (8.29) marks a\nturning-point in the ministry of Jesus. The title \"\\w son of  david\\w* \" (10.46-48) also\nidentifies Jesus as the Messiah, who would restore to Israel the power and glory it\nenjoyed under David's reign (also 12.35-37).",
+      "type": "text"
+    },
+    {
+      "content": "2 \\k The Son of God\\k* is the title by which the heavenly voice addresses Jesus at",
+      "tag": "ili"
+    },
+    {
+      "text": "his baptism (1.11) and his transfiguration (9.7). And at Jesus' death the Roman officer\nconfesses that Jesus is the Son of God (15.39).",
+      "type": "text"
+    },
+    {
+      "content": "3 \\k The Son of Man\\k* is the title most often used of Jesus, and it appears only on",
+      "tag": "ili"
+    },
+    {
+      "text": "the lips of Jesus. This enigmatic title appears in \\bk The Book of Daniel\\bk* (Dan 7.13n),\nwhere it is applied to the exalted figure to whom God gives universal dominion. In",
+      "type": "text"
+    },
+    {
+      "tag": "bk",
+      "text": "Mark\\bk* the title is used of Jesus in three ways: the Son of Man acts with divine"
+    },
+    {
+      "text": "power (2.10, 28); he will be rejected, will suffer and die (8.31; 9.9, 12, 31; 10.33-34,\n45; 14.21, 41); he will return in power and glory (8.38; 13.26; 14.62).\n\n",
+      "type": "text"
+    },
+    {
+      "tag": "s5",
+      "type": "section"
+    }
+  ]
+}

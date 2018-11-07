@@ -158,6 +158,10 @@ describe("JSON to USFM", () => {
   it('handles usfmBodyTestD', () => {
     generateTest('usfmBodyTestD');
   });
+
+  it('handles links', () => {
+    generateTest('links');
+  });
 });
 
 //

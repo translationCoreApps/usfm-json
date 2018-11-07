@@ -243,6 +243,10 @@ describe("USFM to JSON", () => {
   it('handles usfmBodyTestD', () => {
     generateTest('usfmBodyTestD');
   });
+
+  it('handles links', () => {
+    generateTest('links');
+  });
 });
 
 describe("createUsfmObject", () => {

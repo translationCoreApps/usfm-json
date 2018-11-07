@@ -542,7 +542,9 @@ const saveUsfmObject = (state, tag, marker) => {
       const objectText = (typeof marker === 'string') ? marker : markerToText(marker);
       phraseParent.content = (phraseParent.content || "") + objectText;
     }
-    else {
+    else if (phraseParent.attrib && !phraseParent.usfm3Milestone && (typeof marker === 'string')) {
+      phraseParent.attrib += marker;
+    } else {
       const saveTo = getLastPhrase(state);
       const usfmObject_ = createUsfmObject(marker);
       saveTo.push(usfmObject_);

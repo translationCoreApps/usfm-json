@@ -1,0 +1,35 @@
+{
+  "chapters": {
+    "1": {
+      "1": {
+        "verseObjects": [
+          {
+            "text": "But you, speak what fits with faithful instruction.\nThe traditional translation of verse 1, as given in\n",
+            "type": "text"
+          },
+          {
+            "attrib": "|link-href=\"prj:RSV52 GEN 1:1\" link-title=\"Revised Standard Version\"",
+            "endTag": "jmp*",
+            "tag": "jmp",
+            "text": "RSV"
+          },
+          {
+            "text": ",\nmay be appropriate.\nStorehouses, as used here, refers to large buildings with walls and roof, where grain was\nkept until needed. (See illustration: ",
+            "type": "text"
+          },
+          {
+            "attrib": "|link-href=\"figures/storehouse.png\"\nlink-title=\"Ancient storehouse\"",
+            "endTag": "jmp*",
+            "tag": "jmp",
+            "text": "Storehouse"
+          },
+          {
+            "text": ")\n",
+            "type": "text"
+          }
+        ]
+      }
+    }
+  },
+  "headers": []
+}

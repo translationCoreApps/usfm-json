@@ -55,7 +55,11 @@ const generateWord = (wordObject, nextObject) => {
       attributes.push(attribute);
     }
   });
-  let line = '\\w ' + word + '|' + attributes.join(' ') + '\\w*';
+  let attrOut = attributes.join(' ');
+  if (attrOut) {
+    attrOut = '|' + attrOut;
+  }
+  let line = '\\w ' + word + attrOut + '\\w*';
   return line;
 };
 
@@ -125,15 +129,17 @@ const generatePhrase = (phraseObject, nextObject) => {
  * @description convert usfm marker to string
  * @param {object} usfmObject - usfm object to output
  * @param {object} nextObject - usfm object that will come next
- * @param {Boolean} noSpaceAfterTag - if true then do not put space after tage
+ * @param {Boolean} noSpaceAfterTag - if true then do not put space after tag
+ * @param {Boolean} noTermination - if true then do not add missing termination
  * @return {String} Text equivalent of marker.
  */
 const usfmMarkerToString = (usfmObject, nextObject = null,
-                            noSpaceAfterTag = false) => {
+                            noSpaceAfterTag = false,
+                            noTermination = false) => {
   let output = "";
   const content = usfmObject.text || usfmObject.content || "";
   let markerTermination = usfmObject.endTag; // new format takes precidence
-  if ((typeof markerTermination !== 'string') && USFM.markerTermination(usfmObject.tag)) {
+  if ((typeof markerTermination !== 'string') && USFM.markerTermination(usfmObject.tag) && !noTermination) {
     markerTermination = usfmObject.tag + '*'; // fall back to old generation method
   }
   if (usfmObject.tag) {
@@ -362,7 +368,7 @@ const outputHeaderObject = (output, usfmObject) => {
     const firstChar = usfmObject.content.substr(0, 1);
     noSpace = ['-', '*'].includes(firstChar) || (usfmObject.content.substr(0, 2) === '\\*');
   }
-  let text = usfmMarkerToString(usfmObject, null, noSpace);
+  let text = usfmMarkerToString(usfmObject, null, noSpace, true);
   if (usfmObject.type === 'text' && (typeof usfmObject.text === 'string')) {
     text += '\n';
   } else

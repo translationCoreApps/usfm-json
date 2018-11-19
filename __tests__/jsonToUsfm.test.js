@@ -166,6 +166,10 @@ describe("JSON to USFM", () => {
   it('handles usfmIntroTest', () => {
     generateTest('usfmIntroTest', {}, 'usfmIntroTestCleaned');
   });
+
+  it('process inline_words but not on newline', () => {
+    generateTest('inline_words', {forcedNewLines: false, chunk: true});
+  });
 });
 
 //
@@ -199,6 +203,10 @@ const generateTest = (name, params, expectedName) => {
   const expected = readUSFM(`${expectedBaseName}.usfm`);
   expect(input).toBeTruthy();
   expect(expected).toBeTruthy();
+  if (!params || params.forcedNewLines !== false) {
+    params = params || {};
+    params.forcedNewLines = true; // we default to true for testing
+  }
   const output = jsonToUSFM(input, params);
   if (params && params.zaln) { // normalize attributes
     const tag = "\\zaln-s | ";

@@ -1,6 +1,6 @@
 {
   "name": "usfm-js",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A small library that provides functions to convert usfm to JSON and vice-versa",
   "main": "lib/index.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "prebuild": "rm -rf ./lib",
     "build": "babel ./src -d ./lib",
     "prepare": "if [ ! -d './lib/' ]; then npm run build; fi",
-    "prepublishOnly": "npm test && npm run build"
+    "prepublishOnly": "npm test && npm run build",
+    "postpublish": "git tag $npm_package_version && git push origin $npm_package_version"
   },
   "jest": {
     "collectCoverageFrom": [

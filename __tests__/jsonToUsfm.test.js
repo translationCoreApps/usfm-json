@@ -168,7 +168,7 @@ describe("JSON to USFM", () => {
   });
 
   it('process inline_words but not on newline', () => {
-    generateTest('inline_words', {noForcedNewLines: true, chunk: true});
+    generateTest('inline_words', {forcedNewLines: false, chunk: true});
   });
 });
 
@@ -203,6 +203,9 @@ const generateTest = (name, params, expectedName) => {
   const expected = readUSFM(`${expectedBaseName}.usfm`);
   expect(input).toBeTruthy();
   expect(expected).toBeTruthy();
+  if (params.forcedNewLines !== false) {
+    params.forcedNewLines = true; // we default to true for testing
+  }
   const output = jsonToUSFM(input, params);
   if (params && params.zaln) { // normalize attributes
     const tag = "\\zaln-s | ";

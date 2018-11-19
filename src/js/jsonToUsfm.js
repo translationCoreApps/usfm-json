@@ -196,7 +196,7 @@ const addOnNewLine = (text, output) => {
   output = output || "";
   if (text) {
     const lastChar = (output) ? output.substr(output.length - 1) : '';
-    if ((!lastChar) || (lastChar !== '\n')) {
+    if (!params_.noForcedNewLines && ((!lastChar) || (lastChar !== '\n'))) {
       text = '\n' + text;
     }
     output += text;
@@ -406,6 +406,7 @@ const processParams = () => {
  *                    map {Object} - dictionary of attribute names to map to new name on word objects
  *                    mileStoneIgnore (Array} - list of attributes to ignore on milestone objects
  *                    mileStoneMap {Object} - dictionary of attribute names to map to new name on milestone objects
+ *                    noForcedNewLines (boolean} - if true then we don't add newlines before alignment tags
  * @return {String} - Scripture in USFM
  */
 export const jsonToUSFM = (json, params) => {

@@ -251,6 +251,10 @@ describe("USFM to JSON", () => {
   it('handles usfmIntroTest', () => {
     generateTest('usfmIntroTest');
   });
+
+  it('process inline_words', () => {
+    generateTest('inline_words', {chunk: true});
+  });
 });
 
 describe("createUsfmObject", () => {

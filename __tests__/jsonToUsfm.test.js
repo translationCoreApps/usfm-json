@@ -166,6 +166,10 @@ describe("JSON to USFM", () => {
   it('handles usfmIntroTest', () => {
     generateTest('usfmIntroTest', {}, 'usfmIntroTestCleaned');
   });
+
+  it('process inline_words but not on newline', () => {
+    generateTest('inline_words', {noForcedNewLines: true, chunk: true});
+  });
 });
 
 //

@@ -203,7 +203,8 @@ const generateTest = (name, params, expectedName) => {
   const expected = readUSFM(`${expectedBaseName}.usfm`);
   expect(input).toBeTruthy();
   expect(expected).toBeTruthy();
-  if (params.forcedNewLines !== false) {
+  if (!params || params.forcedNewLines !== false) {
+    params = params || {};
     params.forcedNewLines = true; // we default to true for testing
   }
   const output = jsonToUSFM(input, params);

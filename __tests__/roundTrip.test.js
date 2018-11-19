@@ -213,7 +213,7 @@ const roundTripTest = name => {
   const input = readUSFM(path.join('roundTrip', name));
   expect(input).toBeTruthy();
   const json = usfmToJSON(input);
-  const usfm = jsonToUSFM(json);
+  const usfm = jsonToUSFM(json, {forcedNewLines: true});
   let errors = validateUSFM(usfm, input);
   errors = validateUSFM3(json, errors);
   expect(errors).toEqual(0);

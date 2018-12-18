@@ -259,6 +259,10 @@ describe("USFM to JSON", () => {
   it('process inline_God', () => {
     generateTest('inline_God', {chunk: true});
   });
+
+  it('process tit_extra_space_after_chapter', () => {
+    generateTest('tit_extra_space_after_chapter');
+  });
 });
 
 describe("createUsfmObject", () => {

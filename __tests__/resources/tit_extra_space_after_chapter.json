@@ -1,0 +1,175 @@
+{
+  "chapters": {
+    "1": {
+      "1": {
+        "verseObjects": [
+          {
+            "text": "Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,\n",
+            "type": "text"
+          }
+        ]
+      },
+      "2": {
+        "verseObjects": [
+          {
+            "text": "with the certain hope of everlasting life that God, who does not lie, promised before all the ages of time.\n",
+            "type": "text"
+          }
+        ]
+      },
+      "3": {
+        "verseObjects": [
+          {
+            "text": "At the right time, he revealed his word by the message that he trusted me to deliver, by the command of God our savior.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "4": {
+        "verseObjects": [
+          {
+            "text": "To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior.\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "p",
+            "type": "paragraph"
+          }
+        ]
+      },
+      "5": {
+        "verseObjects": [
+          {
+            "text": "For this purpose I left you in Crete, that you might set in order things not yet complete and ordain elders in every city as I directed you.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "6": {
+        "verseObjects": [
+          {
+            "text": "An elder must be without blame, the husband of one wife, with faithful children not accused of reckless behavior or undisciplined.\n",
+            "type": "text"
+          }
+        ]
+      },
+      "7": {
+        "verseObjects": [
+          {
+            "text": "It is necessary for the overseer, as God's household manager, to be blameless. He must not be arrogant, not be easily angered, not addicted to wine, not a brawler, and not a greedy man.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "8": {
+        "verseObjects": [
+          {
+            "text": "Instead, he should be hospitable and a friend of what is good. He must be sensible, righteous, godly, and self-controlled.\n",
+            "type": "text"
+          }
+        ]
+      },
+      "9": {
+        "verseObjects": [
+          {
+            "text": "He should hold tightly to the trustworthy message that was taught, so that he may be able to encourage others with good teaching and correct those who oppose him.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "p",
+            "type": "paragraph"
+          }
+        ]
+      },
+      "10": {
+        "verseObjects": [
+          {
+            "text": "For there are many rebellious people, empty talkers and deceivers, especially those of the circumcision.\n",
+            "type": "text"
+          }
+        ]
+      },
+      "11": {
+        "verseObjects": [
+          {
+            "text": "It is necessary to stop them. They are upsetting whole families by teaching for shameful profit what they should not teach.\n",
+            "type": "text"
+          }
+        ]
+      },
+      "front": {
+        "verseObjects": [
+          {
+            "text": "\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "p",
+            "type": "paragraph"
+          }
+        ]
+      }
+    }
+  },
+  "headers": [
+    {
+      "content": "TIT Unlocked Literal Bible",
+      "tag": "id"
+    },
+    {
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Titus",
+      "tag": "h"
+    },
+    {
+      "content": "The Letter of Paul to Titus",
+      "tag": "toc1"
+    },
+    {
+      "content": "Titus",
+      "tag": "toc2"
+    },
+    {
+      "content": "Tit",
+      "tag": "toc3"
+    },
+    {
+      "content": "Titus",
+      "tag": "mt"
+    },
+    {
+      "text": "",
+      "type": "text"
+    },
+    {
+      "tag": "s5",
+      "type": "section"
+    }
+  ]
+}

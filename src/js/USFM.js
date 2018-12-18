@@ -24,11 +24,92 @@ export const SPECIAL_END_TAGS = {
 //    {boolean} milestone - optional if true then contents between tags with `-s` and `-e` (used for our custom milestones)
 //    {boolean} standalone - optional if true then force a milestone marker to be treated as standalone
 export const USFM_PROPERTIES = {
+  "+add": {
+    endTag: "*",
+    display: true
+  },
+  "+bd": {
+    endTag: "*",
+    display: true
+  },
+  "+bdit": {
+    endTag: "*",
+    display: true
+  },
+  "+bk": {
+    endTag: "*",
+    display: true
+  },
+  "+dc": {
+    endTag: "*",
+    display: true
+  },
+  "+em": {
+    endTag: "*",
+    display: true
+  },
+  "+it": {
+    endTag: "*",
+    display: true
+  },
+  "+k": {
+    endTag: "*",
+    display: true
+  },
+  "+lit": {
+    display: true
+  },
   "+nd": {
     endTag: "*",
     display: true
   },
+  "+no": {
+    endTag: "*",
+    display: true
+  },
+  "+ord": {
+    endTag: "*",
+    display: true
+  },
+  "+pn": {
+    endTag: "*",
+    display: true
+  },
+  "+png": {
+    endTag: "*",
+    display: true
+  },
+  "+qt": {
+    type: "quote",
+    endTag: "*",
+    display: true
+  },
+  "+sc": {
+    endTag: "*",
+    display: true
+  },
+  "+sig": {
+    endTag: "*",
+    display: true
+  },
+  "+sls": {
+    endTag: "*",
+    display: true
+  },
+  "+sup": {
+    endTag: "*",
+    display: true
+  },
+  "+tl": {
+    endTag: "*",
+    display: true
+  },
+  "+wj": {
+    endTag: "*",
+    display: true
+  },
   add: {
+    endTag: "*",
     display: true
   },
   b: {
@@ -486,6 +567,7 @@ export const USFM_PROPERTIES = {
     endTag: "*"
   },
   sls: {
+    endTag: "*",
     display: true
   },
   sp: {

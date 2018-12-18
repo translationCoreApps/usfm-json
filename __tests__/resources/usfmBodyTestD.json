@@ -99,16 +99,12 @@
             "type": "text"
           },
           {
+            "endTag": "add*",
             "tag": "add",
             "text": "возделывании"
           },
           {
-            "content": "земли, которую проклял Господь.\n",
-            "endMarkerChar": " ",
-            "tag": "add*"
-          },
-          {
-            "text": "\n",
+            "text": " земли, которую проклял Господь.\n\n",
             "type": "text"
           },
           {

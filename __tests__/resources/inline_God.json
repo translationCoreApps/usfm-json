@@ -14,7 +14,77 @@
           "text": "od"
         },
         {
-          "text": " created.",
+          "text": " created.\n",
+          "type": "text"
+        }
+      ]
+    },
+    "2": {
+      "verseObjects": [
+        {
+          "text": "The following is a ",
+          "type": "text"
+        },
+        {
+          "children": [
+            {
+              "endTag": "+nd*",
+              "tag": "+nd",
+              "text": "Lord"
+            },
+            {
+              "text": " within it",
+              "type": "text"
+            }
+          ],
+          "endTag": "add*",
+          "tag": "add",
+          "text": "translator's addition containing the word "
+        },
+        {
+          "text": "\n",
+          "type": "text"
+        },
+        {
+          "nextChar": "\n",
+          "tag": "p",
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "endTag": "+nd*",
+              "tag": "+nd",
+              "text": "Lord"
+            }
+          ],
+          "endTag": "add*",
+          "tag": "add",
+          "text": "an addition containing the word "
+        },
+        {
+          "text": " and further text ...\n",
+          "type": "text"
+        },
+        {
+          "nextChar": "\n",
+          "tag": "p",
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "endTag": "",
+              "tag": "+nd",
+              "text": "Lord"
+            }
+          ],
+          "endTag": "add*",
+          "tag": "add",
+          "text": "an addition containing the word "
+        },
+        {
+          "text": " and further text ...\n",
           "type": "text"
         }
       ]

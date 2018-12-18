@@ -21,15 +21,18 @@
         },
         {
           "endTag": "nd*",
-          "nextChar": " ",
           "tag": "nd",
           "text": "Lord"
         },
         {
+          "text": " ",
+          "type": "text"
+        },
+        {
           "content": "+ \\fr 2.4: \\fk the \\+nd Lord\\+nd*: \\ft Where the Hebrew text\nhas Yahweh, traditionally transliterated as Jehovah, this translation employs \\+nd Lord\\+nd*\nwith capital letters, following a usage which is widespread in English versions.",
           "endTag": "f*",
-          "tag": "f",
           "nextChar": " ",
+          "tag": "f",
           "type": "footnote"
         },
         {
@@ -66,11 +69,10 @@
           ],
           "endTag": "bk*",
           "tag": "bk",
-          "nextChar": " ",
           "text": "The Book of the "
         },
         {
-          "text": "speaks of “...the\ntown of Waheb in the area of Suphah, and the valleys; the Arnon River,\n",
+          "text": " speaks of “...the\ntown of Waheb in the area of Suphah, and the valleys; the Arnon River,\n",
           "type": "text"
         }
       ]

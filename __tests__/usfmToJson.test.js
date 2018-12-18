@@ -255,6 +255,10 @@ describe("USFM to JSON", () => {
   it('process inline_words', () => {
     generateTest('inline_words', {chunk: true});
   });
+
+  it('process inline_God', () => {
+    generateTest('inline_God', {chunk: true});
+  });
 });
 
 describe("createUsfmObject", () => {

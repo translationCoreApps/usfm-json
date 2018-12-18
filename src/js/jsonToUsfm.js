@@ -18,7 +18,7 @@ let milestoneIgnore_ = [];
  */
 const needsNewLine = nextObject => {
   let retVal = '\n';
-  if ((nextObject) && (nextObject.type === 'text') && (nextObject.text.substr(0, 1) !== '\n')) {
+  if (nextObject && (nextObject.type === 'text')) {
     retVal = '';
   }
   return retVal;

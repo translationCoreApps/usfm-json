@@ -170,6 +170,10 @@ describe("JSON to USFM", () => {
   it('process inline_words but not on newline', () => {
     generateTest('inline_words', {forcedNewLines: false, chunk: true});
   });
+
+  it('process inline_God', () => {
+    generateTest('inline_God', {chunk: true});
+  });
 });
 
 //

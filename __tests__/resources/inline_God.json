@@ -1,0 +1,23 @@
+{
+  "chapters": {},
+  "headers": [],
+  "verses": {
+    "1": {
+      "verseObjects": [
+        {
+          "text": "In the beginning G",
+          "type": "text"
+        },
+        {
+          "endTag": "sc*",
+          "tag": "sc",
+          "text": "od"
+        },
+        {
+          "text": " created.",
+          "type": "text"
+        }
+      ]
+    }
+  }
+}

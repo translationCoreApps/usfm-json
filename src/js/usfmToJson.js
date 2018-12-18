@@ -866,7 +866,11 @@ const endSpan = (state, index, markers, endMarker, header = false) => {
       phraseParent.endTag = endMarker;
       const nextChar = current && (current.nextChar || current.endMarkerChar);
       if (nextChar) {
-        phraseParent.nextChar = nextChar;
+        if (parentContentDisplayable) {
+          content = nextChar + (content || "");
+        } else {
+          phraseParent.nextChar = nextChar;
+        }
       }
     }
   } else { // no parent, so will save end marker

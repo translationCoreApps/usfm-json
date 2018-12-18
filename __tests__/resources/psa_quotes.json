@@ -18,8 +18,8 @@
             "type": "quote"
           },
           {
-            "tag": "q",
             "nextChar": "\n",
+            "tag": "q",
             "type": "quote"
           }
         ]
@@ -37,13 +37,12 @@
           },
           {
             "endTag": "qs*",
-            "nextChar": "\n",
             "tag": "qs",
             "text": "Selah",
             "type": "quote"
           },
           {
-            "text": "\n ",
+            "text": "\n\n ",
             "type": "text"
           },
           {
@@ -52,8 +51,8 @@
             "type": "section"
           },
           {
-            "tag": "q",
             "nextChar": "\n",
+            "tag": "q",
             "type": "quote"
           }
         ]
@@ -89,8 +88,8 @@
             "type": "section"
           },
           {
-            "tag": "q",
             "nextChar": "\n",
+            "tag": "q",
             "type": "quote"
           }
         ]
@@ -107,8 +106,8 @@
             "type": "quote"
           },
           {
-            "tag": "q",
             "nextChar": "\n",
+            "tag": "q",
             "type": "quote"
           }
         ]
@@ -129,13 +128,13 @@
       "front": {
         "verseObjects": [
           {
-            "tag": "p",
             "nextChar": "\n",
+            "tag": "p",
             "type": "paragraph"
           },
           {
-            "tag": "q",
             "nextChar": "\n",
+            "tag": "q",
             "type": "quote"
           }
         ]

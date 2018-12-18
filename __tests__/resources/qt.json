@@ -22,11 +22,10 @@
           ],
           "endTag": "qt-e\\*",
           "tag": "qt-s",
-          "nextChar": " ",
           "type": "quote"
         },
         {
-          "text": "he asked.\n",
+          "text": " he asked.\n",
           "type": "text"
         },
         {
@@ -42,12 +41,11 @@
             }
           ],
           "endTag": "qt-e\\*",
-          "nextChar": " ",
           "tag": "qt-s",
           "type": "quote"
         },
         {
-          "text": "answered Jesus.\n",
+          "text": " answered Jesus.\n",
           "type": "text"
         }
       ]
@@ -59,8 +57,8 @@
           "type": "text"
         },
         {
-          "tag": "p",
           "nextChar": "\n",
+          "tag": "p",
           "type": "paragraph"
         }
       ]
@@ -85,12 +83,15 @@
           ],
           "endTag": "qt-e\\*",
           "tag": "qt-s",
-          "nextChar": "\n",
           "type": "quote"
         },
         {
-          "tag": "p",
+          "text": "\n",
+          "type": "text"
+        },
+        {
           "nextChar": "\n",
+          "tag": "p",
           "type": "paragraph"
         }
       ]

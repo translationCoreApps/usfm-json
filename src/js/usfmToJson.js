@@ -763,10 +763,21 @@ const endSpan = (state, index, markers, endMarker, header = false) => {
   if (!phraseParent || parentContentDisplayable) {
     popPhrase(state);
     if (phraseParent && endMarker) {
-      phraseParent.endTag = endMarker;
       if ((phraseParent.children !== undefined) &&
             !phraseParent.children.length) {
         delete phraseParent.children; // remove unneeded empty children
+      }
+      while (phraseParent) {
+        const tagBase = phraseParent.tag.split('-')[0];
+        if ((tagBase + '*' === endMarker) || (tagBase + '-e\\*' === endMarker)
+        ) { // if this is the parent end
+          phraseParent.endTag = endMarker;
+          break;
+        } else {
+          phraseParent.endTag = "";
+          phraseParent = getPhraseParent(state); // pop next
+          popPhrase(state);
+        }
       }
     }
   }

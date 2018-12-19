@@ -88,6 +88,34 @@
           "type": "text"
         }
       ]
+    },
+    "3": {
+      "verseObjects": [
+        {
+          "text": "That is why ",
+          "type": "text"
+        },
+        {
+          "children": [
+            {
+              "endTag": "+nd*",
+              "tag": "+nd",
+              "text": "Lord"
+            },
+            {
+              "text": "'s Battles",
+              "type": "text"
+            }
+          ],
+          "endTag": "bk*",
+          "tag": "bk",
+          "text": "The Book of the "
+        },
+        {
+          "text": " speaks of “...the\ntown of Waheb in the area of Suphah, and the valleys; the Arnon River,\n",
+          "type": "text"
+        }
+      ]
     }
   }
 }

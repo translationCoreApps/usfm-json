@@ -185,7 +185,9 @@ const parseLine = (line, lastLine) => {
           let endPos = match[0].indexOf(match[3], startPos);
           if (endPos < 0) {
             if (!runToEnd) {
-              object.nextChar = ' ';
+              if (match[0] === '\\' + match[2]) {
+                object.nextChar = ' ';
+              }
             } else {
               endPos = startPos;
               startPos--;

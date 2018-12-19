@@ -246,6 +246,7 @@
             "type": "text"
           },
           {
+            "nextChar": " ",
             "tag": "tr"
           },
           {
@@ -261,6 +262,7 @@
             "tag": "th3"
           },
           {
+            "nextChar": " ",
             "tag": "tr"
           },
           {
@@ -276,6 +278,7 @@
             "tag": "tc3"
           },
           {
+            "nextChar": " ",
             "tag": "tr"
           },
           {
@@ -291,6 +294,7 @@
             "tag": "tc3"
           },
           {
+            "nextChar": " ",
             "tag": "tr"
           },
           {
@@ -306,6 +310,7 @@
             "tag": "tcr3"
           },
           {
+            "nextChar": " ",
             "tag": "tr"
           },
           {
@@ -797,6 +802,7 @@
             "type": "text"
           },
           {
+            "nextChar": " ",
             "tag": "li1"
           },
           {
@@ -818,6 +824,7 @@
             "type": "text"
           },
           {
+            "nextChar": " ",
             "tag": "li1"
           },
           {

@@ -29,6 +29,7 @@
           "type": "text"
         },
         {
+          "nextChar": " ",
           "tag": "p",
           "type": "paragraph"
         },

@@ -263,6 +263,10 @@ describe("USFM to JSON", () => {
   it('process tit_extra_space_after_chapter', () => {
     generateTest('tit_extra_space_after_chapter');
   });
+
+  it('process misc_footnotes', () => {
+    generateTest('misc_footnotes', {chunk: true});
+  });
 });
 
 describe("createUsfmObject", () => {

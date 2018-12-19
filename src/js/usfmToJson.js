@@ -178,11 +178,22 @@ const parseLine = (line, lastLine) => {
       if (whiteSpaceInOpen && !marker.number) {
         const shouldMatch = '\\' + open + (content ? ' ' + content : "");
         if ((removeLeadingSpace(match[0]) !== shouldMatch)) { // look for dropped inside white space
-          const endPos = match.index + match[0].length;
+          const endMatch = match.index + match[0].length;
           const lineLength = line.length;
-          const runToEnd = endPos >= lineLength;
-          if (runToEnd) {
-            object.content = match[2].substr(open.length) + (content || "");
+          const runToEnd = endMatch >= lineLength;
+          let startPos = open.length + 2;
+          let endPos = match[0].indexOf(match[3], startPos);
+          if (endPos < 0) {
+            if (!runToEnd) {
+              object.nextChar = ' ';
+            } else {
+              endPos = startPos;
+              startPos--;
+            }
+          }
+          const prefix = (endPos >= 0) && match[0].substring(startPos, endPos);
+          if (prefix) {
+            object.content = prefix + (content || "");
           }
         }
       }
@@ -991,10 +1002,7 @@ const processAsText = (state, marker) => {
 const addTextField = text => {
   let results = "";
   if (text) {
-    if (text.substr(0, 1) !== " ") {
-      results += " ";
-    }
-    results += text;
+    results = ' ' + text;
   }
   return results;
 };

@@ -347,7 +347,7 @@ const generateChapterLines = (chapterNumber, chapterObject) => {
     // check if verse is inside previous line (such as \q)
     const lastLine = lines.length ? lines[lines.length - 1] : "";
     const lastChar = lastLine ? lastLine.substr(lastLine.length - 1) : "";
-    if (lastChar && (lastChar !== '\n') && (lastChar !== '')) { // do we need white space
+    if (lastChar && (lastChar !== '\n') && (lastChar !== ' ')) { // do we need white space
       lines[lines.length - 1] = lastLine + ' ';
     }
     const verseObjects = chapterObject[verseNumber];

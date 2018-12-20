@@ -74,9 +74,10 @@ const removeLeadingSpace = text => {
  * @description - Parses the word marker into word object
  * @param {object} state - holds parsing state information
  * @param {String} wordContent - the string to find the data/attributes
+ * @param {Array} removePrefixOfX - array of attributes we want to remove the 'x-` prefix
  * @return {Object} - object of the word attributes
 */
-const parseWord = (state, wordContent) => {
+const parseWord = (state, wordContent, removePrefixOfX = []) => {
   let object = {};
   const wordParts = (wordContent || "").split('|');
   const word = removeLeadingSpace(wordParts[0]);
@@ -90,23 +91,33 @@ const parseWord = (state, wordContent) => {
     object["content-source"] = state.params["content-source"];
   }
   if (attributeContent) {
-    const regex = /[x-]*([\w-]+)=['"](.*?)['"]/g;
+    const regex = /([x-]*)([\w-]+)=['"](.*?)['"]/g;
     const matches = getMatches(attributeContent, regex, true);
-    matches.forEach(function(match) {
-      let key = match[1];
+    for (let i = 0, len = matches.length; i < len; i++) {
+      const match = matches[i];
+      let key = match[2];
+      const xPrefix = match[1];
+      if (xPrefix) {
+        if (!removePrefixOfX.includes(key)) { // if this is not one of our attributes, leave the `x-` prefix
+          key = xPrefix + key;
+        }
+      }
       if (key === "strongs") { // fix invalid 'strongs' key
         key = "strong";
       }
       if (state.params.map && state.params.map[key]) { // see if we should convert this key
         key = state.params.map[key];
       }
-      let value = match[2];
+      let value = match[3];
       if (state.params.convertToInt &&
         (state.params.convertToInt.includes(key))) {
         value = parseInt(value, 10);
       }
       object[key] = value;
-    });
+    }
+    if (!matches.length) {
+      object[attributeContent] = ""; // place holder for attribute with no value
+    }
   }
   return object;
 };
@@ -1240,7 +1251,8 @@ export const usfmToJSON = (usfm, params = {}) => {
         if (state.inHeader) {
           addHeaderMarker(state, marker);
         } else {
-          const phrase = parseWord(state, marker.content); // very similar to word marker, so start with this and modify
+          const phrase = parseWord(state, marker.content, // very similar to word marker, so start with this and modify
+            USFM.alignmentSpecialAttributes);
           phrase.type = "milestone";
           const milestone = phrase.text.trim();
           if (milestone === '-s') { // milestone start
@@ -1261,7 +1273,8 @@ export const usfmToJSON = (usfm, params = {}) => {
           addHeaderMarker(state, marker);
         } else {
           removeLastNewLine(state);
-          const wordObject = parseWord(state, marker.content);
+          const wordObject = parseWord(state, marker.content,
+            USFM.wordSpecialAttributes);
           pushObject(state, null, wordObject);
           if (marker.nextChar) {
             pushObject(state, null, marker.nextChar);

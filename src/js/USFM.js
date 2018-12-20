@@ -711,3 +711,6 @@ export const markerHasSpecialEndTag = tag => {
 export const propUsfm3Milestone = tagProps => {
   return tagProps && tagProps.usfm3Milestone;
 };
+
+export const wordSpecialAttributes = ['morph', 'occurrence', 'occurrences', 'tw'];
+export const alignmentSpecialAttributes = [...wordSpecialAttributes, 'content', 'lemma', 'strong', 'tw'];

@@ -44,17 +44,24 @@ const generateWord = (wordObject, nextObject) => {
   const keys = Object.keys(wordObject);
   let attributes = [];
   const word = wordObject.text;
-  keys.forEach(function(key) {
+  for (let i = 0, len = keys.length; i < len; i++) {
+    let key = keys[i];
     if (!(wordIgnore_.includes(key))) {
       const value = wordObject[key];
       if (wordMap_[key]) { // see if we should convert this key
         key = wordMap_[key];
       }
-      let prefix = (key === 'lemma' || key === 'strong') ? '' : 'x-';
-      let attribute = prefix + key + '="' + value + '"';
+      let prefix = '';
+      if (USFM.wordSpecialAttributes.includes(key)) {
+        prefix = 'x-';
+      }
+      let attribute = prefix + key;
+      if (value) { // add value only if set
+        attribute += '="' + value + '"';
+      }
       attributes.push(attribute);
     }
-  });
+  }
   let attrOut = attributes.join(' ');
   if (attrOut) {
     attrOut = '|' + attrOut;
@@ -278,7 +285,7 @@ const generateVerse = (verseNumber, verseObjects) => {
  * @return {Array} updated lines array
  */
 const addVerse = (lines, verse) => {
-  if (lines && lines.length) {
+  if (params_.forcedNewLines && lines && lines.length) {
     const lastLine = lines[lines.length - 1];
     if (!lastCharIsNewLine(lastLine)) { // need to add newline
       const quoted = lastLine.indexOf('\n\\q') >= 0;
@@ -406,7 +413,7 @@ const processParams = () => {
  *                    map {Object} - dictionary of attribute names to map to new name on word objects
  *                    mileStoneIgnore (Array} - list of attributes to ignore on milestone objects
  *                    mileStoneMap {Object} - dictionary of attribute names to map to new name on milestone objects
- *                    forcedNewLines (boolean} - if true then we add newlines before alignment tags
+ *                    forcedNewLines (boolean} - if true then we add newlines before alignment tags, verses, words
  * @return {String} - Scripture in USFM
  */
 export const jsonToUSFM = (json, params) => {

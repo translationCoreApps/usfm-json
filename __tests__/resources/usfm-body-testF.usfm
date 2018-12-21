@@ -1,10 +1,54 @@
 \id TIT Unlocked Literal Bible
-
+\ide UTF-8
+\h Titus
+\toc1 The Letter of Paul to Titus
+\toc2 Titus
+\toc3 Tit
+\mt Titus
 
 \s5
 \c 1
+\p
+\v 1 Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,
+\w gracious|lemma="grace"\w*
+\w gracious|grace\w*
+\w gracious|lemma="grace" strong="G5485"\w*
+\w gracious|strong="G5485"\w*
+\w gracious|strong="H1234,G5485"\w*
+\w gracious|strong="G5485:a"\w*
+\w most holy|strong="H6944,H6944"\w*
+\w gracious|lemma="grace" srcloc="gnt5:51.1.2.1"\w*
+\w gracious|x-myattr="metadata"\w*
+\w gracious|lemma="grace" x-myattr="metadata"\w*
+\w gracious|link-href="http://bibles.org/search/grace/eng-GNTD/all"\w*
+\v 2 with the certain hope of everlasting life that God, who does not lie, promised before all the ages of time.
+\v 3 At the right time, he revealed his word by the message that he trusted me to deliver, by the command of God our savior.
 
-\v 9
+\s5
+\v 4 To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior.
+\p
+\v 5 For this purpose I left you in Crete, that you might set in order things not yet complete and ordain elders in every city as I directed you.
+\rb BB|gloss="gg:gg"\rb*
+\rb BB|"gg:gg"\rb*
+\rb BBBB|g1::g3:\rb*
+\rb 哀|あい\rb*
+\rb 話賄|はなはなし\rb*
+\rb 話賄|はな:はなし\rb*
+\rb 定ま|さだ:\rb*
+\rb 神の子|かみ::こ\rb*
+\p
+\v 6 まだ\rb 何|なに\rb*もなかった\rb 時|とき\rb*、\rb 神|かみ\rb*は
+\rb 天|てん\rb*と\rb 地|ち\rb*を\rb 造|つく\rb*りました。
+\v 7 \rb 地|ち\rb*は\rb 形|かたち\rb*も\rb 定|さだ\rb*まらず、\rb 闇|やみ\rb*に
+\rb 包|つつ\rb*まれた\rb 水|みず\rb*の\rb 上|うえ\rb*を、さらに\rb 神|かみ\rb*の
+\rb 霊|れい\rb*が\rb 覆|おお\rb*っていました。
+
+\s5
+\v 8 Instead, he should be hospitable and a friend of what is good. He must be sensible, righteous, godly, and self-controlled.
+\v 9 He should hold tightly to the trustworthy message that was taught, so that he may be able to encourage others with good teaching and correct those who oppose him.
+\q1 “Someone is shouting in the desert,
+\q2 ‘Prepare a road for the Lord;
+\q2 make a straight path for him to travel!’ ”
 \esb \cat People\cat*
 \ms \jmp |link-id="article-john_the_baptist"\jmp*John the Baptist
 \p John is sometimes called the last “Old Testament prophet” because of the warnings he
@@ -25,19 +69,17 @@ One” (Messiah).
 you the king of the Jews?”\qt-e\* he asked.
 \p \qt-s |who="Jesus"\*“So you say,”\qt-e\* answered Jesus.
 \v 12 Paul stood up in front of the city council and said, \qt1-s |sid="qt1_ACT_17:22"
-who="Paul"\*“I see that in every way you Athenians are very religious.\qt1-e |eid="qt1_ACT_17:22"\*
-\v 13 Paul stood up in front of the city council and said, \qt1-s |sid="qt1_ACT_17:22"
 who="Paul"\*“I see that in every way you Athenians are very religious.
 \p
-\v 14 So Pilate said to him, \qt-s |who="Pilate"\*“Don't you hear all these things they
+\v 13 So Pilate said to him, \qt-s |who="Pilate"\*“Don't you hear all these things they
 accuse you of?”\qt-e\*
 
 \s5
-\v 15 not paying any attention to Jewish myths or to the commands of people who turn away from the truth.
+\v 14 not paying any attention to Jewish myths or to the commands of people who turn away from the truth.
 
 \s5
-\v 16 To those who are pure, all things are pure. But to those who are corrupt and unbelieving, nothing is pure, but both their minds and their consciences have been corrupted.
-\v 17 They profess to know God, but they deny him by their actions. They are detestable, disobedient, and unfit for doing any good work.
+\v 15 To those who are pure, all things are pure. But to those who are corrupt and unbelieving, nothing is pure, but both their minds and their consciences have been corrupted.
+\v 16 They profess to know God, but they deny him by their actions. They are detestable, disobedient, and unfit for doing any good work.
 
 \s5
 \c 2

@@ -215,6 +215,28 @@ const addOnNewLine = (text, output) => {
 };
 
 /**
+ * @description adds word to the line and makes sure it has appropriate spacing
+ * @param {String} text - to add
+ * @param {String} output - string to add to
+ * @return {String} updated output
+ */
+const addWord = (text, output) => {
+  output = output || "";
+  if (text) {
+    const lastChar = (output) ? output.substr(output.length - 1) : '';
+    if (params_.forcedNewLines) {
+      if ((!lastChar) || (lastChar !== '\n')) {
+        text = '\n' + text;
+      }
+    } else if (lastChar && (lastChar !== ' ')) {
+      text = ' ' + text;
+    }
+    output += text;
+  }
+  return output;
+};
+
+/**
  * @description converts object to string and appends to line
  * @param {string|array|object} object - marker to print
  * @param {string} output - marker to print
@@ -249,7 +271,7 @@ const objectToString = (object, output, nextObject) => {
   }
 
   if (object.type === 'word') { // usfm word marker
-    return addOnNewLine(generateWord(object, nextObject), output);
+    return addWord(generateWord(object, nextObject), output);
   }
 
   if ((object.type === 'milestone') && (object.endTag !== object.tag + '*')) { // milestone type (phrase)

@@ -1,11 +1,419 @@
 {
   "chapters": {
     "1": {
-      "9": {
+      "1": {
         "verseObjects": [
+          {
+            "text": "Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,",
+            "type": "text"
+          },
+          {
+            "lemma": "grace",
+            "tag": "w",
+            "text": "gracious",
+            "type": "word"
+          },
+          {
+            "grace": "",
+            "tag": "w",
+            "text": "gracious",
+            "type": "word"
+          },
+          {
+            "lemma": "grace",
+            "strong": "G5485",
+            "tag": "w",
+            "text": "gracious",
+            "type": "word"
+          },
+          {
+            "strong": "G5485",
+            "tag": "w",
+            "text": "gracious",
+            "type": "word"
+          },
+          {
+            "strong": "H1234,G5485",
+            "tag": "w",
+            "text": "gracious",
+            "type": "word"
+          },
+          {
+            "strong": "G5485:a",
+            "tag": "w",
+            "text": "gracious",
+            "type": "word"
+          },
+          {
+            "strong": "H6944,H6944",
+            "tag": "w",
+            "text": "most holy",
+            "type": "word"
+          },
+          {
+            "lemma": "grace",
+            "srcloc": "gnt5:51.1.2.1",
+            "tag": "w",
+            "text": "gracious",
+            "type": "word"
+          },
+          {
+            "tag": "w",
+            "text": "gracious",
+            "type": "word",
+            "x-myattr": "metadata"
+          },
+          {
+            "lemma": "grace",
+            "tag": "w",
+            "text": "gracious",
+            "type": "word",
+            "x-myattr": "metadata"
+          },
+          {
+            "link-href": "http://bibles.org/search/grace/eng-GNTD/all",
+            "tag": "w",
+            "text": "gracious",
+            "type": "word"
+          },
           {
             "text": "\n",
             "type": "text"
+          }
+        ]
+      },
+      "2": {
+        "verseObjects": [
+          {
+            "text": "with the certain hope of everlasting life that God, who does not lie, promised before all the ages of time.\n",
+            "type": "text"
+          }
+        ]
+      },
+      "3": {
+        "verseObjects": [
+          {
+            "text": "At the right time, he revealed his word by the message that he trusted me to deliver, by the command of God our savior.\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "4": {
+        "verseObjects": [
+          {
+            "text": "To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior.\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "p",
+            "type": "paragraph"
+          }
+        ]
+      },
+      "5": {
+        "verseObjects": [
+          {
+            "text": "For this purpose I left you in Crete, that you might set in order things not yet complete and ordain elders in every city as I directed you.\n",
+            "type": "text"
+          },
+          {
+            "attrib": "|gloss=\"gg:gg\"",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "BB"
+          },
+          {
+            "text": "\n",
+            "type": "text"
+          },
+          {
+            "attrib": "|\"gg:gg\"",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "BB"
+          },
+          {
+            "text": "\n",
+            "type": "text"
+          },
+          {
+            "attrib": "|g1::g3:",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "BBBB"
+          },
+          {
+            "text": "\n",
+            "type": "text"
+          },
+          {
+            "attrib": "|あい",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "哀"
+          },
+          {
+            "text": "\n",
+            "type": "text"
+          },
+          {
+            "attrib": "|はなはなし",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "話賄"
+          },
+          {
+            "text": "\n",
+            "type": "text"
+          },
+          {
+            "attrib": "|はな:はなし",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "話賄"
+          },
+          {
+            "text": "\n",
+            "type": "text"
+          },
+          {
+            "attrib": "|さだ:",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "定ま"
+          },
+          {
+            "text": "\n",
+            "type": "text"
+          },
+          {
+            "attrib": "|かみ::こ",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "神の子"
+          },
+          {
+            "text": "\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "p",
+            "type": "paragraph"
+          }
+        ]
+      },
+      "6": {
+        "verseObjects": [
+          {
+            "text": "まだ",
+            "type": "text"
+          },
+          {
+            "attrib": "|なに",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "何"
+          },
+          {
+            "text": "もなかった",
+            "type": "text"
+          },
+          {
+            "attrib": "|とき",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "時"
+          },
+          {
+            "text": "、",
+            "type": "text"
+          },
+          {
+            "attrib": "|かみ",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "神"
+          },
+          {
+            "text": "は\n",
+            "type": "text"
+          },
+          {
+            "attrib": "|てん",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "天"
+          },
+          {
+            "text": "と",
+            "type": "text"
+          },
+          {
+            "attrib": "|ち",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "地"
+          },
+          {
+            "text": "を",
+            "type": "text"
+          },
+          {
+            "attrib": "|つく",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "造"
+          },
+          {
+            "text": "りました。\n",
+            "type": "text"
+          }
+        ]
+      },
+      "7": {
+        "verseObjects": [
+          {
+            "attrib": "|ち",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "地"
+          },
+          {
+            "text": "は",
+            "type": "text"
+          },
+          {
+            "attrib": "|かたち",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "形"
+          },
+          {
+            "text": "も",
+            "type": "text"
+          },
+          {
+            "attrib": "|さだ",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "定"
+          },
+          {
+            "text": "まらず、",
+            "type": "text"
+          },
+          {
+            "attrib": "|やみ",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "闇"
+          },
+          {
+            "text": "に\n",
+            "type": "text"
+          },
+          {
+            "attrib": "|つつ",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "包"
+          },
+          {
+            "text": "まれた",
+            "type": "text"
+          },
+          {
+            "attrib": "|みず",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "水"
+          },
+          {
+            "text": "の",
+            "type": "text"
+          },
+          {
+            "attrib": "|うえ",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "上"
+          },
+          {
+            "text": "を、さらに",
+            "type": "text"
+          },
+          {
+            "attrib": "|かみ",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "神"
+          },
+          {
+            "text": "の\n",
+            "type": "text"
+          },
+          {
+            "attrib": "|れい",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "霊"
+          },
+          {
+            "text": "が",
+            "type": "text"
+          },
+          {
+            "attrib": "|おお",
+            "endTag": "rb*",
+            "tag": "rb",
+            "text": "覆"
+          },
+          {
+            "text": "っていました。\n\n",
+            "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "s5",
+            "type": "section"
+          }
+        ]
+      },
+      "8": {
+        "verseObjects": [
+          {
+            "text": "Instead, he should be hospitable and a friend of what is good. He must be sensible, righteous, godly, and self-controlled.\n",
+            "type": "text"
+          }
+        ]
+      },
+      "9": {
+        "verseObjects": [
+          {
+            "text": "He should hold tightly to the trustworthy message that was taught, so that he may be able to encourage others with good teaching and correct those who oppose him.\n",
+            "type": "text"
+          },
+          {
+            "tag": "q1",
+            "text": "“Someone is shouting in the desert,\n",
+            "type": "quote"
+          },
+          {
+            "tag": "q2",
+            "text": "‘Prepare a road for the Lord;\n",
+            "type": "quote"
+          },
+          {
+            "tag": "q2",
+            "text": "make a straight path for him to travel!’ ”\n",
+            "type": "quote"
           },
           {
             "content": "\\cat People\\cat*\n\\ms \\jmp |link-id=\"article-john_the_baptist\"\\jmp*John the Baptist\n\\p John is sometimes called the last “Old Testament prophet” because of the warnings he\nbrought about God's judgment and because he announced the coming of God's “Chosen\nOne” (Messiah).\n\n\\s5\n\\p\n\\q1 \\qt2-s |who=\"someone\"\\*‘In him we live and move and exist.’\\qt2-e\\*\n\\b\n\\m It is as some of your poets have said,\n\\q1 \\qt2-s |who=\"some poets\"\\*‘We too are his children.’\\qt2-e\\*\n\\b\n\\m\n",
@@ -82,30 +490,6 @@
             "attrib": " |sid=\"qt1_ACT_17:22\"\nwho=\"Paul\"",
             "children": [
               {
-                "text": "“I see that in every way you Athenians are very religious.",
-                "type": "text"
-              }
-            ],
-            "endTag": "qt1-e |eid=\"qt1_ACT_17:22\"\\*",
-            "tag": "qt1-s",
-            "type": "quote"
-          },
-          {
-            "text": "\n",
-            "type": "text"
-          }
-        ]
-      },
-      "13": {
-        "verseObjects": [
-          {
-            "text": "Paul stood up in front of the city council and said, ",
-            "type": "text"
-          },
-          {
-            "attrib": " |sid=\"qt1_ACT_17:22\"\nwho=\"Paul\"",
-            "children": [
-              {
                 "text": "“I see that in every way you Athenians are very religious.\n",
                 "type": "text"
               },
@@ -121,7 +505,7 @@
           }
         ]
       },
-      "14": {
+      "13": {
         "verseObjects": [
           {
             "text": "So Pilate said to him, ",
@@ -154,7 +538,7 @@
           }
         ]
       },
-      "15": {
+      "14": {
         "verseObjects": [
           {
             "text": "not paying any attention to Jewish myths or to the commands of people who turn away from the truth.\n\n",
@@ -167,7 +551,7 @@
           }
         ]
       },
-      "16": {
+      "15": {
         "verseObjects": [
           {
             "text": "To those who are pure, all things are pure. But to those who are corrupt and unbelieving, nothing is pure, but both their minds and their consciences have been corrupted.\n",
@@ -175,7 +559,7 @@
           }
         ]
       },
-      "17": {
+      "16": {
         "verseObjects": [
           {
             "text": "They profess to know God, but they deny him by their actions. They are detestable, disobedient, and unfit for doing any good work.\n\n",
@@ -191,8 +575,9 @@
       "front": {
         "verseObjects": [
           {
-            "text": "\n",
-            "type": "text"
+            "nextChar": "\n",
+            "tag": "p",
+            "type": "paragraph"
           }
         ]
       }
@@ -659,7 +1044,31 @@
       "tag": "id"
     },
     {
-      "text": "\n",
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Titus",
+      "tag": "h"
+    },
+    {
+      "content": "The Letter of Paul to Titus",
+      "tag": "toc1"
+    },
+    {
+      "content": "Titus",
+      "tag": "toc2"
+    },
+    {
+      "content": "Tit",
+      "tag": "toc3"
+    },
+    {
+      "content": "Titus",
+      "tag": "mt"
+    },
+    {
+      "text": "",
       "type": "text"
     },
     {

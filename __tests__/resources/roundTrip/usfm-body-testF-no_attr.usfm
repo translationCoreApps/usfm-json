@@ -31,12 +31,13 @@
 \rb BB|gloss="gg:gg"\rb*
 \rb BB|"gg:gg"\rb*
 \rb BBBB|g1::g3:\rb*
-\rb哀|あい\rb*
+\rb 哀|あい\rb*
 \rb 話賄|はなはなし\rb*
 \rb 話賄|はな:はなし\rb*
 \rb 定ま|さだ:\rb*
 \rb 神の子|かみ::こ\rb*
-\p \v 6 まだ\rb 何|なに\rb*もなかった\rb 時|とき\rb*、\rb 神|かみ\rb*は
+\p
+\v 6 まだ\rb 何|なに\rb*もなかった\rb 時|とき\rb*、\rb 神|かみ\rb*は
 \rb 天|てん\rb*と\rb 地|ち\rb*を\rb 造|つく\rb*りました。
 \v 7 \rb 地|ち\rb*は\rb 形|かたち\rb*も\rb 定|さだ\rb*まらず、\rb 闇|やみ\rb*に
 \rb 包|つつ\rb*まれた\rb 水|みず\rb*の\rb 上|うえ\rb*を、さらに\rb 神|かみ\rb*の
@@ -62,6 +63,7 @@ One” (Messiah).
 \q1 \qt2-s |who="some poets"\*‘We too are his children.’\qt2-e\*
 \b
 \m
+\esbe
 \v 10 For there are many rebellious people, empty talkers and deceivers, especially those of the circumcision.
 \v 11 Jesus stood before the Roman governor, who questioned him. \qt-s |who="Pilate"\*“Are
 you the king of the Jews?”\qt-e\* he asked.
@@ -94,7 +96,8 @@ link-title="Ancient storehouse"\jmp*)
 \s5
 \v 3 Teach older women likewise to be reverent in behavior, not slanderers or being slaves to much wine, but to be teachers of what is good.
 \v 4 In this way they may train the younger women to love their own husbands and children,
-\p \v 5 From Abraham to King David, the following ancestors are listed: Abraham,
+\p 
+\v 5 From Abraham to King David, the following ancestors are listed: Abraham,
 Isaac, Jacob, Judah and his brothers; then Perez and Zerah (their mother was Tamar*),
 Hezron, Ram, Amminadab, Nahshon, Salmon, Boaz (his mother was Rahab*), Obed (his
 mother was \jmp Ruth|link-href="#article-Ruth"\jmp*), Jesse, and King David.

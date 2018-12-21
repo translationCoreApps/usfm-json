@@ -103,10 +103,10 @@ const generatePhrase = (phraseObject, nextObject) => {
     });
     content = '-s | ' + attributes.join(' ') + '\n';
   } else {
-    const isUsfm2Milestone = USFM.markerIsMilestone(tag);
-    if (isUsfm2Milestone) {
+    const isUsfm3Milestone = USFM.markerIsMilestone(tag);
+    if (isUsfm3Milestone) {
       if (phraseObject.attrib) {
-        content = ' ' + phraseObject.attrib;
+        content = phraseObject.attrib;
       }
       content += "\\*";
     }
@@ -144,7 +144,7 @@ const usfmMarkerToString = (usfmObject, nextObject = null,
                             noSpaceAfterTag = false,
                             noTermination = false) => {
   let output = "";
-  const content = usfmObject.text || usfmObject.content || "";
+  let content = usfmObject.text || usfmObject.content || "";
   let markerTermination = usfmObject.endTag; // new format takes precidence
   if ((typeof markerTermination !== 'string') && USFM.markerTermination(usfmObject.tag) && !noTermination) {
     markerTermination = usfmObject.tag + '*'; // fall back to old generation method
@@ -157,6 +157,18 @@ const usfmMarkerToString = (usfmObject, nextObject = null,
     const firstChar = content.substr(0, 1);
     if (noSpaceAfterTag) {
       // no spacing
+    }
+    else if (usfmObject.attrib) {
+      if (content) {
+        output += ' ' + content;
+      }
+      if (usfmObject.tag.substr(-2) === '\\*') { // we need to apply attibute before \*
+        output = output.substr(0, output.length - 2) + usfmObject.attrib +
+          output.substr(-2);
+      } else {
+        output += usfmObject.attrib;
+      }
+      content = '';
     }
     else if (!markerTermination) {
       if ((firstChar !== '') && (firstChar !== '\n') && (content !== ' \n')) { // make sure some whitespace
@@ -173,15 +185,6 @@ const usfmMarkerToString = (usfmObject, nextObject = null,
 
   if (content) {
     output += content;
-  }
-
-  if (usfmObject.attrib) {
-    if (usfmObject.tag.substr(-2) === '\\*') { // we need to apply attibute before \*
-      output = output.substr(0, output.length - 2) + usfmObject.attrib +
-        output.substr(-2);
-    } else {
-      output += usfmObject.attrib;
-    }
   }
 
   if (markerTermination) {

@@ -215,7 +215,10 @@ const roundTripTest = name => {
   const json = usfmToJSON(input);
   const usfm = jsonToUSFM(json, {forcedNewLines: true});
   let errors = validateUSFM(usfm, input);
-  errors = validateUSFM3(json, errors);
+  const doValidate = !name.includes('-no_attr');
+  if (doValidate) {
+    errors = validateUSFM3(json, errors);
+  }
   expect(errors).toEqual(0);
 };
 

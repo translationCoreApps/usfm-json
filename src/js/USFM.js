@@ -12,7 +12,12 @@ export const MARKERS_WITH_NUMBERS = {
 // maps milestone end marker back to start marker
 export const SPECIAL_END_TAGS = {
   esbe: "esb",
-  "qt-e": "qt-s"
+  "qt-e": "qt-s",
+  "qt1-e": "qt1-s",
+  "qt2-e": "qt2-s",
+  "qt3-e": "qt3-s",
+  "qt4-e": "qt4-s",
+  "qt5-e": "qt5-s"
 };
 
 // for each USFM tag, specify associated properties
@@ -478,6 +483,24 @@ export const USFM_PROPERTIES = {
     milestone: true,
     attrib: true
   },
+  "qt-e": {
+    endAttrib: true
+  },
+  "qt1-e": {
+    endAttrib: true
+  },
+  "qt2-e": {
+    endAttrib: true
+  },
+  "qt3-e": {
+    endAttrib: true
+  },
+  "qt4-e": {
+    endAttrib: true
+  },
+  "qt5-e": {
+    endAttrib: true
+  },
   "qt-s": {
     type: "quote",
     endTag: "-e",
@@ -713,4 +736,4 @@ export const propUsfm3Milestone = tagProps => {
 };
 
 export const wordSpecialAttributes = ['morph', 'occurrence', 'occurrences', 'tw'];
-export const alignmentSpecialAttributes = [...wordSpecialAttributes, 'content', 'lemma', 'strong', 'tw'];
+

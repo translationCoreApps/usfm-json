@@ -422,7 +422,7 @@
           "type": "text"
         },
         {
-          "attrib": "|who=\"Jesus\"",
+          "attrib": " |who=\"Jesus\"",
           "children": [
             {
               "text": "\"",
@@ -481,6 +481,10 @@
               "strong": "G01910",
               "tag": "zaln",
               "type": "milestone"
+            },
+            {
+              "text": "\n",
+              "type": "text"
             }
           ],
           "endTag": "",

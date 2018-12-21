@@ -74,10 +74,10 @@ const removeLeadingSpace = text => {
  * @description - Parses the word marker into word object
  * @param {object} state - holds parsing state information
  * @param {String} wordContent - the string to find the data/attributes
- * @param {Array} removePrefixOfX - array of attributes we want to remove the 'x-` prefix
+ * @param {null|Array} removePrefixOfX - array of attributes we want to remove the 'x-` prefix
  * @return {Object} - object of the word attributes
 */
-const parseWord = (state, wordContent, removePrefixOfX = []) => {
+const parseWord = (state, wordContent, removePrefixOfX = null) => {
   let object = {};
   const wordParts = (wordContent || "").split('|');
   const word = removeLeadingSpace(wordParts[0]);
@@ -98,7 +98,7 @@ const parseWord = (state, wordContent, removePrefixOfX = []) => {
       let key = match[2];
       const xPrefix = match[1];
       if (xPrefix) {
-        if (!removePrefixOfX.includes(key)) { // if this is not one of our attributes, leave the `x-` prefix
+        if ((removePrefixOfX !== null) && !removePrefixOfX.includes(key)) { // if this is not one of our attributes, leave the `x-` prefix
           key = xPrefix + key;
         }
       }
@@ -162,10 +162,13 @@ const parseLine = (line, lastLine) => {
   }
   const regex = /([^\\]+)?\\(\+?\w+\s*\d*)(?!\w)\s*([^\\]+)?(\\\w\*)?/g;
   const matches = getMatches(line, regex, lastLine);
+  if (matches.length && (matches[0].index > 0)) { // check for leading text
+    const object = makeTextMarker(line.substr(0, matches[0].index - 1));
+    array.push(object);
+  }
   let lastObject = null;
   if (regex.exec(line)) { // normal formatting with marker followed by content
-    const length = matches.length;
-    for (let i = 0; i < length; i++) {
+    for (let i = 0, len = matches.length; i < len; i++) {
       const match = matches[i];
       const orphan = match[1];
       if (orphan) {
@@ -379,9 +382,9 @@ export const pushObject = (state, saveTo, usfmObject) => {
       const isNestedMarker = state.nested.length > 0;
       if (isNestedMarker) { // if this marker is nested in another marker, then we need to add to content as string
         const last = state.nested.length - 1;
-        const contentAttr = USFM.markerContentDisplayable(usfmObject.tag) ? 'text' : 'content';
+        const contentKey = USFM.markerContentDisplayable(usfmObject.tag) ? 'text' : 'content';
         const lastObject = state.nested[last];
-        let output = lastObject[contentAttr];
+        let output = lastObject[contentKey];
         if (typeof usfmObject === "string") {
           output += usfmObject;
         } else {
@@ -394,7 +397,7 @@ export const pushObject = (state, saveTo, usfmObject) => {
             output += content;
           }
         }
-        lastObject[contentAttr] = output;
+        lastObject[contentKey] = output;
         return;
       }
     } else {
@@ -503,9 +506,6 @@ const checkForEndMarker = marker => {
     const nextChar = content.substr(1, 1);
     if ((nextChar === 's') || (nextChar === 'e')) {
       let trim = 2;
-      if (content.substr(trim, 1) === ' ') {
-        trim++;
-      }
       marker.tag += content.substr(0, 2);
       endMarker = (nextChar === 'e') ? marker.tag : null;
       baseTag += '-s';
@@ -611,6 +611,8 @@ const incrementPhraseNesting = (state, phraseParent, tag) => {
  */
 const decrementPhraseNesting = (state, phraseParent, endTag) => {
   let matchesParent = false;
+  const parts = endTag.split(' ');
+  const endTagBase = parts[0] + (parts.length > 1 ? '\\*' : ''); // remove attributes
   let count = -1;
   if (phraseParent) {
     let terminations = USFM.markerTermination(phraseParent.tag);
@@ -624,18 +626,18 @@ const decrementPhraseNesting = (state, phraseParent, endTag) => {
     for (let i = 0, len = terminations.length; i < len; i++) {
       termination = terminations[i];
       if (termination) {
-        matchesParent = (termination === endTag) ||
-          (phraseParent.tag + termination === endTag) ||
+        matchesParent = (termination === endTagBase) ||
+          (phraseParent.tag + termination === endTagBase) ||
           // compare USFM3 milestones such as '\\qt-s' and '\\qt-e\\*`
           (phraseParent.tag.substr(0, phraseParent.tag.length - 2) +
-            termination + '\\*' === endTag);
+            termination + '\\*' === endTagBase);
         if (matchesParent) {
           break;
         }
       }
     }
     if (!matchesParent &&
-      (USFM.SPECIAL_END_TAGS[endTag] === phraseParent.tag)) {
+      (USFM.SPECIAL_END_TAGS[endTagBase] === phraseParent.tag)) {
       matchesParent = true;
     }
     if (matchesParent) {
@@ -665,13 +667,50 @@ const getLastItem = state => {
   return last;
 };
 
+const getToEndOfAttributes = (content, pos, index, markers) => {
+  let endPos = content.indexOf('*', pos);
+  while (endPos < 0) { // if attributes overflow to next line
+    const nextLine = index + 1;
+    if (nextLine >= markers.length) {
+      break;
+    }
+    const nextMarker = markers[nextLine];
+    if (!nextMarker.tag && nextMarker.content) {
+      endPos = nextMarker.content.indexOf('*');
+      if (endPos === 0) { // attributes are ended
+        break;
+      } else if (endPos < 0) {
+        content += nextMarker.content;
+        index = nextLine;
+        endPos = content.indexOf('*', pos);
+      } else {
+        const nextContent = nextMarker.content.substr(endPos);
+        if (nextMarker.content[endPos - 1] === '\\') {
+          endPos--;
+        }
+        if (endPos > 0) {
+          content += nextMarker.content.substr(0, endPos);
+          nextMarker.content = nextContent;
+        }
+        break;
+      }
+    } else {
+      break;
+    }
+  }
+  return {content, index};
+};
+
 /**
  * mark the beginning of a spanned usfm
  * @param {object} state - holds parsing state information
  * @param {object} marker - verseObject to save
  * @param {string} tag - tag for verseObject
+ * @param {number} index - current position in markers
+ * @param {array} markers - parsed markers we are iterating through
+ * @return {number} new index
  */
-const startSpan = (state, marker, tag) => {
+const startSpan = (state, marker, tag, index, markers) => {
   marker.tag = tag;
   const phraseParent = getPhraseParent(state);
   const tagProps = USFM.USFM_PROPERTIES[tag];
@@ -680,27 +719,34 @@ const startSpan = (state, marker, tag) => {
     marker.usfm3Milestone = true;
   }
   if (USFM.propAttributes(tagProps)) {
-    const contentAttr = USFM.propDisplayable(tagProps) ? 'text' : 'content';
-    let content = marker[contentAttr];
+    const contentKey = USFM.propDisplayable(tagProps) ? 'text' : 'content';
+    let content = marker[contentKey];
     if (content) {
-      const pos = content.indexOf('|');
+      let pos = content.indexOf('|');
       if (pos >= 0) {
+        const __ret = getToEndOfAttributes(content, pos, index, markers);
+        content = __ret.content;
+        index = __ret.index;
+        const foundContent = content.substr(0, pos).trim();
+        if (!foundContent) {
+          pos = 0;
+        }
         marker.attrib = content.substr(pos);
         content = content.substr(0, pos);
       }
       if (content) {
-        marker[contentAttr] = content;
+        marker[contentKey] = content;
       }
     }
     if (!content) {
-      delete marker[contentAttr];
+      delete marker[contentKey];
     }
   }
   if (phraseParent) {
     if (!USFM.markerContentDisplayable(phraseParent.tag)) {
       phraseParent.content = (phraseParent.content || "") + markerToText(marker);
       incrementPhraseNesting(state, phraseParent, tag);
-      return;
+      return index;
     }
   }
   if (displayable) { // we need to nest
@@ -718,6 +764,7 @@ const startSpan = (state, marker, tag) => {
     }
     incrementPhraseNesting(state, marker, tag);
   }
+  return index;
 };
 
 /**
@@ -834,9 +881,16 @@ const endSpan = (state, index, markers, endMarker, header = false) => {
       }
     }
   }
-  if (USFM.markerHasEndAttributes(current.tag)) {
-    current.attrib = content;
-    current.content = content = "";
+  if (content && USFM.markerHasEndAttributes(current.tag)) {
+    if (phraseParent) {
+      const parts = (phraseParent.endTag || "").split('\\*');
+      endMarker = parts[0] + content + (parts.length > 1 ? '\\*' : '');
+      phraseParent.endTag = endMarker;
+      current.content = content = "";
+    } else {
+      current.attrib = content;
+      current.content = content = "";
+    }
   }
   let terminator = null;
   if (checkNext || (!content && !current.nextChar && endMarker)) {
@@ -852,11 +906,23 @@ const endSpan = (state, index, markers, endMarker, header = false) => {
           trimLength = 2;
         }
         terminator = nextContent.substr(0, trimLength);
-        current.tag += terminator;
+        if (current.attrib) {
+          if (terminator.substr(0, 1) === '\\') {
+            terminator = terminator.substr(1);
+          }
+          current.endTag = terminator;
+        } else {
+          if (!endMarker.includes(terminator)) {
+            endMarker += terminator;
+          }
+          current.tag = endMarker;
+        }
         const nextChar = nextContent.substr(trimLength, 1);
         if ((nextChar === ' ') || nextChar === '\n') {
-          trimLength++;
-          current.nextChar = nextChar;
+          if (!phraseParent) {
+            trimLength++;
+            current.nextChar = nextChar;
+          }
         }
         if (trimLength) {
           content = '';
@@ -1041,7 +1107,16 @@ const markerToText = (marker, noSpaceAfterTag = false) => {
     text += addTextField(content);
   }
   if (marker.attrib) {
-    text += (content ? '' : ' ') + marker.attrib;
+    const dashPos = marker.tag.indexOf('-');
+    const suffix = dashPos > 0 ? marker.tag.substr(dashPos + 1, 1) : '';
+    const spannedTag = ['s', 'e'].includes(suffix);
+    if (!suffix || !spannedTag) {
+      text += ' ';
+    }
+    text += marker.attrib;
+    if (spannedTag) {
+      text += '\\';
+    }
   }
   if (marker.nextChar) {
     text += marker.nextChar;
@@ -1139,7 +1214,7 @@ const addHeaderMarker = (state, marker) => {
  * @param {Array} markers - array of parsed markers
  * @return {Number} new index in markers
  */
-const processNextMarker = (state, marker, i, markers) => {
+const processMarkerForSpans = (state, marker, i, markers) => {
   let {endMarker, spannedUsfm} = checkForEndMarker(marker);
   if (!endMarker && USFM.markerHasSpecialEndTag(marker.tag)) { // check for one-off end markers
     const startMarker = USFM.markerHasSpecialEndTag(marker.tag);
@@ -1152,7 +1227,7 @@ const processNextMarker = (state, marker, i, markers) => {
       i = endSpan(state, i, markers, endMarker, state.inHeader);
     }
   } else if (spannedUsfm) {
-    startSpan(state, createUsfmObject(marker), marker.tag);
+    i = startSpan(state, createUsfmObject(marker), marker.tag, i, markers);
   } else {
     addToCurrentVerse(state, marker);
   }
@@ -1186,6 +1261,25 @@ const cleanupHeaderNewLines = state => {
       delete header.nextChar;
     }
   }
+};
+
+/**
+ * process this as a general marker
+ * @param {object} state - holds parsing state information
+ * @param {Object} marker - current marker
+ * @param {Number} index - current marker index
+ * @param {Array} markers - array of all markers
+ * @return {Number} updated index
+ */
+const processMarker = (state, marker, index, markers) => {
+  if (state.currentChapter === 0 && !state.currentVerse) { // if we haven't seen chapter or verse yet, its a header
+    state.inHeader = true;
+    addHeaderMarker(state, marker);
+  } else if (state.currentChapter ||
+    (state.params.chunk && state.currentVerse)) {
+    index = processMarkerForSpans(state, marker, index, markers);
+  }
+  return index;
 };
 
 /**
@@ -1251,19 +1345,18 @@ export const usfmToJSON = (usfm, params = {}) => {
         if (state.inHeader) {
           addHeaderMarker(state, marker);
         } else {
-          const phrase = parseWord(state, marker.content, // very similar to word marker, so start with this and modify
-            USFM.alignmentSpecialAttributes);
+          const phrase = parseWord(state, marker.content); // very similar to word marker, so start with this and modify
           phrase.type = "milestone";
           const milestone = phrase.text.trim();
           if (milestone === '-s') { // milestone start
             removeLastNewLine(state);
             delete phrase.text;
-            startSpan(state, phrase, marker.tag);
+            i = startSpan(state, phrase, marker.tag, i, markers);
           } else if (milestone === '-e') { // milestone end
             removeLastNewLine(state);
             i = endSpan(state, i, markers, marker.tag + "-e\\*");
           } else {
-            i = processNextMarker(state, marker, i, markers); // process as regular marker
+            i = processMarkerForSpans(state, marker, i, markers); // process as regular marker
           }
         }
         break;
@@ -1339,13 +1432,7 @@ export const usfmToJSON = (usfm, params = {}) => {
           }
         }
         if (marker) { // if not yet processed
-          if (state.currentChapter === 0 && !state.currentVerse) { // if we haven't seen chapter or verse yet, its a header
-            state.inHeader = true;
-            addHeaderMarker(state, marker);
-          } else if (state.currentChapter ||
-            (state.params.chunk && state.currentVerse)) {
-            i = processNextMarker(state, marker, i, markers);
-          }
+          i = processMarker(state, marker, i, markers);
         }
       }
     }

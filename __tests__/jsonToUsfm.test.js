@@ -178,6 +178,10 @@ describe("JSON to USFM", () => {
   it('process tit_extra_space_after_chapter', () => {
     generateTest('tit_extra_space_after_chapter');
   });
+
+  it('process usfm-body-testF', () => {
+    generateTest('usfm-body-testF');
+  });
 });
 
 //

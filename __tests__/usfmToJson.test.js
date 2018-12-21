@@ -267,6 +267,10 @@ describe("USFM to JSON", () => {
   it('process misc_footnotes', () => {
     generateTest('misc_footnotes', {chunk: true});
   });
+
+  it('process usfm-body-testF', () => {
+    generateTest('usfm-body-testF');
+  });
 });
 
 describe("createUsfmObject", () => {

@@ -11,6 +11,7 @@ let wordIgnore_ = [];
 let milestoneMap_ = {};
 let milestoneIgnore_ = [];
 let lastObject_ = null;
+let currentObject_ = null;
 
 /**
  * @description checks if we need to add a newline if next object is not text or newline
@@ -250,6 +251,9 @@ const objectToString = (object, output, nextObject) => {
     return "";
   }
 
+  lastObject_ = currentObject_;
+  currentObject_ = object;
+
   output = output || "";
 
   if (object.type === 'text') {
@@ -274,18 +278,15 @@ const objectToString = (object, output, nextObject) => {
   if (object.type === 'word') { // usfm word marker
     return addWord(generateWord(object, nextObject), output);
   }
-
   if ((object.type === 'milestone') && (object.endTag !== object.tag + '*')) { // milestone type (phrase)
     return addOnNewLine(generatePhrase(object, nextObject), output);
   }
   else if (object.children && object.children.length) {
     return output + generatePhrase(object, nextObject);
   }
-
   if (object.tag) { // any other USFM marker tag
     return output + usfmMarkerToString(object, nextObject);
   }
-  lastObject_ = object;
   return output;
 };
 

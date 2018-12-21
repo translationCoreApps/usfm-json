@@ -182,7 +182,10 @@ describe("JSON to USFM", () => {
   it('process usfm-body-testF', () => {
     generateTest('usfm-body-testF');
   });
-});
+
+  it('process usfm-body-testF', () => {
+    generateTest('usfm-body-testF', {forcedNewLines: false}, 'usfm-body-testF-inline');
+  });});
 
 //
 // helpers

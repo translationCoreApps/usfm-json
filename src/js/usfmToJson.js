@@ -1110,7 +1110,7 @@ const markerToText = (marker, noSpaceAfterTag = false) => {
     const dashPos = marker.tag.indexOf('-');
     const suffix = dashPos > 0 ? marker.tag.substr(dashPos + 1, 1) : '';
     const spannedTag = ['s', 'e'].includes(suffix);
-    if (!suffix || !spannedTag) {
+    if (!content && (!suffix || !spannedTag)) {
       text += ' ';
     }
     text += marker.attrib;

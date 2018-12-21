@@ -10,6 +10,7 @@ let wordMap_ = {};
 let wordIgnore_ = [];
 let milestoneMap_ = {};
 let milestoneIgnore_ = [];
+let lastObject_ = null;
 
 /**
  * @description checks if we need to add a newline if next object is not text or newline
@@ -228,7 +229,7 @@ const addWord = (text, output) => {
       if ((!lastChar) || (lastChar !== '\n')) {
         text = '\n' + text;
       }
-    } else if (lastChar && (lastChar !== ' ')) {
+    } else if (lastObject_ && (lastObject_.type === 'word') && lastChar && (lastChar !== ' ')) { // make sure spaces between words
       text = ' ' + text;
     }
     output += text;
@@ -284,6 +285,7 @@ const objectToString = (object, output, nextObject) => {
   if (object.tag) { // any other USFM marker tag
     return output + usfmMarkerToString(object, nextObject);
   }
+  lastObject_ = object;
   return output;
 };
 

@@ -11,5 +11,5 @@ install:
   - npm i
   - npm i -g jest codecov
 script:
-  - eslint ./src ./index.js && jest --coverage
+  - eslint ./src && jest --coverage
   - codecov

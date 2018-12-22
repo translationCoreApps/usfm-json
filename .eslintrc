@@ -17,6 +17,7 @@
       }
     ],
     "no-console": "off",
+    "indent": [ "warn", 2 ],
     "max-len": [
       "error",
       {

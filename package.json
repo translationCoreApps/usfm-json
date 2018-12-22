@@ -4,8 +4,8 @@
   "description": "A small library that provides functions to convert usfm to JSON and vice-versa",
   "main": "lib/index.js",
   "scripts": {
-    "test": "eslint ./src ./index.js && jest",
-    "fix": "eslint ./src ./index.js --fix",
+    "test": "eslint ./src && jest",
+    "fix": "eslint ./src --fix",
     "prebuild": "rm -rf ./lib",
     "build": "babel ./src -d ./lib",
     "prepare": "if [ ! -d './lib/' ]; then npm run build; fi",

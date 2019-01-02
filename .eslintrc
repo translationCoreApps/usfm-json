@@ -17,6 +17,12 @@
       }
     ],
     "no-console": "off",
+    "indent": ["warn", 2],
+    "quotes": "off",
+    "arrow-parens": "off",
+    "prefer-const": "warn",
+    "comma-dangle": "off",
+    "prefer-spread": "warn",
     "max-len": [
       "error",
       {

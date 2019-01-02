@@ -27,13 +27,15 @@
         },
         {
           "attrib": "|eid=\"ts_JUD_5-6\"",
+          "endTag": "*",
           "nextChar": "\n",
-          "tag": "ts-e\\*"
+          "tag": "ts-e"
         },
         {
           "attrib": "|sid=\"ts_JUD_7-8\"",
+          "endTag": "*",
           "nextChar": "\n",
-          "tag": "ts-s\\*"
+          "tag": "ts-s"
         }
       ]
     },
@@ -53,8 +55,9 @@
         },
         {
           "attrib": "|eid=\"ts_JUD_7-8\"",
+          "endTag": "*",
           "nextChar": "\n",
-          "tag": "ts-e\\*"
+          "tag": "ts-e"
         }
       ]
     }

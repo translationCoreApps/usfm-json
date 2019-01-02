@@ -100,7 +100,7 @@ describe("JSON to USFM", () => {
   });
 
   it('handles Tit 1:1 no newlines', () => {
-    generateTest('titus_no_newlines');
+    generateTest('titus_no_newlines', {forcedNewLines: true});
   });
 
   it('handles jmp tag', () => {
@@ -174,7 +174,18 @@ describe("JSON to USFM", () => {
   it('process inline_God', () => {
     generateTest('inline_God', {chunk: true});
   });
-});
+
+  it('process tit_extra_space_after_chapter', () => {
+    generateTest('tit_extra_space_after_chapter');
+  });
+
+  it('process usfm-body-testF', () => {
+    generateTest('usfm-body-testF');
+  });
+
+  it('process usfm-body-testF', () => {
+    generateTest('usfm-body-testF', {forcedNewLines: false}, 'usfm-body-testF-inline');
+  });});
 
 //
 // helpers

@@ -99,16 +99,12 @@
             "type": "text"
           },
           {
+            "endTag": "add*",
             "tag": "add",
             "text": "возделывании"
           },
           {
-            "content": "земли, которую проклял Господь.\n",
-            "endMarkerChar": " ",
-            "tag": "add*"
-          },
-          {
-            "text": "\n",
+            "text": " земли, которую проклял Господь.\n\n",
             "type": "text"
           },
           {
@@ -250,6 +246,7 @@
             "type": "text"
           },
           {
+            "nextChar": " ",
             "tag": "tr"
           },
           {
@@ -265,6 +262,7 @@
             "tag": "th3"
           },
           {
+            "nextChar": " ",
             "tag": "tr"
           },
           {
@@ -280,6 +278,7 @@
             "tag": "tc3"
           },
           {
+            "nextChar": " ",
             "tag": "tr"
           },
           {
@@ -295,6 +294,7 @@
             "tag": "tc3"
           },
           {
+            "nextChar": " ",
             "tag": "tr"
           },
           {
@@ -310,6 +310,7 @@
             "tag": "tcr3"
           },
           {
+            "nextChar": " ",
             "tag": "tr"
           },
           {
@@ -801,6 +802,7 @@
             "type": "text"
           },
           {
+            "nextChar": " ",
             "tag": "li1"
           },
           {
@@ -822,6 +824,7 @@
             "type": "text"
           },
           {
+            "nextChar": " ",
             "tag": "li1"
           },
           {

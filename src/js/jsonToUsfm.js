@@ -10,6 +10,8 @@ let wordMap_ = {};
 let wordIgnore_ = [];
 let milestoneMap_ = {};
 let milestoneIgnore_ = [];
+let lastObject_ = null;
+let currentObject_ = null;
 
 /**
  * @description checks if we need to add a newline if next object is not text or newline
@@ -44,17 +46,24 @@ const generateWord = (wordObject, nextObject) => {
   const keys = Object.keys(wordObject);
   let attributes = [];
   const word = wordObject.text;
-  keys.forEach(function(key) {
+  for (let i = 0, len = keys.length; i < len; i++) {
+    let key = keys[i];
     if (!(wordIgnore_.includes(key))) {
       const value = wordObject[key];
       if (wordMap_[key]) { // see if we should convert this key
         key = wordMap_[key];
       }
-      let prefix = (key === 'lemma' || key === 'strong') ? '' : 'x-';
-      let attribute = prefix + key + '="' + value + '"';
+      let prefix = '';
+      if (USFM.wordSpecialAttributes.includes(key)) {
+        prefix = 'x-';
+      }
+      let attribute = prefix + key;
+      if (value) { // add value only if set
+        attribute += '="' + value + '"';
+      }
       attributes.push(attribute);
     }
-  });
+  }
   let attrOut = attributes.join(' ');
   if (attrOut) {
     attrOut = '|' + attrOut;
@@ -96,10 +105,10 @@ const generatePhrase = (phraseObject, nextObject) => {
     });
     content = '-s | ' + attributes.join(' ') + '\n';
   } else {
-    const isUsfm2Milestone = USFM.markerIsMilestone(tag);
-    if (isUsfm2Milestone) {
+    const isUsfm3Milestone = USFM.markerIsMilestone(tag);
+    if (isUsfm3Milestone) {
       if (phraseObject.attrib) {
-        content = ' ' + phraseObject.attrib;
+        content = phraseObject.attrib;
       }
       content += "\\*";
     }
@@ -137,7 +146,7 @@ const usfmMarkerToString = (usfmObject, nextObject = null,
                             noSpaceAfterTag = false,
                             noTermination = false) => {
   let output = "";
-  const content = usfmObject.text || usfmObject.content || "";
+  let content = usfmObject.text || usfmObject.content || "";
   let markerTermination = usfmObject.endTag; // new format takes precidence
   if ((typeof markerTermination !== 'string') && USFM.markerTermination(usfmObject.tag) && !noTermination) {
     markerTermination = usfmObject.tag + '*'; // fall back to old generation method
@@ -150,6 +159,18 @@ const usfmMarkerToString = (usfmObject, nextObject = null,
     const firstChar = content.substr(0, 1);
     if (noSpaceAfterTag) {
       // no spacing
+    }
+    else if (usfmObject.attrib) {
+      if (content) {
+        output += ' ' + content;
+      }
+      if (usfmObject.tag.substr(-2) === '\\*') { // we need to apply attibute before \*
+        output = output.substr(0, output.length - 2) + usfmObject.attrib +
+          output.substr(-2);
+      } else {
+        output += usfmObject.attrib;
+      }
+      content = '';
     }
     else if (!markerTermination) {
       if ((firstChar !== '') && (firstChar !== '\n') && (content !== ' \n')) { // make sure some whitespace
@@ -166,15 +187,6 @@ const usfmMarkerToString = (usfmObject, nextObject = null,
 
   if (content) {
     output += content;
-  }
-
-  if (usfmObject.attrib) {
-    if (usfmObject.tag.substr(-2) === '\\*') { // we need to apply attibute before \*
-      output = output.substr(0, output.length - 2) + usfmObject.attrib +
-        output.substr(-2);
-    } else {
-      output += usfmObject.attrib;
-    }
   }
 
   if (markerTermination) {
@@ -205,6 +217,28 @@ const addOnNewLine = (text, output) => {
 };
 
 /**
+ * @description adds word to the line and makes sure it has appropriate spacing
+ * @param {String} text - to add
+ * @param {String} output - string to add to
+ * @return {String} updated output
+ */
+const addWord = (text, output) => {
+  output = output || "";
+  if (text) {
+    const lastChar = (output) ? output.substr(output.length - 1) : '';
+    if (params_.forcedNewLines) {
+      if ((!lastChar) || (lastChar !== '\n')) {
+        text = '\n' + text;
+      }
+    } else if (lastObject_ && (lastObject_.type === 'word') && lastChar && (lastChar !== ' ')) { // make sure spaces between words
+      text = ' ' + text;
+    }
+    output += text;
+  }
+  return output;
+};
+
+/**
  * @description converts object to string and appends to line
  * @param {string|array|object} object - marker to print
  * @param {string} output - marker to print
@@ -216,6 +250,9 @@ const objectToString = (object, output, nextObject) => {
   if (!object) {
     return "";
   }
+
+  lastObject_ = currentObject_;
+  currentObject_ = object;
 
   output = output || "";
 
@@ -239,16 +276,14 @@ const objectToString = (object, output, nextObject) => {
   }
 
   if (object.type === 'word') { // usfm word marker
-    return addOnNewLine(generateWord(object, nextObject), output);
+    return addWord(generateWord(object, nextObject), output);
   }
-
   if ((object.type === 'milestone') && (object.endTag !== object.tag + '*')) { // milestone type (phrase)
     return addOnNewLine(generatePhrase(object, nextObject), output);
   }
   else if (object.children && object.children.length) {
     return output + generatePhrase(object, nextObject);
   }
-
   if (object.tag) { // any other USFM marker tag
     return output + usfmMarkerToString(object, nextObject);
   }
@@ -278,7 +313,7 @@ const generateVerse = (verseNumber, verseObjects) => {
  * @return {Array} updated lines array
  */
 const addVerse = (lines, verse) => {
-  if (lines && lines.length) {
+  if (params_.forcedNewLines && lines && lines.length) {
     const lastLine = lines[lines.length - 1];
     if (!lastCharIsNewLine(lastLine)) { // need to add newline
       const quoted = lastLine.indexOf('\n\\q') >= 0;
@@ -347,7 +382,7 @@ const generateChapterLines = (chapterNumber, chapterObject) => {
     // check if verse is inside previous line (such as \q)
     const lastLine = lines.length ? lines[lines.length - 1] : "";
     const lastChar = lastLine ? lastLine.substr(lastLine.length - 1) : "";
-    if (lastChar && (lastChar !== '\n') && (lastChar !== '')) { // do we need white space
+    if (lastChar && (lastChar !== '\n') && (lastChar !== ' ')) { // do we need white space
       lines[lines.length - 1] = lastLine + ' ';
     }
     const verseObjects = chapterObject[verseNumber];
@@ -406,7 +441,7 @@ const processParams = () => {
  *                    map {Object} - dictionary of attribute names to map to new name on word objects
  *                    mileStoneIgnore (Array} - list of attributes to ignore on milestone objects
  *                    mileStoneMap {Object} - dictionary of attribute names to map to new name on milestone objects
- *                    forcedNewLines (boolean} - if true then we add newlines before alignment tags
+ *                    forcedNewLines (boolean} - if true then we add newlines before alignment tags, verses, words
  * @return {String} - Scripture in USFM
  */
 export const jsonToUSFM = (json, params) => {

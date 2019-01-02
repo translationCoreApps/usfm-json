@@ -299,9 +299,9 @@ const getSaveToLocation = state => {
     if (!state.currentVerse) {
       state.currentVerse = 'front';
     }
-    if (!state.chapters[state.currentChapter][state.currentVerse])
+    if (!state.chapters[state.currentChapter][state.currentVerse]) {
       state.chapters[state.currentChapter][state.currentVerse] = [];
-
+    }
     saveTo = state.chapters[state.currentChapter][state.currentVerse];
   }
   return saveTo;
@@ -1068,8 +1068,9 @@ const processAsText = (state, marker) => {
     pushObject(state, state.headers, createUsfmObject(marker));
   }
   if (state.params.chunk && state.currentVerse > 0 && marker.content) {
-    if (!state.verses[state.currentVerse])
+    if (!state.verses[state.currentVerse]) {
       state.verses[state.currentVerse] = [];
+    }
     if (getPhraseParent(state)) {
       saveUsfmObject(state, null, marker.content);
     } else {

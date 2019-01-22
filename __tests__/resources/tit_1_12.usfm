@@ -7,6 +7,5 @@
 \c 1
 
 \v 12
-\w προφήτης|lemma="προφήτης" strong="G43960" x-morph="Gr,N,,,,,NMS,"\w*, “
-\w Κρῆτες|lemma="Κρής" strong="G29120" x-morph="Gr,N,,,,,NMP,"\w*
+\w προφήτης|lemma="προφήτης" strong="G43960" x-morph="Gr,N,,,,,NMS,"\w*, “\w Κρῆτες|lemma="Κρής" strong="G29120" x-morph="Gr,N,,,,,NMP,"\w*
 \w ἀργαί|lemma="ἀργός" strong="G06920" x-morph="Gr,AA,,,,NFP,"\w*.”

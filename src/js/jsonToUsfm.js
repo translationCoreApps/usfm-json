@@ -227,7 +227,10 @@ const addWord = (text, output) => {
   if (text) {
     const lastChar = (output) ? output.substr(output.length - 1) : '';
     if (params_.forcedNewLines) {
-      if ((!lastChar) || (lastChar !== '\n')) {
+      if (!lastChar) { // if beginning of line
+        text = '\n' + text;
+      } else if (lastChar === ' ') {
+        output = output.substr(0,output.length - 1); // trim space
         text = '\n' + text;
       }
     } else if (lastObject_ && (lastObject_.type === 'word') && lastChar && (lastChar !== ' ')) { // make sure spaces between words

@@ -17,7 +17,7 @@
       }
     ],
     "no-console": "off",
-    "indent": ["warn", 2],
+    "indent": ["warn", 2, { "SwitchCase": 1 }],
     "quotes": "off",
     "arrow-parens": "off",
     "prefer-const": "warn",

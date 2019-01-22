@@ -16,6 +16,10 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "content-source": "bhp",
               "lemma": "χριστός",
               "morph": "Gr,N,,,,,GMS,",

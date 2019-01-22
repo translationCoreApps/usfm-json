@@ -42,7 +42,7 @@ function keyRightTrim(received) {
 }
 
 function wordEndTrim(received) {
-  const trimmed = received.replace(/\s+\\w\*/, "\\w*");
+  const trimmed = received.replace(/\s+\\w\*/g, "\\w*");
   return trimmed;
 }
 

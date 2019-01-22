@@ -13,6 +13,10 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": 1,
                 "occurrences": 1,
                 "tag": "w",
@@ -20,13 +24,13 @@
                 "type": "word"
               }
             ],
-            "strong": "G38190",
+            "content": "πάλαι",
             "endTag": "zaln-e\\*",
             "lemma": "πάλαι",
             "morph": "Gr,D,,,,,,,,,",
             "occurrence": 1,
             "occurrences": 1,
-            "content": "πάλαι",
+            "strong": "G38190",
             "tag": "zaln",
             "type": "milestone"
           },
@@ -42,24 +46,24 @@
                     "type": "word"
                   }
                 ],
-                "strong": "G23160",
+                "content": "Θεὸς",
+                "endTag": "zaln-e\\*",
                 "lemma": "θεός",
                 "morph": "Gr,N,,,,,NMS,",
                 "occurrence": 1,
                 "occurrences": 1,
-                "content": "Θεὸς",
+                "strong": "G23160",
                 "tag": "zaln",
-                "endTag": "zaln-e\\*",
                 "type": "milestone"
               }
             ],
-            "strong": "G35880",
+            "content": "ὁ",
             "endTag": "zaln-e\\*",
             "lemma": "ὁ",
             "morph": "Gr,EA,,,,NMS,",
             "occurrence": 1,
             "occurrences": 1,
-            "content": "ὁ",
+            "strong": "G35880",
             "tag": "zaln",
             "type": "milestone"
           },
@@ -73,6 +77,10 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": 1,
                 "occurrences": 1,
                 "tag": "w",
@@ -80,13 +88,13 @@
                 "type": "word"
               }
             ],
-            "strong": "G29800",
+            "content": "λαλήσας",
             "endTag": "zaln-e\\*",
             "lemma": "λαλέω",
             "morph": "Gr,V,PAA,NMS,",
             "occurrence": 1,
             "occurrences": 1,
-            "content": "λαλήσας",
+            "strong": "G29800",
             "tag": "zaln",
             "type": "milestone"
           },
@@ -100,13 +108,13 @@
                 "type": "word"
               }
             ],
-            "strong": "G35880",
+            "content": "τοῖς",
             "endTag": "zaln-e\\*",
             "lemma": "ὁ",
             "morph": "Gr,EA,,,,DMP,",
             "occurrence": 1,
             "occurrences": 2,
-            "content": "τοῖς",
+            "strong": "G35880",
             "tag": "zaln",
             "type": "milestone"
           },
@@ -124,6 +132,10 @@
                         "type": "word"
                       },
                       {
+                        "text": " ",
+                        "type": "text"
+                      },
+                      {
                         "occurrence": 1,
                         "occurrences": 1,
                         "tag": "w",
@@ -131,39 +143,40 @@
                         "type": "word"
                       }
                     ],
-                    "strong": "G17220",
+                    "content": "ἐν",
+                    "endTag": "zaln-e\\*",
                     "lemma": "ἐν",
                     "morph": "Gr,P,,,,,D,,,",
                     "occurrence": 1,
                     "occurrences": 1,
-                    "content": "ἐν",
+                    "strong": "G17220",
                     "tag": "zaln",
-                    "endTag": "zaln-e\\*",
                     "type": "milestone"
                   }
                 ],
-                "strong": "G39620",
+                "content": "πατράσιν",
                 "endTag": "zaln-e\\*",
                 "lemma": "πατήρ",
                 "morph": "Gr,N,,,,,DMP,",
                 "occurrence": 1,
                 "occurrences": 1,
-                "content": "πατράσιν",
+                "strong": "G39620",
                 "tag": "zaln",
                 "type": "milestone"
               }
             ],
-            "strong": "G35880",
+            "content": "τοῖς",
             "endTag": "zaln-e\\*",
             "lemma": "ὁ",
             "morph": "Gr,EA,,,,DMP,",
             "occurrence": 2,
             "occurrences": 2,
-            "content": "τοῖς",
+            "strong": "G35880",
             "tag": "zaln",
             "type": "milestone"
           },
           {
+            "alignmentIndex": "10",
             "children": [
               {
                 "occurrence": 1,
@@ -173,6 +186,10 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": 1,
                 "occurrences": 1,
                 "tag": "w",
@@ -180,14 +197,13 @@
                 "type": "word"
               }
             ],
-            "strong": "G43960",
+            "content": "προφήταις",
             "endTag": "zaln-e\\*",
             "lemma": "προφήτης",
             "morph": "Gr,N,,,,,DMP,",
             "occurrence": 1,
             "occurrences": 1,
-            "alignmentIndex": "10",
-            "content": "προφήταις",
+            "strong": "G43960",
             "tag": "zaln",
             "type": "milestone"
           },
@@ -201,11 +217,19 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": 1,
                 "occurrences": 2,
                 "tag": "w",
                 "text": "many",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": 1,
@@ -215,13 +239,13 @@
                 "type": "word"
               }
             ],
-            "strong": "G41810",
+            "content": "πολυμερῶς",
             "endTag": "zaln-e\\*",
             "lemma": "πολυμερῶς",
             "morph": "Gr,D,,,,,,,,,",
             "occurrence": 1,
             "occurrences": 1,
-            "content": "πολυμερῶς",
+            "strong": "G41810",
             "tag": "zaln",
             "type": "milestone"
           },
@@ -235,13 +259,13 @@
                 "type": "word"
               }
             ],
-            "strong": "G25320",
+            "content": "καὶ",
             "endTag": "zaln-e\\*",
             "lemma": "καί",
             "morph": "Gr,CC,,,,,,,,",
             "occurrence": 1,
             "occurrences": 1,
-            "content": "καὶ",
+            "strong": "G25320",
             "tag": "zaln",
             "type": "milestone"
           },
@@ -255,11 +279,19 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": 2,
                 "occurrences": 2,
                 "tag": "w",
                 "text": "many",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": 1,
@@ -269,13 +301,13 @@
                 "type": "word"
               }
             ],
-            "strong": "G41870",
+            "content": "πολυτρόπως",
             "endTag": "zaln-e\\*",
             "lemma": "πολυτρόπως",
             "morph": "Gr,D,,,,,,,,,",
             "occurrence": 1,
             "occurrences": 1,
-            "content": "πολυτρόπως",
+            "strong": "G41870",
             "tag": "zaln",
             "type": "milestone"
           },

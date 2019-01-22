@@ -6,17 +6,21 @@
       "verseObjects": [
         {
           "lemma": "ἀπόστολος",
-          "strong": "G06520",
           "morph": "Gr,N,,,,,NMS,",
+          "strong": "G06520",
           "tag": "w",
           "text": "ἀπόστολος",
           "tw": "rc://*/tw/dict/bible/kt/apostle",
           "type": "word"
         },
         {
+          "text": " ",
+          "type": "text"
+        },
+        {
           "lemma": "δέ",
-          "strong": "G11610",
           "morph": "Gr,CC,,,,,,,,",
+          "strong": "G11610",
           "tag": "w",
           "text": "δὲ",
           "type": "word"
@@ -25,16 +29,20 @@
           "children": [
             {
               "lemma": "Ἰησοῦς",
-              "strong": "G24240",
               "morph": "Gr,N,,,,,GMS,",
+              "strong": "G24240",
               "tag": "w",
               "text": "Ἰησοῦ",
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "lemma": "χριστός",
-              "strong": "G55470",
               "morph": "Gr,N,,,,,GMS,",
+              "strong": "G55470",
               "tag": "w",
               "text": "Χριστοῦ",
               "tw": "rc://*/tw/dict/bible/kt/christ",
@@ -47,13 +55,13 @@
           "type": "milestone"
         },
         {
-          "text": ",",
+          "text": ", ",
           "type": "text"
         },
         {
           "lemma": "κατά",
-          "strong": "G25960",
           "morph": "Gr,P,,,,,A,,,",
+          "strong": "G25960",
           "tag": "w",
           "text": "κατὰ",
           "type": "word"
@@ -68,8 +76,8 @@
       "verseObjects": [
         {
           "lemma": "ἀπό",
-          "strong": "G05750",
           "morph": "Gr,P,,,,,G,,,",
+          "strong": "G05750",
           "tag": "w",
           "text": "ἀπὸ",
           "type": "word"
@@ -78,17 +86,21 @@
           "children": [
             {
               "lemma": "θεός",
-              "strong": "G23160",
               "morph": "Gr,N,,,,,GMS,",
+              "strong": "G23160",
               "tag": "w",
               "text": "Θεοῦ",
               "tw": "rc://*/tw/dict/bible/kt/god",
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "lemma": "πατήρ",
-              "strong": "G39620",
               "morph": "Gr,N,,,,,GMS,",
+              "strong": "G39620",
               "tag": "w",
               "text": "Πατρὸς",
               "type": "word"
@@ -100,9 +112,13 @@
           "type": "milestone"
         },
         {
+          "text": " ",
+          "type": "text"
+        },
+        {
           "lemma": "καί",
-          "strong": "G25320",
           "morph": "Gr,CC,,,,,,,,",
+          "strong": "G25320",
           "tag": "w",
           "text": "καὶ",
           "type": "word"

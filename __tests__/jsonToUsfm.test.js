@@ -13,11 +13,11 @@ describe("JSON to USFM", () => {
   });
 
   it('handles greek characters in usfm', () => {
-    generateTest('greek');
+    generateTest('greek', {words: true});
   });
 
   it('preserves punctuation in usfm', () => {
-    generateTest('tit_1_12');
+    generateTest('tit_1_12', {words: true});
   });
 
   it('preserves punctuation in usfm when no words', () => {
@@ -25,7 +25,7 @@ describe("JSON to USFM", () => {
   });
 
   it('\'word on new line after quote', () => {
-    generateTest('tit_1_12_new_line');
+    generateTest('tit_1_12_new_line', {words: true});
   });
 
   it('preserves footnotes in usfm', () => {
@@ -77,26 +77,26 @@ describe("JSON to USFM", () => {
   });
 
   it('process tw word attributes and spans', () => {
-    generateTest('tw_words', {ignore: ["content-source"], mileStoneIgnore: ["content-source"]});
+    generateTest('tw_words', {ignore: ["content-source"], mileStoneIgnore: ["content-source"], words: true});
   });
 
   it('process tw word attributes and spans chunked', () => {
-    generateTest('tw_words_chunk', {chunk: true, ignore: ["content-source"], mileStoneIgnore: ["content-source"]});
+    generateTest('tw_words_chunk', {chunk: true, ignore: ["content-source"], mileStoneIgnore: ["content-source"], words: true});
   });
 
   it('handles Tit 1:1 alignment', () => {
-    generateTest('tit1-1_alignment', {chunk: true, mileStoneIgnore: ["lemma", "morph"], mileStoneMap: {content: "ugnt"}});
+    generateTest('tit1-1_alignment', {chunk: true, mileStoneIgnore: ["lemma", "morph"], mileStoneMap: {content: "ugnt"}, zaln: true});
   });
 
   it('handles Tit 1:1 alignment converts strongs to strong', () => {
     generateTest('tit1-1_alignment_strongs',
-      {chunk: true, mileStoneIgnore: ["lemma", "morph"], mileStoneMap: {content: "ugnt"}},
+      {chunk: true, mileStoneIgnore: ["lemma", "morph"], mileStoneMap: {content: "ugnt"}, zaln: true},
       'tit1-1_alignment');
   });
 
   it('handles Heb 1:1 alignment', () => {
     generateTest('heb1-1_multi_alignment',
-      {convertToInt: ["occurrence", "occurrences"], map: {ugnt: "content"}});
+      {convertToInt: ["occurrence", "occurrences"], map: {ugnt: "content"}, zaln: true});
   });
 
   it('handles Tit 1:1 no newlines', () => {
@@ -183,9 +183,14 @@ describe("JSON to USFM", () => {
     generateTest('usfm-body-testF');
   });
 
-  it('process usfm-body-testF', () => {
+  it('process usfm-body-testF inline', () => {
     generateTest('usfm-body-testF', {forcedNewLines: false}, 'usfm-body-testF-inline');
-  });});
+  });
+
+  it('process hebrew_words', () => {
+    generateTest('hebrew_words', {chunk: true, words: true});
+  });
+});
 
 //
 // helpers
@@ -201,6 +206,27 @@ function normalizeAtributes(tag, source) {
     attributes = attributes.sort();
     lines[0] = attributes.join(' ');
     parts[i] = lines.join('\n');
+  }
+  const normalized = parts.join(tag);
+  return normalized;
+}
+
+function normalizeAtributes2(tag, source) {
+  let parts = source.split(tag);
+  const length = parts.length;
+  for (let i = 1; i < length; i++) {
+    const item = parts[i];
+    if (item.substr(0, 1) !== '*') {
+      let sections = item.split('|');
+      const text = sections[0];
+      let attributes = sections[1].split(' ');
+      attributes = attributes.sort();
+      while (attributes.length && (attributes[0] === '')) {
+        attributes.splice(0, 1);
+      }
+      attributes = attributes.join(' ');
+      parts[i] = text + '|' + attributes;
+    }
   }
   const normalized = parts.join(tag);
   return normalized;
@@ -225,8 +251,17 @@ const generateTest = (name, params, expectedName) => {
   const output = jsonToUSFM(input, params);
   if (params && params.zaln) { // normalize attributes
     const tag = "\\zaln-s | ";
-    const outputNormal = normalizeAtributes(tag, output);
-    const expectedNormal = normalizeAtributes(tag, expected);
+    let outputNormal = normalizeAtributes(tag, output);
+    let expectedNormal = normalizeAtributes(tag, expected);
+    const wordTag = '\\w';
+    outputNormal = normalizeAtributes2(wordTag, outputNormal);
+    expectedNormal = normalizeAtributes2(wordTag, expectedNormal);
+    expect(outputNormal).toEqual(expectedNormal);
+
+  } else if (params && params.words) { // normalize attributes
+    const tag = '\\w';
+    const outputNormal = normalizeAtributes2(tag, output);
+    const expectedNormal = normalizeAtributes2(tag, expected);
     expect(outputNormal).toEqual(expectedNormal);
   } else {
     expect(output).toEqual(expected);

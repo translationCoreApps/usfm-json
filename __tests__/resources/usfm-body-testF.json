@@ -4,7 +4,7 @@
       "1": {
         "verseObjects": [
           {
-            "text": "Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,",
+            "text": "Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness, ",
             "type": "text"
           },
           {
@@ -14,10 +14,18 @@
             "type": "word"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "grace": "",
             "tag": "w",
             "text": "gracious",
             "type": "word"
+          },
+          {
+            "text": " ",
+            "type": "text"
           },
           {
             "lemma": "grace",
@@ -27,10 +35,18 @@
             "type": "word"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "strong": "G5485",
             "tag": "w",
             "text": "gracious",
             "type": "word"
+          },
+          {
+            "text": " ",
+            "type": "text"
           },
           {
             "strong": "H1234,G5485",
@@ -39,16 +55,28 @@
             "type": "word"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "strong": "G5485:a",
             "tag": "w",
             "text": "gracious",
             "type": "word"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "strong": "H6944,H6944",
             "tag": "w",
             "text": "most holy",
             "type": "word"
+          },
+          {
+            "text": " ",
+            "type": "text"
           },
           {
             "lemma": "grace",
@@ -58,10 +86,18 @@
             "type": "word"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "tag": "w",
             "text": "gracious",
             "type": "word",
             "x-myattr": "metadata"
+          },
+          {
+            "text": " ",
+            "type": "text"
           },
           {
             "lemma": "grace",
@@ -69,6 +105,10 @@
             "text": "gracious",
             "type": "word",
             "x-myattr": "metadata"
+          },
+          {
+            "text": " ",
+            "type": "text"
           },
           {
             "link-href": "http://bibles.org/search/grace/eng-GNTD/all",

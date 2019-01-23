@@ -231,7 +231,7 @@ const addWord = (text, output) => {
       if (!lastChar) { // if beginning of line
         prefixNewLine = true;
       } else if (lastChar === ' ') {
-        output = output.substr(0,output.length - 1); // trim space
+        output = output.substr(0, output.length - 1); // trim space
         prefixNewLine = true;
       } else if ((lastChar !== '\n') && (lastObject_.type === 'word')) {
         prefixNewLine = true;

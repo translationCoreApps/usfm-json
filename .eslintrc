@@ -18,8 +18,12 @@
     ],
     "no-console": "off",
     "indent": ["warn", 2,
-      { "SwitchCase": 1 },
-      { "CallExpression":  1}
+      {
+        "CallExpression": {"arguments": "first"},
+        "FunctionDeclaration": {"parameters": "first"},
+        "SwitchCase": 1, 
+        "ignoreComments": true
+      }
     ],
     "quotes": "off",
     "arrow-parens": "off",

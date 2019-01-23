@@ -190,6 +190,10 @@ describe("JSON to USFM", () => {
   it('process hebrew_words', () => {
     generateTest('hebrew_words', {chunk: true, words: true});
   });
+
+  it('process exported alignment acts_1_11', () => {
+    generateTest('acts_1_11.aligned', {chunk: true, words: true});
+  });
 });
 
 //

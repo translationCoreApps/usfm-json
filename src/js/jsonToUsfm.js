@@ -225,16 +225,22 @@ const addOnNewLine = (text, output) => {
 const addWord = (text, output) => {
   output = output || "";
   if (text) {
+    let prefixNewLine = false;
     const lastChar = (output) ? output.substr(output.length - 1) : '';
     if (params_.forcedNewLines) {
       if (!lastChar) { // if beginning of line
-        text = '\n' + text;
+        prefixNewLine = true;
       } else if (lastChar === ' ') {
         output = output.substr(0,output.length - 1); // trim space
-        text = '\n' + text;
+        prefixNewLine = true;
+      } else if ((lastChar !== '\n') && (lastObject_.type === 'word')) {
+        prefixNewLine = true;
       }
     } else if (lastObject_ && (lastObject_.type === 'word') && lastChar && (lastChar !== ' ')) { // make sure spaces between words
       text = ' ' + text;
+    }
+    if (prefixNewLine) {
+      text = '\n' + text;
     }
     output += text;
   }
@@ -254,28 +260,27 @@ const objectToString = (object, output, nextObject) => {
     return "";
   }
 
-  lastObject_ = currentObject_;
-  currentObject_ = object;
-
   output = output || "";
-
-  if (object.type === 'text') {
-    return output + object.text;
-  }
 
   if (object.verseObjects) { // support new verse object format
     object = object.verseObjects;
   }
 
   if (Array.isArray(object)) {
-    let lastObject;
+    let nextObject;
     for (let i = 0, len = object.length; i < len; i++) {
-      const objectN = lastObject ? lastObject : object[i];
-      const nextObject = (i + 1 < object.length) ? object[i + 1] : null;
+      const objectN = nextObject ? nextObject : object[i];
+      nextObject = (i + 1 < object.length) ? object[i + 1] : null;
       output = objectToString(objectN, output, nextObject);
-      lastObject = nextObject;
     }
     return output;
+  }
+
+  lastObject_ = currentObject_;
+  currentObject_ = object;
+
+  if (object.type === 'text') {
+    return output + object.text;
   }
 
   if (object.type === 'word') { // usfm word marker

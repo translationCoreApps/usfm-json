@@ -35,12 +35,20 @@
             "type": "word"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "text": "δοῦλος",
             "lemma": "δοῦλος",
             "strong": "G14010",
             "morph": "Gr,N,,,,,NMS,",
             "tag": "w",
             "type": "word"
+          },
+          {
+            "text": " ",
+            "type": "text"
           },
           {
             "text": "Χριστοῦ",
@@ -51,6 +59,10 @@
             "type": "word"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "text": "κατὰ",
             "lemma": "κατά",
             "strong": "G25960",
@@ -59,8 +71,8 @@
             "type": "word"
           },
           {
-            "type": "text",
-            "text": "\n"
+            "text": "\n",
+            "type": "text"
           }
         ]
       }
@@ -69,8 +81,8 @@
       "front": {
         "verseObjects": [
           {
-            "tag": "p",
             "nextChar": "\n",
+            "tag": "p",
             "type": "paragraph"
           }
         ]
@@ -86,12 +98,20 @@
             "type": "word"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "text": "δὲ",
             "lemma": "δέ",
             "strong": "G11610",
             "morph": "Gr,CC,,,,,,,,",
             "tag": "w",
             "type": "word"
+          },
+          {
+            "text": " ",
+            "type": "text"
           },
           {
             "text": "λάλει",
@@ -102,6 +122,10 @@
             "type": "word"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "text": "ἃ",
             "lemma": "ὅς",
             "strong": "G37390",
@@ -110,8 +134,8 @@
             "type": "word"
           },
           {
-            "type": "text",
-            "text": "\n"
+            "text": "\n",
+            "type": "text"
           }
         ]
       }

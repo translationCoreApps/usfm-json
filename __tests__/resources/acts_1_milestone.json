@@ -86,6 +86,10 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "1",
                 "occurrences": "1",
                 "tag": "w",
@@ -287,6 +291,10 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "1",
                 "occurrences": "1",
                 "tag": "w",
@@ -332,6 +340,10 @@
                 "tag": "w",
                 "text": "to",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "1",
@@ -429,11 +441,19 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "1",
                 "occurrences": "3",
                 "tag": "w",
                 "text": "he",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "1",
@@ -443,11 +463,19 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "1",
                 "occurrences": "1",
                 "tag": "w",
                 "text": "taken",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "1",
@@ -481,11 +509,19 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "2",
                 "occurrences": "3",
                 "tag": "w",
                 "text": "he",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "1",
@@ -495,11 +531,19 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "1",
                 "occurrences": "1",
                 "tag": "w",
                 "text": "given",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "1",
@@ -609,6 +653,10 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "3",
                 "occurrences": "3",
                 "tag": "w",
@@ -676,11 +724,19 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "2",
                 "occurrences": "2",
                 "tag": "w",
                 "text": "had",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "1",
@@ -895,6 +951,10 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "1",
                 "occurrences": "2",
                 "tag": "w",
@@ -960,6 +1020,10 @@
                 "tag": "w",
                 "text": "convincing",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "1",
@@ -1053,6 +1117,10 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "1",
                 "occurrences": "1",
                 "tag": "w",
@@ -1078,6 +1146,10 @@
                 "tag": "w",
                 "text": "to",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "2",
@@ -1129,6 +1201,10 @@
                 "tag": "w",
                 "text": "he",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "1",
@@ -1240,6 +1316,10 @@
                     "type": "word"
                   },
                   {
+                    "text": " ",
+                    "type": "text"
+                  },
+                  {
                     "occurrence": "1",
                     "occurrences": "1",
                     "tag": "w",
@@ -1311,11 +1391,19 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "1",
                 "occurrences": "1",
                 "tag": "w",
                 "text": "was",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "1",
@@ -1325,6 +1413,10 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "1",
                 "occurrences": "1",
                 "tag": "w",
@@ -1332,11 +1424,19 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "1",
                 "occurrences": "1",
                 "tag": "w",
                 "text": "with",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "1",
@@ -1368,6 +1468,10 @@
                 "tag": "w",
                 "text": "he",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "1",
@@ -1435,6 +1539,10 @@
                 "tag": "w",
                 "text": "to",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "1",
@@ -1521,11 +1629,19 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "1",
                 "occurrences": "1",
                 "tag": "w",
                 "text": "wait",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "1",
@@ -1595,6 +1711,10 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "2",
                 "occurrences": "2",
                 "tag": "w",
@@ -1646,6 +1766,10 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "1",
                 "occurrences": "1",
                 "tag": "w",
@@ -1675,6 +1799,10 @@
                 "tag": "w",
                 "text": "he",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "1",
@@ -1735,11 +1863,19 @@
                     "type": "word"
                   },
                   {
+                    "text": " ",
+                    "type": "text"
+                  },
+                  {
                     "occurrence": "1",
                     "occurrences": "1",
                     "tag": "w",
                     "text": "from",
                     "type": "word"
+                  },
+                  {
+                    "text": " ",
+                    "type": "text"
                   },
                   {
                     "occurrence": "1",
@@ -1862,6 +1998,10 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "1",
                 "occurrences": "1",
                 "tag": "w",
@@ -1933,11 +2073,19 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "1",
                 "occurrences": "1",
                 "tag": "w",
                 "text": "be",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "2",
@@ -2217,11 +2365,19 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "1",
                 "occurrences": "1",
                 "tag": "w",
                 "text": "assembled",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "1",
@@ -2253,6 +2409,10 @@
                 "tag": "w",
                 "text": "they",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "1",
@@ -2486,11 +2646,19 @@
                 "type": "word"
               },
               {
+                "text": " ",
+                "type": "text"
+              },
+              {
                 "occurrence": "1",
                 "occurrences": "1",
                 "tag": "w",
                 "text": "will",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "1",

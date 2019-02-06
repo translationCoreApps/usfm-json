@@ -45,6 +45,10 @@
               "occurrences": 1
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "tag": "w",
               "type": "word",
               "text": "servant",
@@ -69,6 +73,10 @@
               "text": "of",
               "occurrence": 1,
               "occurrences": 4
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "tag": "w",
@@ -97,11 +105,19 @@
               "occurrences": 2
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "tag": "w",
               "type": "word",
               "text": "an",
               "occurrence": 1,
               "occurrences": 4
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "tag": "w",
@@ -210,6 +226,10 @@
               "occurrences": 3
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "tag": "w",
               "type": "word",
               "text": "faith",
@@ -236,24 +256,28 @@
               "occurrences": 4
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "tag": "w",
               "type": "word",
               "text": "God",
               "occurrence": 2,
               "occurrences": 2
+            },
+            {
+              "type": "text",
+              "text": "'"
+            },
+            {
+              "tag": "w",
+              "type": "word",
+              "text": "s",
+              "occurrence": 1,
+              "occurrences": 1
             }
           ]
-        },
-        {
-          "type": "text",
-          "text": "'"
-        },
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "s",
-          "occurrence": 1,
-          "occurrences": 1
         },
         {
           "strongs": "G15880",
@@ -271,6 +295,10 @@
               "text": "chosen",
               "occurrence": 1,
               "occurrences": 1
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "tag": "w",
@@ -356,11 +384,19 @@
               "occurrences": 4
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "tag": "w",
               "type": "word",
               "text": "truth",
               "occurrence": 1,
               "occurrences": 1
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "tag": "w",
@@ -406,6 +442,10 @@
               "text": "agrees",
               "occurrence": 1,
               "occurrences": 1
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "tag": "w",

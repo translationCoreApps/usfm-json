@@ -54,6 +54,10 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
@@ -105,6 +109,10 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
@@ -130,6 +138,10 @@
               "tag": "w",
               "text": "the",
               "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "occurrence": "1",
@@ -159,6 +171,10 @@
                   "tag": "w",
                   "text": "of",
                   "type": "word"
+                },
+                {
+                  "text": " ",
+                  "type": "text"
                 },
                 {
                   "occurrence": "1",
@@ -287,11 +303,19 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
               "text": "is",
               "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "occurrence": "1",
@@ -330,11 +354,19 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "occurrence": "1",
               "occurrences": "3",
               "tag": "w",
               "text": "will",
               "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "occurrence": "1",
@@ -430,6 +462,10 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
@@ -437,11 +473,19 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
               "text": "care",
               "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "occurrence": "2",
@@ -528,11 +572,19 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "occurrence": "2",
               "occurrences": "3",
               "tag": "w",
               "text": "will",
               "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "occurrence": "1",
@@ -622,6 +674,10 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
@@ -657,6 +713,10 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
@@ -682,6 +742,10 @@
               "tag": "w",
               "text": "you",
               "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "occurrence": "3",
@@ -822,6 +886,10 @@
               "tag": "w",
               "text": "a",
               "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "occurrence": "1",

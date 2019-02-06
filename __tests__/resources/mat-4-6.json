@@ -54,6 +54,10 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
@@ -107,6 +111,10 @@
                   "type": "word"
                 },
                 {
+                  "text": " ",
+                  "type": "text"
+                },
+                {
                   "occurrence": "1",
                   "occurrences": "1",
                   "tag": "w",
@@ -114,11 +122,19 @@
                   "type": "word"
                 },
                 {
+                  "text": " ",
+                  "type": "text"
+                },
+                {
                   "occurrence": "1",
                   "occurrences": "1",
                   "tag": "w",
                   "text": "the",
                   "type": "word"
+                },
+                {
+                  "text": " ",
+                  "type": "text"
                 },
                 {
                   "occurrence": "1",
@@ -159,6 +175,10 @@
                   "tag": "w",
                   "text": "of",
                   "type": "word"
+                },
+                {
+                  "text": " ",
+                  "type": "text"
                 },
                 {
                   "occurrence": "1",
@@ -287,11 +307,19 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
               "text": "is",
               "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "occurrence": "1",
@@ -330,11 +358,19 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "occurrence": "1",
               "occurrences": "3",
               "tag": "w",
               "text": "will",
               "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "occurrence": "1",
@@ -368,11 +404,19 @@
                       "type": "word"
                     },
                     {
+                      "text": " ",
+                      "type": "text"
+                    },
+                    {
                       "occurrence": "1",
                       "occurrences": "1",
                       "tag": "w",
                       "text": "angels",
                       "type": "word"
+                    },
+                    {
+                      "text": " ",
+                      "type": "text"
                     },
                     {
                       "occurrence": "2",
@@ -415,11 +459,19 @@
           "type": "milestone"
         },
         {
+          "text": " ",
+          "type": "text"
+        },
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "take",
           "type": "word"
+        },
+        {
+          "text": " ",
+          "type": "text"
         },
         {
           "occurrence": "1",
@@ -496,11 +548,19 @@
                   "type": "word"
                 },
                 {
+                  "text": " ",
+                  "type": "text"
+                },
+                {
                   "occurrence": "2",
                   "occurrences": "3",
                   "tag": "w",
                   "text": "will",
                   "type": "word"
+                },
+                {
+                  "text": " ",
+                  "type": "text"
                 },
                 {
                   "occurrence": "1",
@@ -510,11 +570,19 @@
                   "type": "word"
                 },
                 {
+                  "text": " ",
+                  "type": "text"
+                },
+                {
                   "occurrence": "3",
                   "occurrences": "4",
                   "tag": "w",
                   "text": "you",
                   "type": "word"
+                },
+                {
+                  "text": " ",
+                  "type": "text"
                 },
                 {
                   "occurrence": "1",
@@ -567,6 +635,10 @@
           "type": "milestone"
         },
         {
+          "text": " ",
+          "type": "text"
+        },
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -611,11 +683,19 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
               "text": "that",
               "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "occurrence": "4",
@@ -625,11 +705,19 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "occurrence": "3",
               "occurrences": "3",
               "tag": "w",
               "text": "will",
               "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "occurrence": "1",
@@ -681,6 +769,10 @@
                       "tag": "w",
                       "text": "your",
                       "type": "word"
+                    },
+                    {
+                      "text": " ",
+                      "type": "text"
                     },
                     {
                       "occurrence": "1",
@@ -750,6 +842,10 @@
               "tag": "w",
               "text": "a",
               "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "occurrence": "1",

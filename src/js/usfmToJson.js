@@ -476,6 +476,37 @@ const removeLastNewLine = (state, ignoreQuote = false) => {
 };
 
 /**
+ * @description - remove previous new line from text
+ * @param {object} state - holds parsing state information
+ */
+const handleWordWhiteSpace = (state) => {
+  const saveTo = getSaveToLocation(state);
+  if (saveTo && saveTo.length) {
+    const lastObject = saveTo[saveTo.length - 1];
+    if (lastObject.nextChar === '\n') {
+      lastObject.nextChar = ' ';
+    }
+    else if (lastObject.text) {
+      const text = lastObject.text;
+      if (isLastCharNewLine((text))) {
+        const startOfLine = (saveTo.length === 1) &&
+          (lastObject.text.length === 1);
+        const removeNewLine = (startOfLine || isNextToLastCharQuote(text));
+        if (removeNewLine) {
+          if (text.length === 1) {
+            saveTo.pop();
+          } else {
+            lastObject.text = text.substr(0, text.length - 1);
+          }
+        } else { // replace newline with space
+          lastObject.text = text.substr(0, text.length - 1) + ' ';
+        }
+      }
+    }
+  }
+};
+
+/**
  * @description normalize the numbers in string by removing leading '0'
  * @param {string} text - number string to normalize
  * @return {string} normalized number string
@@ -1366,7 +1397,7 @@ export const usfmToJSON = (usfm, params = {}) => {
         if (state.inHeader) {
           addHeaderMarker(state, marker);
         } else {
-          removeLastNewLine(state);
+          handleWordWhiteSpace(state);
           const wordObject = parseWord(state, marker.content,
             USFM.wordSpecialAttributes);
           pushObject(state, null, wordObject);

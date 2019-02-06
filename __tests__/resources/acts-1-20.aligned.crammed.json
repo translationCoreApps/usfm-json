@@ -38,11 +38,19 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
               "text": "is",
               "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "occurrence": "1",
@@ -92,6 +100,10 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
@@ -117,6 +129,10 @@
               "tag": "w",
               "text": "of",
               "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "occurrence": "1",
@@ -226,6 +242,10 @@
               "tag": "w",
               "text": "be",
               "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "occurrence": "1",
@@ -363,11 +383,19 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
               "text": "one",
               "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "occurrence": "1",
@@ -499,6 +527,10 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
@@ -568,11 +600,19 @@
                   "type": "word"
                 },
                 {
+                  "text": " ",
+                  "type": "text"
+                },
+                {
                   "occurrence": "2",
                   "occurrences": "2",
                   "tag": "w",
                   "text": "of",
                   "type": "word"
+                },
+                {
+                  "text": " ",
+                  "type": "text"
                 },
                 {
                   "occurrence": "1",

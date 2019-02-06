@@ -1,30 +1,4 @@
 {
-  "headers": [
-    {
-      "content": "TIT Titus",
-      "tag": "id"
-    },
-    {
-      "content": "UTF-8",
-      "tag": "ide"
-    },
-    {
-      "content": "Titus",
-      "tag": "h"
-    },
-    {
-      "content": "Titus",
-      "tag": "toc2"
-    },
-    {
-      "content": "Tit",
-      "tag": "toc3"
-    },
-    {
-      "content": "Titus",
-      "tag": "mt"
-    }
-  ],
   "chapters": {
     "1": {
       "12": {
@@ -81,6 +55,10 @@
                         "tag": "w",
                         "text": "their",
                         "type": "word"
+                      },
+                      {
+                        "text": " ",
+                        "type": "text"
                       },
                       {
                         "occurrence": "1",
@@ -150,6 +128,10 @@
                 "tag": "w",
                 "text": "has",
                 "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
               },
               {
                 "occurrence": "1",
@@ -356,5 +338,31 @@
         ]
       }
     }
-  }
+  },
+  "headers": [
+    {
+      "content": "TIT Titus",
+      "tag": "id"
+    },
+    {
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Titus",
+      "tag": "h"
+    },
+    {
+      "content": "Titus",
+      "tag": "toc2"
+    },
+    {
+      "content": "Tit",
+      "tag": "toc3"
+    },
+    {
+      "content": "Titus",
+      "tag": "mt"
+    }
+  ]
 }

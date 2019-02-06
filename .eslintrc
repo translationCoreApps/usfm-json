@@ -17,7 +17,14 @@
       }
     ],
     "no-console": "off",
-    "indent": ["warn", 2],
+    "indent": ["warn", 2,
+      {
+        "CallExpression": {"arguments": "first"},
+        "FunctionDeclaration": {"parameters": "first"},
+        "SwitchCase": 1, 
+        "ignoreComments": true
+      }
+    ],
     "quotes": "off",
     "arrow-parens": "off",
     "prefer-const": "warn",

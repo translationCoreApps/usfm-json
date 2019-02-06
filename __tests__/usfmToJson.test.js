@@ -224,7 +224,7 @@ describe("USFM to JSON", () => {
     generateTest('acts-1-20.aligned.crammed', {chunk: true});
   });
 
-  it('handlesheb-12-27.grc', () => {
+  it('handles heb-12-27.grc', () => {
     generateTest('heb-12-27.grc', {chunk: true});
   });
 
@@ -270,6 +270,10 @@ describe("USFM to JSON", () => {
 
   it('process usfm-body-testF', () => {
     generateTest('usfm-body-testF');
+  });
+
+  it('process hebrew_words', () => {
+    generateTest('hebrew_words', {chunk: true});
   });
 });
 

@@ -224,6 +224,10 @@ describe("USFM to JSON", () => {
     generateTest('acts-1-20.aligned.crammed', {chunk: true});
   });
 
+  it('handles acts-1-20.aligned.crammed.oldformat', () => {
+    generateTest('acts-1-20.aligned.crammed.oldformat', {chunk: true}, 'acts-1-20.aligned.crammed');
+  });
+
   it('handles heb-12-27.grc', () => {
     generateTest('heb-12-27.grc', {chunk: true});
   });

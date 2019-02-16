@@ -200,22 +200,25 @@ describe("JSON to USFM", () => {
 // helpers
 //
 
-function normalizeAtributes(tag, source) {
+function normalizeAtributesAlign(tag, source) {
   let parts = source.split(tag);
   const length = parts.length;
   for (let i = 1; i < length; i++) {
     const part = parts[i];
-    let lines = part.split('\n');
+    const endMarker = "\\*";
+    const splitAttributes = part.includes(endMarker) ? endMarker : '\n'; // uses new terminator if present
+    let lines = part.split(splitAttributes);
     let attributes = lines[0].split(' ');
     attributes = attributes.sort();
-    lines[0] = attributes.join(' ');
-    parts[i] = lines.join('\n');
+    const newAttributes = attributes.join(' ');
+    lines[0] = newAttributes;
+    parts[i] = lines.join(splitAttributes);
   }
   const normalized = parts.join(tag);
   return normalized;
 }
 
-function normalizeAtributes2(tag, source) {
+function normalizeAtributesWord(tag, source) {
   let parts = source.split(tag);
   const length = parts.length;
   for (let i = 1; i < length; i++) {
@@ -255,17 +258,17 @@ const generateTest = (name, params, expectedName) => {
   const output = jsonToUSFM(input, params);
   if (params && params.zaln) { // normalize attributes
     const tag = "\\zaln-s | ";
-    let outputNormal = normalizeAtributes(tag, output);
-    let expectedNormal = normalizeAtributes(tag, expected);
+    let outputNormal = normalizeAtributesAlign(tag, output);
+    let expectedNormal = normalizeAtributesAlign(tag, expected);
     const wordTag = '\\w';
-    outputNormal = normalizeAtributes2(wordTag, outputNormal);
-    expectedNormal = normalizeAtributes2(wordTag, expectedNormal);
+    outputNormal = normalizeAtributesWord(wordTag, outputNormal);
+    expectedNormal = normalizeAtributesWord(wordTag, expectedNormal);
     expect(outputNormal).toEqual(expectedNormal);
 
   } else if (params && params.words) { // normalize attributes
     const tag = '\\w';
-    const outputNormal = normalizeAtributes2(tag, output);
-    const expectedNormal = normalizeAtributes2(tag, expected);
+    const outputNormal = normalizeAtributesWord(tag, output);
+    const expectedNormal = normalizeAtributesWord(tag, expected);
     expect(outputNormal).toEqual(expectedNormal);
   } else {
     expect(output).toEqual(expected);

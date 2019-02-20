@@ -35,6 +35,10 @@
             "type": "milestone"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "children": [
               {
                 "children": [
@@ -68,6 +72,10 @@
             "type": "milestone"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "children": [
               {
                 "occurrence": 1,
@@ -99,6 +107,10 @@
             "type": "milestone"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "children": [
               {
                 "occurrence": 1,
@@ -117,6 +129,10 @@
             "strong": "G35880",
             "tag": "zaln",
             "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
           },
           {
             "children": [
@@ -176,6 +192,10 @@
             "type": "milestone"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "alignmentIndex": "10",
             "children": [
               {
@@ -206,6 +226,10 @@
             "strong": "G43960",
             "tag": "zaln",
             "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
           },
           {
             "children": [
@@ -250,6 +274,10 @@
             "type": "milestone"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "children": [
               {
                 "occurrence": 1,
@@ -268,6 +296,10 @@
             "strong": "G25320",
             "tag": "zaln",
             "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
           },
           {
             "children": [
@@ -323,6 +355,10 @@
     {
       "content": "HEB EN_ULB en_English_ltr Wed Feb 07 2018 19:07:07 GMT-0500 (EST) tc",
       "tag": "id"
+    },
+    {
+      "content": "3.0",
+      "tag": "usfm"
     },
     {
       "content": "Hebrews",

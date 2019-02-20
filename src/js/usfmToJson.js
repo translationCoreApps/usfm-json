@@ -447,31 +447,68 @@ const isNextToLastCharQuote = line => {
   return index >= 0;
 };
 
+const isAlignmentMarker = (lastObject) => {
+  return lastObject && lastObject.tag && ["k", "w", "zaln"].includes(lastObject.tag);
+};
+
+/**
+ * @description - see if two similar alignment markers crammed together
+ * @param {object} lastObject - previous object
+ * @param {String} currentTag - usfm tag of current marker.
+ * @return {Boolean} - true if two similar markers crammed together
+ */
+const crammedMarkers = (lastObject, currentTag) => {
+  const crammed = lastObject &&
+    (isAlignmentMarker(lastObject) && (lastObject.tag === currentTag));
+  return crammed;
+};
+
+/**
+ * get last element of an array or null
+ * @param {Array} array
+ * @return {null|object}
+ */
+const getLast = (array) => {
+  if (Array.isArray(array) && array.length) {
+    const lastItem = array[array.length - 1];
+    return lastItem;
+  }
+  return null;
+};
+
 /**
  * @description - remove previous new line from text
  * @param {object} state - holds parsing state information
- * @param {boolean} ignoreQuote - if true then don't remove last new line if preceded by quote.
+ * @param {String} currentTag - usfm tag of current marker.
+ * @param {Boolean} endTag - if true then this is an end marker
  */
-const removeLastNewLine = (state, ignoreQuote = false) => {
+const removeLastNewLine = (state, currentTag = null, endTag = false) => {
   const saveTo = getSaveToLocation(state);
-  if (saveTo && saveTo.length) {
-    const lastObject = saveTo[saveTo.length - 1];
+  let replaceWithSpace = false;
+  let lastObject = getLast(saveTo);
+  if (lastObject) {
     if (lastObject.nextChar === '\n') {
       delete lastObject.nextChar;
+      if (state.usfm3 || crammedMarkers(lastObject, currentTag)) {
+        replaceWithSpace = true;
+      }
     }
     else if (lastObject.text) {
       const text = lastObject.text;
-      if (isLastCharNewLine((text))) {
-        const removeNewLine = !ignoreQuote || !isNextToLastCharQuote(text);
-        if (removeNewLine) {
-          if (text.length === 1) {
-            saveTo.pop();
-          } else {
-            lastObject.text = text.substr(0, text.length - 1);
-          }
+      if (isLastCharNewLine(text)) {
+        if (text.length === 1) {
+          saveTo.pop();
+          lastObject = getLast(saveTo);
+        } else {
+          lastObject.text = text.substr(0, text.length - 1);
         }
+        replaceWithSpace = state.usfm3 || (!endTag &&
+          crammedMarkers(lastObject, currentTag));
       }
     }
+  }
+  if (replaceWithSpace) {
+    pushObject(state, null, ' ');
   }
 };
 
@@ -1315,6 +1352,24 @@ const processMarker = (state, marker, index, markers) => {
 };
 
 /**
+ * find usfm level in content
+ * @param {String} usfm - the raw usfm string
+ * @param {object} state - holds parsing state information
+ */
+export const getUsfmLevel = (usfm, state) => {
+  const usfmTagPos = usfm.indexOf('\\usfm');
+  if (usfmTagPos >= 0) {
+    const endTag = usfm.indexOf('\n', usfmTagPos);
+    const usfmLine = usfm.substring(usfmTagPos, endTag);
+    const usfmLevel = usfmLine.split(' ').find((value, index) => ((index > 0) && value));
+    if (usfmLevel) {
+      state.usfmLevel = parseFloat(usfmLevel);
+      state.usfm3 = state.usfmLevel >= 3;
+    }
+  }
+};
+
+/**
  * @description - Parses the usfm string and returns an object
  * @param {String} usfm - the raw usfm string
  * @param {Object} params - extra params to use for chunk parsing. Properties:
@@ -1343,8 +1398,11 @@ export const usfmToJSON = (usfm, params = {}) => {
     phraseParent: null,
     onSameChapter: false,
     inHeader: true,
+    usfmLevel: 2,
+    usfm3: false,
     params: params
   };
+  getUsfmLevel(usfm, state);
   for (let i = 0; i < markers.length; i++) {
     let marker = markers[i];
     switch (marker.tag) {
@@ -1381,11 +1439,11 @@ export const usfmToJSON = (usfm, params = {}) => {
           phrase.type = "milestone";
           const milestone = phrase.text.trim();
           if (milestone === '-s') { // milestone start
-            removeLastNewLine(state);
+            removeLastNewLine(state, marker.tag);
             delete phrase.text;
             i = startSpan(state, phrase, marker.tag, i, markers);
           } else if (milestone === '-e') { // milestone end
-            removeLastNewLine(state);
+            removeLastNewLine(state, marker.tag, true);
             i = endSpan(state, i, markers, marker.tag + "-e\\*");
           } else {
             i = processMarkerForSpans(state, marker, i, markers); // process as regular marker
@@ -1426,7 +1484,8 @@ export const usfmToJSON = (usfm, params = {}) => {
           } else
           if (marker.content && (marker.content.substr(0, 1) === "*")) {
             const phraseParent = getPhraseParent(state);
-            if (phraseParent && phraseParent.usfm3Milestone) {
+            if (phraseParent && (phraseParent.usfm3Milestone ||
+                isAlignmentMarker(phraseParent))) {
               // is part of usfm3 milestone marker
               marker.content = marker.content.substr(1);
             }

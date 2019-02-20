@@ -71,8 +71,16 @@ describe("USFM to JSON", () => {
     generateTest('greek');
   });
 
+  it('handles greek characters in usfm - oldformat', () => {
+    generateTest('greek.oldformat', {}, 'greek');
+  });
+
   it('preserves punctuation in usfm', () => {
     generateTest('tit_1_12');
+  });
+
+  it('preserves punctuation in usfm - oldformat', () => {
+    generateTest('tit_1_12.oldformat', {}, 'tit_1_12');
   });
 
   it('preserves punctuation in usfm when no words', () => {
@@ -95,8 +103,12 @@ describe("USFM to JSON", () => {
     generateTest('tit_1_12.alignment');
   });
 
+  it('preserves alignment in usfm - oldformat', () => {
+    generateTest('tit_1_12.alignment.oldformat', {oldFormat: true}, 'tit_1_12.alignment');
+  });
+
   it('preserves alignment in usfm - zaln not at start', () => {
-    generateTest('tit_1_12.alignment.zaln.not.start', {}, 'tit_1_12.alignment');
+    generateTest('tit_1_12.alignment.zaln.not.start', {oldFormat: true}, 'tit_1_12.alignment');
   });
 
   it('process ISA footnote', () => {
@@ -147,6 +159,10 @@ describe("USFM to JSON", () => {
     generateTest('tw_words', {"content-source": "bhp"});
   });
 
+  it('handles tw word attributes and spans - oldformat', () => {
+    generateTest('tw_words.oldformat', {"content-source": "bhp", oldFormat: true}, 'tw_words');
+  });
+
   it('handles tw word attributes and spans chunked', () => {
     generateTest('tw_words_chunk', {chunk: true});
   });
@@ -157,19 +173,29 @@ describe("USFM to JSON", () => {
 
   it('handles Tit 1:1 alignment', () => {
     generateTest('tit1-1_alignment',
-      {chunk: true, convertToInt: ["occurrence", "occurrences"], map: {ugnt: "content"}},
-      'tit1-1_alignment_no_lemma');
+      {convertToInt: ["occurrence", "occurrences"], map: {ugnt: "content"}});
+  });
+
+  it('handles Tit 1:1 alignment - oldformat', () => {
+    generateTest('tit1-1_alignment.oldformat',
+      {convertToInt: ["occurrence", "occurrences"], map: {ugnt: "content"}, oldFormat: true},
+      'tit1-1_alignment');
   });
 
   it('handles Tit 1:1 alignment converts strongs to strong', () => {
     generateTest('tit1-1_alignment_strongs',
-      {chunk: true, convertToInt: ["occurrence", "occurrences"], map: {ugnt: "content"}},
-      'tit1-1_alignment_no_lemma');
+      {convertToInt: ["occurrence", "occurrences"], map: {ugnt: "content"}});
   });
 
   it('handles Heb 1:1 alignment', () => {
     generateTest('heb1-1_multi_alignment',
       {convertToInt: ["occurrence", "occurrences"], map: {ugnt: "content"}});
+  });
+
+  it('handles Heb 1:1 alignment - oldformat', () => {
+    generateTest('heb1-1_multi_alignment.oldformat',
+      {convertToInt: ["occurrence", "occurrences"], map: {ugnt: "content"}, oldFormat: true},
+      'heb1-1_multi_alignment');
   });
 
   it('handles Gen 12:2 empty word', () => {
@@ -209,23 +235,31 @@ describe("USFM to JSON", () => {
   });
 
   it('handles acts_1_4.aligned', () => {
-    generateTest('acts_1_4.aligned', {chunk: true});
+    generateTest('acts_1_4.aligned');
+  });
+
+  it('handles acts_1_4.aligned - oldformat', () => {
+    generateTest('acts_1_4.aligned.oldformat', {oldFormat: true}, 'acts_1_4.aligned');
   });
 
   it('handles acts_1_milestone', () => {
     generateTest('acts_1_milestone');
   });
 
-  it('handles acts-1-20.aligned', () => {
-    generateTest('acts-1-20.aligned', {chunk: true});
+  it('handles acts_1_milestone.oldformat', () => {
+    generateTest('acts_1_milestone.oldformat', {oldFormat: true}, 'acts_1_milestone');
   });
 
-  it('handles acts-1-20.aligned.crammed', () => {
-    generateTest('acts-1-20.aligned.crammed', {chunk: true});
+  it('handles acts-1-20.aligned', () => {
+    generateTest('acts-1-20.aligned');
+  });
+
+  it('handles acts-1-20.aligned.oldformat', () => {
+    generateTest('acts-1-20.aligned.oldformat', {oldFormat: true}, 'acts-1-20.aligned');
   });
 
   it('handles acts-1-20.aligned.crammed.oldformat', () => {
-    generateTest('acts-1-20.aligned.crammed.oldformat', {chunk: true}, 'acts-1-20.aligned.crammed');
+    generateTest('acts-1-20.aligned.crammed.oldformat', {oldFormat: true}, 'acts-1-20.aligned');
   });
 
   it('handles heb-12-27.grc', () => {
@@ -233,11 +267,19 @@ describe("USFM to JSON", () => {
   });
 
   it('handles mat-4-6', () => {
-    generateTest('mat-4-6', {chunk: true, zaln: true});
+    generateTest('mat-4-6', {zaln: true});
+  });
+
+  it('handles mat-4-6.oldformat', () => {
+    generateTest('mat-4-6.oldformat', {zaln: true, oldFormat: true}, 'mat-4-6');
   });
 
   it('handles mat-4-6.whitespace', () => {
-    generateTest('mat-4-6.whitespace', {chunk: true, zaln: true});
+    generateTest('mat-4-6.whitespace', {zaln: true});
+  });
+
+  it('handles mat-4-6.whitespace.oldformat', () => {
+    generateTest('mat-4-6.whitespace.oldformat', {zaln: true, oldFormat: true}, 'mat-4-6.whitespace');
   });
 
   it('handles gn_headers', () => {
@@ -277,7 +319,22 @@ describe("USFM to JSON", () => {
   });
 
   it('process hebrew_words', () => {
-    generateTest('hebrew_words', {chunk: true});
+    generateTest('hebrew_words');
+  });
+
+  it('process hebrew_words.oldformat', () => {
+    generateTest('hebrew_words.oldformat', {oldFormat: true}, 'hebrew_words');
+  });
+
+  it('process exported alignment acts_1_11', () => {
+    generateTest('acts_1_11.aligned',
+      {convertToInt: ["occurrence", "occurrences"], words: true});
+  });
+
+  it('process exported alignment acts_1_11 - oldformat', () => {
+    generateTest('acts_1_11.aligned.oldformat',
+      {convertToInt: ["occurrence", "occurrences"], words: true, oldFormat: true},
+      'acts_1_11.aligned');
   });
 });
 
@@ -322,13 +379,23 @@ describe("pushObject", () => {
  * @param {object} args - optional arguments to be passed to the converter
  * @param {string} expectedName - optional different expected file
  */
-const generateTest = (name, args = {}, expectedName) => {
+const generateTest = (name, args = {}, expectedName = '') => {
   const input = readUSFM(`${name}.usfm`);
   const expectedBaseName = expectedName ? expectedName : name;
   const expected = readJSON(`${expectedBaseName}.json`);
   expect(input).toBeTruthy();
   expect(expected).toBeTruthy();
   const output = usfmToJSON(input, args);
+  if (args.oldFormat) {
+    if (output.headers) { // put in usfm 3 flag for comparison
+      output.headers.splice(1, 0,
+                            {
+                              "tag": "usfm",
+                              "content": "3.0"
+                            }
+      );
+    }
+  }
   expect(output).toEqual(expected);
 };
 

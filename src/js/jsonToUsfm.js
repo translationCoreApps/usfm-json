@@ -10,8 +10,6 @@ let wordMap_ = {};
 let wordIgnore_ = [];
 let milestoneMap_ = {};
 let milestoneIgnore_ = [];
-let lastObject_ = null;
-let currentObject_ = null;
 
 /**
  * @description checks if we need to add a newline if next object is not text or newline
@@ -251,9 +249,6 @@ const objectToString = (object, output, nextObject = null) => {
     }
     return output;
   }
-
-  lastObject_ = currentObject_;
-  currentObject_ = object;
 
   if (object.type === 'text') {
     return output + object.text;

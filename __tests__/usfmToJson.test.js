@@ -336,6 +336,17 @@ describe("USFM to JSON", () => {
       {convertToInt: ["occurrence", "occurrences"], words: true, oldFormat: true},
       'acts_1_11.aligned');
   });
+
+  it('process exported 57-TIT.aligned', () => {
+    generateTest('57-TIT.aligned',
+      {convertToInt: ["occurrence", "occurrences"], words: true});
+  });
+
+  it('process exported 57-TIT.aligned.oldformat', () => {
+    generateTest('57-TIT.aligned.oldformat',
+      {convertToInt: ["occurrence", "occurrences"], words: true, oldFormat: true},
+      '57-TIT.aligned');
+  });
 });
 
 describe("createUsfmObject", () => {

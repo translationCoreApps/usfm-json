@@ -183,8 +183,12 @@ describe("JSON to USFM", () => {
     generateTest('hebrew_words', {words: true});
   });
 
-  it('process exported alignment acts_1_11', () => {
+  it('process alignment acts_1_11', () => {
     generateTest('acts_1_11.aligned', {words: true});
+  });
+
+  it('process alignment 57-TIT.aligned', () => {
+    generateTest('57-TIT.aligned', {words: true});
   });
 });
 

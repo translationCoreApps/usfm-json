@@ -196,6 +196,24 @@ const usfmMarkerToString = (usfmObject, nextObject = null,
 };
 
 /**
+ * determines if we are currently on a displayable line
+ * @param {String} output - previous output
+ * @return {boolean}
+ */
+const isOnDisplayableLine = (output) => {
+  let isDisplayableLine = false;
+  const pos = output.lastIndexOf('\\');
+  if (pos >= 0) {
+    const endSegment = output.substr(pos + 1);
+    const parts = endSegment.split(' ');
+    if ((parts.length === 2) && (parts[1] === '')) {
+      isDisplayableLine = USFM.markerDisplayable(parts[0]);
+    }
+  }
+  return isDisplayableLine;
+};
+
+/**
  * @description adds word to the line and makes sure it has appropriate spacing
  * @param {String} text - to add
  * @param {String} output - string to add to
@@ -209,8 +227,10 @@ const addPhrase = (text, output) => {
     const lastChar = (output) ? output.substr(output.length - 1) : '';
     if (params_.forcedNewLines) {
       if (lastChar === ' ') {
-        output = output.substr(0, output.length - 1); // trim space
-        prefixNewLine = true;
+        if (!isOnDisplayableLine(output)) {
+          output = output.substr(0, output.length - 1); // trim space
+          prefixNewLine = true;
+        }
       }
     }
     if (prefixNewLine) {

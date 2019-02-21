@@ -70,7 +70,7 @@
 \zaln-s | x-content="σοῦ" x-lemma="σύ" x-morph="Gr,RP,,,2G,S," x-occurrence="1" x-occurrences="1" x-strong="G47710"
 \w you|x-occurrence="2" x-occurrences="4"\w*
 \zaln-e\*,'
-\m
+\m 
 \zaln-s | x-content="καὶ" x-lemma="καί" x-morph="Gr,CC,,,,,,,," x-occurrence="2" x-occurrences="2" x-strong="G25320"
 \w and|x-occurrence="2" x-occurrences="2"\w*
 \zaln-e\*,
@@ -93,7 +93,7 @@
 \w their|x-occurrence="1" x-occurrences="1"\w*
 \w hands|x-occurrence="1" x-occurrences="1"\w*
 \zaln-e\*,
-\q
+\q 
 \zaln-s | x-content="μήποτε" x-lemma="μήποτε" x-morph="Gr,CS,,,,,,,," x-occurrence="1" x-occurrences="1" x-strong="G33790"
 \w so|x-occurrence="1" x-occurrences="1"\w*
 \w that|x-occurrence="1" x-occurrences="1"\w*

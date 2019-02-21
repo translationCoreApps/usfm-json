@@ -577,6 +577,7 @@
             "type": "text"
           },
           {
+            "nextChar": " ",
             "tag": "m",
             "type": "paragraph"
           },
@@ -763,6 +764,7 @@
             "type": "text"
           },
           {
+            "nextChar": " ",
             "tag": "q",
             "type": "quote"
           },

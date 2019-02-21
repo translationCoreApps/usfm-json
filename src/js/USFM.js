@@ -678,8 +678,13 @@ export const USFM_PROPERTIES = {
   }
 };
 
-export const getMarkerType = tagProps => {
+export const propType = tagProps => {
   return tagProps && tagProps.type;
+};
+
+export const markerType = tag => {
+  const tagProps = tag && USFM_PROPERTIES[tag];
+  return propType(tagProps);
 };
 
 export const propTermination = tagProps => {
@@ -711,6 +716,11 @@ export const markerStandalone = tag => {
 
 export const propDisplayable = tagProps => {
   return tagProps && tagProps.display;
+};
+
+export const markerDisplayable = tag => {
+  const tagProps = tag && USFM_PROPERTIES[tag];
+  return propDisplayable(tagProps);
 };
 
 export const markerContentDisplayable = tag => {

@@ -324,7 +324,7 @@ export const createUsfmObject = (marker, noNext = false) => {
   const tag = marker.tag;
   let content = marker.content || marker.text;
   const tagProps = USFM.USFM_PROPERTIES[tag];
-  let type = USFM.getMarkerType(tagProps);
+  let type = USFM.propType(tagProps);
   let isText = true;
   if (tag) {
     isText = USFM.propDisplayable(tagProps);
@@ -488,9 +488,11 @@ const removeLastNewLine = (state, currentTag = null, endTag = false) => {
   let lastObject = getLast(saveTo);
   if (lastObject) {
     if (lastObject.nextChar === '\n') {
-      delete lastObject.nextChar;
-      if (state.usfm3 || crammedMarkers(lastObject, currentTag)) {
-        replaceWithSpace = true;
+      if (!state.usfm3) {
+        delete lastObject.nextChar;
+        if (crammedMarkers(lastObject, currentTag)) {
+          replaceWithSpace = true;
+        }
       }
     }
     else if (lastObject.text) {
@@ -501,6 +503,10 @@ const removeLastNewLine = (state, currentTag = null, endTag = false) => {
           lastObject = getLast(saveTo);
         } else {
           lastObject.text = text.substr(0, text.length - 1);
+          if (!state.usfm3 && (lastObject.text === ' ') && USFM.markerDisplayable(lastObject.tag)) {
+            lastObject.nextChar = lastObject.text;
+            delete lastObject.text;
+          }
         }
         replaceWithSpace = state.usfm3 || (!endTag &&
           crammedMarkers(lastObject, currentTag));
@@ -521,7 +527,9 @@ const handleWordWhiteSpace = (state) => {
   if (saveTo && saveTo.length) {
     const lastObject = saveTo[saveTo.length - 1];
     if (lastObject.nextChar === '\n') {
-      lastObject.nextChar = ' ';
+      if (!state.usfm3) {
+        lastObject.nextChar = ' ';
+      }
     }
     else if (lastObject.text) {
       const text = lastObject.text;
@@ -529,7 +537,11 @@ const handleWordWhiteSpace = (state) => {
         const startOfLine = (saveTo.length === 1) &&
           (lastObject.text.length === 1);
         const removeNewLine = (startOfLine || isNextToLastCharQuote(text));
-        if (removeNewLine) {
+        if (state.usfm3) {
+          if (lastObject.type === "text") {
+            lastObject.text = text.substr(0, text.length - 1) + ' ';
+          }
+        } else if (removeNewLine) {
           if (text.length === 1) {
             saveTo.pop();
           } else {
@@ -1383,8 +1395,8 @@ export const usfmToJSON = (usfm, params = {}) => {
   let usfmJSON = {};
   let markers = [];
   let lastLine = lines.length - 1;
-  for (let i = 0; i < lines.length; i++) {
-    const parsedLine = parseLine(lines[i], i >= lastLine);
+  for (let l = 0; l < lines.length; l++) {
+    const parsedLine = parseLine(lines[l], l >= lastLine);
     markers.push.apply(markers, parsedLine); // fast concat
   }
   const state = {

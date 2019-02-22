@@ -337,15 +337,26 @@ describe("USFM to JSON", () => {
       'acts_1_11.aligned');
   });
 
-  it('process exported 57-TIT.aligned', () => {
-    generateTest('57-TIT.aligned',
+  it('process exported 57-TIT.greek', () => {
+    generateTest('57-TIT.greek',
       {convertToInt: ["occurrence", "occurrences"], words: true});
   });
 
-  it('process exported 57-TIT.aligned.oldformat', () => {
-    generateTest('57-TIT.aligned.oldformat',
+  it('process exported 57-TIT.greek.oldformat', () => {
+    generateTest('57-TIT.greek.oldformat',
       {convertToInt: ["occurrence", "occurrences"], words: true, oldFormat: true},
-      '57-TIT.aligned');
+      '57-TIT.greek');
+  });
+
+  it('process exported 57-TIT.partial', () => {
+    generateTest('57-TIT.partial',
+      {convertToInt: ["occurrence", "occurrences"], words: true});
+  });
+
+  it('process exported 57-TIT.partial.oldformat', () => {
+    generateTest('57-TIT.partial.oldformat',
+      {convertToInt: ["occurrence", "occurrences"], words: true, oldFormat: true},
+      '57-TIT.partial');
   });
 });
 

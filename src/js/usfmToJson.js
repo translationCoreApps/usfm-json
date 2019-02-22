@@ -443,7 +443,7 @@ const isLastCharNewLine = line => {
  */
 const isNextToLastCharQuote = line => {
   const nextToLastChar = (line && (line.length >= 2)) ? line.substr(line.length - 2, 1) : '';
-  const index = ['"', '“'].indexOf(nextToLastChar);
+  const index = ["'", '"', '“'].indexOf(nextToLastChar);
   return index >= 0;
 };
 

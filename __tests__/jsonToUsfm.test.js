@@ -187,8 +187,12 @@ describe("JSON to USFM", () => {
     generateTest('acts_1_11.aligned', {words: true});
   });
 
-  it('process alignment 57-TIT.aligned', () => {
-    generateTest('57-TIT.aligned', {words: true});
+  it('process 57-TIT.greek', () => {
+    generateTest('57-TIT.greek', {words: true});
+  });
+
+  it('process alignment 57-TIT.partial', () => {
+    generateTest('57-TIT.partial', {words: true});
   });
 });
 

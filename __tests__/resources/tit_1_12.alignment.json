@@ -24,6 +24,10 @@
             "type": "milestone"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "children": [
               {
                 "occurrence": "1",
@@ -42,6 +46,10 @@
             "strong": "G15370",
             "tag": "zaln",
             "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
           },
           {
             "children": [
@@ -101,6 +109,10 @@
             "type": "milestone"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "children": [
               {
                 "occurrence": "1",
@@ -119,6 +131,10 @@
             "strong": "G43960",
             "tag": "zaln",
             "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
           },
           {
             "children": [
@@ -176,6 +192,10 @@
             "type": "milestone"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "children": [
               {
                 "occurrence": "1",
@@ -196,6 +216,10 @@
             "type": "milestone"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "children": [
               {
                 "occurrence": "1",
@@ -214,6 +238,10 @@
             "strong": "G01040",
             "tag": "zaln",
             "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
           },
           {
             "children": [
@@ -260,6 +288,10 @@
             "type": "milestone"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "children": [
               {
                 "occurrence": "1",
@@ -304,6 +336,10 @@
             "type": "milestone"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "children": [
               {
                 "occurrence": "1",
@@ -343,6 +379,10 @@
     {
       "content": "TIT Titus",
       "tag": "id"
+    },
+    {
+      "content": "3.0",
+      "tag": "usfm"
     },
     {
       "content": "UTF-8",

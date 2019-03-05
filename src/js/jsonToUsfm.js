@@ -10,8 +10,6 @@ let wordMap_ = {};
 let wordIgnore_ = [];
 let milestoneMap_ = {};
 let milestoneIgnore_ = [];
-let lastObject_ = null;
-let currentObject_ = null;
 
 /**
  * @description checks if we need to add a newline if next object is not text or newline
@@ -19,9 +17,9 @@ let currentObject_ = null;
  * @return {String} either newline or empty string
  */
 const needsNewLine = nextObject => {
-  let retVal = '\n';
-  if (nextObject && (nextObject.type === 'text')) {
-    retVal = '';
+  let retVal = '';
+  if (nextObject && (nextObject.tag === 'zaln')) {
+    retVal = '\n'; // prevent cramming of alignments together
   }
   return retVal;
 };
@@ -31,7 +29,7 @@ const needsNewLine = nextObject => {
  * @param {String} line - line to test
  * @return {boolean} true if newline
  */
-const lastCharIsNewLine = line => {
+const isLastCharNewLine = line => {
   const lastChar = (line) ? line.substr(line.length - 1) : '';
   return (lastChar === '\n');
 };
@@ -92,7 +90,8 @@ const generatePhrase = (phraseObject, nextObject) => {
   if (milestoneType) {
     const keys = Object.keys(phraseObject);
     let attributes = [];
-    keys.forEach(function(key) {
+    for (let i = 0, len = keys.length; i < len; i++) {
+      let key = keys[i];
       if (!(milestoneIgnore_.includes(key))) {
         const value = phraseObject[key];
         if (milestoneMap_[key]) { // see if we should convert this key
@@ -102,8 +101,8 @@ const generatePhrase = (phraseObject, nextObject) => {
         let attribute = prefix + key + '="' + value + '"';
         attributes.push(attribute);
       }
-    });
-    content = '-s | ' + attributes.join(' ') + '\n';
+    }
+    content = '-s | ' + attributes.join(' ') + '\\*';
   } else {
     const isUsfm3Milestone = USFM.markerIsMilestone(tag);
     if (isUsfm3Milestone) {
@@ -124,9 +123,7 @@ const generatePhrase = (phraseObject, nextObject) => {
 /* eslint-disable no-use-before-define */
   line = objectToString(phraseObject.children, line);
 /* eslint-enable no-use-before-define */
-  if (milestoneType && !lastCharIsNewLine(line)) {
-    line += '\n';
-  }
+
   if (markerTermination) {
     line += '\\' + markerTermination +
               (phraseObject.nextChar || needsNewLine(nextObject));
@@ -199,21 +196,21 @@ const usfmMarkerToString = (usfmObject, nextObject = null,
 };
 
 /**
- * @description adds text to the line and makes sure it is on a new line
- * @param {String} text - to add
- * @param {String} output - string to add to
- * @return {String} updated output
+ * determines if we are currently on a displayable line
+ * @param {String} output - previous output
+ * @return {boolean}
  */
-const addOnNewLine = (text, output) => {
-  output = output || "";
-  if (text) {
-    const lastChar = (output) ? output.substr(output.length - 1) : '';
-    if (params_.forcedNewLines && ((!lastChar) || (lastChar !== '\n'))) {
-      text = '\n' + text;
+const isOnDisplayableLine = (output) => {
+  let isDisplayableLine = false;
+  const pos = output.lastIndexOf('\\');
+  if (pos >= 0) {
+    const endSegment = output.substr(pos + 1);
+    const parts = endSegment.split(' ');
+    if ((parts.length === 2) && (parts[1] === '')) {
+      isDisplayableLine = USFM.markerDisplayable(parts[0]);
     }
-    output += text;
   }
-  return output;
+  return isDisplayableLine;
 };
 
 /**
@@ -222,22 +219,19 @@ const addOnNewLine = (text, output) => {
  * @param {String} output - string to add to
  * @return {String} updated output
  */
-const addWord = (text, output) => {
+const addPhrase = (text, output) => {
+  let prefixNewLine = false;
   output = output || "";
   if (text) {
-    let prefixNewLine = false;
+    prefixNewLine = false;
     const lastChar = (output) ? output.substr(output.length - 1) : '';
     if (params_.forcedNewLines) {
-      if (!lastChar) { // if beginning of line
-        prefixNewLine = true;
-      } else if (lastChar === ' ') {
-        output = output.substr(0, output.length - 1); // trim space
-        prefixNewLine = true;
-      } else if ((lastChar !== '\n') && (lastObject_.type === 'word')) {
-        prefixNewLine = true;
+      if (lastChar === ' ') {
+        if (!isOnDisplayableLine(output)) {
+          output = output.substr(0, output.length - 1); // trim space
+          prefixNewLine = true;
+        }
       }
-    } else if (lastObject_ && (lastObject_.type === 'word') && lastChar && (lastChar !== ' ')) { // make sure spaces between words
-      text = ' ' + text;
     }
     if (prefixNewLine) {
       text = '\n' + text;
@@ -255,7 +249,7 @@ const addWord = (text, output) => {
  *                                add a space between current marker and following text
  * @return {String} Text equivalent of marker appended to output.
  */
-const objectToString = (object, output, nextObject) => {
+const objectToString = (object, output, nextObject = null) => {
   if (!object) {
     return "";
   }
@@ -276,18 +270,15 @@ const objectToString = (object, output, nextObject) => {
     return output;
   }
 
-  lastObject_ = currentObject_;
-  currentObject_ = object;
-
   if (object.type === 'text') {
     return output + object.text;
   }
 
   if (object.type === 'word') { // usfm word marker
-    return addWord(generateWord(object, nextObject), output);
+    return addPhrase(generateWord(object, nextObject), output);
   }
   if ((object.type === 'milestone') && (object.endTag !== object.tag + '*')) { // milestone type (phrase)
-    return addOnNewLine(generatePhrase(object, nextObject), output);
+    return addPhrase(generatePhrase(object, nextObject), output);
   }
   else if (object.children && object.children.length) {
     return output + generatePhrase(object, nextObject);
@@ -323,7 +314,7 @@ const generateVerse = (verseNumber, verseObjects) => {
 const addVerse = (lines, verse) => {
   if (params_.forcedNewLines && lines && lines.length) {
     const lastLine = lines[lines.length - 1];
-    if (!lastCharIsNewLine(lastLine)) { // need to add newline
+    if (!isLastCharNewLine(lastLine)) { // need to add newline
       const quoted = lastLine.indexOf('\n\\q') >= 0;
       if (!quoted) { // don't add newline before verse if quoted
         verse = '\n' + verse;
@@ -343,7 +334,7 @@ const addVerse = (lines, verse) => {
 const addChapter = (lines, chapter) => {
   if (lines && lines.length) {
     const lastLine = lines[lines.length - 1];
-    if (!lastCharIsNewLine(lastLine)) { // need to add newline
+    if (!isLastCharNewLine(lastLine)) { // need to add newline
       if (chapter && chapter.length) {
         chapter[0] = '\n' + chapter[0]; // add newline to start of chapter
       }

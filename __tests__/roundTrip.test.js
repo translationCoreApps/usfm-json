@@ -219,6 +219,9 @@ const roundTripTest = name => {
   if (doValidate) {
     errors = validateUSFM3(json, errors);
   }
+  if (errors) {
+    expect(usfm).toEqual(input);
+  }
   expect(errors).toEqual(0);
 };
 

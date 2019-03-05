@@ -145,6 +145,10 @@
     {
       "content": "TIT Titus",
       "tag": "id"
+    },
+    {
+      "content": "3.0",
+      "tag": "usfm"
     }
   ]
 }

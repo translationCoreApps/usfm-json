@@ -1,19 +1,21 @@
+\id ACT EN_ULT en_English_ltr Wed Oct 10 2018 11:55:23 GMT-0400 (EDT) tc
+\c 1
 \v 20 "\zaln-s | x-strong="G10630" x-lemma="γάρ" x-morph="Gr,CC,,,,,,,," x-occurrence="1" x-occurrences="1" x-content="γὰρ"
 \w For|x-occurrence="1" x-occurrences="1"\w*
 \zaln-e\*
-\zaln-s | x-strong="G11250" x-lemma="γράφω" x-morph="Gr,V,IEP3,,S," x-occurrence="1" x-occurrences="1" x-content="γέγραπται"
+\zaln-s | x-strong="G11250" x-lemma="γράφω" x-morph="Gr,V,IEP3,,S," x-occurrence="1" x-occurrences="1" x-content="γέγραπται"\*
 \w it|x-occurrence="1" x-occurrences="1"\w*
 \w is|x-occurrence="1" x-occurrences="1"\w*
 \w written|x-occurrence="1" x-occurrences="1"\w*
 \zaln-e\*
-\zaln-s | x-strong="G17220" x-lemma="ἐν" x-morph="Gr,P,,,,,D,,," x-occurrence="1" x-occurrences="2" x-content="ἐν"
+\zaln-s | x-strong="G17220" x-lemma="ἐν" x-morph="Gr,P,,,,,D,,," x-occurrence="1" x-occurrences="2" x-content="ἐν"\*
 \w in|x-occurrence="1" x-occurrences="1"\w*
 \zaln-e\*
-\zaln-s | x-strong="G09760" x-lemma="βίβλος" x-morph="Gr,N,,,,,DFS," x-occurrence="1" x-occurrences="1" x-content="βίβλῳ"
+\zaln-s | x-strong="G09760" x-lemma="βίβλος" x-morph="Gr,N,,,,,DFS," x-occurrence="1" x-occurrences="1" x-content="βίβλῳ"\*
 \w the|x-occurrence="1" x-occurrences="1"\w*
 \w Book|x-occurrence="1" x-occurrences="1"\w*
 \zaln-e\*
-\zaln-s | x-strong="G55680" x-lemma="ψαλμός" x-morph="Gr,N,,,,,GMP," x-occurrence="1" x-occurrences="1" x-content="Ψαλμῶν"
+\zaln-s | x-strong="G55680" x-lemma="ψαλμός" x-morph="Gr,N,,,,,GMP," x-occurrence="1" x-occurrences="1" x-content="Ψαλμῶν"\*
 \w of|x-occurrence="1" x-occurrences="2"\w*
 \w Psalms|x-occurrence="1" x-occurrences="1"\w*
 \zaln-e\*,\q'
@@ -82,6 +84,7 @@
 \w of|x-occurrence="2" x-occurrences="2"\w*
 \w leadership|x-occurrence="1" x-occurrences="1"\w*
 \zaln-e\*
-\zaln-e\*.'\m
+\zaln-e\*.'
+\m
 
 \s5 

@@ -24,16 +24,8 @@ describe("JSON to USFM", () => {
     generateTest('tit_1_12.no.words');
   });
 
-  it('\'word on new line after quote', () => {
-    generateTest('tit_1_12_new_line', {words: true});
-  });
-
   it('preserves footnotes in usfm', () => {
     generateTest('tit_1_12_footnote');
-  });
-
-  it('preserves alignment in usfm', () => {
-    generateTest('tit_1_12.alignment', {zaln: true});
   });
 
   it('preserves alignment in usfm', () => {
@@ -90,7 +82,7 @@ describe("JSON to USFM", () => {
 
   it('handles Tit 1:1 alignment converts strongs to strong', () => {
     generateTest('tit1-1_alignment_strongs',
-      {chunk: true, mileStoneIgnore: ["lemma", "morph"], mileStoneMap: {content: "ugnt"}, zaln: true},
+      {mileStoneIgnore: ["lemma", "morph"], mileStoneMap: {content: "ugnt"}, zaln: true},
       'tit1-1_alignment');
   });
 
@@ -132,23 +124,23 @@ describe("JSON to USFM", () => {
   });
 
   it('handles acts_1_4.aligned', () => {
-    generateTest('acts_1_4.aligned', {chunk: true, zaln: true});
+    generateTest('acts_1_4.aligned', {zaln: true});
   });
 
   it('handles acts_1_milestone', () => {
     generateTest('acts_1_milestone', {zaln: true});
   });
 
-  it('handles acts-1-20.aligned.crammed', () => {
-    generateTest('acts-1-20.aligned.crammed', {chunk: true, zaln: true}, 'acts-1-20.aligned');
+  it('handles acts-1-20.aligned', () => {
+    generateTest('acts-1-20.aligned', {zaln: true}, 'acts-1-20.aligned');
   });
 
   it('handles mat-4-6', () => {
-    generateTest('mat-4-6', {chunk: true, zaln: true});
+    generateTest('mat-4-6', {zaln: true});
   });
 
   it('handles mat-4-6.whitespace', () => {
-    generateTest('mat-4-6.whitespace', {chunk: true, zaln: true});
+    generateTest('mat-4-6.whitespace', {zaln: true});
   });
 
   it('handles gn_headers', () => {
@@ -188,11 +180,19 @@ describe("JSON to USFM", () => {
   });
 
   it('process hebrew_words', () => {
-    generateTest('hebrew_words', {chunk: true, words: true});
+    generateTest('hebrew_words', {words: true});
   });
 
-  it('process exported alignment acts_1_11', () => {
-    generateTest('acts_1_11.aligned', {chunk: true, words: true});
+  it('process alignment acts_1_11', () => {
+    generateTest('acts_1_11.aligned', {words: true});
+  });
+
+  it('process 57-TIT.greek', () => {
+    generateTest('57-TIT.greek', {words: true});
+  });
+
+  it('process alignment 57-TIT.partial', () => {
+    generateTest('57-TIT.partial', {words: true});
   });
 });
 
@@ -200,36 +200,49 @@ describe("JSON to USFM", () => {
 // helpers
 //
 
-function normalizeAtributes(tag, source) {
+function normalizeAtributesAlign(tag, source) {
   let parts = source.split(tag);
   const length = parts.length;
   for (let i = 1; i < length; i++) {
     const part = parts[i];
-    let lines = part.split('\n');
+    let endMarker = "\n";
+    const posEndMarker = part.indexOf("\\*");
+    if (posEndMarker >= 0) {
+      const posNewLine = part.indexOf('\n');
+      if ((posNewLine < 0) || (posNewLine > posEndMarker)) {
+        endMarker = "\\*"; // old format ended at new line
+      }
+    }
+    let lines = part.split(endMarker);
     let attributes = lines[0].split(' ');
     attributes = attributes.sort();
-    lines[0] = attributes.join(' ');
-    parts[i] = lines.join('\n');
+    const newAttributes = attributes.join(' ');
+    lines[0] = newAttributes;
+    parts[i] = lines.join(endMarker);
   }
   const normalized = parts.join(tag);
   return normalized;
 }
 
-function normalizeAtributes2(tag, source) {
+function normalizeAtributesWord(tag, source) {
   let parts = source.split(tag);
   const length = parts.length;
   for (let i = 1; i < length; i++) {
     const item = parts[i];
     if (item.substr(0, 1) !== '*') {
       let sections = item.split('|');
-      const text = sections[0];
-      let attributes = sections[1].split(' ');
-      attributes = attributes.sort();
-      while (attributes.length && (attributes[0] === '')) {
-        attributes.splice(0, 1);
+      if (sections <= 1) {
+        console.log("Broken word tag: " + item);
+      } else {
+        const text = sections[0];
+        let attributes = sections[1].split(' ');
+        attributes = attributes.sort();
+        while (attributes.length && (attributes[0] === '')) {
+          attributes.splice(0, 1);
+        }
+        attributes = attributes.join(' ');
+        parts[i] = text + '|' + attributes;
       }
-      attributes = attributes.join(' ');
-      parts[i] = text + '|' + attributes;
     }
   }
   const normalized = parts.join(tag);
@@ -255,17 +268,17 @@ const generateTest = (name, params, expectedName) => {
   const output = jsonToUSFM(input, params);
   if (params && params.zaln) { // normalize attributes
     const tag = "\\zaln-s | ";
-    let outputNormal = normalizeAtributes(tag, output);
-    let expectedNormal = normalizeAtributes(tag, expected);
+    let outputNormal = normalizeAtributesAlign(tag, output);
+    let expectedNormal = normalizeAtributesAlign(tag, expected);
     const wordTag = '\\w';
-    outputNormal = normalizeAtributes2(wordTag, outputNormal);
-    expectedNormal = normalizeAtributes2(wordTag, expectedNormal);
+    outputNormal = normalizeAtributesWord(wordTag, outputNormal);
+    expectedNormal = normalizeAtributesWord(wordTag, expectedNormal);
     expect(outputNormal).toEqual(expectedNormal);
 
   } else if (params && params.words) { // normalize attributes
     const tag = '\\w';
-    const outputNormal = normalizeAtributes2(tag, output);
-    const expectedNormal = normalizeAtributes2(tag, expected);
+    const outputNormal = normalizeAtributesWord(tag, output);
+    const expectedNormal = normalizeAtributesWord(tag, expected);
     expect(outputNormal).toEqual(expectedNormal);
   } else {
     expect(output).toEqual(expected);

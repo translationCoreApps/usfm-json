@@ -637,12 +637,26 @@ const checkForEndMarker = marker => {
 };
 
 /**
+ * checks if we are currently within a phrase and if it is non-displayable
+ * @param {object} state - holds parsing state information
+ * @return {boolean} true if phrase parent is non-displayable (e.g. a footnote)
+ */
+const isNonDisplayablePhraseParent = (state) => {
+  const phraseParent = getPhraseParent(state);
+  if (phraseParent) {
+    if (!USFM.markerContentDisplayable(phraseParent.tag)) {
+      return true;
+    }
+  }
+  return false;
+};
+
+/**
  * @description - save the usfm object to specified place and handle nested data
  * @param {object} state - holds parsing state information
- * @param {String} tag - usfm marker tag
  * @param {object} marker - object that contains usfm marker
  */
-const saveUsfmObject = (state, tag, marker) => {
+const saveUsfmObject = (state, marker) => {
   const phraseParent = getPhraseParent(state);
   if (phraseParent) {
     if (!USFM.markerContentDisplayable(phraseParent.tag)) {
@@ -838,7 +852,7 @@ const startSpan = (state, marker, tag, index, markers) => {
     state.phrase.push([]); // push new empty list onto phrase stack
     marker.children = getLastPhrase(state); // point to top of phrase stack
   } else {
-    saveUsfmObject(state, tag, marker);
+    saveUsfmObject(state, marker);
     if (state.phrase === null) {
       state.phraseParent = getLastItem(state);
     }
@@ -1058,7 +1072,7 @@ const endSpan = (state, index, markers, endMarker, header = false) => {
     content = current;
   }
   if (content || !phraseParent) {
-    saveUsfmObject(state, null, createUsfmObject(content, header));
+    saveUsfmObject(state, createUsfmObject(content, header));
   }
   return index;
 };
@@ -1074,7 +1088,7 @@ const addToCurrentVerse = (state, marker) => {
     pushObject(state, null, createUsfmObject(marker));
     return;
   }
-  saveUsfmObject(state, tag, createUsfmObject(marker));
+  saveUsfmObject(state, createUsfmObject(marker));
 };
 
 /**
@@ -1140,7 +1154,7 @@ const parseAsVerse = (state, marker) => {
 const processAsText = (state, marker) => {
   if (state.currentChapter > 0 && marker.content) {
     if (getPhraseParent(state)) {
-      saveUsfmObject(state, null, marker.content);
+      saveUsfmObject(state, marker.content);
     } else {
       addToCurrentVerse(state, marker.content);
     }
@@ -1152,7 +1166,7 @@ const processAsText = (state, marker) => {
       state.verses[state.currentVerse] = [];
     }
     if (getPhraseParent(state)) {
-      saveUsfmObject(state, null, marker.content);
+      saveUsfmObject(state, marker.content);
     } else {
       pushObject(state, state.verses[state.currentVerse], marker.content);
     }
@@ -1469,10 +1483,14 @@ export const usfmToJSON = (usfm, params = {}) => {
         } else {
           handleWordWhiteSpace(state);
           const wordObject = parseWord(state, marker.content,
-            USFM.wordSpecialAttributes);
-          pushObject(state, null, wordObject);
-          if (marker.nextChar) {
-            pushObject(state, null, marker.nextChar);
+                                       USFM.wordSpecialAttributes);
+          if (isNonDisplayablePhraseParent(state)) {
+            saveUsfmObject(state, marker);
+          } else {
+            pushObject(state, null, wordObject);
+            if (marker.nextChar) {
+              pushObject(state, null, marker.nextChar);
+            }
           }
         }
         break;
@@ -1480,8 +1498,12 @@ export const usfmToJSON = (usfm, params = {}) => {
       case 'w*': {
         if (state.inHeader) {
           addHeaderMarker(state, marker);
-        } else if (marker.nextChar && (marker.nextChar !== ' ')) {
-          pushObject(state, null, marker.nextChar);
+        } else {
+          if (isNonDisplayablePhraseParent(state)) {
+            saveUsfmObject(state, marker);
+          } else if (marker.nextChar && (marker.nextChar !== ' ')) {
+            pushObject(state, null, marker.nextChar);
+          }
         }
         break;
       }

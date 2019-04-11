@@ -358,6 +358,18 @@ describe("USFM to JSON", () => {
       {convertToInt: ["occurrence", "occurrences"], words: true, oldFormat: true},
       '57-TIT.partial');
   });
+
+  it('process greek with footnotes', () => {
+    generateTest('acts_8-37-ugnt-footnote', {chunk: true});
+  });
+
+  it('preserves k markers and footnotes in 45-ACT.ugnt.oldformat', () => {
+    generateTest('45-ACT.ugnt.oldformat', {oldFormat: true}, '45-ACT.ugnt');
+  });
+
+  it('preserves k markers and footnotes in 45-ACT.ugnt', () => {
+    generateTest('45-ACT.ugnt');
+  });
 });
 
 describe("createUsfmObject", () => {
@@ -409,13 +421,16 @@ const generateTest = (name, args = {}, expectedName = '') => {
   expect(expected).toBeTruthy();
   const output = usfmToJSON(input, args);
   if (args.oldFormat) {
-    if (output.headers) { // put in usfm 3 flag for comparison
-      output.headers.splice(1, 0,
-                            {
-                              "tag": "usfm",
-                              "content": "3.0"
-                            }
-      );
+    if (output.headers) {
+      const pos = output.headers.findIndex((item) => (item.tag === "usfm"));
+      if (pos < 0) { // put in usfm 3 flag for comparison if not present
+        output.headers.splice(1, 0,
+          {
+            "tag": "usfm",
+            "content": "3.0"
+          }
+        );
+      }
     }
   }
   expect(output).toEqual(expected);

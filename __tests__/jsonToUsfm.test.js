@@ -194,6 +194,14 @@ describe("JSON to USFM", () => {
   it('process alignment 57-TIT.partial', () => {
     generateTest('57-TIT.partial', {words: true});
   });
+
+  it('process greek with footnotes', () => {
+    generateTest('acts_8-37-ugnt-footnote', {chunk: true});
+  });
+
+  it('preserves k markers and footnotes in 45-ACT.ugnt', () => {
+    generateTest('45-ACT.ugnt');
+  });
 });
 
 //

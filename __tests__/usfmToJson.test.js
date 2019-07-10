@@ -466,11 +466,11 @@ const generateTest = (name, args = {}, expectedName = '') => {
 
 /**
  * does comparison of expected and actual objects and gives console output of what is not matching
- * @param {Object} expected
  * @param {Object} actual
+ * @param {Object} expected
  * @param {String} name
  */
-const verifyWithPrompt = (expected, actual, name) => {
+const verifyWithPrompt = (actual, expected, name) => {
   if (!isEqual(actual, expected)) {
     console.warn(name + " data does not match:");
   }

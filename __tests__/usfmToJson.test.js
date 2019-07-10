@@ -282,6 +282,10 @@ describe("USFM to JSON", () => {
     generateTest('mat-4-6.whitespace.oldformat', {zaln: true, oldFormat: true}, 'mat-4-6.whitespace');
   });
 
+  it('handles phm.hi.alignment.oldformat', () => {
+    generateTest('phm.hi.alignment.oldformat', {zaln: true, oldFormat: true}, 'phm.hi.alignment');
+  });
+
   it('handles gn_headers', () => {
     generateTest('gn_headers');
   });

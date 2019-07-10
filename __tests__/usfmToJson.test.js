@@ -1,4 +1,5 @@
 /* eslint-disable quote-props,no-use-before-define */
+import isEqual from "deep-equal";
 import {readJSON, readUSFM} from './util';
 import {usfmToJSON, createUsfmObject, pushObject} from '../src/js/usfmToJson';
 
@@ -437,6 +438,41 @@ const generateTest = (name, args = {}, expectedName = '') => {
       }
     }
   }
-  expect(output).toEqual(expected);
+  if (!isEqual(output, expected)) { // if different, break down comparisons by smaller chunks so output is not overloaded
+    console.log("Miscompare in " + name);
+    verifyWithPrompt(Object.keys(output), Object.keys(expected), "keys");
+    verifyWithPrompt(output.headers, expected.headers, "headers");
+    verifyWithPrompt(output.verses, expected.verses, "verses");
+    const textField = "chapters";
+    if (expected[textField]) {
+      verifyWithPrompt(Object.keys(output[textField]), Object.keys(expected[textField]), "chapter numbers");
+      if (!isEqual(output[textField], expected[textField])) {
+        console.log("Chapter data is different");
+        const chapters = Object.keys(output[textField]);
+        chapters.forEach(chapter => {
+          verifyWithPrompt(Object.keys(output[textField][chapter]), Object.keys(expected[textField][chapter]), "verses");
+          const verses = Object.keys(output[textField][chapter]);
+          verses.forEach(verse => {
+            verifyWithPrompt(Object.keys(output[textField][chapter][verse]), Object.keys(expected[textField][chapter][verse]), "verse " + chapter + ":" + verse);
+          });
+          verifyWithPrompt(output[textField][chapter], expected[textField][chapter], "chapter " + chapter);
+        });
+      }
+    } else {
+      verifyWithPrompt(output.chapers, expected.chapers, "chapters");
+    }
+  }
 };
 
+/**
+ * does comparison of expected and actual objects and gives console output of what is not matching
+ * @param {Object} expected
+ * @param {Object} actual
+ * @param {String} name
+ */
+const verifyWithPrompt = (expected, actual, name) => {
+  if (!isEqual(actual, expected)) {
+    console.warn(name + " data does not match:");
+  }
+  expect(actual).toEqual(expected);
+};

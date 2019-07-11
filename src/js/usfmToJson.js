@@ -488,7 +488,7 @@ const removeLastNewLine = (state, currentTag = null, endTag = false) => {
   let lastObject = getLast(saveTo);
   if (lastObject) {
     if (lastObject.nextChar === '\n') {
-      if (!state.usfm3) {
+      if (!state.newAlignFormat) {
         delete lastObject.nextChar;
         if (crammedMarkers(lastObject, currentTag)) {
           replaceWithSpace = true;
@@ -503,12 +503,12 @@ const removeLastNewLine = (state, currentTag = null, endTag = false) => {
           lastObject = getLast(saveTo);
         } else {
           lastObject.text = text.substr(0, text.length - 1);
-          if (!state.usfm3 && (lastObject.text === ' ') && USFM.markerDisplayable(lastObject.tag)) {
+          if (!state.newAlignFormat && (lastObject.text === ' ') && USFM.markerDisplayable(lastObject.tag)) {
             lastObject.nextChar = lastObject.text;
             delete lastObject.text;
           }
         }
-        replaceWithSpace = state.usfm3 || (!endTag &&
+        replaceWithSpace = state.newAlignFormat || (!endTag &&
           crammedMarkers(lastObject, currentTag));
       }
     }
@@ -527,7 +527,7 @@ const handleWordWhiteSpace = (state) => {
   if (saveTo && saveTo.length) {
     const lastObject = saveTo[saveTo.length - 1];
     if (lastObject.nextChar === '\n') {
-      if (!state.usfm3) {
+      if (!state.newAlignFormat) {
         lastObject.nextChar = ' ';
       }
     }
@@ -537,7 +537,7 @@ const handleWordWhiteSpace = (state) => {
         const startOfLine = (saveTo.length === 1) &&
           (lastObject.text.length === 1);
         const removeNewLine = (startOfLine || isNextToLastCharQuote(text));
-        if (state.usfm3) {
+        if (state.newAlignFormat) {
           if (lastObject.type === "text") {
             lastObject.text = text.substr(0, text.length - 1) + ' ';
           }
@@ -1378,21 +1378,22 @@ const processMarker = (state, marker, index, markers) => {
 };
 
 /**
- * find usfm level in content
+ * find the Alignment Format level in content
  * @param {String} usfm - the raw usfm string
  * @param {object} state - holds parsing state information
  */
-export const getUsfmLevel = (usfm, state) => {
-  const usfmTagPos = usfm.indexOf('\\usfm');
-  if (usfmTagPos >= 0) {
-    const endTag = usfm.indexOf('\n', usfmTagPos);
-    const usfmLine = usfm.substring(usfmTagPos, endTag);
-    const usfmLevel = usfmLine.split(' ').find((value, index) => ((index > 0) && value));
-    if (usfmLevel) {
-      state.usfmLevel = parseFloat(usfmLevel);
-      state.usfm3 = state.usfmLevel >= 3;
-    }
+export const getAlignmentFormat = (usfm, state) => {
+  let newAlignFormat = false;
+  const alignmentRegex = /\\zaln-s([^\\]*)(\\[\\*]?)?/;
+  let match = alignmentRegex.exec(usfm);
+  if (!match) { // if no alignment markers, check for tWords markers
+    const tWordsRegex = /\\k-s([^\\]*)(\\[\\*]?)?/;
+    match = tWordsRegex.exec(usfm);
   }
+  if (match && match[2]) {
+    newAlignFormat = (match[2] === "\\*");
+  }
+  state.newAlignFormat = newAlignFormat;
 };
 
 /**
@@ -1424,11 +1425,10 @@ export const usfmToJSON = (usfm, params = {}) => {
     phraseParent: null,
     onSameChapter: false,
     inHeader: true,
-    usfmLevel: 2,
-    usfm3: false,
+    newAlignFormat: false,
     params: params
   };
-  getUsfmLevel(usfm, state);
+  getAlignmentFormat(usfm, state);
   for (let i = 0; i < markers.length; i++) {
     let marker = markers[i];
     switch (marker.tag) {

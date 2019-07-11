@@ -1,4 +1,5 @@
 /* eslint-disable quote-props,no-use-before-define */
+import isEqual from "deep-equal";
 import {readJSON, readUSFM} from './util';
 import {usfmToJSON, createUsfmObject, pushObject} from '../src/js/usfmToJson';
 
@@ -282,6 +283,10 @@ describe("USFM to JSON", () => {
     generateTest('mat-4-6.whitespace.oldformat', {zaln: true, oldFormat: true}, 'mat-4-6.whitespace');
   });
 
+  it('handles phm.hi.alignment.oldformat', () => {
+    generateTest('phm.hi.alignment.oldformat', {zaln: true, oldFormat: true}, 'phm.hi.alignment');
+  });
+
   it('handles gn_headers', () => {
     generateTest('gn_headers');
   });
@@ -367,9 +372,10 @@ describe("USFM to JSON", () => {
     generateTest('45-ACT.ugnt.oldformat', {oldFormat: true}, '45-ACT.ugnt');
   });
 
-  it('preserves k markers and footnotes in 45-ACT.ugnt', () => {
-    generateTest('45-ACT.ugnt');
-  });
+  // TODO: removed because we actually do not have the updated ugnt with new format of k spans yet
+  // it('preserves k markers and footnotes in 45-ACT.ugnt', () => {
+  //   generateTest('45-ACT.ugnt');
+  // });
 });
 
 describe("createUsfmObject", () => {
@@ -433,6 +439,41 @@ const generateTest = (name, args = {}, expectedName = '') => {
       }
     }
   }
-  expect(output).toEqual(expected);
+  if (!isEqual(output, expected)) { // if different, break down comparisons by smaller chunks so output is not overloaded
+    console.log("Miscompare in " + name);
+    verifyWithPrompt(Object.keys(output), Object.keys(expected), "keys");
+    verifyWithPrompt(output.headers, expected.headers, "headers");
+    verifyWithPrompt(output.verses, expected.verses, "verses");
+    const textField = "chapters";
+    if (expected[textField]) {
+      verifyWithPrompt(Object.keys(output[textField]), Object.keys(expected[textField]), "chapter numbers");
+      if (!isEqual(output[textField], expected[textField])) {
+        console.log("Chapter data is different");
+        const chapters = Object.keys(output[textField]);
+        chapters.forEach(chapter => {
+          verifyWithPrompt(Object.keys(output[textField][chapter]), Object.keys(expected[textField][chapter]), "verses");
+          const verses = Object.keys(output[textField][chapter]);
+          verses.forEach(verse => {
+            verifyWithPrompt(Object.keys(output[textField][chapter][verse]), Object.keys(expected[textField][chapter][verse]), "verse " + chapter + ":" + verse);
+          });
+          verifyWithPrompt(output[textField][chapter], expected[textField][chapter], "chapter " + chapter);
+        });
+      }
+    } else {
+      verifyWithPrompt(output.chapers, expected.chapers, "chapters");
+    }
+  }
 };
 
+/**
+ * does comparison of expected and actual objects and gives console output of what is not matching
+ * @param {Object} actual
+ * @param {Object} expected
+ * @param {String} name
+ */
+const verifyWithPrompt = (actual, expected, name) => {
+  if (!isEqual(actual, expected)) {
+    console.warn(name + " data does not match:");
+  }
+  expect(actual).toEqual(expected);
+};

@@ -99,16 +99,12 @@
             "type": "text"
           },
           {
+            "endTag": "add*",
             "tag": "add",
             "text": "возделывании"
           },
           {
-            "content": "земли, которую проклял Господь.\n",
-            "endMarkerChar": " ",
-            "tag": "add*"
-          },
-          {
-            "text": "\n",
+            "text": " земли, которую проклял Господь.\n\n",
             "type": "text"
           },
           {
@@ -211,12 +207,11 @@
           },
           {
             "endTag": "nd*",
-            "nextChar": " ",
             "tag": "nd",
             "text": "Lord"
           },
           {
-            "text": "God made clothes out of animal skins for Adam and his wife,\nand he clothed them.\n\n",
+            "text": " God made clothes out of animal skins for Adam and his wife,\nand he clothed them.\n\n",
             "type": "text"
           },
           {
@@ -251,6 +246,7 @@
             "type": "text"
           },
           {
+            "nextChar": " ",
             "tag": "tr"
           },
           {
@@ -266,6 +262,7 @@
             "tag": "th3"
           },
           {
+            "nextChar": " ",
             "tag": "tr"
           },
           {
@@ -281,6 +278,7 @@
             "tag": "tc3"
           },
           {
+            "nextChar": " ",
             "tag": "tr"
           },
           {
@@ -296,6 +294,7 @@
             "tag": "tc3"
           },
           {
+            "nextChar": " ",
             "tag": "tr"
           },
           {
@@ -311,6 +310,7 @@
             "tag": "tcr3"
           },
           {
+            "nextChar": " ",
             "tag": "tr"
           },
           {
@@ -630,12 +630,11 @@
           },
           {
             "endTag": "k*",
-            "nextChar": "\n",
             "tag": "k",
             "text": "keyword "
           },
           {
-            "text": "\n",
+            "text": "\n\n",
             "type": "text"
           },
           {
@@ -803,34 +802,48 @@
             "type": "text"
           },
           {
+            "nextChar": " ",
             "tag": "li1"
           },
           {
             "endTag": "lik*",
-            "nextChar": " ",
             "tag": "lik",
             "text": "Reuben"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "endTag": "liv1*",
-            "nextChar": "\n",
             "tag": "liv1",
             "text": "Eliezer son of Zichri"
           },
           {
+            "text": "\n",
+            "type": "text"
+          },
+          {
+            "nextChar": " ",
             "tag": "li1"
           },
           {
             "endTag": "lik*",
-            "nextChar": " ",
             "tag": "lik",
             "text": "Simeon"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "endTag": "liv1*",
-            "nextChar": "\n",
             "tag": "liv1",
             "text": "Shephatiah son of Maacah"
+          },
+          {
+            "text": "\n",
+            "type": "text"
           },
           {
             "tag": "lf",

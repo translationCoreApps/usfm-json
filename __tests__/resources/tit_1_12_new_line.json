@@ -1,4 +1,56 @@
 {
+  "chapters": {
+    "1": {
+      "12": {
+        "verseObjects": [
+          {
+            "lemma": "προφήτης",
+            "morph": "Gr,N,,,,,NMS,",
+            "strong": "G43960",
+            "tag": "w",
+            "text": "προφήτης",
+            "type": "word"
+          },
+          {
+            "text": ",\n“",
+            "type": "text"
+          },
+          {
+            "lemma": "Κρής",
+            "morph": "Gr,N,,,,,NMP,",
+            "strong": "G29120",
+            "tag": "w",
+            "text": "Κρῆτες",
+            "type": "word"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "lemma": "ἀργός",
+            "morph": "Gr,AA,,,,NFP,",
+            "strong": "G06920",
+            "tag": "w",
+            "text": "ἀργαί",
+            "type": "word"
+          },
+          {
+            "text": ".”\n",
+            "type": "text"
+          }
+        ]
+      },
+      "front": {
+        "verseObjects": [
+          {
+            "text": "\n",
+            "type": "text"
+          }
+        ]
+      }
+    }
+  },
   "headers": [
     {
       "content": "TIT Titus",
@@ -24,53 +76,5 @@
       "content": "Titus",
       "tag": "mt"
     }
-  ],
-  "chapters": {
-    "1": {
-      "front": {
-        "verseObjects": [
-          {
-            "text": "\n",
-            "type": "text"
-          }
-        ]
-      },
-      "12": {
-        "verseObjects": [
-          {
-            "text": "προφήτης",
-            "lemma": "προφήτης",
-            "strong": "G43960",
-            "morph": "Gr,N,,,,,NMS,",
-            "tag": "w",
-            "type": "word"
-          },
-          {
-            "type": "text",
-            "text": ",\n“"
-          },
-          {
-            "text": "Κρῆτες",
-            "lemma": "Κρής",
-            "strong": "G29120",
-            "morph": "Gr,N,,,,,NMP,",
-            "tag": "w",
-            "type": "word"
-          },
-          {
-            "text": "ἀργαί",
-            "lemma": "ἀργός",
-            "strong": "G06920",
-            "morph": "Gr,AA,,,,NFP,",
-            "tag": "w",
-            "type": "word"
-          },
-          {
-            "type": "text",
-            "text": ".\n”\n"
-          }
-        ]
-      }
-    }
-  }
+  ]
 }

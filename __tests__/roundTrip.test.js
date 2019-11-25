@@ -42,7 +42,7 @@ function keyRightTrim(received) {
 }
 
 function wordEndTrim(received) {
-  const trimmed = received.replace(/\s+\\w\*/, "\\w*");
+  const trimmed = received.replace(/\s+\\w\*/g, "\\w*");
   return trimmed;
 }
 
@@ -213,9 +213,15 @@ const roundTripTest = name => {
   const input = readUSFM(path.join('roundTrip', name));
   expect(input).toBeTruthy();
   const json = usfmToJSON(input);
-  const usfm = jsonToUSFM(json);
+  const usfm = jsonToUSFM(json, {forcedNewLines: true});
   let errors = validateUSFM(usfm, input);
-  errors = validateUSFM3(json, errors);
+  const doValidate = !name.includes('-no_attr');
+  if (doValidate) {
+    errors = validateUSFM3(json, errors);
+  }
+  if (errors) {
+    expect(usfm).toEqual(input);
+  }
   expect(errors).toEqual(0);
 };
 

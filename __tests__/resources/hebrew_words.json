@@ -1,0 +1,244 @@
+{
+  "chapters": {
+    "1": {
+      "1": {
+        "verseObjects": [
+          {
+            "text": "From Gen 1:\n",
+            "type": "text"
+          }
+        ]
+      },
+      "2": {
+        "verseObjects": [
+          {
+            "lemma": "אֶרֶץ",
+            "morph": "He,C:Td:Ncbsa",
+            "strong": "c:d:H0776",
+            "tag": "w",
+            "text": "וְ​הָ​אָ֗רֶץ",
+            "type": "word"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "lemma": "הָיָה",
+            "morph": "He,Vqp3fs",
+            "strong": "H1961",
+            "tag": "w",
+            "text": "הָיְתָ֥ה",
+            "type": "word"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "lemma": "תֹּהוּ",
+            "morph": "He,Ncmsa",
+            "strong": "H8414",
+            "tag": "w",
+            "text": "תֹ֨הוּ֙",
+            "type": "word"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "lemma": "בֹּהוּ",
+            "morph": "He,C:Ncmsa",
+            "strong": "c:H0922",
+            "tag": "w",
+            "text": "וָ​בֹ֔הוּ",
+            "type": "word"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "lemma": "חֹשֶׁךְ",
+            "morph": "He,C:Ncmsa",
+            "strong": "c:H2822",
+            "tag": "w",
+            "text": "וְ​חֹ֖שֶׁךְ",
+            "type": "word"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "lemma": "עַל",
+            "morph": "He,R",
+            "strong": "H5921a",
+            "tag": "w",
+            "text": "עַל",
+            "type": "word"
+          },
+          {
+            "text": "־",
+            "type": "text"
+          },
+          {
+            "lemma": "פָּנִים",
+            "morph": "He,Ncbpc",
+            "strong": "H6440",
+            "tag": "w",
+            "text": "פְּנֵ֣י",
+            "type": "word"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "lemma": "תְּהוֹם",
+            "morph": "He,Ncbsa",
+            "strong": "H8415",
+            "tag": "w",
+            "text": "תְה֑וֹם",
+            "type": "word"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "lemma": "רוּחַ",
+            "morph": "He,C:Ncbsc",
+            "strong": "c:H7307",
+            "tag": "w",
+            "text": "וְ​ר֣וּחַ",
+            "type": "word"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "lemma": "אֱלֹהִים",
+            "morph": "He,Ncmpa",
+            "strong": "H0430",
+            "tag": "w",
+            "text": "אֱלֹהִ֔ים",
+            "type": "word"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "lemma": "רָחַף",
+            "morph": "He,Vprfsa",
+            "strong": "H7363b",
+            "tag": "w",
+            "text": "מְרַחֶ֖פֶת",
+            "type": "word"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "lemma": "עַל",
+            "morph": "He,R",
+            "strong": "H5921a",
+            "tag": "w",
+            "text": "עַל",
+            "type": "word"
+          },
+          {
+            "text": "־",
+            "type": "text"
+          },
+          {
+            "lemma": "פָּנִים",
+            "morph": "He,Ncbpc",
+            "strong": "H6440",
+            "tag": "w",
+            "text": "פְּנֵ֥י",
+            "type": "word"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "lemma": "מַיִם",
+            "morph": "He,Td:Ncmpa",
+            "strong": "d:H4325",
+            "tag": "w",
+            "text": "הַ​מָּֽיִם",
+            "type": "word"
+          },
+          {
+            "text": "׃\n\n",
+            "type": "text"
+          }
+        ]
+      },
+      "3": {
+        "verseObjects": [
+          {
+            "text": "From Isa:\n",
+            "type": "text"
+          }
+        ]
+      },
+      "4": {
+        "verseObjects": [
+          {
+            "lemma": "עַל",
+            "morph": "He,R",
+            "strong": "H5921a",
+            "tag": "w",
+            "text": "עַל",
+            "type": "word"
+          },
+          {
+            "text": "־",
+            "type": "text"
+          },
+          {
+            "lemma": "פָּנִים",
+            "morph": "He,Ncbpc",
+            "strong": "H6440",
+            "tag": "w",
+            "text": "פְּנֵ֣י",
+            "type": "word"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "lemma": "תְּהוֹם",
+            "morph": "He,Ncbsa",
+            "strong": "H8415",
+            "tag": "w",
+            "text": "תְה֑וֹם",
+            "type": "word"
+          },
+          {
+            "text": "\n",
+            "type": "text"
+          }
+        ]
+      }
+    }
+  },
+  "headers": [
+    {
+      "content": "GEN",
+      "tag": "id"
+    },
+    {
+      "content": "3.0",
+      "tag": "usfm"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "chapters": {},
+  "headers": [],
+  "verses": {
+    "11": {
+      "verseObjects": [
+        {
+          "content": "+ \\fr 18:11 \\ft  Some later manuscripts add, For the Son of Mana has come to save the lost.",
+          "endTag": "f*",
+          "nextChar": "\n",
+          "tag": "f",
+          "type": "footnote"
+        }
+      ]
+    },
+    "28": {
+      "verseObjects": [
+        {
+          "endTag": "wj*",
+          "tag": "wj",
+          "text": "But do not allow yourselves to be called ‘Rabbi,’ for you have only one teacher, and you yourselves are all [neut:brothers and sisters.|masc:brothers.]"
+        },
+        {
+          "text": "\n",
+          "type": "text"
+        }
+      ]
+    },
+    "34": {
+      "verseObjects": [
+        {
+          "content": "+ \\fr 23:14 \\ft  Some later manuscripts add: Alas for you teachers of the law and Pharisees, hypocrites! You devour widows' property, and pray long prayers just for show! This is why you will receive a more severe punishment.",
+          "endTag": "f*",
+          "nextChar": "\n",
+          "tag": "f",
+          "type": "footnote"
+        }
+      ]
+    },
+    "49": {
+      "verseObjects": [
+        {
+          "text": "But the rest said, “Wait and let us see if Elijah is coming to save him.”",
+          "type": "text"
+        },
+        {
+          "content": "+ \\fr 27:49 \\ft  Some later manuscripts add: However another man took a spear, and pierced his side; and water and blood flowed from it.",
+          "endTag": "f*",
+          "nextChar": "\n",
+          "tag": "f",
+          "type": "footnote"
+        }
+      ]
+    },
+    "50": {
+      "verseObjects": [
+        {
+          "text": "\n",
+          "type": "text"
+        },
+        {
+          "content": "+ \\ft Some modern versions have \\fqa and in the ruins of the rich, lambs will graze \\fqb . ",
+          "endTag": "f*",
+          "nextChar": "\n",
+          "tag": "f",
+          "type": "footnote"
+        }
+      ]
+    }
+  }
+}

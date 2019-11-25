@@ -12,7 +12,12 @@ export const MARKERS_WITH_NUMBERS = {
 // maps milestone end marker back to start marker
 export const SPECIAL_END_TAGS = {
   esbe: "esb",
-  "qt-e": "qt-s"
+  "qt-e": "qt-s",
+  "qt1-e": "qt1-s",
+  "qt2-e": "qt2-s",
+  "qt3-e": "qt3-s",
+  "qt4-e": "qt4-s",
+  "qt5-e": "qt5-s"
 };
 
 // for each USFM tag, specify associated properties
@@ -24,11 +29,92 @@ export const SPECIAL_END_TAGS = {
 //    {boolean} milestone - optional if true then contents between tags with `-s` and `-e` (used for our custom milestones)
 //    {boolean} standalone - optional if true then force a milestone marker to be treated as standalone
 export const USFM_PROPERTIES = {
+  "+add": {
+    endTag: "*",
+    display: true
+  },
+  "+bd": {
+    endTag: "*",
+    display: true
+  },
+  "+bdit": {
+    endTag: "*",
+    display: true
+  },
+  "+bk": {
+    endTag: "*",
+    display: true
+  },
+  "+dc": {
+    endTag: "*",
+    display: true
+  },
+  "+em": {
+    endTag: "*",
+    display: true
+  },
+  "+it": {
+    endTag: "*",
+    display: true
+  },
+  "+k": {
+    endTag: "*",
+    display: true
+  },
+  "+lit": {
+    display: true
+  },
   "+nd": {
     endTag: "*",
     display: true
   },
+  "+no": {
+    endTag: "*",
+    display: true
+  },
+  "+ord": {
+    endTag: "*",
+    display: true
+  },
+  "+pn": {
+    endTag: "*",
+    display: true
+  },
+  "+png": {
+    endTag: "*",
+    display: true
+  },
+  "+qt": {
+    type: "quote",
+    endTag: "*",
+    display: true
+  },
+  "+sc": {
+    endTag: "*",
+    display: true
+  },
+  "+sig": {
+    endTag: "*",
+    display: true
+  },
+  "+sls": {
+    endTag: "*",
+    display: true
+  },
+  "+sup": {
+    endTag: "*",
+    display: true
+  },
+  "+tl": {
+    endTag: "*",
+    display: true
+  },
+  "+wj": {
+    endTag: "*",
+    display: true
+  },
   add: {
+    endTag: "*",
     display: true
   },
   b: {
@@ -397,6 +483,24 @@ export const USFM_PROPERTIES = {
     milestone: true,
     attrib: true
   },
+  "qt-e": {
+    endAttrib: true
+  },
+  "qt1-e": {
+    endAttrib: true
+  },
+  "qt2-e": {
+    endAttrib: true
+  },
+  "qt3-e": {
+    endAttrib: true
+  },
+  "qt4-e": {
+    endAttrib: true
+  },
+  "qt5-e": {
+    endAttrib: true
+  },
   "qt-s": {
     type: "quote",
     endTag: "-e",
@@ -486,6 +590,7 @@ export const USFM_PROPERTIES = {
     endTag: "*"
   },
   sls: {
+    endTag: "*",
     display: true
   },
   sp: {
@@ -573,8 +678,13 @@ export const USFM_PROPERTIES = {
   }
 };
 
-export const getMarkerType = tagProps => {
+export const propType = tagProps => {
   return tagProps && tagProps.type;
+};
+
+export const markerType = tag => {
+  const tagProps = tag && USFM_PROPERTIES[tag];
+  return propType(tagProps);
 };
 
 export const propTermination = tagProps => {
@@ -608,6 +718,11 @@ export const propDisplayable = tagProps => {
   return tagProps && tagProps.display;
 };
 
+export const markerDisplayable = tag => {
+  const tagProps = tag && USFM_PROPERTIES[tag];
+  return propDisplayable(tagProps);
+};
+
 export const markerContentDisplayable = tag => {
   const tagProps = USFM_PROPERTIES[tag];
   return propDisplayable(tagProps);
@@ -629,3 +744,6 @@ export const markerHasSpecialEndTag = tag => {
 export const propUsfm3Milestone = tagProps => {
   return tagProps && tagProps.usfm3Milestone;
 };
+
+export const wordSpecialAttributes = ['morph', 'occurrence', 'occurrences', 'tw'];
+

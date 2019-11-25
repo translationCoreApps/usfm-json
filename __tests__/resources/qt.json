@@ -9,7 +9,7 @@
           "type": "text"
         },
         {
-          "attrib": "|who=\"Pilate\"",
+          "attrib": " |who=\"Pilate\"",
           "children": [
             {
               "text": "“Are\n",
@@ -22,19 +22,19 @@
           ],
           "endTag": "qt-e\\*",
           "tag": "qt-s",
-          "nextChar": " ",
           "type": "quote"
         },
         {
-          "text": "he asked.\n",
+          "text": " he asked.\n",
           "type": "text"
         },
         {
+          "nextChar": " ",
           "tag": "p",
           "type": "paragraph"
         },
         {
-          "attrib": "|who=\"Jesus\"",
+          "attrib": " |who=\"Jesus\"",
           "children": [
             {
               "text": "“So you say,”",
@@ -42,12 +42,11 @@
             }
           ],
           "endTag": "qt-e\\*",
-          "nextChar": " ",
           "tag": "qt-s",
           "type": "quote"
         },
         {
-          "text": "answered Jesus.\n",
+          "text": " answered Jesus.\n",
           "type": "text"
         }
       ]
@@ -59,8 +58,8 @@
           "type": "text"
         },
         {
-          "tag": "p",
           "nextChar": "\n",
+          "tag": "p",
           "type": "paragraph"
         }
       ]
@@ -72,7 +71,7 @@
           "type": "text"
         },
         {
-          "attrib": "|who=\"Pilate\"",
+          "attrib": " |who=\"Pilate\"",
           "children": [
             {
               "text": "“Don't you hear all these things they\n",
@@ -85,12 +84,15 @@
           ],
           "endTag": "qt-e\\*",
           "tag": "qt-s",
-          "nextChar": "\n",
           "type": "quote"
         },
         {
-          "tag": "p",
+          "text": "\n",
+          "type": "text"
+        },
+        {
           "nextChar": "\n",
+          "tag": "p",
           "type": "paragraph"
         }
       ]

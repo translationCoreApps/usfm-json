@@ -42,7 +42,7 @@ const isLastCharNewLine = line => {
  */
 const generateWord = (wordObject, nextObject) => {
   const keys = Object.keys(wordObject);
-  let attributes = [];
+  const attributes = [];
   const word = wordObject.text;
   for (let i = 0, len = keys.length; i < len; i++) {
     let key = keys[i];
@@ -66,7 +66,7 @@ const generateWord = (wordObject, nextObject) => {
   if (attrOut) {
     attrOut = '|' + attrOut;
   }
-  let line = '\\w ' + word + attrOut + '\\w*';
+  const line = '\\w ' + word + attrOut + '\\w*';
   return line;
 };
 
@@ -89,7 +89,7 @@ const generatePhrase = (phraseObject, nextObject) => {
   const milestoneType = (phraseObject.type === 'milestone');
   if (milestoneType) {
     const keys = Object.keys(phraseObject);
-    let attributes = [];
+    const attributes = [];
     for (let i = 0, len = keys.length; i < len; i++) {
       let key = keys[i];
       if (!(milestoneIgnore_.includes(key))) {
@@ -97,8 +97,8 @@ const generatePhrase = (phraseObject, nextObject) => {
         if (milestoneMap_[key]) { // see if we should convert this key
           key = milestoneMap_[key];
         }
-        let prefix = 'x-';
-        let attribute = prefix + key + '="' + value + '"';
+        const prefix = 'x-';
+        const attribute = prefix + key + '="' + value + '"';
         attributes.push(attribute);
       }
     }
@@ -140,8 +140,8 @@ const generatePhrase = (phraseObject, nextObject) => {
  * @return {String} Text equivalent of marker.
  */
 const usfmMarkerToString = (usfmObject, nextObject = null,
-                            noSpaceAfterTag = false,
-                            noTermination = false) => {
+  noSpaceAfterTag = false,
+  noTermination = false) => {
   let output = "";
   let content = usfmObject.text || usfmObject.content || "";
   let markerTermination = usfmObject.endTag; // new format takes precidence
@@ -448,7 +448,7 @@ export const jsonToUSFM = (json, params) => {
   processParams();
   let output = [];
   if (json.headers) {
-    for (let header of json.headers) {
+    for (const header of json.headers) {
       outputHeaderObject(output, header);
     }
   }
@@ -459,7 +459,7 @@ export const jsonToUSFM = (json, params) => {
       const chapterNumber = chapterNumbers[i];
       const chapterObject = json.chapters[chapterNumber];
       const chapterLines = generateChapterLines(
-          chapterNumber, chapterObject,
+        chapterNumber, chapterObject,
       );
       output = addChapter(output, chapterLines);
     }
@@ -471,7 +471,7 @@ export const jsonToUSFM = (json, params) => {
       const verseNumber = verseNumbers[i];
       const verseObjects = json.verses[verseNumber];
       const verse = generateVerse(
-          verseNumber, verseObjects,
+        verseNumber, verseObjects,
       );
       output = addVerse(output, verse);
     }

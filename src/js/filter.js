@@ -1,5 +1,4 @@
 /* eslint-disable no-use-before-define,brace-style */
-import _ from "lodash";
 import {usfmToJSON} from './usfmToJson';
 
 /* Method to filter specified usfm marker from a string
@@ -39,7 +38,7 @@ const parseMilestone = verseObject => {
   let wordSpacing = '';
   const length = verseObject.children.length;
   for (let i = 0; i < length; i++) {
-    let child = verseObject.children[i];
+    const child = verseObject.children[i];
     switch (child.type) {
       case 'word':
         text += wordSpacing + child.text;
@@ -102,7 +101,7 @@ const replaceWordsAndMilestones = (verseObject, wordSpacing) => {
       }
     }
     if (verseObject.children) { // handle nested
-      const verseObject_ = _.cloneDeep(verseObject);
+      const verseObject_ = {...verseObject};
       let wordSpacing_ = '';
       const length = verseObject.children.length;
       for (let i = 0; i < length; i++) {
@@ -137,12 +136,12 @@ export const mergeVerseData = verseData => {
       wordSpacing = flattened.wordSpacing;
       flattenedData.push(flattened.verseObject);
     }
-    verseData = { // use flattened data
+    verseData = {// use flattened data
       verseObjects: flattenedData
     };
   }
   let verseText = "";
-  let length = flattenedData.length;
+  const length = flattenedData.length;
   for (let i = 0; i < length; i++) {
     const verseObj = flattenedData[i];
     if (verseObj.text) {

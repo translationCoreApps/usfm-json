@@ -16,7 +16,7 @@ const NUMBER = /(\d+)/;
  * @return {Array} - array of results
 */
 const getMatches = (string, regex, lastLine) => {
-  let matches = [];
+  const matches = [];
   let match;
   if (string.match(regex)) { // check so you don't get caught in a loop
     while ((match = regex.exec(string))) {
@@ -26,7 +26,7 @@ const getMatches = (string, regex, lastLine) => {
       if (!lastLine && (endPos >= string.length)) {
         nextChar = "\n"; // save new line
       } else {
-        let char = string[endPos];
+        const char = string[endPos];
         if (char === ' ') {
           nextChar = char; // save space
         }
@@ -152,7 +152,7 @@ const createMarkerFromText = text => {
  * @return {Array} - array of objects that describe open/close and content
 */
 const parseLine = (line, lastLine) => {
-  let array = [];
+  const array = [];
   if (line.trim() === '') {
     if (!lastLine) {
       const object = makeTextMarker(line + '\n');
@@ -180,7 +180,7 @@ const parseLine = (line, lastLine) => {
       const open = match[2] ? match[2].trim() : undefined;
       const content = match[3] || undefined;
       const close = match[4] ? match[4].trim() : undefined;
-      let marker = parseMarkerOpen(open);
+      const marker = parseMarkerOpen(open);
       let object = {
         open: open,
         tag: marker.tag,
@@ -227,7 +227,7 @@ const parseLine = (line, lastLine) => {
       }
       if (close) {
         if (object.content) {
-          let pos = object.content.lastIndexOf(close);
+          const pos = object.content.lastIndexOf(close);
           if (pos >= 0) {
             object.content = object.content.substring(0, pos);
           }
@@ -416,7 +416,7 @@ export const pushObject = (state, saveTo, usfmObject) => {
   if (saveTo.length && (usfmObject.type === "text")) {
     // see if we can append to previous string
     const lastPos = saveTo.length - 1;
-    let lastObject = saveTo[lastPos];
+    const lastObject = saveTo[lastPos];
     if (lastObject.type === "text") {
       lastObject.text += usfmObject.text;
       return;
@@ -576,7 +576,7 @@ const checkForEndMarker = marker => {
   let spannedUsfm = false;
   let endMarker = null;
   let content = marker.content || "";
-  let initialTag = marker.tag;
+  const initialTag = marker.tag;
   let baseTag = marker.tag;
   if (baseTag.substr(baseTag.length - 1) === "*") {
     baseTag = baseTag.substr(0, baseTag.length - 1);
@@ -585,7 +585,7 @@ const checkForEndMarker = marker => {
   else if (content.substr(0, 1) === '-') {
     const nextChar = content.substr(1, 1);
     if ((nextChar === 's') || (nextChar === 'e')) {
-      let trim = 2;
+      const trim = 2;
       marker.tag += content.substr(0, 2);
       endMarker = (nextChar === 'e') ? marker.tag : null;
       baseTag += '-s';
@@ -624,7 +624,7 @@ const checkForEndMarker = marker => {
       endMarker = marker.tag;
       spannedUsfm = true;
     } else {
-      let termination = USFM.propTermination(tagProps);
+      const termination = USFM.propTermination(tagProps);
       if (termination) {
         spannedUsfm = true;
         if ((initialTag + termination === marker.tag)) {
@@ -916,7 +916,7 @@ const popPhrase = state => {
  * @return {number} new index
  */
 const endSpan = (state, index, markers, endMarker, header = false) => {
-  let current = markers[index];
+  const current = markers[index];
   let content = current.content;
   let phraseParent = getPhraseParent(state);
   const phraseParentProps =
@@ -1036,7 +1036,7 @@ const endSpan = (state, index, markers, endMarker, header = false) => {
     }
   }
   if (phraseParent) {
-    let endMarker_ = "\\" + endMarker;
+    const endMarker_ = "\\" + endMarker;
     const {matchesParent, count} =
       decrementPhraseNesting(state, phraseParent, endMarker);
     const finishPhrase = matchesParent && (count <= 0);
@@ -1083,7 +1083,7 @@ const endSpan = (state, index, markers, endMarker, header = false) => {
  * @param {object} marker - object that contains usfm marker
  */
 const addToCurrentVerse = (state, marker) => {
-  let tag = marker.tag;
+  const tag = marker.tag;
   if (!tag) {
     pushObject(state, null, createUsfmObject(marker));
     return;
@@ -1249,7 +1249,7 @@ const extractNumberFromContent = marker => {
 
 const getVerseObjectsForChapter = currentChapter => {
   const outputChapter = {};
-  for (let verseNum of Object.keys(currentChapter)) {
+  for (const verseNum of Object.keys(currentChapter)) {
     const verseObjects = currentChapter[verseNum];
     outputChapter[verseNum] = {
       verseObjects: verseObjects
@@ -1260,7 +1260,7 @@ const getVerseObjectsForChapter = currentChapter => {
 
 const getVerseObjectsForBook = (usfmJSON, state) => {
   usfmJSON.chapters = {};
-  for (let chapterNum of Object.keys(state.chapters)) {
+  for (const chapterNum of Object.keys(state.chapters)) {
     const currentChapter = state.chapters[chapterNum];
     usfmJSON.chapters[chapterNum] = getVerseObjectsForChapter(currentChapter);
   }
@@ -1406,10 +1406,10 @@ export const getAlignmentFormat = (usfm, state) => {
  * @return {Object} - json object that holds the parsed usfm data, headers and chapters
 */
 export const usfmToJSON = (usfm, params = {}) => {
-  let lines = usfm.split(/\r?\n/); // get all the lines
-  let usfmJSON = {};
-  let markers = [];
-  let lastLine = lines.length - 1;
+  const lines = usfm.split(/\r?\n/); // get all the lines
+  const usfmJSON = {};
+  const markers = [];
+  const lastLine = lines.length - 1;
   for (let l = 0; l < lines.length; l++) {
     const parsedLine = parseLine(lines[l], l >= lastLine);
     markers.push.apply(markers, parsedLine); // fast concat

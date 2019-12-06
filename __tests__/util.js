@@ -23,7 +23,7 @@ export const readUSFM = filePath => {
 export const readJSON = filePath => JSON.parse(readUSFM(filePath));
 
 // TRICKY: ignore as test suite
-it('provides test utilities');
+it('provides test utilities', ()=>{});
 
 const generateRoundTripTest = (name) => {
   const expected = readUSFM(name);

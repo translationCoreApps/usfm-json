@@ -1,3 +1,4 @@
+import cloneDeep from 'lodash.clonedeep';
 /* eslint-disable no-use-before-define,brace-style */
 import {usfmToJSON} from './usfmToJson';
 
@@ -101,7 +102,7 @@ const replaceWordsAndMilestones = (verseObject, wordSpacing) => {
       }
     }
     if (verseObject.children) { // handle nested
-      const verseObject_ = {...verseObject};
+      const verseObject_ = cloneDeep(verseObject);
       let wordSpacing_ = '';
       const length = verseObject.children.length;
       for (let i = 0; i < length; i++) {

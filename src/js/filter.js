@@ -30,6 +30,47 @@ export const convertStringToVerseObjects = text => {
 };
 
 /**
+ * parse single child
+ * @param {Object} child
+ * @param {String} text
+ * @param {String} wordSpacing
+ * @return {{wordSpacing: string, text: string}}
+ */
+function parseChild(child, text, wordSpacing) {
+  switch (child.type) {
+    case 'word':
+      text += wordSpacing + child.text;
+      wordSpacing = ' ';
+      break;
+
+    case 'milestone':
+      text += wordSpacing + parseMilestone(child);
+      wordSpacing = ' ';
+      break;
+
+    default:
+      if (child.text) {
+        text += child.text;
+        const lastChar = text.substr(-1);
+        if ((lastChar !== ",") && (lastChar !== '.') && (lastChar !== '?') && (lastChar !== ';')) { // legacy support, make sure padding before word
+          wordSpacing = '';
+        }
+      }
+      if (child.children) {
+        const length = child.children.length;
+        for (let i = 0; i < length; i++) {
+          const childChild = child.children[i];
+          const __ret = parseChild(childChild, text, wordSpacing);
+          text = __ret.text;
+          wordSpacing = __ret.wordSpacing;
+        }
+      }
+      break;
+  }
+  return {text, wordSpacing};
+}
+
+/**
  * dive down into milestone to extract words and text
  * @param {Object} verseObject - milestone to parse
  * @return {string} text content of milestone
@@ -40,27 +81,9 @@ const parseMilestone = verseObject => {
   const length = verseObject.children.length;
   for (let i = 0; i < length; i++) {
     const child = verseObject.children[i];
-    switch (child.type) {
-      case 'word':
-        text += wordSpacing + child.text;
-        wordSpacing = ' ';
-        break;
-
-      case 'milestone':
-        text += wordSpacing + parseMilestone(child);
-        wordSpacing = ' ';
-        break;
-
-      default:
-        if (child.text) {
-          text += child.text;
-          const lastChar = text.substr(-1);
-          if ((lastChar !== ",") && (lastChar !== '.') && (lastChar !== '?') && (lastChar !== ';')) { // legacy support, make sure padding before word
-            wordSpacing = '';
-          }
-        }
-        break;
-    }
+    const __ret = parseChild(child, text, wordSpacing);
+    text = __ret.text;
+    wordSpacing = __ret.wordSpacing;
     if (child.nextChar) {
       text += child.nextChar;
     }
@@ -137,7 +160,7 @@ export const mergeVerseData = verseData => {
       wordSpacing = flattened.wordSpacing;
       flattenedData.push(flattened.verseObject);
     }
-    verseData = {// use flattened data
+    verseData = { // use flattened data
       verseObjects: flattenedData
     };
   }

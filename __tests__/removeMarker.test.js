@@ -135,3 +135,7 @@ it('cleans mat-4-6.aligned', () => {
 it('cleans heb-12-27.grc', () => {
   generateTest('filter/heb-12-27.grc');
 });
+
+it('can handle \\+wj', () => {
+  generateTest('filter/wjp_hi');
+});

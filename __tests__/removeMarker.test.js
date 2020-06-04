@@ -136,6 +136,6 @@ it('cleans heb-12-27.grc', () => {
   generateTest('filter/heb-12-27.grc');
 });
 
-it('can handle \\+wj', () => {
+it('can handle nested spans containing broken footnote USFM', () => {
   generateTest('filter/wjp_hi');
 });

@@ -30,13 +30,13 @@ export const convertStringToVerseObjects = text => {
 };
 
 /**
- * parse single child
+ * parse a single child
  * @param {Object} child
  * @param {String} text
  * @param {String} wordSpacing
  * @return {{wordSpacing: string, text: string}}
  */
-function parseChild(child, text, wordSpacing) {
+const parseChild = (child, text, wordSpacing) => {
   switch (child.type) {
     case 'word':
       text += wordSpacing + child.text;
@@ -68,7 +68,7 @@ function parseChild(child, text, wordSpacing) {
       break;
   }
   return {text, wordSpacing};
-}
+};
 
 /**
  * dive down into milestone to extract words and text

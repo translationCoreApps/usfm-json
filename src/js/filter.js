@@ -1,5 +1,5 @@
+import cloneDeep from 'lodash.clonedeep';
 /* eslint-disable no-use-before-define,brace-style */
-import _ from "lodash";
 import {usfmToJSON} from './usfmToJson';
 
 /* Method to filter specified usfm marker from a string
@@ -30,6 +30,47 @@ export const convertStringToVerseObjects = text => {
 };
 
 /**
+ * parse a single child
+ * @param {Object} child
+ * @param {String} text
+ * @param {String} wordSpacing
+ * @return {{wordSpacing: string, text: string}}
+ */
+const parseChild = (child, text, wordSpacing) => {
+  switch (child.type) {
+    case 'word':
+      text += wordSpacing + child.text;
+      wordSpacing = ' ';
+      break;
+
+    case 'milestone':
+      text += wordSpacing + parseMilestone(child);
+      wordSpacing = ' ';
+      break;
+
+    default:
+      if (child.text) {
+        text += child.text;
+        const lastChar = text.substr(-1);
+        if ((lastChar !== ",") && (lastChar !== '.') && (lastChar !== '?') && (lastChar !== ';')) { // legacy support, make sure padding before word
+          wordSpacing = '';
+        }
+      }
+      if (child.children) {
+        const length = child.children.length;
+        for (let i = 0; i < length; i++) {
+          const childChild = child.children[i];
+          const __ret = parseChild(childChild, text, wordSpacing);
+          text = __ret.text;
+          wordSpacing = __ret.wordSpacing;
+        }
+      }
+      break;
+  }
+  return {text, wordSpacing};
+};
+
+/**
  * dive down into milestone to extract words and text
  * @param {Object} verseObject - milestone to parse
  * @return {string} text content of milestone
@@ -39,28 +80,10 @@ const parseMilestone = verseObject => {
   let wordSpacing = '';
   const length = verseObject.children.length;
   for (let i = 0; i < length; i++) {
-    let child = verseObject.children[i];
-    switch (child.type) {
-      case 'word':
-        text += wordSpacing + child.text;
-        wordSpacing = ' ';
-        break;
-
-      case 'milestone':
-        text += wordSpacing + parseMilestone(child);
-        wordSpacing = ' ';
-        break;
-
-      default:
-        if (child.text) {
-          text += child.text;
-          const lastChar = text.substr(-1);
-          if ((lastChar !== ",") && (lastChar !== '.') && (lastChar !== '?') && (lastChar !== ';')) { // legacy support, make sure padding before word
-            wordSpacing = '';
-          }
-        }
-        break;
-    }
+    const child = verseObject.children[i];
+    const __ret = parseChild(child, text, wordSpacing);
+    text = __ret.text;
+    wordSpacing = __ret.wordSpacing;
     if (child.nextChar) {
       text += child.nextChar;
     }
@@ -102,7 +125,7 @@ const replaceWordsAndMilestones = (verseObject, wordSpacing) => {
       }
     }
     if (verseObject.children) { // handle nested
-      const verseObject_ = _.cloneDeep(verseObject);
+      const verseObject_ = cloneDeep(verseObject);
       let wordSpacing_ = '';
       const length = verseObject.children.length;
       for (let i = 0; i < length; i++) {
@@ -142,7 +165,7 @@ export const mergeVerseData = verseData => {
     };
   }
   let verseText = "";
-  let length = flattenedData.length;
+  const length = flattenedData.length;
   for (let i = 0; i < length; i++) {
     const verseObj = flattenedData[i];
     if (verseObj.text) {

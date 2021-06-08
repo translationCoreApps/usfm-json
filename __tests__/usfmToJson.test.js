@@ -4,14 +4,14 @@ import {readJSON, readUSFM} from './util';
 import {usfmToJSON, createUsfmObject, pushObject} from '../src/js/usfmToJson';
 
 describe("Large - USFM to JSON", () => {
-  it('handle large files quickly', () => {
+  it('handle large files quickly', async () => {
     const input = readUSFM(`large.usfm`);
     expect(input).toBeTruthy();
 
-    const iterations = 10;
+    const iterations = 1;
     const start = process.hrtime();
     for (let i = 0; i < iterations; i++) {
-      usfmToJSON(input);
+      await usfmToJSON(input);
     }
     const end = process.hrtime(start);
     const totalNano = end[0] * 10e9 + end[1];

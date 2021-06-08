@@ -100,7 +100,7 @@ export function convertToTcore(content) {
     const verse = content[v];
     const { verseData, verseID: verseID_ } = getVerseData(verse, verseID);
 
-    if (verseID_) {
+    if (verseID_ && verseData?.length) {
       const verseObjects = convertObjArrayToTcore(verseData);
       results[verseID_] = { verseObjects };
     }

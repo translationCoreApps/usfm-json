@@ -4,7 +4,7 @@
  */
 
 import { Proskomma } from 'proskomma';
-import { parseProskommaToTcore } from "./parseProskomma";
+import {convertToTcore, makeNestedView } from "./parseProskomma";
 
 /**
  * @description - Parses the usfm string and returns an object
@@ -201,7 +201,6 @@ export const usfmToJSON = async (usfm, params = {}) => {
   const chapters = indices.map(item => item?.chapter);
   // console.log(chapters);
   const content = await getChapters(pk, bookId, chapters);
-  parseProskommaToTcore(content);
   console.log(content);
   // fse.writeJsonSync('./book_content.json', content);
 
@@ -254,9 +253,8 @@ async function getChapter(pk, bookId, chapter) {
 }`;
   // const output = `${bookId} - ${chapters}`;
   const chapterData = await pk.gqlQuery(chapterQuery);
-  return chapterData;
-  // const results = makeNestedView(chapterData);
-  // const tC_Data = convertToTcore(results);
-  // // console.log(JSON.stringify(output, null, 2))
-  // return tC_Data;
+  const results = makeNestedView(chapterData);
+  const tC_Data = convertToTcore(results);
+  // console.log(JSON.stringify(output, null, 2))
+  return tC_Data;
 }

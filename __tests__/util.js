@@ -22,6 +22,17 @@ export const readUSFM = filePath => {
  */
 export const readJSON = filePath => JSON.parse(readUSFM(filePath));
 
+/**
+ * write a json file from the resources dir
+ * @param {string} filePath relative path to json file
+ * @param {object} data
+ */
+export const writeJSON = (filePath, data) => {
+  const fullPath = path.join(RESOURCES, filePath);
+  const json = JSON.stringify(data, null,2);
+  fs.writeFileSync(fullPath, json);
+};
+
 // TRICKY: ignore as test suite
 it('provides test utilities', ()=>{});
 

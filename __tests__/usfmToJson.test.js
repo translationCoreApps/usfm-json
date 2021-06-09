@@ -1,57 +1,68 @@
 /* eslint-disable quote-props,no-use-before-define */
 import isEqual from "deep-equal";
 import {readJSON, readUSFM, writeJSON} from './util';
-import {usfmToJSON, createUsfmObject, pushObject} from '../src/js/usfmToJson';
+import {usfmToJSON, createUsfmObject, pushObject, usfmToJsonProskomma} from '../src/js/usfmToJson';
 
-describe("Large - USFM to JSON", () => {
-  it('handle large files quickly', async () => {
-    const input = readUSFM(`large.usfm`);
-    expect(input).toBeTruthy();
+const saveResults = false;
+const iterations = 5;
 
-    const iterations = 1;
-    const start = process.hrtime();
-    for (let i = 0; i < iterations; i++) {
-      await usfmToJSON(input);
-    }
-    const end = process.hrtime(start);
-    const totalNano = end[0] * 10e9 + end[1];
-    const avgNano = totalNano / iterations;
-    const avgSeconds = avgNano / 10e9;
-    // TRICKY: performance may vary depending on the platform.
-    // Three seconds is a high bar to avoid tests failing on slow CI.
-    expect(avgSeconds).toBeLessThanOrEqual(3);
+describe("test performance", () => {
+  describe("Large - USFM to JSON", () => {
+    it('handle large files quickly', async () => {
+      const fileBase = 'large';
+      const input = readUSFM(`${fileBase}.usfm`);
+      expect(input).toBeTruthy();
+
+      const start = process.hrtime();
+      for (let i = 0; i < iterations; i++) {
+        const results = usfmToJSON(input);
+        if (saveResults) {
+          writeJSON(`${fileBase}_original.json`, results);
+        }
+      }
+      const end = process.hrtime(start);
+      const totalNano = end[0] * 10e9 + end[1];
+      const avgNano = totalNano / iterations;
+      const avgSeconds = avgNano / 10e9;
+      console.log(`Original method: ${fileBase} - test average ${avgSeconds} seconds over ${iterations} iterations`);
+      // TRICKY: performance may vary depending on the platform.
+      // Three seconds is a high bar to avoid tests failing on slow CI.
+      expect(avgSeconds).toBeLessThanOrEqual(3);
+    });
+  });
+
+  describe("test proskomma", () => {
+    it('test titus', async () => {
+      const fileBase = '57-TIT-custom';
+      await timedParseTest(fileBase, iterations);
+    });
+    it('test large', async () => {
+      const fileBase = 'large';
+      await timedParseTest(fileBase, iterations);
+    });
   });
 });
 
-async function timedParseTest(fileBase) {
+async function timedParseTest(fileBase, iterations) {
   const input = readUSFM(`${fileBase}.usfm`);
   expect(input).toBeTruthy();
 
-  const iterations = 1;
   const start = process.hrtime();
   for (let i = 0; i < iterations; i++) {
-    const results = await usfmToJSON(input);
-    writeJSON(`${fileBase}_proskomma.json`, results);
+    const results = await usfmToJsonProskomma(input);
+    if (saveResults) {
+      writeJSON(`${fileBase}_proskomma.json`, results);
+    }
   }
   const end = process.hrtime(start);
   const totalNano = end[0] * 10e9 + end[1];
   const avgNano = totalNano / iterations;
   const avgSeconds = avgNano / 10e9;
+  console.log(`Proskomma parse: ${fileBase} - test average ${avgSeconds} seconds over ${iterations} iterations`);
   // TRICKY: performance may vary depending on the platform.
   // Three seconds is a high bar to avoid tests failing on slow CI.
   expect(avgSeconds).toBeLessThanOrEqual(3);
 }
-
-describe("test proskomma", () => {
-  it('test titus', async () => {
-    const fileBase = '57-TIT-custom';
-    await timedParseTest(fileBase);
-  });
-  it('test large', async () => {
-    const fileBase = 'large';
-    await timedParseTest(fileBase);
-  });
-});
 
 describe("USFM to JSON", () => {
   it('parses verse with an \\m marker inline with the text', () => {

@@ -63,7 +63,7 @@ function convertObjArrayToTcore(objArray) {
           flattenTextChildren(obj);
           convertAttributes(obj);
         } else {
-          console.log(`Don't know what to do with: `, obj);
+          // console.log(`Don't know what to do with: `, obj); // TODO: check theses
           convertAttributes(obj);
         }
       }
@@ -209,7 +209,7 @@ export function makeNestedView(content) {
         }
 
         if (!matched) { // no match, so start at top
-          console.log(`ignored:`, obj);
+          // console.log(`ignored:`, obj); // TODO: investigate
         }
       }
     } else { // flat item

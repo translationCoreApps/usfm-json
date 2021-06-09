@@ -1,6 +1,6 @@
 /* eslint-disable quote-props,no-use-before-define */
 import isEqual from "deep-equal";
-import {readJSON, readUSFM, writeJSON} from './util';
+import {calculateAverageTime, readJSON, readUSFM, writeJSON} from './util';
 import {usfmToJSON, createUsfmObject, pushObject, usfmToJsonProskomma} from '../src/js/usfmToJson';
 
 const saveResults = false;
@@ -21,9 +21,7 @@ describe("test performance", () => {
         }
       }
       const end = process.hrtime(start);
-      const totalNano = end[0] * 10e9 + end[1];
-      const avgNano = totalNano / iterations;
-      const avgSeconds = avgNano / 10e9;
+      const avgSeconds = calculateAverageTime(end, iterations);
       console.log(`Original method: ${fileBase} - test average ${avgSeconds} seconds over ${iterations} iterations`);
       // TRICKY: performance may vary depending on the platform.
       // Three seconds is a high bar to avoid tests failing on slow CI.
@@ -55,9 +53,7 @@ async function timedParseTest(fileBase, iterations) {
     }
   }
   const end = process.hrtime(start);
-  const totalNano = end[0] * 10e9 + end[1];
-  const avgNano = totalNano / iterations;
-  const avgSeconds = avgNano / 10e9;
+  const avgSeconds = calculateAverageTime(end, iterations);
   console.log(`Proskomma parse: ${fileBase} - test average ${avgSeconds} seconds over ${iterations} iterations`);
   // TRICKY: performance may vary depending on the platform.
   // Three seconds is a high bar to avoid tests failing on slow CI.

@@ -4,8 +4,9 @@
  */
 
 import {Proskomma} from 'proskomma';
-import {convertToTcore, makeNestedView} from "./parseProskomma";
+import {convertToTcore, makeNestedView, parseProskommaToTcore} from "./parseProskomma";
 import * as USFM from './USFM';
+import {calculateAverageTime} from "../../__tests__/util";
 
 const VERSE_SPAN_REGEX = /(^-\d+\s)/;
 const NUMBER = /(\d+)/;
@@ -1743,6 +1744,7 @@ export const usfmToJsonProskomma = async (usfm, params = {}) => {
   // terminatePhrases(state);
   // cleanupHeaderNewLines(state);
 
+  const start = process.hrtime();
   const pk = new Proskomma();
 //try {
   let selectors = {
@@ -1770,9 +1772,22 @@ export const usfmToJsonProskomma = async (usfm, params = {}) => {
   // console.log(bookId);
   const chapters = indices.map(item => item?.chapter);
   // console.log(chapters);
-  const content = await getChapters(pk, bookId, chapters);
+  const inlineConversionToTcore = true; // if set true, then tCore conversion done as each chapter retrieved
+  const content = await getChapters(pk, bookId, chapters, inlineConversionToTcore);
   // console.log(content);
   // fse.writeJsonSync('./book_content.json', content);
+
+  const end = process.hrtime(start);
+  const avgSeconds = calculateAverageTime(end);
+  console.log(`Proskomma Query time ${avgSeconds} seconds`);
+
+  if (!inlineConversionToTcore) {
+    const start2 = process.hrtime();
+    parseProskommaToTcore(content);
+    const end2 = process.hrtime(start2);
+    const avgSeconds2 = calculateAverageTime(end2);
+    console.log(`Reformat time ${avgSeconds2} seconds`);
+  }
 
   const headers = docs?.[0]?.headers;
 
@@ -1787,13 +1802,13 @@ export const usfmToJsonProskomma = async (usfm, params = {}) => {
   return usfmJSON;
 };
 
-async function getChapters(pk, bookId, chapters) {
+async function getChapters(pk, bookId, chapters, convertToTcore) {
   if (bookId) {
     const contents = {};
 
     for (const c of chapters) {
       // eslint-disable-next-line no-await-in-loop
-      contents[c] = await getChapter(pk, bookId, c);
+      contents[c] = await getChapter(pk, bookId, c, convertToTcore);
     }
     // console.log(JSON.stringify(contents, null, 2))
     return contents;
@@ -1801,18 +1816,7 @@ async function getChapters(pk, bookId, chapters) {
   return null;
 }
 
-async function getChapter(pk, bookId, chapter) {
-  // query chapter by block
-//   const chapterQuery = `{ documents
-//   {
-//     mainSequence {
-//       blocks(withScriptureCV: "${chapter}") {
-//         bs { payload }
-//         items { type subType payload }
-//       }
-//     }
-//   }
-// }`;
+async function getChapter(pk, bookId, chapter, convertToTcore) {
   // query chapter, return everything (items)
   const chapterQuery = `{ documents
   {
@@ -1823,8 +1827,11 @@ async function getChapter(pk, bookId, chapter) {
 }`;
   // const output = `${bookId} - ${chapters}`;
   const chapterData = await pk.gqlQuery(chapterQuery);
-  const results = makeNestedView(chapterData);
-  const tC_Data = convertToTcore(results);
-  // console.log(JSON.stringify(output, null, 2))
-  return tC_Data;
+  if (convertToTcore) {
+    const results = makeNestedView(chapterData);
+    const tC_Data = convertToTcore(results);
+    // console.log(JSON.stringify(output, null, 2))
+    return tC_Data;
+  }
+  return chapterData;
 }

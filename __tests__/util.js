@@ -131,3 +131,9 @@ function getText(url, callback) {
 //   generateRoundTripTest('hi_ulb/05-DEU.usfm');
 // });
 
+export function calculateAverageTime(end, iterations = 1) {
+  const totalNano = end[0] * 10e9 + end[1];
+  const avgNano = totalNano / iterations;
+  const avgSeconds = avgNano / 10e9;
+  return avgSeconds;
+}

@@ -323,6 +323,10 @@ describe("USFM to JSON", () => {
     generateTest('usfm-body-testF');
   });
 
+  it('process usfm-body-testF-paragraph-whitespace', () => {
+    generateTest('usfm-body-testF-paragraph-whitespace', {}, 'usfm-body-testF');
+  });
+
   it('process hebrew_words', () => {
     generateTest('hebrew_words');
   });

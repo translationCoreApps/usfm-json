@@ -279,9 +279,15 @@ const objectToString = (object, output, nextObject = null) => {
   }
   if ((object.type === 'milestone') && (object.endTag !== object.tag + '*')) { // milestone type (phrase)
     return addPhrase(generatePhrase(object, nextObject), output);
-  }
-  else if (object.children && object.children.length) {
+  } else if (object.children && object.children.length) {
     return output + generatePhrase(object, nextObject);
+  }
+  if (object.type === 'paragraph') {
+    // paragraphs have no whitespace before a newline
+    if (object.text && object.text.endsWith('\n')) {
+      const text = object.text.substr(0, object.text.length - 1);
+      object.text = `${text.trimRight()}\n`;
+    }
   }
   if (object.tag) { // any other USFM marker tag
     return output + usfmMarkerToString(object, nextObject);

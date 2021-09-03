@@ -1,4 +1,42 @@
 {
+  "headers": [
+    {
+      "content": "ACT EN_ULT en_English_ltr Wed Oct 10 2018 11:55:23 GMT-0400 (EDT) tc",
+      "tag": "id"
+    },
+    {
+      "content": "3.0",
+      "tag": "usfm"
+    },
+    {
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Acts",
+      "tag": "h"
+    },
+    {
+      "content": "The Acts of the Apostles",
+      "tag": "toc1"
+    },
+    {
+      "content": "Acts",
+      "tag": "toc2"
+    },
+    {
+      "content": "Act",
+      "tag": "toc3"
+    },
+    {
+      "content": "Acts",
+      "tag": "mt"
+    },
+    {
+      "tag": "s5",
+      "type": "section"
+    }
+  ],
   "chapters": {
     "1": {
       "1": {
@@ -3081,43 +3119,5 @@
         ]
       }
     }
-  },
-  "headers": [
-    {
-      "content": "ACT EN_ULT en_English_ltr Wed Oct 10 2018 11:55:23 GMT-0400 (EDT) tc",
-      "tag": "id"
-    },
-    {
-      "content": "3.0",
-      "tag": "usfm"
-    },
-    {
-      "content": "UTF-8",
-      "tag": "ide"
-    },
-    {
-      "content": "Acts",
-      "tag": "h"
-    },
-    {
-      "content": "The Acts of the Apostles",
-      "tag": "toc1"
-    },
-    {
-      "content": "Acts",
-      "tag": "toc2"
-    },
-    {
-      "content": "Act",
-      "tag": "toc3"
-    },
-    {
-      "content": "Acts",
-      "tag": "mt"
-    },
-    {
-      "tag": "s5",
-      "type": "section"
-    }
-  ]
+  }
 }

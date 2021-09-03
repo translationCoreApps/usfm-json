@@ -64,7 +64,7 @@ const generateWord = (wordObject, nextObject) => {
   }
   let attrOut = attributes.join(' ');
   if (attrOut) {
-    attrOut = '|' + attrOut;
+    attrOut = '|' + attrOut.trimLeft();
   }
   const line = '\\w ' + word + attrOut + '\\w*';
   return line;
@@ -102,7 +102,7 @@ const generatePhrase = (phraseObject, nextObject) => {
         attributes.push(attribute);
       }
     }
-    content = '-s | ' + attributes.join(' ') + '\\*';
+    content = '-s |' + attributes.join(' ').trimLeft() + '\\*';
   } else {
     const isUsfm3Milestone = USFM.markerIsMilestone(tag);
     if (isUsfm3Milestone) {

@@ -275,7 +275,7 @@ const generateTest = (name, params, expectedName) => {
   }
   const output = jsonToUSFM(input, params);
   if (params && params.zaln) { // normalize attributes
-    const tag = "\\zaln-s | ";
+    const tag = "\\zaln-s |";
     let outputNormal = normalizeAtributesAlign(tag, output);
     let expectedNormal = normalizeAtributesAlign(tag, expected);
     const wordTag = '\\w';

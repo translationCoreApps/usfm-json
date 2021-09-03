@@ -2,16 +2,16 @@
 \usfm 3.0
 \h Titus
 \c 1
-\v 1 \zaln-s | x-content="Παῦλος" x-lemma="Παῦλος" x-morph="Gr,N,,,,,NMS," x-occurrence="1" x-occurrences="1" x-strong="G39720"\*\w Paul|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*,\zaln-s | x-content="δοῦλος" x-lemma="δοῦλος" x-morph="Gr,N,,,,,NMS," x-occurrence="1" x-occurrences="1" x-strong="G14010"\*\w a|x-occurrence="1" x-occurrences="1"\w*
+\v 1 \zaln-s |x-content="Παῦλος" x-lemma="Παῦλος" x-morph="Gr,N,,,,,NMS," x-occurrence="1" x-occurrences="1" x-strong="G39720"\*\w Paul|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*,\zaln-s |x-content="δοῦλος" x-lemma="δοῦλος" x-morph="Gr,N,,,,,NMS," x-occurrence="1" x-occurrences="1" x-strong="G14010"\*\w a|x-occurrence="1" x-occurrences="1"\w*
 \w servant|x-occurrence="1" x-occurrences="1"\w*
 \w of|x-occurrence="1" x-occurrences="4"\w*\zaln-e\*
-\zaln-s | x-content="Θεοῦ" x-lemma="θεός" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="2" x-strong="G23160"\*\w God|x-occurrence="1" x-occurrences="2"\w*\zaln-e\*
-\zaln-s | x-content="ἀπόστολος" x-lemma="ἀπόστολος" x-morph="Gr,N,,,,,NMS," x-occurrence="1" x-occurrences="1" x-strong="G06520"\*\w and|x-occurrence="1" x-occurrences="2"\w*
+\zaln-s |x-content="Θεοῦ" x-lemma="θεός" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="2" x-strong="G23160"\*\w God|x-occurrence="1" x-occurrences="2"\w*\zaln-e\*
+\zaln-s |x-content="ἀπόστολος" x-lemma="ἀπόστολος" x-morph="Gr,N,,,,,NMS," x-occurrence="1" x-occurrences="1" x-strong="G06520"\*\w and|x-occurrence="1" x-occurrences="2"\w*
 \w an|x-occurrence="1" x-occurrences="1"\w*
 \w apostle|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
-\zaln-s | x-content="δὲ" x-lemma="δέ" x-morph="Gr,CC,,,,,,,," x-occurrence="1" x-occurrences="1" x-strong="G11610"\*\w of|x-occurrence="2" x-occurrences="4"\w*\zaln-e\*
-\zaln-s | x-content="Ἰησοῦ" x-lemma="Ἰησοῦς" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-strong="G24240"\*\w Jesus|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
-\zaln-s | x-content="Χριστοῦ" x-lemma="χριστός" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-strong="G55470"\*\w Christ|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*,
+\zaln-s |x-content="δὲ" x-lemma="δέ" x-morph="Gr,CC,,,,,,,," x-occurrence="1" x-occurrences="1" x-strong="G11610"\*\w of|x-occurrence="2" x-occurrences="4"\w*\zaln-e\*
+\zaln-s |x-content="Ἰησοῦ" x-lemma="Ἰησοῦς" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-strong="G24240"\*\w Jesus|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s |x-content="Χριστοῦ" x-lemma="χριστός" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-strong="G55470"\*\w Christ|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*,
 \w for|x-occurrence="1" x-occurrences="1"\w*
 \w the|x-occurrence="1" x-occurrences="3"\w*
 \w faith|x-occurrence="1" x-occurrences="1"\w*

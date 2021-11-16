@@ -1,4 +1,14 @@
 {
+  "headers": [
+    {
+      "content": "ACT EN_ULT en_English_ltr Wed Oct 10 2018 11:55:23 GMT-0400 (EDT) tc",
+      "tag": "id"
+    },
+    {
+      "content": "3.0",
+      "tag": "usfm"
+    }
+  ],
   "chapters": {
     "1": {
       "1": {
@@ -838,21 +848,12 @@
             "type": "text"
           },
           {
+            "nextChar": "\n",
             "tag": "p",
             "type": "paragraph"
           }
         ]
       }
     }
-  },
-  "headers": [
-    {
-      "content": "ACT EN_ULT en_English_ltr Wed Oct 10 2018 11:55:23 GMT-0400 (EDT) tc",
-      "tag": "id"
-    },
-    {
-      "content": "3.0",
-      "tag": "usfm"
-    }
-  ]
+  }
 }

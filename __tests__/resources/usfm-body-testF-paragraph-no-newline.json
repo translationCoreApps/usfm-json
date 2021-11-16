@@ -188,7 +188,6 @@
             "type": "text"
           },
           {
-            "nextChar": "\n",
             "tag": "p",
             "type": "paragraph"
           }
@@ -281,7 +280,6 @@
             "type": "text"
           },
           {
-            "nextChar": "\n",
             "tag": "p",
             "type": "paragraph"
           }
@@ -536,7 +534,6 @@
             "type": "text"
           },
           {
-            "nextChar": " ",
             "tag": "p",
             "type": "paragraph"
           },
@@ -572,7 +569,6 @@
                 "type": "text"
               },
               {
-                "nextChar": "\n",
                 "tag": "p",
                 "type": "paragraph"
               }
@@ -653,7 +649,6 @@
       "front": {
         "verseObjects": [
           {
-            "nextChar": "\n",
             "tag": "p",
             "type": "paragraph"
           }
@@ -718,7 +713,7 @@
           },
           {
             "tag": "p",
-            "nextChar": "\n",
+            "text": " \n",
             "type": "paragraph"
           }
         ]
@@ -765,7 +760,6 @@
             "tag": "ts-s"
           },
           {
-            "nextChar": "\n",
             "tag": "p",
             "type": "paragraph"
           }
@@ -884,7 +878,6 @@
             "type": "section"
           },
           {
-            "nextChar": "\n",
             "tag": "p",
             "type": "paragraph"
           }
@@ -906,7 +899,6 @@
       "front": {
         "verseObjects": [
           {
-            "nextChar": "\n",
             "tag": "p",
             "type": "paragraph"
           }
@@ -969,7 +961,6 @@
             "tag": "ts\\*"
           },
           {
-            "nextChar": "\n",
             "tag": "p",
             "type": "paragraph"
           }
@@ -1052,7 +1043,6 @@
             "type": "section"
           },
           {
-            "nextChar": "\n",
             "tag": "p",
             "type": "paragraph"
           }
@@ -1091,7 +1081,6 @@
             "type": "section"
           },
           {
-            "nextChar": "\n",
             "tag": "p",
             "type": "paragraph"
           }
@@ -1108,7 +1097,6 @@
       "front": {
         "verseObjects": [
           {
-            "nextChar": "\n",
             "tag": "p",
             "type": "paragraph"
           }

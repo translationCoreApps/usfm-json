@@ -175,6 +175,14 @@ describe("JSON to USFM", () => {
     generateTest('usfm-body-testF');
   });
 
+  it('process usfm-body-testF-paragraph-whitespace', () => {
+    generateTest('usfm-body-testF-paragraph-whitespace', {}, 'usfm-body-testF');
+  });
+
+  it('process usfm-body-testF-paragraph-no-newline', () => {
+    generateTest('usfm-body-testF-paragraph-no-newline', {}, 'usfm-body-testF');
+  });
+
   it('process usfm-body-testF inline', () => {
     generateTest('usfm-body-testF', {forcedNewLines: false}, 'usfm-body-testF-inline');
   });
@@ -271,7 +279,7 @@ const generateTest = (name, params, expectedName) => {
   }
   const output = jsonToUSFM(input, params);
   if (params && params.zaln) { // normalize attributes
-    const tag = "\\zaln-s | ";
+    const tag = "\\zaln-s |";
     let outputNormal = normalizeAtributesAlign(tag, output);
     let expectedNormal = normalizeAtributesAlign(tag, expected);
     const wordTag = '\\w';

@@ -718,7 +718,7 @@
           },
           {
             "tag": "p",
-            "nextChar": "\n",
+            "text": " \n",
             "type": "paragraph"
           }
         ]

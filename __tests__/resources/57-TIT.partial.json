@@ -1,4 +1,18 @@
 {
+  "headers": [
+    {
+      "content": "TIT EN_ULT es_español_ltr Mon Mar 26 2018 11:44:25 GMT-0400 (EDT) tc",
+      "tag": "id"
+    },
+    {
+      "content": "3.0",
+      "tag": "usfm"
+    },
+    {
+      "content": "Titus",
+      "tag": "h"
+    }
+  ],
   "chapters": {
     "1": {
       "1": {
@@ -410,7 +424,7 @@
             "type": "word"
           },
           {
-            "text": ", \n",
+            "text": ",\n",
             "type": "text"
           }
         ]
@@ -634,7 +648,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -877,7 +891,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -1189,7 +1203,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -1424,7 +1438,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -1813,7 +1827,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -2048,7 +2062,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -2371,7 +2385,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -2540,7 +2554,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -2786,7 +2800,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -2955,7 +2969,7 @@
             "type": "word"
           },
           {
-            "text": ".\" \n",
+            "text": ".\"\n",
             "type": "text"
           }
         ]
@@ -3146,7 +3160,7 @@
             "type": "word"
           },
           {
-            "text": ", \n",
+            "text": ",\n",
             "type": "text"
           }
         ]
@@ -3488,7 +3502,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -3839,7 +3853,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -4019,7 +4033,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -4298,7 +4312,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -4478,7 +4492,7 @@
             "type": "word"
           },
           {
-            "text": ", \n",
+            "text": ",\n",
             "type": "text"
           }
         ]
@@ -4768,7 +4782,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -4904,7 +4918,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -5095,7 +5109,7 @@
             "type": "word"
           },
           {
-            "text": ", \n",
+            "text": ",\n",
             "type": "text"
           }
         ]
@@ -5341,7 +5355,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -5521,7 +5535,7 @@
             "type": "word"
           },
           {
-            "text": ", \n",
+            "text": ",\n",
             "type": "text"
           }
         ]
@@ -5833,7 +5847,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -5980,7 +5994,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -6215,7 +6229,7 @@
             "type": "word"
           },
           {
-            "text": ", \n",
+            "text": ",\n",
             "type": "text"
           }
         ]
@@ -6461,7 +6475,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -6784,7 +6798,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -7212,7 +7226,7 @@
             "type": "word"
           },
           {
-            "text": ", \n",
+            "text": ",\n",
             "type": "text"
           }
         ]
@@ -7425,7 +7439,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -7781,7 +7795,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -7939,7 +7953,7 @@
             "type": "word"
           },
           {
-            "text": ", \n",
+            "text": ",\n",
             "type": "text"
           }
         ]
@@ -8306,7 +8320,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -8453,7 +8467,7 @@
             "type": "word"
           },
           {
-            "text": ", \n",
+            "text": ",\n",
             "type": "text"
           }
         ]
@@ -8666,7 +8680,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -9077,7 +9091,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -9290,7 +9304,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -9437,7 +9451,7 @@
             "type": "word"
           },
           {
-            "text": ", \n",
+            "text": ",\n",
             "type": "text"
           }
         ]
@@ -9628,7 +9642,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -9885,7 +9899,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -10098,7 +10112,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -10322,7 +10336,7 @@
             "type": "word"
           },
           {
-            "text": ". \n",
+            "text": ".\n",
             "type": "text"
           }
         ]
@@ -10563,19 +10577,5 @@
         ]
       }
     }
-  },
-  "headers": [
-    {
-      "content": "TIT EN_ULT es_español_ltr Mon Mar 26 2018 11:44:25 GMT-0400 (EDT) tc",
-      "tag": "id"
-    },
-    {
-      "content": "3.0",
-      "tag": "usfm"
-    },
-    {
-      "content": "Titus",
-      "tag": "h"
-    }
-  ]
+  }
 }

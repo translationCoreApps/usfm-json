@@ -367,6 +367,48 @@ const sortVerses = verses => {
 };
 
 /**
+ * get the last line and last character of that line
+ * @param {Array} lines
+ * @return {{lastLine: string, lastChar: string, position: number}} results
+ */
+function getLastLine(lines) {
+  const position = lines.length - 1;
+  const lastLine = lines.length ? lines[position] : "";
+  const lastChar = lastLine ? lastLine.substr(lastLine.length - 1) : "";
+  return {lastLine, lastChar, position};
+}
+
+/**
+ * gets the last character of the last line and make sure it is a newline
+ * @param {Array} lines
+ */
+function makeSureEndsWithNewLine(lines) {
+  const {lastChar, position} = getLastLine(lines);
+  if (lastChar && (lastChar !== '\n')) {
+    // make sure newline at end
+    lines[position] += '\n';
+  }
+}
+
+/**
+ * make sure paragraphs without text start a new line
+ * @param {array} verseObjects
+ * @param {array} lines
+ */
+function makeSureParagraphsAtEndHaveLineFeeds(verseObjects, lines) {
+  if (verseObjects) {
+    if (verseObjects.length > 0) {
+      const lastObject = verseObjects[verseObjects.length - 1];
+      if (lastObject && (lastObject.type === 'paragraph') && !(lastObject.text && lastObject.text.trim())) {
+        makeSureEndsWithNewLine(lines);
+      } else if (lastObject.children) {
+        makeSureParagraphsAtEndHaveLineFeeds(lastObject.children, lines);
+      }
+    }
+  }
+}
+
+/**
  * @description Takes in chapter json and outputs it as a USFM line array.
  * @param {String} chapterNumber - number to use for the chapter
  * @param {Object} chapterObject - chapter in JSON
@@ -378,6 +420,8 @@ const generateChapterLines = (chapterNumber, chapterObject) => {
   if (chapterObject.front) { // handle front matter first
     const verseText = objectToString(chapterObject.front);
     lines = lines.concat(verseText);
+    const frontVerseObjects = chapterObject.front;
+    makeSureParagraphsAtEndHaveLineFeeds(frontVerseObjects.verseObjects, lines);
     delete chapterObject.front;
   }
   const verseNumbers = sortVerses(Object.keys(chapterObject));
@@ -385,14 +429,14 @@ const generateChapterLines = (chapterNumber, chapterObject) => {
   for (let i = 0; i < verseLen; i++) {
     const verseNumber = verseNumbers[i];
     // check if verse is inside previous line (such as \q)
-    const lastLine = lines.length ? lines[lines.length - 1] : "";
-    const lastChar = lastLine ? lastLine.substr(lastLine.length - 1) : "";
+    const {lastLine, lastChar, position} = getLastLine(lines);
     if (lastChar && (lastChar !== '\n') && (lastChar !== ' ')) { // do we need white space
-      lines[lines.length - 1] = lastLine + ' ';
+      lines[position] = lastLine + ' ';
     }
     const verseObjects = chapterObject[verseNumber];
     const verseLine = generateVerse(verseNumber, verseObjects);
     lines = addVerse(lines, verseLine);
+    makeSureParagraphsAtEndHaveLineFeeds(verseObjects.verseObjects, lines);
   }
   return lines;
 };

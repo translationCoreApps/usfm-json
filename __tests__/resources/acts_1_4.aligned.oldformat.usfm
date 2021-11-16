@@ -59,7 +59,7 @@
 \zaln-s |x-lemma="ὅς" x-morph="Gr,RR,,,,AFS," x-occurrence="1" x-occurrences="1" x-strong="G37390" x-content="ἣν"
 \w he|x-occurrence="3" x-occurrences="3"\w*
 \w said|x-occurrence="1" x-occurrences="1"\w*
-\zaln-e\*,\qt-s |who="Jesus"\*"
+\zaln-e\*, \qt-s |who="Jesus"\*"
 \zaln-s |x-lemma="ἐγώ" x-morph="Gr,RP,,,1G,S," x-occurrence="1" x-occurrences="1" x-strong="G14730" x-content="μου"
 \w You|x-occurrence="1" x-occurrences="1"\w*
 \zaln-e\*

@@ -445,7 +445,7 @@ const generateTest = (name, args = {}, expectedName = '') => {
   }
   if (!isEqual(output, expected)) { // if different, break down comparisons by smaller chunks so output is not overloaded
     console.log("Miscompare in " + name);
-    verifyWithPrompt(Object.keys(output), Object.keys(expected), "keys");
+    verifyWithPrompt(Object.keys(output).sort(), Object.keys(expected).sort(), "keys");
     verifyWithPrompt(output.headers, expected.headers, "headers");
     verifyWithPrompt(output.verses, expected.verses, "verses");
     const textField = "chapters";

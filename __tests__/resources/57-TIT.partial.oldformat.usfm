@@ -2,29 +2,29 @@
 \h Titus
 \c 1
 \v 1
-\zaln-s |x-strong="G39720" x-lemma="Παῦλος" x-morph="Gr,N,,,,,NMS," x-occurrence="1" x-occurrences="1" x-content="Παῦλος"
+\zaln-s | x-strong="G39720" x-lemma="Παῦλος" x-morph="Gr,N,,,,,NMS," x-occurrence="1" x-occurrences="1" x-content="Παῦλος"
 \w Paul|x-occurrence="1" x-occurrences="1"\w*
 \zaln-e\*,
-\zaln-s |x-strong="G14010" x-lemma="δοῦλος" x-morph="Gr,N,,,,,NMS," x-occurrence="1" x-occurrences="1" x-content="δοῦλος"
+\zaln-s | x-strong="G14010" x-lemma="δοῦλος" x-morph="Gr,N,,,,,NMS," x-occurrence="1" x-occurrences="1" x-content="δοῦλος"
 \w a|x-occurrence="1" x-occurrences="1"\w*
 \w servant|x-occurrence="1" x-occurrences="1"\w*
 \w of|x-occurrence="1" x-occurrences="4"\w*
 \zaln-e\*
-\zaln-s |x-strong="G23160" x-lemma="θεός" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="2" x-content="Θεοῦ"
+\zaln-s | x-strong="G23160" x-lemma="θεός" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="2" x-content="Θεοῦ"
 \w God|x-occurrence="1" x-occurrences="2"\w*
 \zaln-e\*
-\zaln-s |x-strong="G06520" x-lemma="ἀπόστολος" x-morph="Gr,N,,,,,NMS," x-occurrence="1" x-occurrences="1" x-content="ἀπόστολος"
+\zaln-s | x-strong="G06520" x-lemma="ἀπόστολος" x-morph="Gr,N,,,,,NMS," x-occurrence="1" x-occurrences="1" x-content="ἀπόστολος"
 \w and|x-occurrence="1" x-occurrences="2"\w*
 \w an|x-occurrence="1" x-occurrences="1"\w*
 \w apostle|x-occurrence="1" x-occurrences="1"\w*
 \zaln-e\*
-\zaln-s |x-strong="G11610" x-lemma="δέ" x-morph="Gr,CC,,,,,,,," x-occurrence="1" x-occurrences="1" x-content="δὲ"
+\zaln-s | x-strong="G11610" x-lemma="δέ" x-morph="Gr,CC,,,,,,,," x-occurrence="1" x-occurrences="1" x-content="δὲ"
 \w of|x-occurrence="2" x-occurrences="4"\w*
 \zaln-e\*
-\zaln-s |x-strong="G24240" x-lemma="Ἰησοῦς" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Ἰησοῦ"
+\zaln-s | x-strong="G24240" x-lemma="Ἰησοῦς" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Ἰησοῦ"
 \w Jesus|x-occurrence="1" x-occurrences="1"\w*
 \zaln-e\*
-\zaln-s |x-strong="G55470" x-lemma="χριστός" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Χριστοῦ"
+\zaln-s | x-strong="G55470" x-lemma="χριστός" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Χριστοῦ"
 \w Christ|x-occurrence="1" x-occurrences="1"\w*
 \zaln-e\*,
 \w for|x-occurrence="1" x-occurrences="1"\w*
@@ -44,7 +44,7 @@
 \w that|x-occurrence="1" x-occurrences="1"\w*
 \w agrees|x-occurrence="1" x-occurrences="1"\w*
 \w with|x-occurrence="1" x-occurrences="1"\w*
-\w godliness|x-occurrence="1" x-occurrences="1"\w*, 
+\w godliness|x-occurrence="1" x-occurrences="1"\w*,
 \v 2
 \w with|x-occurrence="1" x-occurrences="1"\w*
 \w the|x-occurrence="1" x-occurrences="2"\w*
@@ -65,8 +65,8 @@
 \w the|x-occurrence="2" x-occurrences="2"\w*
 \w ages|x-occurrence="1" x-occurrences="1"\w*
 \w of|x-occurrence="2" x-occurrences="2"\w*
-\w time|x-occurrence="1" x-occurrences="1"\w*. 
-\v 3 
+\w time|x-occurrence="1" x-occurrences="1"\w*.
+\v 3
 \v 4
 \w To|x-occurrence="1" x-occurrences="1"\w*
 \w Titus|x-occurrence="1" x-occurrences="1"\w*,
@@ -88,7 +88,7 @@
 \w Christ|x-occurrence="1" x-occurrences="1"\w*
 \w Jesus|x-occurrence="1" x-occurrences="1"\w*
 \w our|x-occurrence="2" x-occurrences="2"\w*
-\w savior|x-occurrence="1" x-occurrences="1"\w*. 
+\w savior|x-occurrence="1" x-occurrences="1"\w*.
 \v 5
 \w For|x-occurrence="1" x-occurrences="1"\w*
 \w this|x-occurrence="1" x-occurrences="1"\w*
@@ -117,7 +117,7 @@
 \w as|x-occurrence="1" x-occurrences="1"\w*
 \w I|x-occurrence="2" x-occurrences="2"\w*
 \w directed|x-occurrence="1" x-occurrences="1"\w*
-\w you|x-occurrence="3" x-occurrences="3"\w*. 
+\w you|x-occurrence="3" x-occurrences="3"\w*.
 \v 6
 \w An|x-occurrence="1" x-occurrences="1"\w*
 \w elder|x-occurrence="1" x-occurrences="1"\w*
@@ -139,7 +139,7 @@
 \w reckless|x-occurrence="1" x-occurrences="1"\w*
 \w behavior|x-occurrence="1" x-occurrences="1"\w*
 \w or|x-occurrence="1" x-occurrences="1"\w*
-\w undisciplined|x-occurrence="1" x-occurrences="1"\w*. 
+\w undisciplined|x-occurrence="1" x-occurrences="1"\w*.
 \v 7
 \w It|x-occurrence="1" x-occurrences="1"\w*
 \w is|x-occurrence="1" x-occurrences="1"\w*
@@ -175,7 +175,7 @@
 \w not|x-occurrence="5" x-occurrences="5"\w*
 \w a|x-occurrence="2" x-occurrences="2"\w*
 \w greedy|x-occurrence="1" x-occurrences="1"\w*
-\w man|x-occurrence="1" x-occurrences="1"\w*. 
+\w man|x-occurrence="1" x-occurrences="1"\w*.
 \v 8
 \w Instead|x-occurrence="1" x-occurrences="1"\w*,
 \w he|x-occurrence="1" x-occurrences="1"\w*
@@ -197,7 +197,7 @@
 \w godly|x-occurrence="1" x-occurrences="1"\w*,
 \w and|x-occurrence="2" x-occurrences="2"\w*
 \w self|x-occurrence="1" x-occurrences="1"\w*-
-\w controlled|x-occurrence="1" x-occurrences="1"\w*. 
+\w controlled|x-occurrence="1" x-occurrences="1"\w*.
 \v 9
 \w He|x-occurrence="1" x-occurrences="1"\w*
 \w should|x-occurrence="1" x-occurrences="1"\w*
@@ -227,7 +227,7 @@
 \w those|x-occurrence="1" x-occurrences="1"\w*
 \w who|x-occurrence="1" x-occurrences="1"\w*
 \w oppose|x-occurrence="1" x-occurrences="1"\w*
-\w him|x-occurrence="1" x-occurrences="1"\w*. 
+\w him|x-occurrence="1" x-occurrences="1"\w*.
 \v 10
 \w For|x-occurrence="1" x-occurrences="1"\w*
 \w there|x-occurrence="1" x-occurrences="1"\w*
@@ -243,7 +243,7 @@
 \w those|x-occurrence="1" x-occurrences="1"\w*
 \w of|x-occurrence="1" x-occurrences="1"\w*
 \w the|x-occurrence="1" x-occurrences="1"\w*
-\w circumcision|x-occurrence="1" x-occurrences="1"\w*. 
+\w circumcision|x-occurrence="1" x-occurrences="1"\w*.
 \v 11
 \w It|x-occurrence="1" x-occurrences="1"\w*
 \w is|x-occurrence="1" x-occurrences="1"\w*
@@ -266,7 +266,7 @@
 \w they|x-occurrence="1" x-occurrences="1"\w*
 \w should|x-occurrence="1" x-occurrences="1"\w*
 \w not|x-occurrence="1" x-occurrences="1"\w*
-\w teach|x-occurrence="1" x-occurrences="1"\w*. 
+\w teach|x-occurrence="1" x-occurrences="1"\w*.
 \v 12
 \w One|x-occurrence="1" x-occurrences="1"\w*
 \w of|x-occurrence="1" x-occurrences="1"\w*
@@ -281,7 +281,7 @@
 \w evil|x-occurrence="1" x-occurrences="1"\w*
 \w beasts|x-occurrence="1" x-occurrences="1"\w*,
 \w lazy|x-occurrence="1" x-occurrences="1"\w*
-\w gluttons|x-occurrence="1" x-occurrences="1"\w*." 
+\w gluttons|x-occurrence="1" x-occurrences="1"\w*."
 \v 13
 \w This|x-occurrence="1" x-occurrences="1"\w*
 \w statement|x-occurrence="1" x-occurrences="1"\w*
@@ -299,8 +299,8 @@
 \w sound|x-occurrence="1" x-occurrences="1"\w*
 \w in|x-occurrence="1" x-occurrences="1"\w*
 \w the|x-occurrence="1" x-occurrences="1"\w*
-\w faith|x-occurrence="1" x-occurrences="1"\w*, 
-\v 14 
+\w faith|x-occurrence="1" x-occurrences="1"\w*,
+\v 14
 \v 15
 \w To|x-occurrence="1" x-occurrences="1"\w*
 \w those|x-occurrence="1" x-occurrences="2"\w*
@@ -331,7 +331,7 @@
 \w consciences|x-occurrence="1" x-occurrences="1"\w*
 \w have|x-occurrence="1" x-occurrences="1"\w*
 \w been|x-occurrence="1" x-occurrences="1"\w*
-\w corrupted|x-occurrence="1" x-occurrences="1"\w*. 
+\w corrupted|x-occurrence="1" x-occurrences="1"\w*.
 \v 16
 \w They|x-occurrence="1" x-occurrences="2"\w*
 \w profess|x-occurrence="1" x-occurrences="1"\w*
@@ -365,7 +365,7 @@
 \w fits|x-occurrence="1" x-occurrences="1"\w*
 \w with|x-occurrence="1" x-occurrences="1"\w*
 \w faithful|x-occurrence="1" x-occurrences="1"\w*
-\w instruction|x-occurrence="1" x-occurrences="1"\w*. 
+\w instruction|x-occurrence="1" x-occurrences="1"\w*.
 \v 2
 \w Teach|x-occurrence="1" x-occurrences="1"\w*
 \w older|x-occurrence="1" x-occurrences="1"\w*
@@ -382,7 +382,7 @@
 \w love|x-occurrence="1" x-occurrences="1"\w*,
 \w and|x-occurrence="1" x-occurrences="1"\w*
 \w in|x-occurrence="3" x-occurrences="3"\w*
-\w perseverance|x-occurrence="1" x-occurrences="1"\w*. 
+\w perseverance|x-occurrence="1" x-occurrences="1"\w*.
 \v 3
 \w Teach|x-occurrence="1" x-occurrences="1"\w*
 \w older|x-occurrence="1" x-occurrences="1"\w*
@@ -408,7 +408,7 @@
 \w of|x-occurrence="1" x-occurrences="1"\w*
 \w what|x-occurrence="1" x-occurrences="1"\w*
 \w is|x-occurrence="1" x-occurrences="1"\w*
-\w good|x-occurrence="1" x-occurrences="1"\w*. 
+\w good|x-occurrence="1" x-occurrences="1"\w*.
 \v 4
 \w In|x-occurrence="1" x-occurrences="1"\w*
 \w this|x-occurrence="1" x-occurrences="1"\w*
@@ -425,7 +425,7 @@
 \w own|x-occurrence="1" x-occurrences="1"\w*
 \w husbands|x-occurrence="1" x-occurrences="1"\w*
 \w and|x-occurrence="1" x-occurrences="1"\w*
-\w children|x-occurrence="1" x-occurrences="1"\w*, 
+\w children|x-occurrence="1" x-occurrences="1"\w*,
 \v 5
 \w to|x-occurrence="1" x-occurrences="2"\w*
 \w be|x-occurrence="1" x-occurrences="2"\w*
@@ -452,7 +452,7 @@
 \w may|x-occurrence="1" x-occurrences="1"\w*
 \w not|x-occurrence="1" x-occurrences="1"\w*
 \w be|x-occurrence="2" x-occurrences="2"\w*
-\w insulted|x-occurrence="1" x-occurrences="1"\w*. 
+\w insulted|x-occurrence="1" x-occurrences="1"\w*.
 \v 6
 \w In|x-occurrence="1" x-occurrences="1"\w*
 \w the|x-occurrence="1" x-occurrences="2"\w*
@@ -465,7 +465,7 @@
 \w to|x-occurrence="1" x-occurrences="1"\w*
 \w use|x-occurrence="1" x-occurrences="1"\w*
 \w good|x-occurrence="1" x-occurrences="1"\w*
-\w sense|x-occurrence="1" x-occurrences="1"\w*. 
+\w sense|x-occurrence="1" x-occurrences="1"\w*.
 \v 7
 \w In|x-occurrence="1" x-occurrences="2"\w*
 \w all|x-occurrence="1" x-occurrences="1"\w*
@@ -483,7 +483,7 @@
 \w teaching|x-occurrence="1" x-occurrences="1"\w*,
 \w show|x-occurrence="1" x-occurrences="1"\w*
 \w integrity|x-occurrence="1" x-occurrences="1"\w*,
-\w dignity|x-occurrence="1" x-occurrences="1"\w*, 
+\w dignity|x-occurrence="1" x-occurrences="1"\w*,
 \v 8
 \w and|x-occurrence="1" x-occurrences="1"\w*
 \w a|x-occurrence="1" x-occurrences="1"\w*
@@ -506,7 +506,7 @@
 \w to|x-occurrence="1" x-occurrences="1"\w*
 \w say|x-occurrence="1" x-occurrences="1"\w*
 \w about|x-occurrence="1" x-occurrences="1"\w*
-\w us|x-occurrence="1" x-occurrences="1"\w*. 
+\w us|x-occurrence="1" x-occurrences="1"\w*.
 \v 9
 \w Teach|x-occurrence="1" x-occurrences="1"\w*
 \w slaves|x-occurrence="1" x-occurrences="1"\w*
@@ -523,7 +523,7 @@
 \w not|x-occurrence="1" x-occurrences="1"\w*
 \w argue|x-occurrence="1" x-occurrences="1"\w*
 \w with|x-occurrence="1" x-occurrences="1"\w*
-\w them|x-occurrence="2" x-occurrences="2"\w*, 
+\w them|x-occurrence="2" x-occurrences="2"\w*,
 \v 10
 \w to|x-occurrence="1" x-occurrences="3"\w*
 \w not|x-occurrence="1" x-occurrences="1"\w*
@@ -552,7 +552,7 @@
 \w about|x-occurrence="1" x-occurrences="1"\w*
 \w God|x-occurrence="1" x-occurrences="1"\w*
 \w our|x-occurrence="1" x-occurrences="1"\w*
-\w Savior|x-occurrence="1" x-occurrences="1"\w*. 
+\w Savior|x-occurrence="1" x-occurrences="1"\w*.
 \v 11
 \w For|x-occurrence="1" x-occurrences="1"\w*
 \w the|x-occurrence="1" x-occurrences="2"\w*
@@ -566,7 +566,7 @@
 \w salvation|x-occurrence="1" x-occurrences="1"\w*
 \w of|x-occurrence="2" x-occurrences="2"\w*
 \w all|x-occurrence="1" x-occurrences="1"\w*
-\w people|x-occurrence="1" x-occurrences="1"\w*. 
+\w people|x-occurrence="1" x-occurrences="1"\w*.
 \v 12
 \w It|x-occurrence="1" x-occurrences="1"\w*
 \w trains|x-occurrence="1" x-occurrences="1"\w*
@@ -588,7 +588,7 @@
 \w lives|x-occurrence="1" x-occurrences="1"\w*
 \w in|x-occurrence="1" x-occurrences="1"\w*
 \w this|x-occurrence="1" x-occurrences="1"\w*
-\w age|x-occurrence="1" x-occurrences="1"\w*, 
+\w age|x-occurrence="1" x-occurrences="1"\w*,
 \v 13
 \w while|x-occurrence="1" x-occurrences="1"\w*
 \w we|x-occurrence="1" x-occurrences="1"\w*
@@ -611,7 +611,7 @@
 \w and|x-occurrence="1" x-occurrences="1"\w*
 \w Savior|x-occurrence="1" x-occurrences="1"\w*
 \w Jesus|x-occurrence="1" x-occurrences="1"\w*
-\w Christ|x-occurrence="1" x-occurrences="1"\w*. 
+\w Christ|x-occurrence="1" x-occurrences="1"\w*.
 \v 14
 \w Jesus|x-occurrence="1" x-occurrences="1"\w*
 \w gave|x-occurrence="1" x-occurrences="1"\w*
@@ -641,7 +641,7 @@
 \w to|x-occurrence="3" x-occurrences="3"\w*
 \w do|x-occurrence="1" x-occurrences="1"\w*
 \w good|x-occurrence="1" x-occurrences="1"\w*
-\w works|x-occurrence="1" x-occurrences="1"\w*. 
+\w works|x-occurrence="1" x-occurrences="1"\w*.
 \v 15
 \w Speak|x-occurrence="1" x-occurrences="1"\w*
 \w of|x-occurrence="1" x-occurrences="1"\w*
@@ -682,7 +682,7 @@
 \w for|x-occurrence="1" x-occurrences="1"\w*
 \w every|x-occurrence="1" x-occurrences="1"\w*
 \w good|x-occurrence="1" x-occurrences="1"\w*
-\w work|x-occurrence="1" x-occurrences="1"\w*, 
+\w work|x-occurrence="1" x-occurrences="1"\w*,
 \v 2
 \w to|x-occurrence="1" x-occurrences="4"\w*
 \w revile|x-occurrence="1" x-occurrences="1"\w*
@@ -702,7 +702,7 @@
 \w all|x-occurrence="1" x-occurrences="1"\w*
 \w humility|x-occurrence="1" x-occurrences="1"\w*
 \w toward|x-occurrence="1" x-occurrences="1"\w*
-\w everyone|x-occurrence="1" x-occurrences="1"\w*. 
+\w everyone|x-occurrence="1" x-occurrences="1"\w*.
 \v 3
 \w For|x-occurrence="1" x-occurrences="1"\w*
 \w once|x-occurrence="1" x-occurrences="1"\w*
@@ -735,7 +735,7 @@
 \w and|x-occurrence="5" x-occurrences="5"\w*
 \w hated|x-occurrence="1" x-occurrences="1"\w*
 \w one|x-occurrence="1" x-occurrences="1"\w*
-\w another|x-occurrence="1" x-occurrences="1"\w*. 
+\w another|x-occurrence="1" x-occurrences="1"\w*.
 \v 4
 \w But|x-occurrence="1" x-occurrences="1"\w*
 \w when|x-occurrence="1" x-occurrences="1"\w*
@@ -750,7 +750,7 @@
 \w love|x-occurrence="1" x-occurrences="1"\w*
 \w for|x-occurrence="1" x-occurrences="1"\w*
 \w mankind|x-occurrence="1" x-occurrences="1"\w*
-\w appeared|x-occurrence="1" x-occurrences="1"\w*, 
+\w appeared|x-occurrence="1" x-occurrences="1"\w*,
 \v 5
 \w it|x-occurrence="1" x-occurrences="1"\w*
 \w was|x-occurrence="1" x-occurrences="1"\w*
@@ -784,7 +784,7 @@
 \w by|x-occurrence="3" x-occurrences="3"\w*
 \w the|x-occurrence="2" x-occurrences="2"\w*
 \w Holy|x-occurrence="1" x-occurrences="1"\w*
-\w Spirit|x-occurrence="1" x-occurrences="1"\w*. 
+\w Spirit|x-occurrence="1" x-occurrences="1"\w*.
 \v 6
 \w God|x-occurrence="1" x-occurrences="1"\w*
 \w richly|x-occurrence="1" x-occurrences="1"\w*
@@ -798,7 +798,7 @@
 \w our|x-occurrence="1" x-occurrences="1"\w*
 \w Savior|x-occurrence="1" x-occurrences="1"\w*
 \w Jesus|x-occurrence="1" x-occurrences="1"\w*
-\w Christ|x-occurrence="1" x-occurrences="1"\w*, 
+\w Christ|x-occurrence="1" x-occurrences="1"\w*,
 \v 7
 \w so|x-occurrence="1" x-occurrences="1"\w*
 \w that|x-occurrence="1" x-occurrences="1"\w*
@@ -818,7 +818,7 @@
 \w hope|x-occurrence="1" x-occurrences="1"\w*
 \w of|x-occurrence="1" x-occurrences="1"\w*
 \w eternal|x-occurrence="1" x-occurrences="1"\w*
-\w life|x-occurrence="1" x-occurrences="1"\w*. 
+\w life|x-occurrence="1" x-occurrences="1"\w*.
 \v 8
 \w This|x-occurrence="1" x-occurrences="1"\w*
 \w message|x-occurrence="1" x-occurrences="1"\w*
@@ -856,7 +856,7 @@
 \w and|x-occurrence="1" x-occurrences="1"\w*
 \w useful|x-occurrence="1" x-occurrences="1"\w*
 \w for|x-occurrence="1" x-occurrences="1"\w*
-\w everyone|x-occurrence="1" x-occurrences="1"\w*. 
+\w everyone|x-occurrence="1" x-occurrences="1"\w*.
 \v 9
 \w But|x-occurrence="1" x-occurrences="1"\w*
 \w avoid|x-occurrence="1" x-occurrences="1"\w*
@@ -876,7 +876,7 @@
 \w are|x-occurrence="1" x-occurrences="1"\w*
 \w unprofitable|x-occurrence="1" x-occurrences="1"\w*
 \w and|x-occurrence="4" x-occurrences="4"\w*
-\w worthless|x-occurrence="1" x-occurrences="1"\w*. 
+\w worthless|x-occurrence="1" x-occurrences="1"\w*.
 \v 10
 \w Reject|x-occurrence="1" x-occurrences="1"\w*
 \w anyone|x-occurrence="1" x-occurrences="1"\w*
@@ -890,7 +890,7 @@
 \w one|x-occurrence="1" x-occurrences="1"\w*
 \w or|x-occurrence="1" x-occurrences="1"\w*
 \w two|x-occurrence="1" x-occurrences="1"\w*
-\w warnings|x-occurrence="1" x-occurrences="1"\w*, 
+\w warnings|x-occurrence="1" x-occurrences="1"\w*,
 \v 11
 \w knowing|x-occurrence="1" x-occurrences="1"\w*
 \w that|x-occurrence="1" x-occurrences="1"\w*
@@ -908,7 +908,7 @@
 \w sinning|x-occurrence="1" x-occurrences="1"\w*
 \w and|x-occurrence="2" x-occurrences="2"\w*
 \w condemns|x-occurrence="1" x-occurrences="1"\w*
-\w himself|x-occurrence="1" x-occurrences="1"\w*. 
+\w himself|x-occurrence="1" x-occurrences="1"\w*.
 \v 12
 \w When|x-occurrence="1" x-occurrences="1"\w*
 \w I|x-occurrence="1" x-occurrences="2"\w*
@@ -932,7 +932,7 @@
 \w to|x-occurrence="3" x-occurrences="3"\w*
 \w spend|x-occurrence="1" x-occurrences="1"\w*
 \w the|x-occurrence="1" x-occurrences="1"\w*
-\w winter|x-occurrence="1" x-occurrences="1"\w*. 
+\w winter|x-occurrence="1" x-occurrences="1"\w*.
 \v 13
 \w Do|x-occurrence="1" x-occurrences="1"\w*
 \w everything|x-occurrence="1" x-occurrences="1"\w*
@@ -952,7 +952,7 @@
 \w that|x-occurrence="1" x-occurrences="1"\w*
 \w they|x-occurrence="1" x-occurrences="1"\w*
 \w lack|x-occurrence="1" x-occurrences="1"\w*
-\w nothing|x-occurrence="1" x-occurrences="1"\w*. 
+\w nothing|x-occurrence="1" x-occurrences="1"\w*.
 \v 14
 \w Our|x-occurrence="1" x-occurrences="1"\w*
 \w people|x-occurrence="1" x-occurrences="1"\w*
@@ -973,7 +973,7 @@
 \w so|x-occurrence="1" x-occurrences="1"\w*
 \w not|x-occurrence="1" x-occurrences="1"\w*
 \w be|x-occurrence="1" x-occurrences="1"\w*
-\w unfruitful|x-occurrence="1" x-occurrences="1"\w*. 
+\w unfruitful|x-occurrence="1" x-occurrences="1"\w*.
 \v 15
 \w All|x-occurrence="1" x-occurrences="1"\w*
 \w those|x-occurrence="1" x-occurrences="2"\w*

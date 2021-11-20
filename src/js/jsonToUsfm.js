@@ -292,14 +292,12 @@ const objectToString = (object, output, nextObject = null) => {
 
   if (object.type === 'text') {
     let text = object.text || '';
-    const hasParagraph_ = hasParagraph(text);
-    if (hasParagraph_) {
+    if (hasParagraph(text)) {
       // TODO: convert to JSON and back for clean up
-      console.log(text);
       const verseObjects = usfmToJSON('\\v 1 ' + text, {chunk: true});
-      const newText = jsonToUSFM(verseObjects).substr(5);
+      const newText = jsonToUSFM(verseObjects).substr(5); // convert back to text and string out verse marker
       if (newText !== text) {
-        console.log(`updated to ${newText}`);
+        console.log(`text updated to ${newText}`);
         text = newText;
       }
     }
@@ -325,24 +323,27 @@ const objectToString = (object, output, nextObject = null) => {
         object.text = '';
         if (object.nextChar === ' ') {
           checkAhead = true;
-          delete object.nextChar;
         }
       }
     } else if (object.nextChar === ' ') {
       checkAhead = true;
-      delete object.nextChar;
     }
     if (checkAhead) {
       // if next is text object, trim leading spaces
-      if (nextObject && nextObject.type === 'text') {
-        const text = (nextObject.text || '').trimLeft();
-        if (text) {
-          nextObject.text = text;
-        } else { // remove text object that is empty
-          delete nextObject.text;
-          delete nextObject.type;
-          nextObject = null;
+      if (nextObject) {
+        if (nextObject.type === 'text') {
+          const text = (nextObject.text || '').trimLeft();
+          if (text) {
+            nextObject.text = text;
+          } else { // remove text object that is empty
+            delete nextObject.text;
+            delete nextObject.type;
+            nextObject = null;
+            delete object.nextChar;
+          }
         }
+      } else {
+        delete object.nextChar;
       }
     }
   }

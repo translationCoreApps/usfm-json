@@ -4,6 +4,7 @@
  */
 
 import * as USFM from './USFM';
+import {usfmToJSON} from "./usfmToJson";
 
 let params_ = {};
 let wordMap_ = {};
@@ -242,6 +243,25 @@ const addPhrase = (text, output) => {
 };
 
 /**
+ * check if text contains a paragraph marker.  Imprecise check just to save time before doing more extensive checking.
+ * @param {string} text
+ * @return {boolean}
+ */
+function hasParagraph(text) {
+  let hasParagraph_ = false;
+  if (text.includes('\\')) { // check if USFM markers in text
+    const paragraphStarts = ['\\p', '\\m', '\\c', '\\n', '\\b'];
+    for (const mark of paragraphStarts) {
+      if (text.includes(mark)) {
+        hasParagraph_ = true;
+        break;
+      }
+    }
+  }
+  return hasParagraph_;
+}
+
+/**
  * @description converts object to string and appends to line
  * @param {string|array|object} object - marker to print
  * @param {string} output - marker to print
@@ -271,7 +291,19 @@ const objectToString = (object, output, nextObject = null) => {
   }
 
   if (object.type === 'text') {
-    return output + object.text;
+    let text = object.text || '';
+    const hasParagraph_ = hasParagraph(text);
+    if (hasParagraph_) {
+      // TODO: convert to JSON and back for clean up
+      console.log(text);
+      const verseObjects = usfmToJSON('\\v 1 ' + text, {chunk: true});
+      const newText = jsonToUSFM(verseObjects);
+      if (newText !== text) {
+        console.log(`updated to ${newText}`);
+        text = newText;
+      }
+    }
+    return output + text;
   }
 
   if (object.type === 'word') { // usfm word marker

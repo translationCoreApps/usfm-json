@@ -1116,6 +1116,22 @@
       "17": {
         "verseObjects": [
           {
+            "text": "I want you to know that what people have told you about Jesus is true.\n\n\\ts\\*\n\\p \n\\q",
+            "type": "text"
+          }
+        ]
+      },
+      "18": {
+        "verseObjects": [
+          {
+            "text": "I want you to know that what people have told you about Jesus is true.\n\n\\ts\\*\n\\p \\q stuff\n",
+            "type": "text"
+          }
+        ]
+      },
+      "19": {
+        "verseObjects": [
+          {
             "strong": "G25320",
             "lemma": "καί",
             "morph": "Gr,CC,,,,,,,,",

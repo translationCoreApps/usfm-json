@@ -297,7 +297,7 @@ const objectToString = (object, output, nextObject = null) => {
       // TODO: convert to JSON and back for clean up
       console.log(text);
       const verseObjects = usfmToJSON('\\v 1 ' + text, {chunk: true});
-      const newText = jsonToUSFM(verseObjects);
+      const newText = jsonToUSFM(verseObjects).substr(5);
       if (newText !== text) {
         console.log(`updated to ${newText}`);
         text = newText;

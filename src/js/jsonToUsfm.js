@@ -250,8 +250,8 @@ const addPhrase = (text, output) => {
  * @return {String} Text equivalent of marker appended to output.
  */
 const objectToString = (object, output, nextObject = null) => {
-  if (!object) {
-    return "";
+  if (!object || !Object.keys(object).length) {
+    return output; // do not add to output
   }
 
   output = output || "";
@@ -283,10 +283,35 @@ const objectToString = (object, output, nextObject = null) => {
     return output + generatePhrase(object, nextObject);
   }
   if (object.type === 'paragraph') {
+    let checkAhead = false; // if true need to check next object for leading text
     // paragraphs have no whitespace before a newline
-    if (object.text && object.text.endsWith('\n')) {
-      const text = object.text.substr(0, object.text.length - 1);
-      object.text = `${text.trimRight()}\n`;
+    if (object.text) {
+      if (object.text.endsWith('\n')) {
+        const text = object.text.substr(0, object.text.length - 1);
+        object.text = `${text.trimRight()}\n`;
+      } else if (object.text.trim() === '') {
+        object.text = '';
+        if (object.nextChar === ' ') {
+          checkAhead = true;
+          delete object.nextChar;
+        }
+      }
+    } else if (object.nextChar === ' ') {
+      checkAhead = true;
+      delete object.nextChar;
+    }
+    if (checkAhead) {
+      // if next is text object, trim leading spaces
+      if (nextObject && nextObject.type === 'text') {
+        const text = (nextObject.text || '').trimLeft();
+        if (text) {
+          nextObject.text = text;
+        } else { // remove text object that is empty
+          delete nextObject.text;
+          delete nextObject.type;
+          nextObject = null;
+        }
+      }
     }
   }
   if (object.tag) { // any other USFM marker tag
@@ -398,7 +423,12 @@ function makeSureEndsWithNewLine(lines) {
 function makeSureParagraphsAtEndHaveLineFeeds(verseObjects, lines) {
   if (verseObjects) {
     if (verseObjects.length > 0) {
-      const lastObject = verseObjects[verseObjects.length - 1];
+      let lastPos = verseObjects.length - 1;
+      // skip over empty objects
+      while ((lastPos > 0) && (!Object.keys(verseObjects[lastPos]).length)) {
+        lastPos--;
+      }
+      const lastObject = verseObjects[lastPos];
       if (lastObject && (lastObject.type === 'paragraph') && !(lastObject.text && lastObject.text.trim())) {
         makeSureEndsWithNewLine(lines);
       } else if (lastObject.children) {

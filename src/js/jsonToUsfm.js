@@ -4,6 +4,7 @@
  */
 
 import * as USFM from './USFM';
+import {usfmToJSON} from "./usfmToJson";
 
 let params_ = {};
 let wordMap_ = {};
@@ -242,6 +243,25 @@ const addPhrase = (text, output) => {
 };
 
 /**
+ * check if text contains a paragraph marker.  Imprecise check just to save time before doing more extensive checking.
+ * @param {string} text
+ * @return {boolean}
+ */
+function hasParagraph(text) {
+  let hasParagraph_ = false;
+  if (text.includes('\\')) { // check if USFM markers in text
+    const paragraphStarts = ['\\p', '\\m', '\\c', '\\n', '\\b'];
+    for (const mark of paragraphStarts) { // check for paragraph markers
+      if (text.includes(mark)) {
+        hasParagraph_ = true;
+        break;
+      }
+    }
+  }
+  return hasParagraph_;
+}
+
+/**
  * @description converts object to string and appends to line
  * @param {string|array|object} object - marker to print
  * @param {string} output - marker to print
@@ -250,8 +270,8 @@ const addPhrase = (text, output) => {
  * @return {String} Text equivalent of marker appended to output.
  */
 const objectToString = (object, output, nextObject = null) => {
-  if (!object) {
-    return "";
+  if (!object || !Object.keys(object).length) {
+    return output; // do not add to output
   }
 
   output = output || "";
@@ -271,7 +291,17 @@ const objectToString = (object, output, nextObject = null) => {
   }
 
   if (object.type === 'text') {
-    return output + object.text;
+    let text = object.text || '';
+    if (hasParagraph(text)) {
+      // TODO: convert to JSON and back for clean up
+      const verseObjects = usfmToJSON('\\v 1 ' + text, {chunk: true});
+      const newText = jsonToUSFM(verseObjects).substr(5); // convert back to text and string out verse marker
+      if (newText !== text) {
+        console.log(`text updated to ${newText}`);
+        text = newText;
+      }
+    }
+    return output + text;
   }
 
   if (object.type === 'word') { // usfm word marker
@@ -283,10 +313,39 @@ const objectToString = (object, output, nextObject = null) => {
     return output + generatePhrase(object, nextObject);
   }
   if (object.type === 'paragraph') {
+    let checkAhead = false; // if true need to check next object for leading text
     // paragraphs have no whitespace before a newline
-    if (object.text && object.text.endsWith('\n')) {
-      const text = object.text.substr(0, object.text.length - 1);
-      object.text = `${text.trimRight()}\n`;
+    if (object.text) {
+      if (object.text.endsWith('\n')) {
+        const text = object.text.substr(0, object.text.length - 1);
+        object.text = `${text.trimRight()}\n`;
+      } else if (object.text.trim() === '') {
+        object.text = '';
+        if (object.nextChar === ' ') {
+          checkAhead = true;
+        }
+      }
+    } else if (object.nextChar === ' ') {
+      checkAhead = true;
+    }
+    if (checkAhead) {
+      // if next is text object, trim leading spaces
+      if (nextObject) {
+        if (nextObject.type === 'text') {
+          const text = (nextObject.text || '').trimLeft();
+          if (text) {
+            nextObject.text = text;
+          } else { // remove text object that is empty
+            delete nextObject.text;
+            delete nextObject.type;
+            nextObject = null;
+            delete object.nextChar;
+          }
+        }
+      } else if (object.nextChar === ' ') {
+        // if end of verse, remove space after paragraph
+        delete object.nextChar;
+      }
     }
   }
   if (object.tag) { // any other USFM marker tag
@@ -398,7 +457,12 @@ function makeSureEndsWithNewLine(lines) {
 function makeSureParagraphsAtEndHaveLineFeeds(verseObjects, lines) {
   if (verseObjects) {
     if (verseObjects.length > 0) {
-      const lastObject = verseObjects[verseObjects.length - 1];
+      let lastPos = verseObjects.length - 1;
+      // skip over empty objects
+      while ((lastPos > 0) && (!Object.keys(verseObjects[lastPos]).length)) {
+        lastPos--;
+      }
+      const lastObject = verseObjects[lastPos];
       if (lastObject && (lastObject.type === 'paragraph') && !(lastObject.text && lastObject.text.trim())) {
         makeSureEndsWithNewLine(lines);
       } else if (lastObject.children) {

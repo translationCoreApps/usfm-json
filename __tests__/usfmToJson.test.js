@@ -324,7 +324,9 @@ describe("USFM to JSON", () => {
   });
 
   it('process usfm-body-testF-paragraph-whitespace', () => {
-    generateTest('usfm-body-testF-paragraph-whitespace', {}, 'usfm-body-testF');
+    generateTest('usfm-body-testF-paragraph-whitespace',
+  {convertToInt: ["occurrence", "occurrences"], words: true},
+  'usfm-body-testF-paragraph-no-whitespace');
   });
 
   it('process hebrew_words', () => {

@@ -251,7 +251,7 @@ function hasParagraph(text) {
   let hasParagraph_ = false;
   if (text.includes('\\')) { // check if USFM markers in text
     const paragraphStarts = ['\\p', '\\m', '\\c', '\\n', '\\b'];
-    for (const mark of paragraphStarts) {
+    for (const mark of paragraphStarts) { // check for paragraph markers
       if (text.includes(mark)) {
         hasParagraph_ = true;
         break;

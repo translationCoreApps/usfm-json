@@ -342,7 +342,8 @@ const objectToString = (object, output, nextObject = null) => {
             delete object.nextChar;
           }
         }
-      } else {
+      } else if (object.nextChar === ' ') {
+        // if end of verse, remove space after paragraph
         delete object.nextChar;
       }
     }

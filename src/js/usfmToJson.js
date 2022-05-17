@@ -1503,6 +1503,11 @@ export const usfmToJSON = (usfm, params = {}) => {
             saveUsfmObject(state, marker);
           } else if (marker.nextChar && (marker.nextChar !== ' ')) {
             pushObject(state, null, marker.nextChar);
+          } else if (marker.nextChar) { // next char is space
+            const nextMarker = markers[i+1];
+            if (nextMarker && !nextMarker.tag && nextMarker.content && nextMarker.content[0] !== ' ') { // see if space is not part of following text block
+              pushObject(state, null, marker.nextChar);
+            }
           }
         }
         break;

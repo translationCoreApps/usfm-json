@@ -348,6 +348,11 @@ describe("USFM to JSON", () => {
       'acts_1_11.aligned');
   });
 
+  it('process hebrew punctuation exo_7:19', () => {
+    generateTest('exo_7-19_punctuation_spacing',
+      {convertToInt: ["occurrence", "occurrences"], words: true, chunk: true});
+  });
+
   it('process exported 57-TIT.greek', () => {
     generateTest('57-TIT.greek',
       {convertToInt: ["occurrence", "occurrences"], words: true});

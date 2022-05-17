@@ -195,6 +195,10 @@ describe("JSON to USFM", () => {
     generateTest('acts_1_11.aligned', {words: true});
   });
 
+  it('process hebrew punctuation exo_7:19', () => {
+    generateTest('exo_7-19_punctuation_spacing', {words: true, chunk: true});
+  });
+
   it('process 57-TIT.greek', () => {
     generateTest('57-TIT.greek', {words: true});
   });

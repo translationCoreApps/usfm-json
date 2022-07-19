@@ -12,7 +12,8 @@ const RESOURCES = '__tests__/resources';
  */
 export const readUSFM = filePath => {
   const fullPath = path.join(RESOURCES, filePath);
-  return fs.readFileSync(fullPath, 'UTF-8').toString();
+  const data = fs.readFileSync(fullPath, 'UTF-8');
+  return data.toString();
 };
 
 /**
@@ -20,7 +21,11 @@ export const readUSFM = filePath => {
  * @param {string} filePath relative path to json file
  * @return {object} json object
  */
-export const readJSON = filePath => JSON.parse(readUSFM(filePath));
+export const readJSON = filePath => {
+  const text = readUSFM(filePath);
+  const json = JSON.parse(text);
+  return json;
+};
 
 // TRICKY: ignore as test suite
 it('provides test utilities', ()=>{});

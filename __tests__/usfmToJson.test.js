@@ -40,6 +40,10 @@ describe("USFM to JSON", () => {
     ]);
   });
 
+  it('converts usfm with BOM to json', () => {
+    generateTest('misc/RU-EST-UTF8_BOM');
+  });
+
   it('converts usfm to json', () => {
     generateTest('valid');
   });

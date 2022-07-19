@@ -1397,6 +1397,20 @@ export const getAlignmentFormat = (usfm, state) => {
 };
 
 /**
+ * check if first character is BOM, and if so then remove it
+ * @param {string} usfm
+ * @return {string}
+ */
+function removeBOM(usfm) {
+  const firstChar = usfm[0];
+  const BOM = '\uFEFF';
+  if (firstChar === BOM) {
+    usfm = usfm.substr(1);
+  }
+  return usfm;
+}
+
+/**
  * @description - Parses the usfm string and returns an object
  * @param {String} usfm - the raw usfm string
  * @param {Object} params - extra params to use for chunk parsing. Properties:
@@ -1406,6 +1420,7 @@ export const getAlignmentFormat = (usfm, state) => {
  * @return {Object} - json object that holds the parsed usfm data, headers and chapters
 */
 export const usfmToJSON = (usfm, params = {}) => {
+  usfm = removeBOM(usfm);
   const lines = usfm.split(/\r?\n/); // get all the lines
   const usfmJSON = {};
   const markers = [];

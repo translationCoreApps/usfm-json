@@ -1398,17 +1398,17 @@ export const getAlignmentFormat = (usfm, state) => {
 
 /**
  * check if first character is BOM, and if so then remove it
- * @param {string} usfm
+ * @param {string} text
  * @return {string}
  */
-function removeBOM(usfm) {
-  const firstChar = usfm[0];
+function removeBOM(text) {
+  const firstChar = text[0];
   const BOM = '\uFEFF';
   const BOM2 = '\uFFFE';
   if ((firstChar === BOM) || (firstChar === BOM2)) {
-    usfm = usfm.substr(1);
+    text = text.substr(1);
   }
-  return usfm;
+  return text;
 }
 
 /**

@@ -1,0 +1,1249 @@
+{
+  "chapters": {
+    "1": {
+      "1": {
+        "verseObjects": [
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "И",
+                "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
+              },
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "было",
+                "type": "word"
+              }
+            ],
+            "content": "וַ⁠יְהִ֖י",
+            "endTag": "zaln-e\\*",
+            "lemma": "הָיָה",
+            "morph": "He,C:Vqw3ms",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "c:H1961",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "во",
+                "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
+              },
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "дни",
+                "type": "word"
+              }
+            ],
+            "content": "בִּ⁠ימֵ֣י",
+            "endTag": "zaln-e\\*",
+            "lemma": "יוֹם",
+            "morph": "He,R:Ncmpc",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "b:H3117",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "Артаксеркса",
+                "type": "word"
+              }
+            ],
+            "content": "אֲחַשְׁוֵר֑וֹשׁ",
+            "endTag": "zaln-e\\*",
+            "lemma": "אֲחַשְׁוֵרוֹשׁ",
+            "morph": "He,Np",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "H0325",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": ": ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "он",
+                "type": "word"
+              }
+            ],
+            "content": "ה֣וּא",
+            "endTag": "zaln-e\\*",
+            "lemma": "הוּא",
+            "morph": "He,Pp3ms",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "H1931",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": ", ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "Артаксеркс",
+                "type": "word"
+              }
+            ],
+            "content": "אֲחַשְׁוֵר֗וֹשׁ",
+            "endTag": "zaln-e\\*",
+            "lemma": "אֲחַשְׁוֵרוֹשׁ",
+            "morph": "He,Np",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "H0325",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": ", ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "царствовал",
+                "type": "word"
+              }
+            ],
+            "content": "הַ⁠מֹּלֵךְ֙",
+            "endTag": "zaln-e\\*",
+            "lemma": "מָלַךְ",
+            "morph": "He,Td:Vqrmsa",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "d:H4427a",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "от",
+                "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
+              },
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "Индии",
+                "type": "word"
+              }
+            ],
+            "content": "מֵ⁠הֹ֣דּוּ",
+            "endTag": "zaln-e\\*",
+            "lemma": "הֹדוּ",
+            "morph": "He,R:Np",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "m:H1912",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "и",
+                "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
+              },
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "до",
+                "type": "word"
+              }
+            ],
+            "content": "וְ⁠עַד",
+            "endTag": "zaln-e\\*",
+            "lemma": "עַד",
+            "morph": "He,C:R",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "c:H5704",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "Ефиопии",
+                "type": "word"
+              }
+            ],
+            "content": "כּ֔וּשׁ",
+            "endTag": "zaln-e\\*",
+            "lemma": "כּוּשׁ",
+            "morph": "He,Np",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "H3568a",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "над",
+                "type": "word"
+              }
+            ],
+            "content": "מְדִינָֽה",
+            "endTag": "zaln-e\\*",
+            "lemma": "מְדִינָה",
+            "morph": "He,Ncfsa",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "H4082",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "ста",
+                "type": "word"
+              }
+            ],
+            "content": "וּ⁠מֵאָ֖ה",
+            "endTag": "zaln-e\\*",
+            "lemma": "מֵאָה",
+            "morph": "He,C:Acbsa",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "c:H3967",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "двадцатью",
+                "type": "word"
+              }
+            ],
+            "content": "וְ⁠עֶשְׂרִ֥ים",
+            "endTag": "zaln-e\\*",
+            "lemma": "עֶשְׂרִים",
+            "morph": "He,C:Acbpa",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "c:H6242",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "семью",
+                "type": "word"
+              }
+            ],
+            "content": "שֶׁ֛בַע",
+            "endTag": "zaln-e\\*",
+            "lemma": "שֶׁבַע",
+            "morph": "He,Acfsa",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "H7651",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "областями",
+                "type": "word"
+              }
+            ],
+            "content": "מְדִינָֽה",
+            "endTag": "zaln-e\\*",
+            "lemma": "מְדִינָה",
+            "morph": "He,Ncfsa",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "H4082",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": ", — \n",
+            "type": "text"
+          }
+        ]
+      },
+      "2": {
+        "verseObjects": [
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "2",
+                "tag": "w",
+                "text": "в",
+                "type": "word"
+              }
+            ],
+            "content": "בַּ⁠יָּמִ֖ים",
+            "endTag": "zaln-e\\*",
+            "lemma": "יוֹם",
+            "morph": "He,Rd:Ncmpa",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "b:H3117",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "те",
+                "type": "word"
+              }
+            ],
+            "content": "הָ⁠הֵ֑ם",
+            "endTag": "zaln-e\\*",
+            "lemma": "הֵם",
+            "morph": "He,Td:Pp3mp",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "d:H1992",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "дни",
+                "type": "word"
+              }
+            ],
+            "content": "בַּ⁠יָּמִ֖ים",
+            "endTag": "zaln-e\\*",
+            "lemma": "יוֹם",
+            "morph": "He,Rd:Ncmpa",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "b:H3117",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": ", ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "когда",
+                "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
+              },
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "сидел",
+                "type": "word"
+              }
+            ],
+            "content": "כְּ⁠שֶׁ֣בֶת",
+            "endTag": "zaln-e\\*",
+            "lemma": "יָשַׁב",
+            "morph": "He,R:Vqc",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "k:H3427",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "царь",
+                "type": "word"
+              }
+            ],
+            "content": "הַ⁠מֶּ֣לֶךְ",
+            "endTag": "zaln-e\\*",
+            "lemma": "מֶלֶךְ",
+            "morph": "He,Td:Ncmsa",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "d:H4428",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "Артаксеркс",
+                "type": "word"
+              }
+            ],
+            "content": "אֲחַשְׁוֵר֗וֹשׁ",
+            "endTag": "zaln-e\\*",
+            "lemma": "אֲחַשְׁוֵרוֹשׁ",
+            "morph": "He,Np",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "H0325",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "на",
+                "type": "word"
+              }
+            ],
+            "content": "עַ֚ל",
+            "endTag": "zaln-e\\*",
+            "lemma": "עַל",
+            "morph": "He,R",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "H5921a",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "троне",
+                "type": "word"
+              }
+            ],
+            "content": "כִּסֵּ֣א",
+            "endTag": "zaln-e\\*",
+            "lemma": "כִּסֵּא",
+            "morph": "He,Ncmsc",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "H3678",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "своего",
+                "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
+              },
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "царства",
+                "type": "word"
+              }
+            ],
+            "content": "מַלְכוּת֔⁠וֹ",
+            "endTag": "zaln-e\\*",
+            "lemma": "מַלְכוּת",
+            "morph": "He,Ncfsc:Sp3ms",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "H4438",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": ", ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "который",
+                "type": "word"
+              }
+            ],
+            "content": "אֲשֶׁ֖ר",
+            "endTag": "zaln-e\\*",
+            "lemma": "אֲשֶׁר",
+            "morph": "He,Tr",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "H0834a",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "2",
+                "occurrences": "2",
+                "tag": "w",
+                "text": "в",
+                "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
+              },
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "Сузах",
+                "type": "word"
+              }
+            ],
+            "content": "בְּ⁠שׁוּשַׁ֥ן",
+            "endTag": "zaln-e\\*",
+            "lemma": "שׁוּשַׁן",
+            "morph": "He,R:Np",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "b:H7800",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": ", ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "крепости",
+                "type": "word"
+              }
+            ],
+            "content": "הַ⁠בִּירָֽה",
+            "endTag": "zaln-e\\*",
+            "lemma": "בִּירָה",
+            "morph": "He,Td:Ncfsa",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "d:H1002",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": ", \n",
+            "type": "text"
+          }
+        ]
+      },
+      "3": {
+        "verseObjects": [
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "на",
+                "type": "word"
+              }
+            ],
+            "content": "בִּ⁠שְׁנַ֤ת",
+            "endTag": "zaln-e\\*",
+            "lemma": "שָׁנֶה",
+            "morph": "He,R:Ncfsc",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "b:H8141",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "третий",
+                "type": "word"
+              }
+            ],
+            "content": "שָׁלוֹשׁ֙",
+            "endTag": "zaln-e\\*",
+            "lemma": "שָׁלוֹשׁ",
+            "morph": "He,Acfsa",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "H7969",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "год",
+                "type": "word"
+              }
+            ],
+            "content": "בִּ⁠שְׁנַ֤ת",
+            "endTag": "zaln-e\\*",
+            "lemma": "שָׁנֶה",
+            "morph": "He,R:Ncfsc",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "b:H8141",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "своего",
+                "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
+              },
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "царствования",
+                "type": "word"
+              }
+            ],
+            "content": "לְ⁠מָלְכ֔⁠וֹ",
+            "endTag": "zaln-e\\*",
+            "lemma": "מָלַךְ",
+            "morph": "He,R:Vqc:Sp3ms",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "l:H4427a",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "он",
+                "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
+              },
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "сделал",
+                "type": "word"
+              }
+            ],
+            "content": "עָשָׂ֣ה",
+            "endTag": "zaln-e\\*",
+            "lemma": "עָשָׂה",
+            "morph": "He,Vqp3ms",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "H6213a",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "пир",
+                "type": "word"
+              }
+            ],
+            "content": "מִשְׁתֶּ֔ה",
+            "endTag": "zaln-e\\*",
+            "lemma": "מִשְׁתֶּה",
+            "morph": "He,Ncmsa",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "H4960",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "для",
+                "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
+              },
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "всех",
+                "type": "word"
+              }
+            ],
+            "content": "לְ⁠כָל",
+            "endTag": "zaln-e\\*",
+            "lemma": "כֹּל",
+            "morph": "He,R:Ncmsc",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "l:H3605",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "своих",
+                "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
+              },
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "правителей",
+                "type": "word"
+              }
+            ],
+            "content": "שָׂרָ֖י⁠ו",
+            "endTag": "zaln-e\\*",
+            "lemma": "שַׂר",
+            "morph": "He,Ncmpc:Sp3ms",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "H8269",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "3",
+                "tag": "w",
+                "text": "и",
+                "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
+              },
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "слуг",
+                "type": "word"
+              }
+            ],
+            "content": "וַ⁠עֲבָדָ֑י⁠ו",
+            "endTag": "zaln-e\\*",
+            "lemma": "עֶבֶד",
+            "morph": "He,C:Ncmpc:Sp3ms",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "c:H5650",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": "; ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "войско",
+                "type": "word"
+              }
+            ],
+            "content": "חֵ֣יל",
+            "endTag": "zaln-e\\*",
+            "lemma": "חַיִל",
+            "morph": "He,Ncmsc",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "H2428",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "Персии",
+                "type": "word"
+              }
+            ],
+            "content": "פָּרַ֣ס",
+            "endTag": "zaln-e\\*",
+            "lemma": "פָּרַס",
+            "morph": "He,Np",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "H6539",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "2",
+                "occurrences": "3",
+                "tag": "w",
+                "text": "и",
+                "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
+              },
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "Мидии",
+                "type": "word"
+              }
+            ],
+            "content": "וּ⁠מָדַ֗י",
+            "endTag": "zaln-e\\*",
+            "lemma": "מָדַי",
+            "morph": "He,C:Np",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "c:H4074",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": ", ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "сановники",
+                "type": "word"
+              }
+            ],
+            "content": "הַֽ⁠פַּרְתְּמִ֛ים",
+            "endTag": "zaln-e\\*",
+            "lemma": "פַּרְתַּם",
+            "morph": "He,Td:Ncmpa",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "d:H6579",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "3",
+                "occurrences": "3",
+                "tag": "w",
+                "text": "и",
+                "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
+              },
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "правители",
+                "type": "word"
+              }
+            ],
+            "content": "וְ⁠שָׂרֵ֥י",
+            "endTag": "zaln-e\\*",
+            "lemma": "שַׂר",
+            "morph": "He,C:Ncmpc",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "c:H8269",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "областей",
+                "type": "word"
+              }
+            ],
+            "content": "הַ⁠מְּדִינ֖וֹת",
+            "endTag": "zaln-e\\*",
+            "lemma": "מְדִינָה",
+            "morph": "He,Td:Ncfpa",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "d:H4082",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "children": [
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "были",
+                "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
+              },
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "перед",
+                "type": "word"
+              },
+              {
+                "text": " ",
+                "type": "text"
+              },
+              {
+                "occurrence": "1",
+                "occurrences": "1",
+                "tag": "w",
+                "text": "ним",
+                "type": "word"
+              }
+            ],
+            "content": "לְ⁠פָנָֽי⁠ו",
+            "endTag": "zaln-e\\*",
+            "lemma": "פָּנִים",
+            "morph": "He,R:Ncbpc:Sp3ms",
+            "occurrence": "1",
+            "occurrences": "1",
+            "strong": "l:H6440",
+            "tag": "zaln",
+            "type": "milestone"
+          },
+          {
+            "text": ", \n",
+            "type": "text"
+          }
+        ]
+      },
+      "front": {
+        "verseObjects": [
+          {
+            "nextChar": "\n",
+            "tag": "p",
+            "type": "paragraph"
+          }
+        ]
+      }
+    }
+  },
+  "headers": [
+    {
+      "content": "EST RU_RLOB ru_Русский_ltr Russian Literal Open Bible Wed Nov 24 2021 15:17:40 GMT+0200 (Восточная Европа, летнее время) tc",
+      "tag": "id"
+    },
+    {
+      "content": "3.0",
+      "tag": "usfm"
+    },
+    {
+      "content": "UTF-8",
+      "tag": "ide"
+    },
+    {
+      "content": "Есфирь",
+      "tag": "h"
+    },
+    {
+      "content": "Книга Есфири",
+      "tag": "toc1"
+    },
+    {
+      "content": "Есфирь",
+      "tag": "toc2"
+    },
+    {
+      "content": "Est",
+      "tag": "toc3"
+    },
+    {
+      "content": "Есфирь",
+      "tag": "mt"
+    },
+    {
+      "content": "Глава",
+      "tag": "cl"
+    }
+  ]
+}

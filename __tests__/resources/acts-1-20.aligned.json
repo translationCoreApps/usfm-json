@@ -732,7 +732,7 @@
             "type": "text"
           },
           {
-            "content": " \n",
+            "nextChar": "\n",
             "tag": "s5",
             "type": "section"
           }

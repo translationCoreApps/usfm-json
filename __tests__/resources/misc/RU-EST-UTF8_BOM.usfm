@@ -1,0 +1,69 @@
+﻿\id EST RU_RLOB ru_Русский_ltr Russian Literal Open Bible Wed Nov 24 2021 15:17:40 GMT+0200 (Восточная Европа, летнее время) tc
+\usfm 3.0
+\ide UTF-8
+\h Есфирь
+\toc1 Книга Есфири
+\toc2 Есфирь
+\toc3 Est
+\mt Есфирь
+\cl Глава
+\c 1
+\p
+\v 1 \zaln-s | x-strong="c:H1961" x-lemma="הָיָה" x-morph="He,C:Vqw3ms" x-occurrence="1" x-occurrences="1" x-content="וַ⁠יְהִ֖י"\*\w И|x-occurrence="1" x-occurrences="1"\w*
+\w было|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="b:H3117" x-lemma="יוֹם" x-morph="He,R:Ncmpc" x-occurrence="1" x-occurrences="1" x-content="בִּ⁠ימֵ֣י"\*\w во|x-occurrence="1" x-occurrences="1"\w*
+\w дни|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="H0325" x-lemma="אֲחַשְׁוֵרוֹשׁ" x-morph="He,Np" x-occurrence="1" x-occurrences="1" x-content="אֲחַשְׁוֵר֑וֹשׁ"\*\w Артаксеркса|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*:
+\zaln-s | x-strong="H1931" x-lemma="הוּא" x-morph="He,Pp3ms" x-occurrence="1" x-occurrences="1" x-content="ה֣וּא"\*\w он|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*,
+\zaln-s | x-strong="H0325" x-lemma="אֲחַשְׁוֵרוֹשׁ" x-morph="He,Np" x-occurrence="1" x-occurrences="1" x-content="אֲחַשְׁוֵר֗וֹשׁ"\*\w Артаксеркс|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*,
+\zaln-s | x-strong="d:H4427a" x-lemma="מָלַךְ" x-morph="He,Td:Vqrmsa" x-occurrence="1" x-occurrences="1" x-content="הַ⁠מֹּלֵךְ֙"\*\w царствовал|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="m:H1912" x-lemma="הֹדוּ" x-morph="He,R:Np" x-occurrence="1" x-occurrences="1" x-content="מֵ⁠הֹ֣דּוּ"\*\w от|x-occurrence="1" x-occurrences="1"\w*
+\w Индии|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="c:H5704" x-lemma="עַד" x-morph="He,C:R" x-occurrence="1" x-occurrences="1" x-content="וְ⁠עַד"\*\w и|x-occurrence="1" x-occurrences="1"\w*
+\w до|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="H3568a" x-lemma="כּוּשׁ" x-morph="He,Np" x-occurrence="1" x-occurrences="1" x-content="כּ֔וּשׁ"\*\w Ефиопии|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="H4082" x-lemma="מְדִינָה" x-morph="He,Ncfsa" x-occurrence="1" x-occurrences="1" x-content="מְדִינָֽה"\*\w над|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="c:H3967" x-lemma="מֵאָה" x-morph="He,C:Acbsa" x-occurrence="1" x-occurrences="1" x-content="וּ⁠מֵאָ֖ה"\*\w ста|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="c:H6242" x-lemma="עֶשְׂרִים" x-morph="He,C:Acbpa" x-occurrence="1" x-occurrences="1" x-content="וְ⁠עֶשְׂרִ֥ים"\*\w двадцатью|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="H7651" x-lemma="שֶׁבַע" x-morph="He,Acfsa" x-occurrence="1" x-occurrences="1" x-content="שֶׁ֛בַע"\*\w семью|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="H4082" x-lemma="מְדִינָה" x-morph="He,Ncfsa" x-occurrence="1" x-occurrences="1" x-content="מְדִינָֽה"\*\w областями|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*, — 
+\v 2 \zaln-s | x-strong="b:H3117" x-lemma="יוֹם" x-morph="He,Rd:Ncmpa" x-occurrence="1" x-occurrences="1" x-content="בַּ⁠יָּמִ֖ים"\*\w в|x-occurrence="1" x-occurrences="2"\w*\zaln-e\*
+\zaln-s | x-strong="d:H1992" x-lemma="הֵם" x-morph="He,Td:Pp3mp" x-occurrence="1" x-occurrences="1" x-content="הָ⁠הֵ֑ם"\*\w те|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="b:H3117" x-lemma="יוֹם" x-morph="He,Rd:Ncmpa" x-occurrence="1" x-occurrences="1" x-content="בַּ⁠יָּמִ֖ים"\*\w дни|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*,
+\zaln-s | x-strong="k:H3427" x-lemma="יָשַׁב" x-morph="He,R:Vqc" x-occurrence="1" x-occurrences="1" x-content="כְּ⁠שֶׁ֣בֶת"\*\w когда|x-occurrence="1" x-occurrences="1"\w*
+\w сидел|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="d:H4428" x-lemma="מֶלֶךְ" x-morph="He,Td:Ncmsa" x-occurrence="1" x-occurrences="1" x-content="הַ⁠מֶּ֣לֶךְ"\*\w царь|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="H0325" x-lemma="אֲחַשְׁוֵרוֹשׁ" x-morph="He,Np" x-occurrence="1" x-occurrences="1" x-content="אֲחַשְׁוֵר֗וֹשׁ"\*\w Артаксеркс|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="H5921a" x-lemma="עַל" x-morph="He,R" x-occurrence="1" x-occurrences="1" x-content="עַ֚ל"\*\w на|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="H3678" x-lemma="כִּסֵּא" x-morph="He,Ncmsc" x-occurrence="1" x-occurrences="1" x-content="כִּסֵּ֣א"\*\w троне|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="H4438" x-lemma="מַלְכוּת" x-morph="He,Ncfsc:Sp3ms" x-occurrence="1" x-occurrences="1" x-content="מַלְכוּת֔⁠וֹ"\*\w своего|x-occurrence="1" x-occurrences="1"\w*
+\w царства|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*,
+\zaln-s | x-strong="H0834a" x-lemma="אֲשֶׁר" x-morph="He,Tr" x-occurrence="1" x-occurrences="1" x-content="אֲשֶׁ֖ר"\*\w который|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="b:H7800" x-lemma="שׁוּשַׁן" x-morph="He,R:Np" x-occurrence="1" x-occurrences="1" x-content="בְּ⁠שׁוּשַׁ֥ן"\*\w в|x-occurrence="2" x-occurrences="2"\w*
+\w Сузах|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*,
+\zaln-s | x-strong="d:H1002" x-lemma="בִּירָה" x-morph="He,Td:Ncfsa" x-occurrence="1" x-occurrences="1" x-content="הַ⁠בִּירָֽה"\*\w крепости|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*, 
+\v 3 \zaln-s | x-strong="b:H8141" x-lemma="שָׁנֶה" x-morph="He,R:Ncfsc" x-occurrence="1" x-occurrences="1" x-content="בִּ⁠שְׁנַ֤ת"\*\w на|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="H7969" x-lemma="שָׁלוֹשׁ" x-morph="He,Acfsa" x-occurrence="1" x-occurrences="1" x-content="שָׁלוֹשׁ֙"\*\w третий|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="b:H8141" x-lemma="שָׁנֶה" x-morph="He,R:Ncfsc" x-occurrence="1" x-occurrences="1" x-content="בִּ⁠שְׁנַ֤ת"\*\w год|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="l:H4427a" x-lemma="מָלַךְ" x-morph="He,R:Vqc:Sp3ms" x-occurrence="1" x-occurrences="1" x-content="לְ⁠מָלְכ֔⁠וֹ"\*\w своего|x-occurrence="1" x-occurrences="1"\w*
+\w царствования|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="H6213a" x-lemma="עָשָׂה" x-morph="He,Vqp3ms" x-occurrence="1" x-occurrences="1" x-content="עָשָׂ֣ה"\*\w он|x-occurrence="1" x-occurrences="1"\w*
+\w сделал|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="H4960" x-lemma="מִשְׁתֶּה" x-morph="He,Ncmsa" x-occurrence="1" x-occurrences="1" x-content="מִשְׁתֶּ֔ה"\*\w пир|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="l:H3605" x-lemma="כֹּל" x-morph="He,R:Ncmsc" x-occurrence="1" x-occurrences="1" x-content="לְ⁠כָל"\*\w для|x-occurrence="1" x-occurrences="1"\w*
+\w всех|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="H8269" x-lemma="שַׂר" x-morph="He,Ncmpc:Sp3ms" x-occurrence="1" x-occurrences="1" x-content="שָׂרָ֖י⁠ו"\*\w своих|x-occurrence="1" x-occurrences="1"\w*
+\w правителей|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="c:H5650" x-lemma="עֶבֶד" x-morph="He,C:Ncmpc:Sp3ms" x-occurrence="1" x-occurrences="1" x-content="וַ⁠עֲבָדָ֑י⁠ו"\*\w и|x-occurrence="1" x-occurrences="3"\w*
+\w слуг|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*;
+\zaln-s | x-strong="H2428" x-lemma="חַיִל" x-morph="He,Ncmsc" x-occurrence="1" x-occurrences="1" x-content="חֵ֣יל"\*\w войско|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="H6539" x-lemma="פָּרַס" x-morph="He,Np" x-occurrence="1" x-occurrences="1" x-content="פָּרַ֣ס"\*\w Персии|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="c:H4074" x-lemma="מָדַי" x-morph="He,C:Np" x-occurrence="1" x-occurrences="1" x-content="וּ⁠מָדַ֗י"\*\w и|x-occurrence="2" x-occurrences="3"\w*
+\w Мидии|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*,
+\zaln-s | x-strong="d:H6579" x-lemma="פַּרְתַּם" x-morph="He,Td:Ncmpa" x-occurrence="1" x-occurrences="1" x-content="הַֽ⁠פַּרְתְּמִ֛ים"\*\w сановники|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="c:H8269" x-lemma="שַׂר" x-morph="He,C:Ncmpc" x-occurrence="1" x-occurrences="1" x-content="וְ⁠שָׂרֵ֥י"\*\w и|x-occurrence="3" x-occurrences="3"\w*
+\w правители|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="d:H4082" x-lemma="מְדִינָה" x-morph="He,Td:Ncfpa" x-occurrence="1" x-occurrences="1" x-content="הַ⁠מְּדִינ֖וֹת"\*\w областей|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s | x-strong="l:H6440" x-lemma="פָּנִים" x-morph="He,R:Ncbpc:Sp3ms" x-occurrence="1" x-occurrences="1" x-content="לְ⁠פָנָֽי⁠ו"\*\w были|x-occurrence="1" x-occurrences="1"\w*
+\w перед|x-occurrence="1" x-occurrences="1"\w*
+\w ним|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*, 

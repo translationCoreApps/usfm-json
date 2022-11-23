@@ -4,6 +4,7 @@
  */
 
 import * as USFM from './USFM';
+import {usfmToJSON} from "./usfmToJson";
 
 let params_ = {};
 let wordMap_ = {};
@@ -64,7 +65,7 @@ const generateWord = (wordObject, nextObject) => {
   }
   let attrOut = attributes.join(' ');
   if (attrOut) {
-    attrOut = '|' + attrOut;
+    attrOut = '|' + attrOut.trimLeft();
   }
   const line = '\\w ' + word + attrOut + '\\w*';
   return line;
@@ -102,7 +103,7 @@ const generatePhrase = (phraseObject, nextObject) => {
         attributes.push(attribute);
       }
     }
-    content = '-s | ' + attributes.join(' ') + '\\*';
+    content = '-s |' + attributes.join(' ').trimLeft() + '\\*';
   } else {
     const isUsfm3Milestone = USFM.markerIsMilestone(tag);
     if (isUsfm3Milestone) {
@@ -242,6 +243,25 @@ const addPhrase = (text, output) => {
 };
 
 /**
+ * check if text contains a paragraph marker.  Imprecise check just to save time before doing more extensive checking.
+ * @param {string} text
+ * @return {boolean}
+ */
+function hasParagraph(text) {
+  let hasParagraph_ = false;
+  if (text.includes('\\')) { // check if USFM markers in text
+    const paragraphStarts = ['\\p', '\\m', '\\c', '\\n', '\\b'];
+    for (const mark of paragraphStarts) { // check for paragraph markers
+      if (text.includes(mark)) {
+        hasParagraph_ = true;
+        break;
+      }
+    }
+  }
+  return hasParagraph_;
+}
+
+/**
  * @description converts object to string and appends to line
  * @param {string|array|object} object - marker to print
  * @param {string} output - marker to print
@@ -250,8 +270,8 @@ const addPhrase = (text, output) => {
  * @return {String} Text equivalent of marker appended to output.
  */
 const objectToString = (object, output, nextObject = null) => {
-  if (!object) {
-    return "";
+  if (!object || !Object.keys(object).length) {
+    return output; // do not add to output
   }
 
   output = output || "";
@@ -271,7 +291,17 @@ const objectToString = (object, output, nextObject = null) => {
   }
 
   if (object.type === 'text') {
-    return output + object.text;
+    let text = object.text || '';
+    if (hasParagraph(text)) {
+      // TODO: convert to JSON and back for clean up
+      const verseObjects = usfmToJSON('\\v 1 ' + text, {chunk: true});
+      const newText = jsonToUSFM(verseObjects).substr(5); // convert back to text and string out verse marker
+      if (newText !== text) {
+        console.log(`text updated to ${newText}`);
+        text = newText;
+      }
+    }
+    return output + text;
   }
 
   if (object.type === 'word') { // usfm word marker
@@ -279,9 +309,44 @@ const objectToString = (object, output, nextObject = null) => {
   }
   if ((object.type === 'milestone') && (object.endTag !== object.tag + '*')) { // milestone type (phrase)
     return addPhrase(generatePhrase(object, nextObject), output);
-  }
-  else if (object.children && object.children.length) {
+  } else if (object.children && object.children.length) {
     return output + generatePhrase(object, nextObject);
+  }
+  if (object.type === 'paragraph') {
+    let checkAhead = false; // if true need to check next object for leading text
+    // paragraphs have no whitespace before a newline
+    if (object.text) {
+      if (object.text.endsWith('\n')) {
+        const text = object.text.substr(0, object.text.length - 1);
+        object.text = `${text.trimRight()}\n`;
+      } else if (object.text.trim() === '') {
+        object.text = '';
+        if (object.nextChar === ' ') {
+          checkAhead = true;
+        }
+      }
+    } else if (object.nextChar === ' ') {
+      checkAhead = true;
+    }
+    if (checkAhead) {
+      // if next is text object, trim leading spaces
+      if (nextObject) {
+        if (nextObject.type === 'text') {
+          const text = (nextObject.text || '').trimLeft();
+          if (text) {
+            nextObject.text = text;
+          } else { // remove text object that is empty
+            delete nextObject.text;
+            delete nextObject.type;
+            nextObject = null;
+            delete object.nextChar;
+          }
+        }
+      } else if (object.nextChar === ' ') {
+        // if end of verse, remove space after paragraph
+        delete object.nextChar;
+      }
+    }
   }
   if (object.tag) { // any other USFM marker tag
     return output + usfmMarkerToString(object, nextObject);
@@ -361,6 +426,53 @@ const sortVerses = verses => {
 };
 
 /**
+ * get the last line and last character of that line
+ * @param {Array} lines
+ * @return {{lastLine: string, lastChar: string, position: number}} results
+ */
+function getLastLine(lines) {
+  const position = lines.length - 1;
+  const lastLine = lines.length ? lines[position] : "";
+  const lastChar = lastLine ? lastLine.substr(lastLine.length - 1) : "";
+  return {lastLine, lastChar, position};
+}
+
+/**
+ * gets the last character of the last line and make sure it is a newline
+ * @param {Array} lines
+ */
+function makeSureEndsWithNewLine(lines) {
+  const {lastChar, position} = getLastLine(lines);
+  if (lastChar && (lastChar !== '\n')) {
+    // make sure newline at end
+    lines[position] += '\n';
+  }
+}
+
+/**
+ * make sure paragraphs without text start a new line
+ * @param {array} verseObjects
+ * @param {array} lines
+ */
+function makeSureParagraphsAtEndHaveLineFeeds(verseObjects, lines) {
+  if (verseObjects) {
+    if (verseObjects.length > 0) {
+      let lastPos = verseObjects.length - 1;
+      // skip over empty objects
+      while ((lastPos > 0) && (!Object.keys(verseObjects[lastPos]).length)) {
+        lastPos--;
+      }
+      const lastObject = verseObjects[lastPos];
+      if (lastObject && (lastObject.type === 'paragraph') && !(lastObject.text && lastObject.text.trim())) {
+        makeSureEndsWithNewLine(lines);
+      } else if (lastObject.children) {
+        makeSureParagraphsAtEndHaveLineFeeds(lastObject.children, lines);
+      }
+    }
+  }
+}
+
+/**
  * @description Takes in chapter json and outputs it as a USFM line array.
  * @param {String} chapterNumber - number to use for the chapter
  * @param {Object} chapterObject - chapter in JSON
@@ -372,6 +484,8 @@ const generateChapterLines = (chapterNumber, chapterObject) => {
   if (chapterObject.front) { // handle front matter first
     const verseText = objectToString(chapterObject.front);
     lines = lines.concat(verseText);
+    const frontVerseObjects = chapterObject.front;
+    makeSureParagraphsAtEndHaveLineFeeds(frontVerseObjects.verseObjects, lines);
     delete chapterObject.front;
   }
   const verseNumbers = sortVerses(Object.keys(chapterObject));
@@ -379,14 +493,14 @@ const generateChapterLines = (chapterNumber, chapterObject) => {
   for (let i = 0; i < verseLen; i++) {
     const verseNumber = verseNumbers[i];
     // check if verse is inside previous line (such as \q)
-    const lastLine = lines.length ? lines[lines.length - 1] : "";
-    const lastChar = lastLine ? lastLine.substr(lastLine.length - 1) : "";
+    const {lastLine, lastChar, position} = getLastLine(lines);
     if (lastChar && (lastChar !== '\n') && (lastChar !== ' ')) { // do we need white space
-      lines[lines.length - 1] = lastLine + ' ';
+      lines[position] = lastLine + ' ';
     }
     const verseObjects = chapterObject[verseNumber];
     const verseLine = generateVerse(verseNumber, verseObjects);
     lines = addVerse(lines, verseLine);
+    makeSureParagraphsAtEndHaveLineFeeds(verseObjects.verseObjects, lines);
   }
   return lines;
 };

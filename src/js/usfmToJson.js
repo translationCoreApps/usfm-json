@@ -1397,6 +1397,21 @@ export const getAlignmentFormat = (usfm, state) => {
 };
 
 /**
+ * check if first character is BOM, and if so then remove it
+ * @param {string} text
+ * @return {string}
+ */
+function removeBOM(text) {
+  const firstChar = text[0];
+  const BOM = '\uFEFF';
+  const BOM2 = '\uFFFE';
+  if ((firstChar === BOM) || (firstChar === BOM2)) {
+    text = text.substr(1);
+  }
+  return text;
+}
+
+/**
  * @description - Parses the usfm string and returns an object
  * @param {String} usfm - the raw usfm string
  * @param {Object} params - extra params to use for chunk parsing. Properties:
@@ -1406,6 +1421,7 @@ export const getAlignmentFormat = (usfm, state) => {
  * @return {Object} - json object that holds the parsed usfm data, headers and chapters
 */
 export const usfmToJSON = (usfm, params = {}) => {
+  usfm = removeBOM(usfm);
   const lines = usfm.split(/\r?\n/); // get all the lines
   const usfmJSON = {};
   const markers = [];
@@ -1503,6 +1519,11 @@ export const usfmToJSON = (usfm, params = {}) => {
             saveUsfmObject(state, marker);
           } else if (marker.nextChar && (marker.nextChar !== ' ')) {
             pushObject(state, null, marker.nextChar);
+          } else if (marker.nextChar) { // next char is space
+            const nextMarker = markers[i+1];
+            if (nextMarker && !nextMarker.tag && nextMarker.content && nextMarker.content[0] !== ' ') { // see if space is not part of following text block
+              pushObject(state, null, marker.nextChar);
+            }
           }
         }
         break;

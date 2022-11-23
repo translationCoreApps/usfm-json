@@ -40,6 +40,10 @@ describe("USFM to JSON", () => {
     ]);
   });
 
+  it('converts usfm with BOM to json', () => {
+    generateTest('misc/RU-EST-UTF8_BOM');
+  });
+
   it('converts usfm to json', () => {
     generateTest('valid');
   });
@@ -323,6 +327,12 @@ describe("USFM to JSON", () => {
     generateTest('usfm-body-testF');
   });
 
+  it('process usfm-body-testF-paragraph-whitespace', () => {
+    generateTest('usfm-body-testF-paragraph-whitespace',
+  {convertToInt: ["occurrence", "occurrences"], words: true},
+  'usfm-body-testF-paragraph-no-whitespace');
+  });
+
   it('process hebrew_words', () => {
     generateTest('hebrew_words');
   });
@@ -340,6 +350,11 @@ describe("USFM to JSON", () => {
     generateTest('acts_1_11.aligned.oldformat',
       {convertToInt: ["occurrence", "occurrences"], words: true, oldFormat: true},
       'acts_1_11.aligned');
+  });
+
+  it('process hebrew punctuation exo_7:19', () => {
+    generateTest('exo_7-19_punctuation_spacing',
+      {convertToInt: ["occurrence", "occurrences"], words: true, chunk: true});
   });
 
   it('process exported 57-TIT.greek', () => {
@@ -446,7 +461,7 @@ const generateTest = (name, args = {}, expectedName = '') => {
   }
   if (!isEqual(output, expected)) { // if different, break down comparisons by smaller chunks so output is not overloaded
     console.log("Miscompare in " + name);
-    verifyWithPrompt(Object.keys(output), Object.keys(expected), "keys");
+    verifyWithPrompt(Object.keys(output).sort(), Object.keys(expected).sort(), "keys");
     verifyWithPrompt(output.headers, expected.headers, "headers");
     verifyWithPrompt(output.verses, expected.verses, "verses");
     const textField = "chapters";

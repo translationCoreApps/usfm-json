@@ -102,7 +102,7 @@ const parseWord = (state, wordContent, removePrefixOfX = null) => {
           key = xPrefix + key;
         }
       }
-      if (key === "strongs") { // fix invalid 'strongs' key
+      if (key === "strongs" || key === "x-strong") { // fix invalid strong keys
         key = "strong";
       }
       if (state.params.map && state.params.map[key]) { // see if we should convert this key

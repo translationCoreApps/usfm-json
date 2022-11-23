@@ -353,6 +353,11 @@ describe("USFM to JSON", () => {
       '57-TIT.greek');
   });
 
+  it('process exported 57-TIT-SR.greek', () => {
+    generateTest('57-TIT-SR.greek',
+      {convertToInt: ["occurrence", "occurrences"], words: true, oldFormat: true});
+  });
+
   it('process exported 57-TIT.partial', () => {
     generateTest('57-TIT.partial',
       {convertToInt: ["occurrence", "occurrences"], words: true});

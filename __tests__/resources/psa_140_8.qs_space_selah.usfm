@@ -1,0 +1,37 @@
+\id PSA EN_ULT en_English_ltr Mon Oct 09 2023 16:39:14 GMT-0500 (Central Daylight Time) tc
+\usfm 3.0
+\ide UTF-8
+\h Psalms
+\toc1 The Book of Psalms
+\toc2 Psalms
+\toc3 Psa
+\mt Psalms
+\cl Psalm
+
+\ts\*
+\ms Book One
+
+\c 140
+\d For the chief musician. A psalm of David.
+
+\q \v 8 \zaln-s |x-strong="H3068" x-lemma="יְהֹוָה" x-morph="He,Np" x-occurrence="1" x-occurrences="1" x-content="יְ֭הוָה"\*\w Yahweh|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*,
+\zaln-s |x-strong="H5414" x-lemma="נָתַן" x-morph="He,Vqj2ms" x-occurrence="1" x-occurrences="1" x-content="תִּתֵּ֣ן"\*\w do|x-occurrence="1" x-occurrences="2"\w*\zaln-e\*
+\zaln-s |x-strong="H0408" x-lemma="אַל" x-morph="He,Tn" x-occurrence="1" x-occurrences="2" x-content="אַל"\*\w not|x-occurrence="1" x-occurrences="2"\w*\zaln-e\*
+\zaln-s |x-strong="H5414" x-lemma="נָתַן" x-morph="He,Vqj2ms" x-occurrence="1" x-occurrences="1" x-content="תִּתֵּ֣ן"\*\w grant|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s |x-strong="H3970" x-lemma="מַאֲוַי" x-morph="He,Ncmpc" x-occurrence="1" x-occurrences="1" x-content="מַאֲוַיֵּ֣י"\*\w the|x-occurrence="1" x-occurrences="2"\w*
+\w desires|x-occurrence="1" x-occurrences="1"\w*
+\w of|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s |x-strong="H7563" x-lemma="רָשָׁע" x-morph="He,Aamsa" x-occurrence="1" x-occurrences="1" x-content="רָשָׁ֑ע"\*\w the|x-occurrence="2" x-occurrences="2"\w*
+\w wicked|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*;
+\q \zaln-s |x-strong="H6329" x-lemma="פּוּק" x-morph="He,Vhj2ms" x-occurrence="1" x-occurrences="1" x-content="תָּ֝פֵ֗ק"\*\w do|x-occurrence="2" x-occurrences="2"\w*\zaln-e\*
+\zaln-s |x-strong="H0408" x-lemma="אַל" x-morph="He,Tn" x-occurrence="2" x-occurrences="2" x-content="אַל"\*\w not|x-occurrence="2" x-occurrences="2"\w*\zaln-e\*
+\zaln-s |x-strong="H6329" x-lemma="פּוּק" x-morph="He,Vhj2ms" x-occurrence="1" x-occurrences="1" x-content="תָּ֝פֵ֗ק"\*\w promote|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\zaln-s |x-strong="H2162" x-lemma="זָמָם" x-morph="He,Ncmsc:Sp3ms" x-occurrence="1" x-occurrences="1" x-content="זְמָמ֥⁠וֹ"\*\w their|x-occurrence="1" x-occurrences="1"\w*
+\w plots|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*,
+\zaln-s |x-strong="H7311a" x-lemma="רוּם" x-morph="He,Vqi3mp" x-occurrence="1" x-occurrences="1" x-content="יָר֥וּמוּ"\*\w they|x-occurrence="1" x-occurrences="1"\w*
+\w rise|x-occurrence="1" x-occurrences="1"\w*
+\w up|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\qs 
+\zaln-s |x-strong="H5542" x-lemma="סֶלָה" x-morph="He,Tj" x-occurrence="1" x-occurrences="1" x-content="סֶֽלָה"\*\w Selah|x-occurrence="1" x-occurrences="1"\w*\zaln-e\*
+\qs* 
+\ts\*

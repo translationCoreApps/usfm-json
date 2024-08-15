@@ -1,0 +1,456 @@
+{
+  "headers": [
+    {
+      "tag": "id",
+      "content": "PSA EN_ULT en_English_ltr Mon Oct 09 2023 16:39:14 GMT-0500 (Central Daylight Time) tc"
+    },
+    {
+      "tag": "usfm",
+      "content": "3.0"
+    },
+    {
+      "tag": "ide",
+      "content": "UTF-8"
+    },
+    {
+      "tag": "h",
+      "content": "Psalms"
+    },
+    {
+      "tag": "toc1",
+      "content": "The Book of Psalms"
+    },
+    {
+      "tag": "toc2",
+      "content": "Psalms"
+    },
+    {
+      "tag": "toc3",
+      "content": "Psa"
+    },
+    {
+      "tag": "mt",
+      "content": "Psalms"
+    },
+    {
+      "tag": "cl",
+      "content": "Psalm"
+    },
+    {
+      "type": "text",
+      "text": ""
+    },
+    {
+      "tag": "ts",
+      "content": "\\*"
+    },
+    {
+      "tag": "ms",
+      "content": "Book One"
+    },
+    {
+      "type": "text",
+      "text": ""
+    }
+  ],
+  "chapters": {
+    "140": {
+      "8": {
+        "verseObjects": [
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H3068",
+            "lemma": "יְהֹוָה",
+            "morph": "He,Np",
+            "occurrence": "1",
+            "occurrences": "1",
+            "content": "יְ֭הוָה",
+            "children": [
+              {
+                "text": "Yahweh",
+                "tag": "w",
+                "type": "word",
+                "occurrence": "1",
+                "occurrences": "1"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H5414",
+            "lemma": "נָתַן",
+            "morph": "He,Vqj2ms",
+            "occurrence": "1",
+            "occurrences": "1",
+            "content": "תִּתֵּ֣ן",
+            "children": [
+              {
+                "text": "do",
+                "tag": "w",
+                "type": "word",
+                "occurrence": "1",
+                "occurrences": "2"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H0408",
+            "lemma": "אַל",
+            "morph": "He,Tn",
+            "occurrence": "1",
+            "occurrences": "2",
+            "content": "אַל",
+            "children": [
+              {
+                "text": "not",
+                "tag": "w",
+                "type": "word",
+                "occurrence": "1",
+                "occurrences": "2"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H5414",
+            "lemma": "נָתַן",
+            "morph": "He,Vqj2ms",
+            "occurrence": "1",
+            "occurrences": "1",
+            "content": "תִּתֵּ֣ן",
+            "children": [
+              {
+                "text": "grant",
+                "tag": "w",
+                "type": "word",
+                "occurrence": "1",
+                "occurrences": "1"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H3970",
+            "lemma": "מַאֲוַי",
+            "morph": "He,Ncmpc",
+            "occurrence": "1",
+            "occurrences": "1",
+            "content": "מַאֲוַיֵּ֣י",
+            "children": [
+              {
+                "text": "the",
+                "tag": "w",
+                "type": "word",
+                "occurrence": "1",
+                "occurrences": "2"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "text": "desires",
+                "tag": "w",
+                "type": "word",
+                "occurrence": "1",
+                "occurrences": "1"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "text": "of",
+                "tag": "w",
+                "type": "word",
+                "occurrence": "1",
+                "occurrences": "1"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H7563",
+            "lemma": "רָשָׁע",
+            "morph": "He,Aamsa",
+            "occurrence": "1",
+            "occurrences": "1",
+            "content": "רָשָׁ֑ע",
+            "children": [
+              {
+                "text": "the",
+                "tag": "w",
+                "type": "word",
+                "occurrence": "2",
+                "occurrences": "2"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "text": "wicked",
+                "tag": "w",
+                "type": "word",
+                "occurrence": "1",
+                "occurrences": "1"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "type": "text",
+            "text": ";\n"
+          },
+          {
+            "tag": "q",
+            "nextChar": " ",
+            "type": "quote"
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H6329",
+            "lemma": "פּוּק",
+            "morph": "He,Vhj2ms",
+            "occurrence": "1",
+            "occurrences": "1",
+            "content": "תָּ֝פֵ֗ק",
+            "children": [
+              {
+                "text": "do",
+                "tag": "w",
+                "type": "word",
+                "occurrence": "2",
+                "occurrences": "2"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H0408",
+            "lemma": "אַל",
+            "morph": "He,Tn",
+            "occurrence": "2",
+            "occurrences": "2",
+            "content": "אַל",
+            "children": [
+              {
+                "text": "not",
+                "tag": "w",
+                "type": "word",
+                "occurrence": "2",
+                "occurrences": "2"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H6329",
+            "lemma": "פּוּק",
+            "morph": "He,Vhj2ms",
+            "occurrence": "1",
+            "occurrences": "1",
+            "content": "תָּ֝פֵ֗ק",
+            "children": [
+              {
+                "text": "promote",
+                "tag": "w",
+                "type": "word",
+                "occurrence": "1",
+                "occurrences": "1"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H2162",
+            "lemma": "זָמָם",
+            "morph": "He,Ncmsc:Sp3ms",
+            "occurrence": "1",
+            "occurrences": "1",
+            "content": "זְמָמ֥⁠וֹ",
+            "children": [
+              {
+                "text": "their",
+                "tag": "w",
+                "type": "word",
+                "occurrence": "1",
+                "occurrences": "1"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "text": "plots",
+                "tag": "w",
+                "type": "word",
+                "occurrence": "1",
+                "occurrences": "1"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H7311a",
+            "lemma": "רוּם",
+            "morph": "He,Vqi3mp",
+            "occurrence": "1",
+            "occurrences": "1",
+            "content": "יָר֥וּמוּ",
+            "children": [
+              {
+                "text": "they",
+                "tag": "w",
+                "type": "word",
+                "occurrence": "1",
+                "occurrences": "1"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "text": "rise",
+                "tag": "w",
+                "type": "word",
+                "occurrence": "1",
+                "occurrences": "1"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "text": "up",
+                "tag": "w",
+                "type": "word",
+                "occurrence": "1",
+                "occurrences": "1"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "tag": "qs",
+            "text": " \n",
+            "type": "quote",
+            "children": [
+              {
+                "tag": "zaln",
+                "type": "milestone",
+                "strong": "H5542",
+                "lemma": "סֶלָה",
+                "morph": "He,Tj",
+                "occurrence": "1",
+                "occurrences": "1",
+                "content": "סֶֽלָה",
+                "children": [
+                  {
+                    "text": "Selah",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": "1",
+                    "occurrences": "1"
+                  }
+                ],
+                "endTag": "zaln-e\\*"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            "endTag": "qs*"
+          },
+          {
+            "type": "text",
+            "text": " \n"
+          },
+          {
+            "tag": "ts\\*",
+            "nextChar": "\n"
+          }
+        ]
+      },
+      "front": {
+        "verseObjects": [
+          {
+            "tag": "d",
+            "text": "For the chief musician. A psalm of David.\n"
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "tag": "q",
+            "nextChar": " ",
+            "type": "quote"
+          }
+        ]
+      }
+    }
+  }
+}

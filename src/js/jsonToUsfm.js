@@ -81,7 +81,7 @@ const generatePhrase = (phraseObject, nextObject) => {
   const tag = phraseObject.tag || 'zaln';
   let markerTermination = '';
   if (typeof phraseObject.endTag === 'string') {
-    markerTermination = phraseObject.endTag; // new format takes precidence
+    markerTermination = phraseObject.endTag; // new format takes precedence
     delete phraseObject.endTag;
   } else {
     markerTermination = tag + '-e\\*'; // fall back to old generation method
@@ -113,7 +113,7 @@ const generatePhrase = (phraseObject, nextObject) => {
       content += "\\*";
     }
     if (phraseObject.text) {
-      content += ' ' + phraseObject.text;
+      content += phraseObject.text;
     }
     if (phraseObject.content) {
       content += ' ' + phraseObject.content;

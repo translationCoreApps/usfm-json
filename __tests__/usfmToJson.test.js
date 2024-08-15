@@ -128,6 +128,10 @@ describe("USFM to JSON", () => {
     generateTest('psa_140_8.qs_selah');
   });
 
+  it('process PSA Selah Space', () => {
+    generateTest('psa_140_8.qs_space_selah');
+  });
+
   it('process ISA verse span', () => {
     generateTest('isa_verse_span');
   });

@@ -119,7 +119,8 @@ const generatePhrase = (phraseObject, nextObject) => {
       content += ' ' + phraseObject.content;
     }
   }
-  let line = '\\' + tag + content;
+  let line = '\\' + tag +
+    (phraseObject.nextChar || '') + content;
 
 /* eslint-disable no-use-before-define */
   line = objectToString(phraseObject.children, line);
@@ -127,7 +128,7 @@ const generatePhrase = (phraseObject, nextObject) => {
 
   if (markerTermination) {
     line += '\\' + markerTermination +
-              (phraseObject.nextChar || needsNewLine(nextObject));
+            needsNewLine(nextObject);
   }
   return line;
 };

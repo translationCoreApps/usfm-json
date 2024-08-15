@@ -40,6 +40,10 @@ describe("JSON to USFM", () => {
     generateTest('psa_quotes');
   });
 
+  it('process PSA Selah', () => {
+    generateTest('psa_140_8.qs_selah');
+  });
+
   it('process ISA verse span', () => {
     generateTest('isa_verse_span');
   });

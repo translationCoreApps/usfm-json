@@ -80,9 +80,9 @@ const generateWord = (wordObject, nextObject) => {
 const generatePhrase = (phraseObject, nextObject) => {
   const tag = phraseObject.tag || 'zaln';
   let markerTermination = '';
+  let nextChar = phraseObject.nextChar;
   if (typeof phraseObject.endTag === 'string') {
     markerTermination = phraseObject.endTag; // new format takes precedence
-    delete phraseObject.endTag;
   } else {
     markerTermination = tag + '-e\\*'; // fall back to old generation method
   }
@@ -113,14 +113,20 @@ const generatePhrase = (phraseObject, nextObject) => {
       content += "\\*";
     }
     if (phraseObject.text) {
-      content += phraseObject.text;
+      // check if we need padding
+      const firstChar = phraseObject.text.substring(0, 1);
+      const isWhiteSpace = (firstChar === ' ') || (firstChar === '\n');
+      content += (isWhiteSpace ? '' : ' ') + phraseObject.text;
     }
     if (phraseObject.content) {
       content += ' ' + phraseObject.content;
     }
+    if (!content && nextChar) {
+      content = nextChar;
+      nextChar = '';
+    }
   }
-  let line = '\\' + tag +
-    (phraseObject.nextChar || '') + content;
+  let line = '\\' + tag + content;
 
 /* eslint-disable no-use-before-define */
   line = objectToString(phraseObject.children, line);
@@ -128,7 +134,7 @@ const generatePhrase = (phraseObject, nextObject) => {
 
   if (markerTermination) {
     line += '\\' + markerTermination +
-            needsNewLine(nextObject);
+              (nextChar || needsNewLine(nextObject));
   }
   return line;
 };
@@ -285,7 +291,7 @@ const objectToString = (object, output, nextObject = null) => {
     let nextObject;
     for (let i = 0, len = object.length; i < len; i++) {
       const objectN = nextObject ? nextObject : object[i];
-      nextObject = (i + 1 < object.length) ? object[i + 1] : null;
+      nextObject = (i + 1 < object.length) ? {...object[i + 1]} : null;
       output = objectToString(objectN, output, nextObject);
     }
     return output;
@@ -476,12 +482,13 @@ function makeSureParagraphsAtEndHaveLineFeeds(verseObjects, lines) {
 /**
  * @description Takes in chapter json and outputs it as a USFM line array.
  * @param {String} chapterNumber - number to use for the chapter
- * @param {Object} chapterObject - chapter in JSON
+ * @param {Object} _chapterObject - chapter in JSON
  * @return {Array} - chapter in USFM lines/string
  */
-const generateChapterLines = (chapterNumber, chapterObject) => {
+const generateChapterLines = (chapterNumber, _chapterObject) => {
   let lines = [];
   lines.push('\\c ' + chapterNumber + '\n');
+  const chapterObject = {..._chapterObject};
   if (chapterObject.front) { // handle front matter first
     const verseText = objectToString(chapterObject.front);
     lines = lines.concat(verseText);
@@ -540,7 +547,7 @@ const processParams = () => {
   }
   milestoneMap_ = params_.mileStoneMap ? params_.mileStoneMap : {};
   milestoneMap_.strongs = 'strong';
-  milestoneIgnore_ = ['children', 'tag', 'type'];
+  milestoneIgnore_ = ['children', 'tag', 'type', 'endTag'];
   if (params_.mileStoneIgnore) {
     milestoneIgnore_ = milestoneIgnore_.concat(params_.mileStoneIgnore);
   }

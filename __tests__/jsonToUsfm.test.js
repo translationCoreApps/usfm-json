@@ -1,6 +1,7 @@
 /* eslint-disable no-use-before-define,padded-blocks */
 import {readJSON, readUSFM} from './util';
 import {jsonToUSFM} from '../src/js/jsonToUsfm';
+import cloneDeep from "lodash.clonedeep";
 
 describe("JSON to USFM", () => {
 
@@ -289,7 +290,9 @@ const generateTest = (name, params, expectedName) => {
     params = params || {};
     params.forcedNewLines = true; // we default to true for testing
   }
-  const output = jsonToUSFM(input, params);
+  const json = cloneDeep(input);
+  const output = jsonToUSFM(json, params);
+  expect(json).toEqual(input);
   if (params && params.zaln) { // normalize attributes
     const tag = "\\zaln-s |";
     let outputNormal = normalizeAtributesAlign(tag, output);

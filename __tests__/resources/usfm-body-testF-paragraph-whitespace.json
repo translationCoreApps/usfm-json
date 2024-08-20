@@ -718,8 +718,8 @@
           },
           {
             "tag": "p",
-            "text": " \n",
-            "type": "paragraph"
+            "type": "paragraph",
+            "nextChar": "\n"
           }
         ]
       },
@@ -1108,16 +1108,39 @@
       "16": {
         "verseObjects": [
           {
-            "text": "I want you to know that what people have told you about Jesus is true.\n\n\\ts\\*\n\\p \n",
+            "text": "I want you to know that what people have told you about Jesus is true.\n\n",
             "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "ts\\*"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "p",
+            "type": "paragraph"
           }
         ]
       },
       "17": {
         "verseObjects": [
           {
-            "text": "I want you to know that what people have told you about Jesus is true.\n\n\\ts\\*\n\\p \n\\q",
+            "text": "I want you to know that what people have told you about Jesus is true.\n\n",
             "type": "text"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "ts\\*"
+          },
+          {
+            "nextChar": "\n",
+            "tag": "p",
+            "type": "paragraph"
+          },
+          {
+            "nextChar": " ",
+            "tag": "q",
+            "type": "quote"
           }
         ]
       },
@@ -1130,6 +1153,7 @@
             "occurrence": 1,
             "occurrences": 4,
             "tag": "zaln",
+            "endTag": "zaln-e\\*",
             "type": "milestone",
             "content": "καὶ",
             "children": [
@@ -1153,6 +1177,7 @@
             "occurrence": 1,
             "occurrences": 1,
             "tag": "zaln",
+            "endTag": "zaln-e\\*",
             "type": "milestone",
             "content": "κατέβη",
             "children": [
@@ -1187,6 +1212,7 @@
             "occurrence": 1,
             "occurrences": 1,
             "tag": "zaln",
+            "endTag": "zaln-e\\*",
             "type": "milestone",
             "content": "μετ’",
             "children": [
@@ -1210,6 +1236,7 @@
             "occurrence": 1,
             "occurrences": 1,
             "tag": "zaln",
+            "endTag": "zaln-e\\*",
             "type": "milestone",
             "content": "αὐτῶν",
             "children": [
@@ -1233,6 +1260,7 @@
             "occurrence": 2,
             "occurrences": 4,
             "tag": "zaln",
+            "endTag": "zaln-e\\*",
             "type": "milestone",
             "content": "καὶ",
             "children": [
@@ -1243,6 +1271,7 @@
                 "occurrence": 1,
                 "occurrences": 1,
                 "tag": "zaln",
+                "endTag": "zaln-e\\*",
                 "type": "milestone",
                 "content": "ἦλθεν",
                 "children": [
@@ -1253,6 +1282,7 @@
                     "occurrence": 1,
                     "occurrences": 1,
                     "tag": "zaln",
+                    "endTag": "zaln-e\\*",
                     "type": "milestone",
                     "content": "εἰς",
                     "children": [
@@ -1280,6 +1310,7 @@
             "occurrence": 1,
             "occurrences": 1,
             "tag": "zaln",
+            "endTag": "zaln-e\\*",
             "type": "milestone",
             "content": "Ναζαρὲτ",
             "children": [
@@ -1303,6 +1334,7 @@
             "occurrence": 3,
             "occurrences": 4,
             "tag": "zaln",
+            "endTag": "zaln-e\\*",
             "type": "milestone",
             "content": "καὶ",
             "children": [
@@ -1326,6 +1358,7 @@
             "occurrence": 1,
             "occurrences": 1,
             "tag": "zaln",
+            "endTag": "zaln-e\\*",
             "type": "milestone",
             "content": "ἦν",
             "children": [

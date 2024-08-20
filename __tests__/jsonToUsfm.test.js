@@ -1,6 +1,7 @@
 /* eslint-disable no-use-before-define,padded-blocks */
 import {readJSON, readUSFM} from './util';
 import {jsonToUSFM} from '../src/js/jsonToUsfm';
+import cloneDeep from "lodash.clonedeep";
 
 describe("JSON to USFM", () => {
 
@@ -38,6 +39,14 @@ describe("JSON to USFM", () => {
 
   it('process PSA quotes', () => {
     generateTest('psa_quotes');
+  });
+
+  it('process PSA Selah', () => {
+    generateTest('psa_140_8.qs_selah');
+  });
+
+  it('process PSA Selah Space', () => {
+    generateTest('psa_140_8.qs_space_selah');
   });
 
   it('process ISA verse span', () => {
@@ -176,7 +185,8 @@ describe("JSON to USFM", () => {
   });
 
   it('process usfm-body-testF-paragraph-whitespace', () => {
-    generateTest('usfm-body-testF-paragraph-whitespace', {});
+    generateTest('usfm-body-testF-paragraph-whitespace', {},
+      'usfm-body-testF-paragraph-newline');
   });
 
   it('process usfm-body-testF-paragraph-no-newline', () => {
@@ -281,7 +291,9 @@ const generateTest = (name, params, expectedName) => {
     params = params || {};
     params.forcedNewLines = true; // we default to true for testing
   }
-  const output = jsonToUSFM(input, params);
+  const json = cloneDeep(input);
+  const output = jsonToUSFM(json, params);
+  expect(json).toEqual(input);
   if (params && params.zaln) { // normalize attributes
     const tag = "\\zaln-s |";
     let outputNormal = normalizeAtributesAlign(tag, output);

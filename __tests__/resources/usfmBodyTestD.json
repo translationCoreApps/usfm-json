@@ -100,12 +100,11 @@
           },
           {
             "endTag": "add*",
-            "nextChar": " ",
             "tag": "add",
             "text": "возделывании"
           },
           {
-            "text": "земли, которую проклял Господь.\n\n",
+            "text": " земли, которую проклял Господь.\n\n",
             "type": "text"
           },
           {
@@ -208,12 +207,11 @@
           },
           {
             "endTag": "nd*",
-            "nextChar": " ",
             "tag": "nd",
             "text": "Lord"
           },
           {
-            "text": "God made clothes out of animal skins for Adam and his wife,\nand he clothed them.\n\n",
+            "text": " God made clothes out of animal skins for Adam and his wife,\nand he clothed them.\n\n",
             "type": "text"
           },
           {
@@ -632,12 +630,11 @@
           },
           {
             "endTag": "k*",
-            "nextChar": "\n",
             "tag": "k",
             "text": "keyword "
           },
           {
-            "text": "\n",
+            "text": "\n\n",
             "type": "text"
           },
           {
@@ -810,15 +807,21 @@
           },
           {
             "endTag": "lik*",
-            "nextChar": " ",
             "tag": "lik",
             "text": "Reuben"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "endTag": "liv1*",
-            "nextChar": "\n",
             "tag": "liv1",
             "text": "Eliezer son of Zichri"
+          },
+          {
+            "text": "\n",
+            "type": "text"
           },
           {
             "nextChar": " ",
@@ -826,15 +829,21 @@
           },
           {
             "endTag": "lik*",
-            "nextChar": " ",
             "tag": "lik",
             "text": "Simeon"
           },
           {
+            "text": " ",
+            "type": "text"
+          },
+          {
             "endTag": "liv1*",
-            "nextChar": "\n",
             "tag": "liv1",
             "text": "Shephatiah son of Maacah"
+          },
+          {
+            "text": "\n",
+            "type": "text"
           },
           {
             "tag": "lf",

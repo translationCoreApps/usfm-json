@@ -291,7 +291,7 @@ const objectToString = (object, output, nextObject = null) => {
     let nextObject;
     for (let i = 0, len = object.length; i < len; i++) {
       const objectN = nextObject ? nextObject : object[i];
-      nextObject = (i + 1 < object.length) ? {...object[i + 1]} : null;
+      nextObject = (i + 1 < len) ? {...object[i + 1]} : null;
       output = objectToString(objectN, output, nextObject);
     }
     return output;

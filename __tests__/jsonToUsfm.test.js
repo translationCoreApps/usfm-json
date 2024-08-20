@@ -185,7 +185,8 @@ describe("JSON to USFM", () => {
   });
 
   it('process usfm-body-testF-paragraph-whitespace', () => {
-    generateTest('usfm-body-testF-paragraph-whitespace', {});
+    generateTest('usfm-body-testF-paragraph-whitespace', {},
+      'usfm-body-testF-paragraph-newline');
   });
 
   it('process usfm-body-testF-paragraph-no-newline', () => {

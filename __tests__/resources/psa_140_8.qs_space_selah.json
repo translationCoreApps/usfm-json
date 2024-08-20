@@ -394,12 +394,9 @@
           },
           {
             "tag": "qs",
+            "text": " \n",
             "type": "quote",
             "children": [
-              {
-                "text": " \n",
-                "type": "text"
-              },
               {
                 "tag": "zaln",
                 "type": "milestone",
@@ -422,15 +419,14 @@
               },
               {
                 "type": "text",
-                "text": "\n"
+                "text": " \n"
               }
             ],
-            "endTag": "qs*",
-            "nextChar": " "
+            "endTag": "qs*"
           },
           {
             "type": "text",
-            "text": "\n"
+            "text": " \n"
           },
           {
             "tag": "ts\\*",

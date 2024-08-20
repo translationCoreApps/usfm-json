@@ -37,13 +37,12 @@
           },
           {
             "endTag": "qs*",
-            "nextChar": "\n",
             "tag": "qs",
             "text": "Selah",
             "type": "quote"
           },
           {
-            "text": "\n ",
+            "text": "\n\n ",
             "type": "text"
           },
           {

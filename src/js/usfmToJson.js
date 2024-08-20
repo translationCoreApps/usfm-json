@@ -611,7 +611,11 @@ const checkForEndMarker = marker => {
       if (content) {
         marker.endMarkerChar = space;
       } else {
-        marker.nextChar = space;
+        if (!marker.nextChar) {
+          marker.nextChar = space;
+        } else {
+          marker.nextChar = space + marker.nextChar;
+        }
       }
     }
     marker.content = content;
@@ -1062,10 +1066,43 @@ const endSpan = (state, index, markers, endMarker, header = false) => {
       const nextChar = current && (current.nextChar || current.endMarkerChar);
       if (nextChar) {
         if (parentContentDisplayable) {
-          content = nextChar + (content || "");
+          let moveToChildren;
+          if (phraseParent.nextChar && phraseParent.children) {
+            // if there was a next character after tag, move text to children
+            moveToChildren = phraseParent.nextChar
+            delete phraseParent.nextChar
+          } else if (phraseParent.text && phraseParent.children) {
+            // if there was some text after tag, move text into children
+            moveToChildren = phraseParent.text
+            delete phraseParent.text
+          }
+          if (moveToChildren) {
+            // move nextChar into children
+            const firstChild = {
+              type: 'text',
+              text: moveToChildren
+            }
+            phraseParent.children.unshift(firstChild)
+          }
+          if (nextChar) {
+            phraseParent.nextChar = nextChar.substring(0, 1);
+            content = (content || '') + nextChar.substring(1);
+          }
+          content = (content || '') + (current.text || '')
+          // const nextMarker = markers[index+1]
+          // if (nextMarker && nextMarker.type !== 'text') {
+          //   if (!nextChar) {
+          //     content += ' '
+          //   } else if (nextChar === ' ') {
+          //     content += ''
+          //   }
+          // }
         } else {
+          content = nextChar + (content || "");
           phraseParent.nextChar = nextChar;
         }
+      } else {
+        content = (current.text || '') + (current.content || '')
       }
     }
   } else { // no parent, so will save end marker

@@ -128,9 +128,9 @@ describe("USFM to JSON", () => {
     generateTest('psa_140_8.qs_selah');
   });
 
-  // it('process PSA Selah Space', () => {
-  //   generateTest('psa_140_8.qs_space_selah');
-  // });
+  it('process PSA Selah Space', () => {
+    generateTest('psa_140_8.qs_space_selah');
+  });
 
   it('process ISA verse span', () => {
     generateTest('isa_verse_span');
@@ -479,7 +479,7 @@ const generateTest = (name, args = {}, expectedName = '') => {
         console.log("Chapter data is different");
         const chapters = Object.keys(output[textField]);
         chapters.forEach(chapter => {
-          verifyWithPrompt(Object.keys(output[textField][chapter]), Object.keys(expected[textField][chapter]), "verses");
+          verifyWithPrompt(Object.keys(output[textField][chapter]).sort(), Object.keys(expected[textField][chapter]).sort(), "verses");
           const verses = Object.keys(output[textField][chapter]);
           verses.forEach(verse => {
             verifyWithPrompt(Object.keys(output[textField][chapter][verse]), Object.keys(expected[textField][chapter][verse]), "verse " + chapter + ":" + verse);
